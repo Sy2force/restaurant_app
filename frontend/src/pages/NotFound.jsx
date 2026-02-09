@@ -7,7 +7,7 @@ const NotFound = () => {
   const { t } = useTranslation();
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 flex items-center justify-center p-4 pt-24">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 flex items-center justify-center p-4 pt-24">
       <div className="text-center max-w-lg">
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}

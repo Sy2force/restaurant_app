@@ -1,14 +1,11 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import {
   User,
-  Mail,
   MapPin,
   Calendar,
   ChefHat,
   Instagram,
-  Facebook,
   Globe,
   Award,
   Utensils,
@@ -23,7 +20,6 @@ import ExplorePostCard from '../components/UI/ExplorePostCard';
 import RecipeCard from '../components/UI/RecipeCard';
 import PremiumRestaurantCard from '../components/Restaurants/PremiumRestaurantCard';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
-import SkeletonCard from '../components/UI/SkeletonCard';
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -63,6 +59,9 @@ const Profile = () => {
       }
     } catch (e) {
       console.error('Error fetching profile', e);
+      // Mock fallback
+      setProfileUser({ ...mockProfileUser, _id: userId });
+      setUserPosts(mockUserPosts.map(p => ({ ...p, author: { ...p.author, _id: userId } })));
     } finally {
       setLoading(false);
     }
@@ -72,7 +71,7 @@ const Profile = () => {
   if (!profileUser) return <div className="text-center py-20">{t('profile.notFound')}</div>;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900">
       {/* Cover Image */}
       <div className="h-[50vh] w-full overflow-hidden relative">
         <img
@@ -114,7 +113,7 @@ const Profile = () => {
 
                 {/* Main Info */}
                 <div className="flex-1 text-center md:text-left mb-6">
-                  <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-1">
+                  <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-1 break-words">
                     {profileUser.name}
                   </h1>
                   <p className="text-gray-500 dark:text-gray-400 font-medium text-lg mb-4">

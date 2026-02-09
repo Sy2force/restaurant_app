@@ -9,7 +9,7 @@ export default {
     extend: {
       colors: {
         cream: {
-          50: '#fdfcfb',
+          50: '#fcfaf7',
           100: '#faf8f5',
           200: '#f5f0e8',
           300: '#ede4d3',
@@ -28,8 +28,15 @@ export default {
         },
         gold: {
           400: '#fbbf24',
-          500: '#f59e0b',
+          500: '#D4AF37', // Updated to match the design's primary gold
           600: '#d97706',
+          DEFAULT: '#D4AF37',
+        },
+        dark: {
+          900: '#1a1a1a', // Common dark background
+        },
+        coffee: {
+          900: '#2c1810',
         }
       },
       fontFamily: {

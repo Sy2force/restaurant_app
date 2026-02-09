@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-20">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

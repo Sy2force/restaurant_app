@@ -3,6 +3,12 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --color-gold-500: #D4AF37;
+    --color-cream-50: #fcfaf7;
+    --color-dark-900: #1a1a1a;
+  }
+
   body {
     @apply bg-cream-50 text-gray-900 font-sans;
   }
@@ -74,7 +80,7 @@
 }
 
 .dark body {
-  @apply bg-gray-900 text-gray-100;
+  @apply bg-dark-900 text-gray-100;
 }
 
 .dark .card {

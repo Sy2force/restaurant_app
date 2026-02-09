@@ -3,9 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Bookmark, Share2, MapPin, Star, Award } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthStore } from '../../store/authStore';
+import { likeAPI, authAPI } from '../../services/api';
 import { getImageUrl } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthStore();
   const [isLiked, setIsLiked] = useState(false);
@@ -26,9 +29,9 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
       setIsLiked(response.data.liked);
       setLikesCount(response.data.likesCount);
       onLike?.(dish._id);
-      showToast?.(response.data.liked ? 'Plat liké ❤️' : 'Like retiré', 'success');
+      showToast?.(response.data.liked ? t('common.liked') : t('common.unliked'), 'success');
     } catch (error) {
-      showToast?.('Erreur lors du like', 'error');
+      showToast?.(t('common.errorLike'), 'error');
     }
   };
 
@@ -45,15 +48,15 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
       if (isFavorited) {
         await authAPI.removeFromFavorites('dishes', dish._id);
         setIsFavorited(false);
-        showToast?.('Retiré des favoris', 'info');
+        showToast?.(t('common.removedFromFavorites'), 'info');
       } else {
         await authAPI.addToFavorites('dishes', dish._id);
         setIsFavorited(true);
-        showToast?.('Ajouté aux favoris ✅', 'success');
+        showToast?.(t('common.addedToFavorites'), 'success');
       }
       onFavorite?.(dish._id);
     } catch (error) {
-      showToast?.("Erreur lors de l'ajout aux favoris", 'error');
+      showToast?.(t('common.errorFavorite'), 'error');
     }
   };
 
@@ -63,7 +66,7 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
 
     const url = `${window.location.origin}/dishes/${dish._id}`;
     navigator.clipboard.writeText(url);
-    showToast?.('Lien copié ! 📋', 'success');
+    showToast?.(t('common.linkCopied'), 'success');
     onShare?.(dish._id);
   };
 
@@ -139,17 +142,17 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
             </div>
 
             <div className="absolute bottom-0 left-0 right-0 p-4">
-              <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-gold-400 transition-colors">
+              <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-gold-400 transition-colors line-clamp-1">
                 {dish.name}
               </h3>
-              <p className="text-cream-100 text-sm flex items-center gap-2">
+              <p className="text-cream-100 text-sm flex items-center gap-2 truncate">
                 <MapPin className="w-4 h-4" />
                 {dish.restaurant?.name || 'Restaurant'} • {dish.region}
               </p>
             </div>
           </div>
 
-          <div className="p-5 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-gray-900">
+          <div className="p-5 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
             <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
               {dish.description}
             </p>

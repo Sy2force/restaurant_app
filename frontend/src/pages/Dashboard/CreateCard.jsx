@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
@@ -59,24 +59,24 @@ const CreateCard = () => {
 
   const watchedBizImage = watch('bizImage');
 
-  useEffect(() => {
-    if (isEdit) {
-      fetchCard();
-    }
-  }, [id]);
-
-  const fetchCard = async () => {
+  const fetchCard = useCallback(async () => {
     try {
       const response = await cardAPI.getById(id);
       const card = response.data;
       const fields = ['bizName', 'bizDescription', 'bizAddress', 'bizPhone', 'bizImage'];
       fields.forEach((field) => setValue(field, card[field]));
     } catch (error) {
-      setServerError('Erreur lors du chargement de la carte');
+      setServerError(t('dashboard.forms.errors.loadCard'));
     } finally {
       setLoadingData(false);
     }
-  };
+  }, [id, setValue, t]);
+
+  useEffect(() => {
+    if (isEdit) {
+      fetchCard();
+    }
+  }, [id, isEdit, fetchCard]);
 
   const onSubmit = async (data) => {
     setServerError('');
@@ -88,14 +88,14 @@ const CreateCard = () => {
       }
       navigate('/dashboard/cards');
     } catch (error) {
-      setServerError(error.response?.data?.message || 'Erreur lors de la sauvegarde');
+      setServerError(error.response?.data?.message || t('dashboard.forms.errors.saveCard'));
     }
   };
 
   if (loadingData) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           <div className="lg:col-span-1">
@@ -135,7 +135,7 @@ const CreateCard = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               onSubmit={handleSubmit(onSubmit)}
-              className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8"
+              className="bg-cream-50 dark:bg-dark-900 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-8"
             >
               {serverError && (
                 <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-xl border border-red-100">
@@ -148,7 +148,7 @@ const CreateCard = () => {
                   <Input
                     label={t('dashboard.forms.bizName')}
                     icon={Type}
-                    placeholder="Ex: Le Jardin des Saveurs"
+                    placeholder={t('dashboard.forms.placeholders.bizName')}
                     error={errors.bizName?.message}
                     {...register('bizName')}
                     required
@@ -158,7 +158,7 @@ const CreateCard = () => {
                     label={t('dashboard.forms.bizDescription')}
                     rows={4}
                     icon={AlignLeft}
-                    placeholder="Décrivez votre activité..."
+                    placeholder={t('dashboard.forms.placeholders.bizDescription')}
                     error={errors.bizDescription?.message}
                     {...register('bizDescription')}
                     required
@@ -167,7 +167,7 @@ const CreateCard = () => {
                   <Input
                     label={t('dashboard.forms.address')}
                     icon={MapPin}
-                    placeholder="Rue, Ville"
+                    placeholder={t('dashboard.forms.placeholders.address')}
                     error={errors.bizAddress?.message}
                     {...register('bizAddress')}
                     required

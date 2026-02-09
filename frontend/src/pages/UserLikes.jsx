@@ -17,6 +17,7 @@ import PremiumBookCard from '../components/RecipeBooks/PremiumBookCard';
 import ExplorePostCard from '../components/UI/ExplorePostCard';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import Toast from '../components/UI/Toast';
+import { mockUserLikes } from '../data/mockUserLikes';
 
 const UserLikes = () => {
   const { t } = useTranslation();
@@ -232,11 +233,11 @@ const UserLikes = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       {/* Hero Header */}
       <div className="bg-red-900 h-64 absolute top-0 left-0 right-0 z-0 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fcfaf7] dark:to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cream-50 dark:to-dark-900"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">

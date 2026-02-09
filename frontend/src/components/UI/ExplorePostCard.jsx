@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { getImageUrl } from '../../utils/helpers';
 
 const ExplorePostCard = ({ post, onLike, onClick }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(post.likes?.length || 0);
 
@@ -59,7 +59,7 @@ const ExplorePostCard = ({ post, onLike, onClick }) => {
                 }}
               />
               <div>
-                <p className="font-medium text-gray-900 dark:text-white">
+                <p className="font-medium text-gray-900 dark:text-white truncate">
                   {post.author?.firstName} {post.author?.lastName}
                 </p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">

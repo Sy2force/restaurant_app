@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Upload, X, Save, ArrowLeft, Store, MapPin, Phone, Globe, Mail } from 'lucide-react';
 import { restaurantAPI } from '../../services/api';
 import Button from '../../components/UI/Button';
@@ -9,7 +10,7 @@ import Textarea from '../../components/Forms/Textarea';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { CITIES, CACHEROUT, CUISINES, PRICE_RANGES } from '../../utils/constants';
 import { getImageUrl } from '../../utils/helpers';
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 
@@ -44,7 +45,6 @@ const RestaurantForm = () => {
   const {
     register,
     handleSubmit,
-    control,
     setValue,
     watch,
     formState: { errors, isSubmitting },
@@ -71,13 +71,7 @@ const RestaurantForm = () => {
   const watchedCuisine = watch('cuisine');
   const watchedPriceRange = watch('priceRange');
 
-  useEffect(() => {
-    if (isEdit) {
-      fetchRestaurant();
-    }
-  }, [id]);
-
-  const fetchRestaurant = async () => {
+  const fetchRestaurant = useCallback(async () => {
     try {
       setLoadingData(true);
       try {
@@ -125,16 +119,22 @@ const RestaurantForm = () => {
         setLoadingData(false);
       }
     } catch (error) {
-      setServerError('Erreur lors du chargement du restaurant');
+      setServerError(t('dashboard.forms.errors.load'));
       setLoadingData(false);
     }
-  };
+  }, [id, setValue, t]);
+
+  useEffect(() => {
+    if (isEdit) {
+      fetchRestaurant();
+    }
+  }, [id, isEdit, fetchRestaurant]);
 
   const handleLogoChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
-        setServerError('Le logo ne doit pas dépasser 5MB');
+        setServerError(t('dashboard.forms.errors.imageSize'));
         return;
       }
 
@@ -190,14 +190,14 @@ const RestaurantForm = () => {
 
       navigate('/dashboard/restaurants');
     } catch (error) {
-      setServerError(error.response?.data?.error || 'Erreur lors de la sauvegarde');
+      setServerError(error.response?.data?.error || t('dashboard.forms.errors.save'));
     }
   };
 
   if (loadingData) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -245,7 +245,7 @@ const RestaurantForm = () => {
               <div className="space-y-6">
                 <Input
                   label={t('dashboard.forms.name')}
-                  placeholder="Ex: Le Jardin des Saveurs"
+                  placeholder={t('dashboard.forms.placeholders.restaurantName')}
                   error={errors.name?.message}
                   {...register('name')}
                   required
@@ -254,7 +254,7 @@ const RestaurantForm = () => {
                 <Textarea
                   label={t('dashboard.forms.description')}
                   rows={4}
-                  placeholder="Racontez l'histoire de votre restaurant..."
+                  placeholder={t('dashboard.forms.placeholders.restaurantDesc')}
                   error={errors.description?.message}
                   {...register('description')}
                   required
@@ -345,7 +345,7 @@ const RestaurantForm = () => {
                   <Input
                     label={t('dashboard.forms.address')}
                     icon={MapPin}
-                    placeholder="Rue et numéro"
+                    placeholder={t('dashboard.forms.placeholders.street')}
                     error={errors.address?.street?.message}
                     {...register('address.street')}
                     required
@@ -374,7 +374,7 @@ const RestaurantForm = () => {
 
                 <Input
                   label={t('dashboard.forms.zipCode')}
-                  placeholder="12345"
+                  placeholder={t('dashboard.forms.placeholders.zipCode')}
                   error={errors.address?.zipCode?.message}
                   {...register('address.zipCode')}
                 />
@@ -382,7 +382,7 @@ const RestaurantForm = () => {
                 <Input
                   label={t('dashboard.forms.phone')}
                   icon={Phone}
-                  placeholder="050-1234567"
+                  placeholder={t('dashboard.forms.placeholders.phone')}
                   error={errors.phone?.message}
                   {...register('phone')}
                   required
@@ -392,7 +392,7 @@ const RestaurantForm = () => {
                   label={t('dashboard.forms.email')}
                   type="email"
                   icon={Mail}
-                  placeholder="contact@restaurant.com"
+                  placeholder={t('dashboard.forms.placeholders.email')}
                   error={errors.email?.message}
                   {...register('email')}
                 />
@@ -401,7 +401,7 @@ const RestaurantForm = () => {
                   <Input
                     label={t('dashboard.forms.website')}
                     icon={Globe}
-                    placeholder="https://www.monrestaurant.com"
+                    placeholder={t('dashboard.forms.placeholders.website')}
                     error={errors.website?.message}
                     {...register('website')}
                   />

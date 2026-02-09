@@ -147,7 +147,8 @@
     "update": "Mettre à jour",
     "create": "Créer",
     "publish": "Publier",
-    "print": "Imprimer"
+    "print": "Imprimer",
+    "confirmDelete": "Êtes-vous sûr ?"
   },
   "footer": {
     "description": "Découvrez, partagez et savourez les trésors culinaires d'Israël. Une expérience gastronomique unique où tradition et modernité se rencontrent.",
@@ -202,7 +203,7 @@
     "title": "Conditions d'Utilisation",
     "subtitle": "Veuillez lire attentivement ces conditions avant d'utiliser notre service.",
     "sections": {
-      "1": { "title": "1. Acceptation des Conditions", "text": "En accédant et en utilisant ce site web..." },
+      "1": { "title": "1. Acceptance of Terms", "text": "En accédant et en utilisant ce site web..." },
       "2": { "title": "2. Licence d'Utilisation", "text": "Il est permis de télécharger temporairement..." },
       "3": { "title": "3. Limitations", "text": "En aucun cas Flavors of Israel..." },
       "4": { "title": "4. Précision des Matériaux", "text": "Les documents apparaissant..." },
@@ -304,15 +305,19 @@
     "myDishes": "Mes Plats",
     "myRecipes": "Mes Recettes",
     "myRestaurants": "Mes Restaurants",
+    "myCards": "Mes Cartes",
     "createDish": "Créer un Plat",
     "createRecipe": "Créer une Recette",
     "createRestaurant": "Créer un Restaurant",
+    "createCard": "Créer une Carte",
     "editDish": "Modifier le Plat",
     "editRecipe": "Modifier la Recette",
     "editRestaurant": "Modifier le Restaurant",
+    "editCard": "Modifier la Carte",
     "dishDesc": "Gérez votre menu, modifiez les prix et mettez à jour vos créations culinaires.",
     "recipeDesc": "Partagez votre savoir-faire culinaire avec la communauté.",
     "restaurantDesc": "Gérez vos établissements, mettez à jour les informations et suivez leur popularité.",
+    "cardFormDesc": "Gérez votre carte de visite professionnelle",
     "dishFormDesc": "Ajoutez un nouveau délice à votre carte",
     "dishFormEditDesc": "Modifier les détails de votre plat",
     "recipeFormDesc": "Partagez votre savoir-faire culinaire",
@@ -320,6 +325,8 @@
     "noDishesAdded": "Votre carte est vide pour le moment. Commencez par ajouter vos meilleures créations.",
     "noRecipesAdded": "Vous n'avez pas encore partagé de recette. Lancez-vous !",
     "noRestaurantsAdded": "Vous n'avez pas encore ajouté de restaurant. Commencez dès maintenant !",
+    "noCards": "Aucune carte trouvée",
+    "noCardsDesc": "Commencez par créer votre première carte de visite",
     "noResultsDesc": "Aucun résultat ne correspond à votre recherche.",
     "yourCreations": "Vos Créations",
     "menuManagement": "Gestion de la Carte",
@@ -377,7 +384,22 @@
       "photoUpload": "Télécharger une photo",
       "titlePlaceholder": "Ex: Challah du Shabbat",
       "descPlaceholder": "Décrivez votre recette...",
+      "bizName": "Nom de l'entreprise",
+      "bizDescription": "Description",
+      "bizAddress": "Adresse",
+      "bizPhone": "Téléphone",
+      "bizImage": "Image",
+      "preview": "Aperçu",
+      "placeholders": {
+        "bizName": "Ex: Le Jardin des Saveurs",
+        "bizDescription": "Décrivez votre activité...",
+        "address": "Rue, Ville"
+      },
       "errors": {
+        "required": "Ce champ est requis",
+        "invalidUrl": "URL invalide",
+        "loadCard": "Erreur lors du chargement de la carte",
+        "saveCard": "Erreur lors de la sauvegarde",
         "load": "Erreur lors du chargement de la recette",
         "imageSize": "L'image ne doit pas dépasser 5MB",
         "titleRequired": "Le titre est requis",
@@ -453,6 +475,7 @@
       "last7days": "Derniers 7 jours"
     },
     "popular": "Plats les plus Populaires",
+    "notEnoughData": "Pas assez de données",
     "recentActivity": "Dernières Interactions",
     "activities": {
       "like": "a liké votre plat",
@@ -546,8 +569,18 @@
     },
     "recentUsers": "Utilisateurs Récents",
     "pendingRestaurants": "Restaurants en Attente de Validation",
+    "noPendingRestaurants": "Aucun restaurant en attente",
     "reports": "Signalements",
+    "noReports": "Aucun signalement",
     "validations": "Dernières Validations",
+    "emptyHistory": "Historique vide",
+    "unknownUser": "Inconnu",
+    "noUsersFound": "Aucun utilisateur trouvé",
+    "roles": {
+      "admin": "Admin",
+      "business": "Business",
+      "user": "Utilisateur"
+    },
     "table": {
       "user": "Utilisateur",
       "email": "Email",
@@ -629,29 +662,6 @@
       "link": "Parcourir la galerie"
     }
   },
-  "restaurantDetail": {
-    "notFound": "Restaurant introuvable",
-    "back": "Retour aux restaurants",
-    "about": "À propos",
-    "menu": "Notre Carte",
-    "proposedBy": "Proposé par",
-    "viewRestaurant": "Voir le Restaurant",
-    "moreFrom": "Plus de {{name}}",
-    "info": {
-      "phone": "Téléphone",
-      "website": "Site Web",
-      "hours": "Horaires",
-      "visitWebsite": "Visiter le site",
-      "cuisines": "Cuisines",
-      "opening": {
-        "sunThu": "Dim - Jeu: 12:00 - 23:00",
-        "fri": "Ven: 12:00 - 15:00",
-        "sat": "Sam: 1h après Shabbat - 00:00"
-      }
-    },
-    "noDishes": "Aucun plat disponible pour le moment.",
-    "loadError": "Erreur lors du chargement du restaurant"
-  },
   "recipeDetail": {
     "notFound": "Recette introuvable",
     "loadError": "Erreur lors du chargement de la recette"
@@ -696,5 +706,39 @@
       "subtitle": "Parcourez les créations de la communauté et trouvez l'inspiration pour votre prochain repas.",
       "share": "Partager un plat"
     }
+  },
+  "recipeBooksPage": {
+    "hero": {
+      "badge": "Collection Complète",
+      "title": "Bibliothèque Culinaire",
+      "description": "Explorez les meilleurs ouvrages de la cuisine casher, sélectionnés pour leur qualité et leur authenticité."
+    },
+    "searchPlaceholder": "Rechercher un livre, un auteur...",
+    "noResults": "Aucun livre trouvé",
+    "noResultsDesc": "Essayez d'ajuster vos critères de recherche ou explorez une autre catégorie."
+  },
+  "restaurantDetail": {
+    "notFound": "Restaurant introuvable",
+    "back": "Retour aux restaurants",
+    "about": "À propos",
+    "menu": "Notre Carte",
+    "proposedBy": "Proposé par",
+    "viewRestaurant": "Voir le Restaurant",
+    "moreFrom": "Plus de {{name}}",
+    "info": {
+      "phone": "Téléphone",
+      "website": "Site Web",
+      "hours": "Horaires",
+      "visitWebsite": "Visiter le site",
+      "cuisines": "Cuisines",
+      "opening": {
+        "sunThu": "Dim - Jeu: 12:00 - 23:00",
+        "fri": "Ven: 12:00 - 15:00",
+        "sat": "Sam: 1h après Shabbat - 00:00"
+      }
+    },
+    "noDishes": "Aucun plat disponible pour le moment.",
+    "loadError": "Erreur lors du chargement du restaurant",
+    "loadErrorToast": "Erreur lors du chargement du restaurant"
   }
 }

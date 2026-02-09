@@ -1,17 +1,32 @@
 {
   "nav": {
     "home": "בית",
-    "dishes": "מנות",
+    "dishes": "תפריט",
     "restaurants": "מסעדות",
-    "recipeBooks": "ספרים",
-    "explore": "גלה",
+    "recipes": "מתכונים",
+    "recipeBooks": "ספרי מתכונים",
+    "explore": "השראה",
     "login": "התחברות",
-    "register": "הרשמה",
-    "profile": "פרופיל",
-    "dashboard": "לוח בקרה",
+    "register": "הצטרפות",
+    "profile": "הפרופיל שלי",
+    "dashboard": "אזור מקצועי",
     "admin": "ניהול",
     "logout": "התנתק",
-    "favorites": "מועדפים"
+    "favorites": "המועדפים שלי",
+    "adminPanel": "פאנל ניהול",
+    "usersManagement": "ניהול משתמשים",
+    "stats": "סטטיסטיקה",
+    "myCards": "הכרטיסים שלי",
+    "createCard": "צור כרטיס"
+  },
+  "dashboardMenu": {
+    "overview": "סקירה כללית",
+    "myCards": "הכרטיסים שלי",
+    "restaurants": "מסעדות",
+    "dishes": "מנות",
+    "recipes": "מתכונים",
+    "analytics": "ניתוח נתונים",
+    "settings": "הגדרות"
   },
   "auth": {
     "email": "כתובת אימייל",
@@ -19,42 +34,154 @@
     "confirmPassword": "אימות סיסמה",
     "name": "שם מלא",
     "submit": "התחבר",
-    "submitRegister": "צור חשבון",
-    "noAccount": "אין לך חשבון?",
-    "hasAccount": "כבר יש לך חשבון?",
-    "register": "הירשם",
-    "login": "התחבר",
+    "submitRegister": "התחל את המסע",
+    "noAccount": "עדיין לא חבר?",
+    "hasAccount": "כבר חבר?",
+    "register": "צור חשבון",
+    "login": "כניסה",
     "loginPage": {
-      "heroTitle": "גלה את המהות של <br /><span class=\"text-gold-400\">המטבח הישראלי</span>",
-      "heroDesc": "פלטפורמה אקסקלוסיבית המאגדת את מיטב השפים, המסעדות והמתכונים האותנטיים מישראל.",
+      "heroTitle": "המהות של <br /><span class=\"text-gold-400\">המטבח הישראלי</span>",
+      "heroDesc": "גישה לפלטפורמה אקסקלוסיבית המאגדת את האליטה הקולינרית: שפים, מסעדות ומתכונים יוצאי דופן.",
       "welcomeBack": "ברוך שובך",
       "accessAccount": "היכנס לאזור האישי שלך",
-      "loginFailed": "ההתחברות נכשלה",
+      "loginFailed": "פרטים שגויים",
       "loggingIn": "מתחבר...",
       "forgotPassword": "שכחת סיסמה?"
     },
+    "resetPassword": {
+      "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
+      "heroDesc": "אבטח את החשבון שלך עם סיסמה חדשה וגלה מחדש את המתכונים האהובים עליך.",
+      "successTitle": "הסיסמה שונתה!",
+      "successDesc": "הסיסמה שלך עודכנה בהצלחה. תועבר לדף ההתחברות.",
+      "loginNow": "התחבר עכשיו",
+      "title": "איפוס סיסמה",
+      "subtitle": "בחר סיסמה חזקה לחשבון שלך",
+      "newPassword": "סיסמה חדשה",
+      "confirmPassword": "אימות סיסמה",
+      "updating": "מעדכן...",
+      "submit": "אפס",
+      "errors": {
+        "mismatch": "הסיסמאות אינן תואמות",
+        "noToken": "אסימון איפוס חסר או לא חוקי",
+        "generic": "שגיאה באיפוס הסיסמה"
+      }
+    },
+    "forgotPasswordPage": {
+      "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
+      "heroDesc": "אפס את הסיסמה שלך כדי לקבל גישה מחדש לחשבון ולמתכונים המועדפים עליך.",
+      "emailSent": "אימייל נשלח!",
+      "emailSentDesc": "אם קיים חשבון עם הכתובת <strong>{{email}}</strong>, תקבל קישור לאיפוס.",
+      "backToLogin": "חזרה להתחברות",
+      "title": "שכחת סיסמה?",
+      "subtitle": "הזן את האימייל שלך לקבלת הוראות",
+      "sending": "שולח...",
+      "sendLink": "שלח קישור",
+      "rememberPassword": "נזכרת בסיסמה?",
+      "login": "התחבר"
+    },
+    "placeholders": {
+      "name": "שמך המלא",
+      "email": "your@email.com"
+    },
     "registerPage": {
-      "businessAccount": "חשבון עסקי",
-      "businessDesc": "למסעדות ושפים",
-      "registering": "נרשם..."
+      "businessAccount": "חשבון מקצועי",
+      "businessDesc": "לשפים, מסעדנים ויוצרים",
+      "registering": "יוצר חשבון...",
+      "heroTitle": "הצטרף ל<br /><span class=\"text-gold-400\">אליטה הגסטרונומית</span>",
+      "heroDesc": "צור חשבון כדי לשתף מתכונים, לגלות מסעדות יוצאות דופן ולהשתתף בקהילה האקסקלוסיבית שלנו.",
+      "benefits": [
+        "גישה למתכונים בלעדיים",
+        "שמור את המועדפים שלך",
+        "שתף את היצירות שלך",
+        "דירוגים וביקורות מאומתים"
+      ]
     },
     "errors": {
-      "required": "שדה זה חובה",
-      "invalidEmail": "אימייל לא תקין",
-      "passwordMin": "הסיסמה חייבת להכיל לפחות 6 תווים",
+      "required": "שדה חובה",
+      "invalidEmail": "פורמט לא תקין",
+      "passwordMin": "מינימום 6 תווים",
       "passwordMatch": "הסיסמאות אינן תואמות"
     }
   },
+  "unauthorized": {
+    "title": "גישה לא מורשית",
+    "desc": "מצטערים, אין לך הרשאות מתאימות לצפייה בדף זה.",
+    "backHome": "חזרה לדף הבית",
+    "loginOther": "התחבר עם חשבון אחר"
+  },
   "landing": {
     "hero": {
-      "title": "טעמים של ישראל",
-      "subtitle": "המדריך האולטימטיבי לגסטרונומיה הישראלית",
-      "cta": "גלה עכשיו"
+      "title": "האמנות הקולינרית של ישראל",
+      "subtitle": "המדריך האולטימטיבי לחקור, לטעום ולשתף את הגסטרונומיה הישראלית.",
+      "cta": "התחל לחקור"
     },
     "stats": {
-      "restaurants": "מסעדות",
-      "recipes": "מתכונים",
+      "restaurants": "מקומות",
+      "recipes": "מתכונים ייחודיים",
+      "dishes": "מנות דגל",
       "users": "פודיז"
+    },
+    "dishesCarousel": {
+      "title": "מנות הדגל",
+      "subtitle": "מבחר מנות אייקוניות שמגדירות את הגסטרונומיה הישראלית.",
+      "kosher": "כשר"
+    },
+    "publish": {
+      "title": "גלה את הכישרון שלך",
+      "subtitle": "הצטרף לקהילה תוססת ותן ליצירתיות הקולינרית שלך לזרוח.",
+      "button": "שתף יצירה",
+      "quote": "בישול הוא אמנות שנועדה לשיתוף.",
+      "steps": {
+        "photo": {
+          "title": "צלם",
+          "desc": "הנצח את המנות היפות ביותר שלך"
+        },
+        "share": {
+          "title": "שתף",
+          "desc": "הוסף את הטאץ' האישי שלך"
+        },
+        "inspire": {
+          "title": "תן השראה",
+          "desc": "קח את הקהילה למסע"
+        }
+      }
+    },
+    "recipes": {
+      "title": "מתכוני חובה",
+      "subtitle": "יצירות שנבחרו לעורר את בלוטות הטעם, ממסורתי למודרני.",
+      "viewRecipe": "גלה מתכון",
+      "viewAll": "צפה בכל האוספים",
+      "difficulty": {
+        "easy": "קל",
+        "medium": "בינוני",
+        "hard": "מומחה"
+      }
+    },
+    "restaurants": {
+      "title": "מקומות מומלצים",
+      "subtitle": "הכתובות הטובות ביותר שנבחרו עבורך",
+      "discover": "גלה",
+      "viewAll": "צפה בכל המסעדות"
+    },
+    "testimonials": {
+      "title": "דבר הקהילה",
+      "subtitle": "מה שהפודיז הנלהבים שלנו אומרים"
+    },
+    "cta": {
+      "title": "מוכן לטעום?",
+      "subtitle": "הצטרף להרפתקה של טעמים של ישראל עוד היום.",
+      "share": {
+        "title": "שתף",
+        "desc": "פרסם את התגליות הקולינריות שלך",
+        "buttonAuth": "צור פוסט",
+        "buttonGuest": "הצטרף כדי לשתף"
+      },
+      "restaurant": {
+        "title": "מקצוענים",
+        "desc": "הגדל את החשיפה של המסעדה שלך",
+        "buttonAuth": "כנס ללוח הבקרה",
+        "buttonGuest": "צור חשבון עסקי"
+      }
     }
   },
   "common": {
@@ -69,278 +196,386 @@
     "create": "צור",
     "update": "עדכן",
     "publish": "פרסם",
-    "search": "חפש...",
-    "actions": "פעולות",
+    "search": "חפש טעם...",
+    "actions": "אפשרויות",
     "status": "סטטוס",
     "date": "תאריך",
-    "viewDetails": "צפה בפרטים",
+    "viewDetails": "חקור",
     "likes": "לייקים",
     "min": "דק'",
     "pers": "סועדים",
+    "new": "חדש",
     "backToList": "חזרה לרשימה",
-    "confirmDelete": "האם אתה בטוח שברצונך למחוק פריט זה?"
+    "confirmDelete": "פעולה זו היא בלתי הפיכה. להמשיך?",
+    "comments": "תגובות",
+    "noComments": "אין תגובות עדיין",
+    "all": "הכל",
+    "liked": "מנה אהובה ❤️",
+    "unliked": "לייק הוסר",
+    "errorLike": "שגיאה בלייק",
+    "addedToFavorites": "נוסף למועדפים ✅",
+    "removedFromFavorites": "הוסר מהמועדפים",
+    "errorFavorite": "שגיאה בהוספה למועדפים",
+    "linkCopied": "קישור הועתק! 📋",
+    "selectImage": "נא לבחור תמונה",
+    "errorCreate": "שגיאה ביצירה",
+    "maxChars": "מקסימום 500 תווים",
+    "loginToLike": "נא להתחבר כדי לסמן לייק"
+  },
+  "dishDetail": {
+    "notFound": "המנה לא נמצאה",
+    "backList": "חזרה לרשימה",
+    "backMenu": "חזרה לתפריט",
+    "proposedBy": "מוצע על ידי",
+    "viewRestaurant": "צפה במסעדה",
+    "moreFrom": "עוד מ-{{name}}",
+    "cacherout": "כשרות",
+    "about": "אודות המנה",
+    "badges": {
+      "vegetarian": "צמחוני",
+      "vegan": "טבעוני",
+      "glutenFree": "ללא גלוטן",
+      "type": "סוג",
+      "region": "אזור",
+      "season": "עונה",
+      "yes": "כן",
+      "no": "לא"
+    }
+  },
+  "filters": {
+    "title": "מסננים",
+    "clearAll": "נקה הכל",
+    "city": "עיר",
+    "cacherout": "כשרות",
+    "category": "קטגוריה",
+    "season": "עונה",
+    "sortBy": "מיין לפי",
+    "sort": {
+      "popular": "פופולריות",
+      "recent": "הכי חדש",
+      "priceAsc": "מחיר: מהנמוך לגבוה",
+      "priceDesc": "מחיר: מהגבוה לנמוך"
+    },
+    "all": "הכל"
   },
   "explore": {
     "hero": {
-      "badge": "תגלית",
-      "title": "גלה טעמים",
-      "subtitle": "גלה את המנות, המתכונים והמסעדות הטרנדיים ביותר בקהילה.",
-      "share": "שתף תגלית"
+      "badge": "השראה",
+      "title": "הפיד הקולינרי",
+      "subtitle": "צלול לתוך הטרנדים הקולינריים האחרונים מהקהילה שלנו.",
+      "share": "שתף פנינה"
     },
-    "searchPlaceholder": "חפש מנה, מסעדה...",
-    "filters": "מסננים",
-    "popularTags": "תגיות פופולריות",
-    "clearFilters": "נקה",
-    "noPosts": "אין פוסטים עדיין",
-    "noPostsDesc": "היה הראשון לשתף את החוויה הקולינרית שלך!",
-    "createPost": "צור פוסט"
+    "searchPlaceholder": "מה בא לך לטעום היום?",
+    "filters": "סנן",
+    "popularTags": "חם עכשיו",
+    "clearFilters": "אפס",
+    "noPosts": "אין השראה עדיין",
+    "noPostsDesc": "היה הראשון לשתף את המועדף עליך!",
+    "createPost": "פוסט חדש",
+    "noCards": "לא נמצאו כרטיסים",
+    "noCardsDesc": "היה הראשון ליצור את כרטיס הביקור שלך!"
+  },
+  "userLikes": {
+    "loadError": "לא ניתן לטעון את הלייקים שלך",
+    "unlikeSuccess": "הלייק הוסר בהצלחה",
+    "unlikeError": "שגיאה בהסרת הלייק",
+    "tabs": {
+      "posts": "פוסטים"
+    },
+    "empty": {
+      "title": "אין לייקים עדיין",
+      "desc": "טרם סימנת לייק לתוכן כלשהו. חקור כדי למצוא את המועדפים עליך!",
+      "button": "חקור"
+    },
+    "badge": "הלייקים שלי",
+    "title": "אהבתי",
+    "subtitle": "מצא את כל התוכן שאהבת"
+  },
+  "favorites": {
+    "loadError": "לא ניתן לטעון את המועדפים שלך",
+    "removeSuccess": "הוסר מהמועדפים",
+    "removeError": "שגיאה בהסרה מהמועדפים",
+    "empty": {
+      "title": "אין מועדפים עדיין",
+      "desc": "טרם הוספת מועדפים. חקור כדי לבנות את האוסף שלך!",
+      "button": "חקור"
+    },
+    "badge": "האוסף שלי",
+    "title": "המועדפים שלי",
+    "subtitle": "אוסף הטעמים האישי שלך"
   },
   "postCreate": {
-    "badge": "פוסט חדש",
-    "title": "שתף את החוויה שלך",
-    "subtitle": "תן השראה לקהילה עם התגליות הקולינריות שלך",
+    "badge": "פרסום",
+    "title": "תגלית חדשה",
+    "subtitle": "שתף את הרגש של מנה יוצאת דופן",
     "form": {
-      "photo": "תמונה",
-      "clickToUpload": "לחץ להעלאת תמונה",
-      "maxSize": "PNG, JPG עד 5MB",
-      "description": "תיאור",
-      "descPlaceholder": "ספר לנו על החוויה שלך...",
-      "tags": "תגיות",
-      "addTagPlaceholder": "הוסף תגית...",
+      "photo": "ויזואלי",
+      "clickToUpload": "בחר תמונה באיכות גבוהה",
+      "maxSize": "פורמט JPG/PNG, מקס' 5MB",
+      "description": "הסיפור של המנה",
+      "descPlaceholder": "תאר את הטעמים, האווירה, התחושות שלך...",
+      "tags": "מילות מפתח",
+      "addTagPlaceholder": "הוסף תגית (למשל #תלאביב)...",
       "suggestions": "הצעות"
     },
     "buttons": {
-      "publish": "פרסם",
-      "publishing": "מפרסם...",
-      "cancel": "ביטול"
+      "publish": "שתף עם הקהילה",
+      "publishing": "שולח...",
+      "cancel": "בטל"
     },
     "tips": {
-      "title": "טיפים למקצוענים",
-      "1": "השתמש בתאורה טבעית יפה",
-      "2": "הוסף תגיות רלוונטיות",
-      "3": "היה תיאורי ומלא תשוקה"
+      "title": "לפוסט מוצלח",
+      "1": "העדף תאורה טבעית",
+      "2": "ספר סיפור אותנטי",
+      "3": "תייג מרכיבים מרכזיים"
     },
     "inspiration": {
-      "text": "צריך השראה?",
-      "link": "צפה בפיד"
+      "text": "חסר רעיונות?",
+      "link": "דפדף בפיד"
     }
   },
   "dashboard": {
-    "createRestaurant": "צור מסעדה",
+    "createRestaurant": "הוסף עסק",
     "createDish": "הוסף מנה",
-    "createRecipe": "צור מתכון",
-    "myRestaurants": "המסעדות שלי",
-    "restaurantDesc": "נהל את העסקים והתפריטים שלך",
-    "yourEstablishments": "העסקים שלך",
+    "createRecipe": "מתכון חדש",
+    "myRestaurants": "העסקים שלי",
+    "allRestaurants": "כל המסעדות",
+    "restaurantDesc": "ניהול חלונות הראווה הקולינריים שלך",
+    "yourEstablishments": "החלונות שלך",
     "filters": "מסננים",
     "searchPlaceholder": "חפש...",
-    "noRestaurants": "אין מסעדות",
-    "noRestaurantsAdded": "טרם הוספת מסעדה.",
-    "noResults": "לא נמצאו תוצאות.",
-    "editRestaurant": "ערוך מסעדה",
-    "restaurantFormDesc": "מלא את פרטי העסק שלך",
-    "myDishes": "המנות שלי",
-    "dishDesc": "נהל את תפריט המסעדה שלך",
-    "menuManagement": "ניהול תפריט",
+    "noRestaurants": "אין עסק",
+    "noRestaurantsAdded": "התחל על ידי רישום המסעדה הראשונה שלך.",
+    "noResults": "אין תוצאות.",
+    "editRestaurant": "עריכת מסעדה",
+    "restaurantFormDesc": "הדגש את העסק שלך",
+    "myDishes": "תפריט מנות",
+    "dishDesc": "ניהול היצירות הקולינריות שלך",
+    "menuManagement": "תפריט וכרטיס",
     "noDishes": "אין מנות",
-    "noDishesAdded": "התחל להוסיף מנות לתפריט שלך.",
-    "noResultsDesc": "נסה לשנות את קריטריוני החיפוש.",
-    "editDish": "ערוך מנה",
-    "dishFormDesc": "הוסף מנה חדשה לתפריט",
-    "dishFormEditDesc": "ערוך פרטי מנה",
+    "noDishesAdded": "העשר את התפריט שלך עם המנות הטובות ביותר.",
+    "noResultsDesc": "שנה את קריטריוני החיפוש.",
+    "editDish": "עריכת מנה",
+    "dishFormDesc": "הוסף טעם חדש לתפריט",
+    "dishFormEditDesc": "עדכון מנה",
     "myRecipes": "המתכונים שלי",
-    "recipeDesc": "שתף את הידע הקולינרי שלך",
-    "yourCreations": "היצירות שלך",
+    "recipeDesc": "העברת ידע",
+    "yourCreations": "יצירות המופת שלך",
     "noRecipes": "אין מתכונים",
-    "noRecipesAdded": "טרם יצרת מתכון.",
-    "editRecipe": "ערוך מתכון",
-    "recipeFormDesc": "שתף את הסוד הקולינרי שלך",
-    "createCard": "צור כרטיס",
-    "editCard": "ערוך כרטיס",
-    "cardFormDesc": "צור כרטיס ביקור לעסק שלך",
-    "cuisine": "מטבח",
+    "noRecipesAdded": "שתף את המתכון הסודי הראשון שלך.",
+    "editRecipe": "עריכת מתכון",
+    "recipeFormDesc": "פרט את התהליך היצירתי שלך",
+    "createCard": "כרטיס חדש",
+    "editCard": "עריכת כרטיס",
+    "cardFormDesc": "צור את כרטיס הביקור הדיגיטלי שלך",
+    "cuisine": "גסטרונומיה",
     "forms": {
-      "generalInfo": "מידע כללי",
+      "generalInfo": "העיקר",
       "name": "שם",
-      "description": "תיאור",
-      "descPlaceholder": "תיאור מפורט...",
-      "cuisine": "סוג מטבח",
+      "description": "הצגה",
+      "descPlaceholder": "ספר את הסיפור שלך בתשוקה...",
+      "cuisine": "סגנון קולינרי",
       "cacherout": "כשרות",
-      "priceRange": "טווח מחירים",
+      "priceRange": "תקציב",
       "select": "בחר...",
-      "locationContact": "מיקום ויצירת קשר",
-      "address": "כתובת",
+      "locationContact": "יצירת קשר וגישה",
+      "address": "כתובת מלאה",
       "city": "עיר",
       "zipCode": "מיקוד",
-      "phone": "טלפון",
-      "email": "אימייל",
+      "phone": "טלפון ליצירת קשר",
+      "email": "אימייל מקצועי",
       "website": "אתר אינטרנט",
-      "visualIdentity": "זהות חזותית",
+      "visualIdentity": "תדמית מותג",
       "logo": "לוגו",
-      "logoUpload": "לחץ להעלאת לוגו",
-      "image": "תמונה",
-      "upload": "העלה תמונה",
-      "photoUpload": "לחץ להעלאת תמונה",
+      "logoUpload": "ייבא את הלוגו שלך",
+      "image": "תמונת כיסוי",
+      "upload": "ייבא תמונה",
+      "photoUpload": "בחר ויזואלי",
       "maxSize": "מקס' 5MB",
-      "actions": "פעולות",
-      "categorization": "קטגוריזציה",
+      "imageHelp": "מקס' 5MB (PNG, JPG)",
+      "actions": "אימות",
+      "categorization": "סיווג",
       "category": "קטגוריה",
       "region": "אזור",
-      "season": "עונה",
+      "season": "עונתיות",
       "dietary": "העדפות תזונתיות",
       "vegetarian": "צמחוני",
       "vegan": "טבעוני",
       "glutenFree": "ללא גלוטן",
-      "restaurant": "מסעדה",
+      "restaurant": "עסק",
       "price": "מחיר",
-      "title": "כותרת",
-      "titlePlaceholder": "כותרת המתכון",
-      "prepTime": "זמן הכנה (דק')",
-      "cookTime": "זמן בישול (דק')",
-      "servings": "מנות",
-      "difficulty": "רמת קושי",
+      "title": "שם המתכון",
+      "titlePlaceholder": "לדוגמה: שקשוקה מלכותית",
+      "prepTime": "הכנה (דק')",
+      "cookTime": "בישול (דק')",
+      "servings": "סועדים",
+      "difficulty": "רמה",
       "difficultyOptions": {
-        "easy": "קל",
-        "medium": "בינוני",
-        "hard": "קשה"
+        "easy": "מתחיל",
+        "medium": "מתקדם",
+        "hard": "מומחה"
       },
-      "ingredients": "מרכיבים",
+      "ingredients": "רשימת מרכיבים",
       "quantity": "כמות",
       "unit": "יחידה",
-      "addIngredient": "הוסף מרכיב",
-      "instructions": "הוראות הכנה",
+      "addIngredient": "+ מרכיב",
+      "instructions": "שלבי המתכון",
       "step": "שלב",
-      "addStep": "הוסף שלב",
-      "bizName": "שם העסק",
-      "bizDescription": "תיאור",
-      "imageUrl": "כתובת תמונה",
+      "addStep": "+ שלב",
+      "bizName": "שם החברה",
+      "bizDescription": "פעילות",
+      "imageUrl": "קישור תמונה",
       "preview": "תצוגה מקדימה",
       "errors": {
-        "required": "שדה זה חובה",
-        "invalidEmail": "אימייל לא תקין",
-        "invalidUrl": "כתובת URL לא תקינה",
-        "invalidPrice": "מחיר לא תקין",
-        "minCuisine": "בחר לפחות סוג מטבח אחד",
-        "minIngredients": "נדרש לפחות מרכיב אחד",
-        "minInstructions": "נדרש לפחות שלב אחד",
-        "titleRequired": "כותרת נדרשת",
-        "imageSize": "התמונה גדולה מדי (מקס' 5MB)",
-        "save": "שגיאה בשמירה",
-        "load": "שגיאה בטעינה"
+        "required": "מידע נדרש",
+        "invalidEmail": "פורמט שגוי",
+        "invalidUrl": "קישור לא תקין",
+        "invalidPrice": "סכום לא תקין",
+        "minCuisine": "בחר לפחות סגנון אחד",
+        "minIngredients": "חסרים מרכיבים",
+        "minInstructions": "חסרות הוראות",
+        "titleRequired": "כותרת חובה",
+        "imageSize": "קובץ גדול מדי (>5MB)",
+        "save": "השמירה נכשלה",
+        "load": "טעינה נכשלה"
+      },
+      "placeholders": {
+        "restaurantName": "דוגמה: גן הטעמים",
+        "restaurantDesc": "ספר את הסיפור של המסעדה שלך...",
+        "street": "רחוב ומספר",
+        "zipCode": "12345",
+        "phone": "050-1234567",
+        "email": "contact@restaurant.com",
+        "website": "https://www.myrestaurant.com",
+        "dishName": "דוגמה: שקשוקה מלכותית",
+        "dishDesc": "תאר את הטעמים והמרכיבים...",
+        "ingredient": "מרכיב",
+        "step": "שלב"
       }
     }
   },
   "userDashboard": {
     "pro": "PRO",
     "editProfile": "ערוך פרופיל",
-    "statsTitle": "הסטטיסטיקות שלך",
+    "statsTitle": "הביצועים שלי",
     "stats": {
       "favorites": "מועדפים",
-      "likesReceived": "לייקים שהתקבלו",
-      "recipes": "מתכונים מועדפים",
+      "likesReceived": "הערכות",
+      "recipes": "מתכונים שמורים",
       "dishes": "מנות מועדפות"
     },
-    "becomeChef": "הפוך לשף",
-    "becomeChefDesc": "שתף את הכישרון שלך והצטרף לרשת המקצועית שלנו.",
-    "publishNow": "פרסם עכשיו",
-    "quickAccess": "גישה מהירה",
-    "myFavorites": "המועדפים שלי",
-    "explore": "גלה",
-    "publicProfile": "פרופיל ציבורי",
+    "becomeChef": "שדרג לשף",
+    "becomeChefDesc": "הצטרף לאליטה הקולינרית ופתח פיצ'רים מקצועיים.",
+    "publishNow": "השק את הדף שלי",
+    "quickAccess": "קיצורי דרך",
+    "myFavorites": "האוסף שלי",
+    "explore": "דפדף",
+    "publicProfile": "צפה בפרופיל ציבורי",
     "memberSince": "חבר מאז",
     "editModal": {
-      "title": "ערוך פרופיל",
+      "title": "עדכון פרופיל",
       "firstName": "שם פרטי",
       "lastName": "שם משפחה",
-      "pseudo": "כינוי",
-      "phone": "טלפון"
+      "pseudo": "שם משתמש",
+      "phone": "נייד"
     },
     "avatarModal": {
-      "title": "שנה תמונת פרופיל",
-      "choose": "בחר תמונה",
-      "upload": "העלה"
+      "title": "תמונת פרופיל",
+      "choose": "בחר",
+      "upload": "עדכן"
     }
   },
   "businessDashboard": {
-    "space": "אזור עסקי",
-    "title": "לוח בקרה",
-    "subtitle": "נהל את העסק שלך ועקוב אחר ביצועים",
-    "newRestaurant": "מסעדה חדשה",
-    "needHelp": "צריך עזרה?",
-    "contactSupport": "צור קשר עם צוות התמיכה שלנו לכל שאלה.",
-    "supportBtn": "צור קשר עם תמיכה",
+    "space": "מרחב מקצועי",
+    "title": "מרכז בקרה",
+    "subtitle": "פיקוח על הפעילות וניתוח ההשפעה.",
+    "newRestaurant": "הוסף מסעדה",
+    "needHelp": "תמיכה מקצועית",
+    "contactSupport": "הצוות המסור שלנו זמין 24/7.",
+    "supportBtn": "פתח קריאה",
     "stats": {
-      "restaurants": "מסעדות",
-      "dishes": "מנות פעילות",
-      "totalLikes": "סה\"כ לייקים",
-      "averageRating": "דירוג ממוצע"
+      "restaurants": "עסקים",
+      "dishes": "מנות בתפריט",
+      "totalLikes": "מעורבות",
+      "averageRating": "דירוג כללי"
     },
-    "yourRestaurants": "המסעדות שלך",
-    "noRestaurants": "אין מסעדות",
-    "topDishes": "מנות מובילות",
-    "noTopDishes": "אין מספיק נתונים לדירוג",
-    "quickActions": "פעולות מהירות",
+    "yourRestaurants": "הפורטפוליו שלך",
+    "noRestaurants": "אין עסק פעיל",
+    "topDishes": "מנות כוכב",
+    "noTopDishes": "אין מספיק נתונים",
+    "quickActions": "גישה ישירה",
     "newDish": "מנה חדשה",
-    "viewProfile": "צפה בפרופיל שלי"
+    "viewProfile": "פרופיל ציבורי"
   },
   "admin": {
-    "title": "ניהול",
-    "subtitle": "סקירת פלטפורמה",
+    "title": "פיקוח",
+    "subtitle": "מרכז שליטה בפלטפורמה",
     "tabs": {
-      "overview": "סקירה כללית",
-      "users": "משתמשים",
-      "restaurants": "מסעדות",
-      "content": "תוכן"
+      "overview": "סיכום",
+      "users": "קהילה",
+      "restaurants": "שותפים",
+      "content": "מודרציה"
     },
     "stats": {
-      "users": "משתמשים רשומים",
-      "restaurants": "מסעדות פעילות",
-      "recipes": "מתכונים שפורסמו",
-      "moderation": "ממתינים",
+      "users": "חברים",
+      "restaurants": "מסעדות",
+      "recipes": "מתכונים",
+      "moderation": "למתן",
       "pending": "ממתין",
-      "actionRequired": "נדרשת פעולה"
+      "actionRequired": "דחוף"
     },
-    "recentUsers": "משתמשים אחרונים",
+    "recentUsers": "הרשמות אחרונות",
     "table": {
-      "user": "משתמש",
-      "email": "אימייל",
-      "role": "תפקיד",
+      "user": "חבר",
+      "email": "איש קשר",
+      "role": "סטטוס",
       "date": "תאריך",
-      "action": "פעולה"
+      "action": "נהל"
     },
     "actions": {
       "edit": "ערוך",
-      "approve": "אשר",
-      "reject": "דחה",
-      "ignore": "התעלם",
-      "delete": "מחק"
+      "approve": "אמת",
+      "reject": "סרב",
+      "ignore": "ארכב",
+      "delete": "חסום"
     },
-    "pendingRestaurants": "מסעדות ממתינות לאישור",
+    "pendingRestaurants": "בקשות הצטרפות",
     "reports": "דיווחים",
-    "validations": "אישורים אחרונים",
+    "validations": "היסטוריה",
+    "roles": {
+      "admin": "מנהל",
+      "business": "עסקי",
+      "user": "חבר"
+    },
+    "noUsersFound": "לא נמצאו משתמשים",
+    "noPendingRestaurants": "אין בקשות ממתינות",
+    "noReports": "אין דיווחים",
+    "emptyHistory": "אין היסטוריה",
+    "unknownUser": "משתמש לא ידוע",
     "mock": {
-      "inappropriate": "לא ראוי",
+      "inappropriate": "תוכן לא ראוי",
       "today": "היום",
-      "commentBody": "תוכן התגובה שדווחה...",
-      "approvedRestaurant": "מסעדת {name} אושרה",
-      "approvedRecipe": "מתכון {name} אושר",
-      "bannedUser": "משתמש {name} נחסם"
+      "commentBody": "קטע תוכן...",
+      "approvedRestaurant": "{name} אומת",
+      "approvedRecipe": "{name} אומת",
+      "bannedUser": "{name} הושעה",
+      "submittedBy": "הוגש ע״י {{name}} בתאריך {{time}}"
     }
   },
   "settings": {
-    "title": "הגדרות",
-    "subtitle": "נהל העדפות וחשבון",
+    "title": "תצורה",
+    "subtitle": "התאם אישית את החוויה",
     "tabs": {
-      "general": "כללי",
-      "profile": "פרופיל",
+      "general": "תצוגה",
+      "profile": "זהות",
       "notifications": "התראות",
-      "security": "אבטחה",
-      "billing": "חיוב"
+      "security": "פרטיות",
+      "billing": "מנוי"
     },
     "general": {
-      "siteName": "שם האתר",
-      "defaultLanguage": "שפת ברירת מחדל",
-      "theme": "ערכת נושא",
+      "siteName": "אפליקציה",
+      "defaultLanguage": "שפה",
+      "theme": "מראה",
       "french": "צרפתית",
       "english": "אנגלית",
       "hebrew": "עברית",
@@ -348,88 +583,260 @@
       "dark": "כהה"
     },
     "profile": {
-      "changeAvatar": "שנה",
-      "fullName": "שם מלא",
-      "email": "אימייל",
-      "bio": "אודות"
+      "changeAvatar": "ערוך",
+      "fullName": "זהות",
+      "email": "איש קשר",
+      "bio": "על עצמך"
     },
     "notifications": {
       "email": {
-        "title": "התראות אימייל",
-        "desc": "קבל עדכונים במייל"
+        "title": "ניוזלטר",
+        "desc": "עיקרי החדשות הקולינריות"
       },
       "marketing": {
-        "title": "תקשורת שיווקית",
-        "desc": "קבל הצעות מיוחדות"
+        "title": "הצעות מיוחדות",
+        "desc": "מבצעים בלעדיים של שותפים"
       }
     },
     "buttons": {
-      "save": "שמור שינויים"
+      "save": "החל שינויים"
     },
     "alert": {
-      "saved": "ההגדרות נשמרו בהצלחה"
+      "saved": "תצורה עודכנה"
     }
   },
   "profile": {
-    "notFound": "פרופיל לא נמצא",
+    "notFound": "פרופיל זה אינו נגיש",
     "memberSince": "חבר מאז",
     "followers": "עוקבים",
     "following": "עוקב אחרי",
     "subscribe": "עקוב",
-    "about": "אודות",
-    "noBio": "אין תיאור.",
-    "links": "קישורים",
+    "about": "ביו",
+    "noBio": "משתמש זה שומר על מסתורין.",
+    "links": "רשתות",
     "tabs": {
-      "creations": "יצירות",
+      "creations": "פורטפוליו",
       "recipes": "מתכונים",
-      "restaurants": "מסעדות"
+      "restaurants": "כתובות"
     },
     "empty": {
       "posts": "אין פוסטים כרגע.",
-      "recipes": "לא שותפו מתכונים.",
-      "restaurants": "אין מסעדות."
+      "recipes": "ספר המתכונים ריק.",
+      "restaurants": "אין כתובת רשומה."
     }
   },
   "details": {
-    "website": "אתר אינטרנט"
+    "website": "אתר רשמי",
+    "servings": "סועדים",
+    "ingredients": "מרכיבים",
+    "instructions": "אופן ההכנה",
+    "step": "שלב",
+    "chefsNote": "דבר השף",
+    "moreFromAuthor": "עוד מתכונים של {{author}}"
   },
   "home": {
     "hero": {
-      "badge": "מצוינות קולינרית",
-      "subtitle": "גלה טעמים אותנטיים, שפים מובילים ומקומות חובה בישראל.",
-      "cta": "צפה במסעדות",
-      "moreInfo": "למד עוד"
+      "badge": "מצוינות ומסורת",
+      "subtitle": "צלול ללב הגסטרונומיה הישראלית: מפגש ייחודי בין מסורות עתיקות ויצירתיות מודרנית.",
+      "cta": "גלה שולחנות",
+      "moreInfo": "הפילוסופיה שלנו"
     }
   },
   "analytics": {
-    "badge": "אנליטיקה",
-    "title": "ביצועים",
-    "subtitle": "עקוב אחר השפעת התוכן שלך בזמן אמת",
+    "badge": "סטטיסטיקה",
+    "title": "קהל",
+    "subtitle": "מדוד את ההשפעה הקולינרית שלך",
     "stats": {
-      "totalViews": "סה\"כ צפיות",
-      "likes": "לייקים",
-      "uniqueVisitors": "מבקרים ייחודיים",
-      "revenue": "הכנסה משוערת"
+      "totalViews": "צפיות גלובליות",
+      "likes": "הערכות",
+      "uniqueVisitors": "קהל ייחודי",
+      "revenue": "הכנסה שנוצרה"
     },
     "timeRanges": {
-      "week": "שבוע",
-      "month": "חודש",
-      "year": "שנה"
+      "week": "7 ימים",
+      "month": "30 ימים",
+      "year": "12 חודשים"
     },
     "proTip": {
-      "title": "טיפ מקצוען",
-      "text": "פרסם תמונות איכותיות באופן קבוע כדי להגדיל את החשיפה ב-40%."
+      "title": "טיפ של שף",
+      "text": "תמונות שצולמו באור טבעי מייצרות 40% יותר מעורבות."
     },
     "charts": {
-      "visits": "ביקורים בפרופיל",
-      "last7days": "7 ימים אחרונים"
+      "visits": "נוכחות",
+      "last7days": "שבוע אחרון"
     },
-    "popular": "מנות פופולריות",
-    "recentActivity": "פעילות אחרונה",
+    "popular": "יצירות מובילות",
+    "recentActivity": "בשידור חי",
     "activities": {
-      "like": "אהב את המנה שלך",
+      "like": "אהב את היצירה שלך",
       "comment": "הגיב",
       "share": "שיתף את הפרופיל שלך"
     }
+  },
+  "restaurantDetail": {
+    "back": "חזרה למסעדות",
+    "notFound": "מסעדה לא נמצאה",
+    "menu": "התפריט",
+    "about": "אודות",
+    "noDishes": "התפריט טרם זמין.",
+    "loadErrorToast": "לא ניתן לטעון פרטי מסעדה",
+    "info": {
+      "phone": "הזמנה",
+      "website": "אתר אינטרנט",
+      "visitWebsite": "בקר באתר",
+      "hours": "שעות פתיחה",
+      "cuisines": "התמחויות",
+      "opening": {
+        "sunThu": "א' - ה': 12:00 - 23:00",
+        "fri": "ו': 12:00 - 15:00",
+        "sat": "ש': 20:00 - 00:00"
+      }
+    }
+  },
+  "contact": {
+    "title": "בוא נדבר אוכל",
+    "subtitle": "שאלה, שותפות? הצוות שלנו מקשיב.",
+    "info": {
+      "title": "צור קשר",
+      "email": "אימייל",
+      "responseDelay": "תשובה תוך 24 שעות",
+      "phone": "טלפון",
+      "openHours": "א'-ה', 9:00-18:00",
+      "offices": "המשרדים שלנו",
+      "addressLine1": "שדרות רוטשילד 123",
+      "addressLine2": "תל אביב, ישראל",
+      "chat": {
+        "title": "צ'אט חי",
+        "desc": "צ'אט מיידי עם צוות התמיכה שלנו.",
+        "button": "התחל שיחה"
+      }
+    },
+    "form": {
+      "title": "שלח לנו הודעה",
+      "name": "השם שלך",
+      "email": "האימייל שלך",
+      "emailPlaceholder": "example@email.com",
+      "subject": "נושא",
+      "message": "ההודעה שלך...",
+      "submit": "שלח הודעה",
+      "success": {
+        "title": "הודעה נשלחה!",
+        "desc": "נשיב בהקדם האפשרי.",
+        "new": "שלח הודעה נוספת"
+      }
+    }
+  },
+  "dishesPage": {
+    "hero": {
+      "badge": "תפריט וטעמים",
+      "title": "חקור את",
+      "subtitle": "תפריט המנות",
+      "description": "מבחר מעודן של היצירות הקולינריות הטובות ביותר בישראל, מקלאסיקות רחוב ועד יצירות מופת גסטרונומיות."
+    },
+    "chefsChoice": "בחירת השף",
+    "trending": "פופולרי",
+    "noResults": "לא נמצאו מנות",
+    "noResultsDesc": "נסה לשנות את המסננים או החיפוש שלך.",
+    "loadMore": "טען עוד מנות"
+  },
+  "restaurantsPage": {
+    "hero": {
+      "badge": "שולחנות יוצאי דופן",
+      "title": "גלה את הטובים ביותר",
+      "subtitle": "מסעדות",
+      "description": "ממוסדות עטורי פרסים ועד פנינים נסתרות, מצא את השולחן המושלם לחוויה הקולינרית הבאה שלך."
+    },
+    "noResults": "לא נמצאו מסעדות",
+    "noResultsDesc": "נסה לשנות את המסננים או החיפוש שלך.",
+    "loadMore": "טען עוד מסעדות"
+  },
+  "recipeBooksPage": {
+    "hero": {
+      "badge": "ספרייה קולינרית",
+      "title": "ספרי מתכונים",
+      "description": "חקור אוספים נושאיים שנוצרו על ידי השפים והחובבים שלנו."
+    },
+    "searchPlaceholder": "חפש ספר, שף...",
+    "noResults": "לא נמצאו ספרים",
+    "noResultsDesc": "נסה מילות מפתח אחרות או עיין בקטגוריות שלנו."
+  },
+  "footer": {
+    "description": "הפלטפורמה הדיגיטלית הראשונה המוקדשת לקידום המטבח הישראלי ברחבי העולם.",
+    "explore": "חקור",
+    "account": "אזור חברים",
+    "newsletter": {
+      "title": "הישאר מעודכן",
+      "text": "קבל את המבחר שלנו של הכתובות הטובות ביותר מדי שבוע.",
+      "placeholder": "האימייל שלך...",
+      "success": "ההרשמה אושרה!"
+    },
+    "links": {
+      "privacy": "פרטיות",
+      "terms": "תנאי שימוש",
+      "contact": "צור קשר"
+    },
+    "rights": "כל הזכויות שמורות.",
+    "madeWith": "נעשה עם",
+    "for": "לאוהבי הטעם",
+    "location": "תל אביב, ישראל"
+  },
+  "notFound": {
+    "title": "הדף לא נמצא",
+    "text": "מצטערים, הדף שאתה מחפש אינו קיים או הועבר.",
+    "button": "חזרה לדף הבית"
+  },
+  "terms": {
+    "title": "תנאי שימוש",
+    "subtitle": "עודכן לאחרונה: פברואר 2024",
+    "sections": {
+      "1": {
+        "title": "קבלת התנאים",
+        "text": "בגלישה באתר Flavors of Israel, אתה מסכים להיות כפוף לתנאי שימוש אלה ולכל החוקים והתקנות הרלוונטיים."
+      },
+      "2": {
+        "title": "רישיון שימוש",
+        "text": "ניתן אישור להוריד באופן זמני עותק אחד של החומרים לצפייה אישית, לא מסחרית וזמנית בלבד."
+      },
+      "3": {
+        "title": "הסרת אחריות",
+        "text": "החומרים באתר Flavors of Israel מסופקים 'כפי שהם'. Flavors of Israel אינה נותנת כל אחריות, מפורשת או משתמעת."
+      },
+      "4": {
+        "title": "מגבלות",
+        "text": "בשום מקרה לא תהיה Flavors of Israel אחראית לכל נזק הנובע מהשימוש או מחוסר היכולת להשתמש בחומרים."
+      },
+      "5": {
+        "title": "תיקונים",
+        "text": "החומרים המופיעים באתר עשויים לכלול שגיאות טכניות, טיפוגרפיות או צילומיות."
+      }
+    },
+    "update": "תנאים אלה עשויים להשתנות בכל עת ללא הודעה מוקדמת."
+  },
+  "privacy": {
+    "title": "מדיניות פרטיות",
+    "subtitle": "הפרטיות שלך חשובה לנו",
+    "sections": {
+      "1": {
+        "title": "איסוף מידע",
+        "text": "אנו אוספים מידע ממך כאשר אתה נרשם לאתר שלנו, מתחבר לחשבונך או משתתף בתחרות."
+      },
+      "2": {
+        "title": "שימוש במידע",
+        "text": "כל המידע שאנו אוספים ממך עשוי לשמש להתאמה אישית של החוויה שלך ולשיפור האתר שלנו."
+      },
+      "3": {
+        "title": "פרטיות",
+        "text": "אנו הבעלים היחידים של המידע שנאסף באתר זה. המידע האישי שלך לא יימכר לצדדים שלישיים."
+      },
+      "4": {
+        "title": "הגנה",
+        "text": "אנו מיישמים מגוון אמצעי אבטחה כדי לשמור על בטיחות המידע האישי שלך."
+      },
+      "5": {
+        "title": "הסכמה",
+        "text": "בשימוש באתר שלנו, אתה מסכים למדיניות הפרטיות המקוונת שלנו."
+      }
+    },
+    "update": "עודכן לאחרונה: פברואר 2024"
   }
 }

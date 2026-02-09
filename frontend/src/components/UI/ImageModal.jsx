@@ -1,11 +1,13 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Heart, MessageCircle, User, Calendar } from 'lucide-react';
+import { X, Heart, MessageCircle, Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { likeAPI } from '../../services/api';
 import { useAuthStore } from '../../store/authStore';
 import { getImageUrl } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 const ImageModal = ({ isOpen, onClose, post, onLike }) => {
+  const { t } = useTranslation();
   const { isAuthenticated } = useAuthStore();
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(post?.likes?.length || 0);
@@ -64,7 +66,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
-              className="max-w-7xl w-full max-h-[90vh] flex flex-col md:flex-row gap-4 bg-gray-900 rounded-2xl overflow-hidden"
+              className="max-w-7xl w-full max-h-[90vh] flex flex-col md:flex-row gap-4 bg-dark-900 rounded-2xl overflow-hidden"
             >
               <div className="flex-1 flex items-center justify-center bg-black">
                 <img
@@ -77,7 +79,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
                 />
               </div>
 
-              <div className="w-full md:w-96 flex flex-col bg-gray-900 text-white">
+              <div className="w-full md:w-96 flex flex-col bg-dark-900 text-white">
                 <div className="p-6 border-b border-gray-800">
                   <div className="flex items-center gap-3 mb-4">
                     <img
@@ -134,7 +136,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
                 </div>
 
                 <div className="flex-1 overflow-y-auto p-6">
-                  <h3 className="font-semibold mb-4">Commentaires</h3>
+                  <h3 className="font-semibold mb-4">{t('common.comments')}</h3>
                   {post.comments && post.comments.length > 0 ? (
                     <div className="space-y-4">
                       {post.comments.map((comment) => (
@@ -163,7 +165,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
                     </div>
                   ) : (
                     <p className="text-gray-500 text-center py-8">
-                      Aucun commentaire pour le moment
+                      {t('common.noComments')}
                     </p>
                   )}
                 </div>

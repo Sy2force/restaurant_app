@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Upload, X, Tag, Image as ImageIcon, Sparkles, ChefHat, Plus } from 'lucide-react';
+import { Upload, X, Image as ImageIcon, Sparkles, ChefHat, Plus } from 'lucide-react';
 import { postAPI } from '../services/api';
 import { useTranslation } from 'react-i18next';
 import Button from '../components/UI/Button';
@@ -12,24 +12,7 @@ import { getImageUrl } from '../utils/helpers';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-
-const SUGGESTED_TAGS = [
-  'Shabbat',
-  'Vegan',
-  'Grill',
-  'Kasher',
-  'Dessert',
-  'Traditionnel',
-  'Moderne',
-  'Fêtes',
-  'Pâtisserie',
-  'Street Food',
-  'Petit-déjeuner',
-  'Déjeuner',
-  'Dîner',
-  'Apéritif',
-  'Boisson',
-];
+import { SUGGESTED_TAGS } from '../data/constants';
 
 const PostCreate = () => {
   const { t } = useTranslation();
@@ -45,7 +28,7 @@ const PostCreate = () => {
     description: yup
       .string()
       .required(t('dashboard.forms.errors.required'))
-      .max(500, 'Max 500 caractères'),
+      .max(500, t('common.maxChars')),
   });
 
   const {
@@ -68,7 +51,7 @@ const PostCreate = () => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
-        setServerError("L'image ne doit pas dépasser 5MB");
+        setServerError(t('dashboard.forms.errors.imageSize'));
         return;
       }
 
@@ -105,7 +88,7 @@ const PostCreate = () => {
 
   const onSubmit = async (data) => {
     if (!imageFile) {
-      setServerError('Veuillez sélectionner une image');
+      setServerError(t('common.selectImage'));
       return;
     }
 
@@ -129,12 +112,12 @@ const PostCreate = () => {
 
       navigate('/explore');
     } catch (error) {
-      setServerError(error.response?.data?.error || 'Erreur lors de la création du post');
+      setServerError(error.response?.data?.error || t('common.errorCreate'));
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

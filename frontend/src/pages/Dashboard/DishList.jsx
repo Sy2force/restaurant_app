@@ -18,6 +18,7 @@ import Button from '../../components/UI/Button';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import DashboardMenu from '../../components/UI/DashboardMenu';
 import { getImageUrl } from '../../utils/helpers';
+import { mockMyDishes, mockMyRestaurants } from '../../data/mockBusinessStats';
 
 const DishList = () => {
   const { t } = useTranslation();
@@ -54,8 +55,9 @@ const DishList = () => {
       setDishes(myDishes);
     } catch (error) {
       console.error('Error fetching dish data', error);
-      setRestaurants([]);
-      setDishes([]);
+      // Mock fallback
+      setRestaurants(mockMyRestaurants);
+      setDishes(mockMyDishes);
     } finally {
       setLoading(false);
     }
@@ -86,7 +88,7 @@ const DishList = () => {
   if (loading) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -152,7 +154,7 @@ const DishList = () => {
                     onChange={(e) => setSelectedRestaurant(e.target.value)}
                     className="w-full px-3 py-2.5 rounded-xl border border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all text-sm"
                   >
-                    <option value="all">Tous les restaurants</option>
+                    <option value="all">{t('dashboard.allRestaurants')}</option>
                     {restaurants.map((restaurant) => (
                       <option key={restaurant._id} value={restaurant._id}>
                         {restaurant.name}

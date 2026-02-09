@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
@@ -87,9 +87,9 @@ const DishForm = () => {
     if (isEdit) {
       fetchDish();
     }
-  }, [id]);
+  }, [id, isEdit, fetchRestaurants, fetchDish]);
 
-  const fetchRestaurants = async () => {
+  const fetchRestaurants = useCallback(async () => {
     try {
       try {
         const response = await restaurantAPI.getMyRestaurants();
@@ -106,9 +106,9 @@ const DishForm = () => {
     } catch (error) {
       // Error loading restaurants
     }
-  };
+  }, [setValue]);
 
-  const fetchDish = async () => {
+  const fetchDish = useCallback(async () => {
     try {
       setLoadingData(true);
       try {
@@ -135,20 +135,20 @@ const DishForm = () => {
           setImagePreview(dish.image);
         }
       } catch (apiError) {
-        setServerError('Erreur lors du chargement du plat');
+        setServerError(t('dashboard.forms.errors.load'));
       }
     } catch (error) {
-      setServerError('Erreur lors du chargement du plat');
+      setServerError(t('dashboard.forms.errors.load'));
     } finally {
       setLoadingData(false);
     }
-  };
+  }, [id, setValue, t]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
-        setServerError("L'image ne doit pas dépasser 5MB");
+        setServerError(t('dashboard.forms.errors.imageSize'));
         return;
       }
 
@@ -205,7 +205,7 @@ const DishForm = () => {
   if (loadingData) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -274,7 +274,7 @@ const DishForm = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Input
                     label={t('dashboard.forms.name')}
-                    placeholder="Ex: Shakshuka Royale"
+                    placeholder={t('dashboard.forms.placeholders.dishName')}
                     error={errors.name?.message}
                     {...register('name')}
                     required
@@ -295,7 +295,7 @@ const DishForm = () => {
                 <Textarea
                   label={t('dashboard.forms.description')}
                   rows={4}
-                  placeholder="Décrivez les saveurs et les ingrédients..."
+                  placeholder={t('dashboard.forms.placeholders.dishDesc')}
                   error={errors.description?.message}
                   {...register('description')}
                   required
@@ -496,7 +496,7 @@ const DishForm = () => {
                     <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                       {t('dashboard.forms.upload')}
                     </p>
-                    <p className="text-xs text-gray-400 mt-1">Max 5MB (PNG, JPG)</p>
+                    <p className="text-xs text-gray-400 mt-1">{t('dashboard.forms.imageHelp')}</p>
                     <input
                       type="file"
                       className="hidden"

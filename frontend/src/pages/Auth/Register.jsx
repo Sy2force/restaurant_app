@@ -82,22 +82,16 @@ const Register = () => {
             <div className="w-16 h-16 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-sm border border-gold-500/30 ml-auto">
               <ChefHat className="w-10 h-10 text-gold-400" />
             </div>
-            <h1 className="text-5xl font-display font-bold mb-6 leading-tight">
-              Rejoignez l'Élite <br />
-              <span className="text-gold-400">Gastronomique</span>
-            </h1>
+            <h1
+              className="text-5xl font-display font-bold mb-6 leading-tight"
+              dangerouslySetInnerHTML={{ __html: t('auth.registerPage.heroTitle') }}
+            />
             <p className="text-xl text-gray-200 max-w-lg ml-auto leading-relaxed">
-              Créez votre compte pour partager vos recettes, découvrir des restaurants d'exception
-              et participer à notre communauté exclusive.
+              {t('auth.registerPage.heroDesc')}
             </p>
 
             <div className="mt-12 space-y-4">
-              {[
-                'Accès aux recettes exclusives',
-                'Sauvegardez vos favoris',
-                'Partagez vos créations',
-                'Notes et avis vérifiés',
-              ].map((item, index) => (
+              {t('auth.registerPage.benefits', { returnObjects: true }).map((item, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, x: 20 }}
@@ -146,7 +140,7 @@ const Register = () => {
             <Input
               label={t('auth.name')}
               icon={User}
-              placeholder="Votre nom complet"
+              placeholder={t('auth.placeholders.name')}
               error={errors.name?.message}
               {...register('name')}
             />
@@ -155,7 +149,7 @@ const Register = () => {
               label={t('auth.email')}
               type="email"
               icon={Mail}
-              placeholder="votre@email.com"
+              placeholder={t('auth.placeholders.email')}
               error={errors.email?.message}
               {...register('email')}
             />

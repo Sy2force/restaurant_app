@@ -19,6 +19,7 @@ import Button from '../../components/UI/Button';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import DashboardMenu from '../../components/UI/DashboardMenu';
 import { getImageUrl } from '../../utils/helpers';
+import { mockMyRecipes } from '../../data/mockBusinessStats';
 
 const RecipeList = () => {
   const { t } = useTranslation();
@@ -44,7 +45,31 @@ const RecipeList = () => {
       }
     } catch (error) {
       console.error('Error fetching recipes', error);
-      setRecipes([]);
+      // Mock fallback
+      setRecipes([
+        {
+          _id: '1',
+          title: 'Challah du Shabbat',
+          description: 'Pain tressé traditionnel...',
+          image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2942',
+          prepTime: 45,
+          cookTime: 35,
+          servings: 8,
+          difficulty: 'moyen',
+          likes: ['1', '2', '3'],
+        },
+        {
+          _id: '2',
+          title: 'Couscous Israélien',
+          description: 'Accompagnement rapide et délicieux.',
+          image: 'https://images.unsplash.com/photo-1644365319888-59c44510b656?q=80&w=2864',
+          prepTime: 10,
+          cookTime: 15,
+          servings: 4,
+          difficulty: 'facile',
+          likes: ['1', '2'],
+        },
+      ]);
     } finally {
       setLoading(false);
     }
@@ -72,7 +97,7 @@ const RecipeList = () => {
   if (loading) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

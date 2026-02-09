@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
-import { Filter, X, SlidersHorizontal } from 'lucide-react';
+import { X, SlidersHorizontal } from 'lucide-react';
 import { useState } from 'react';
-import { CITIES, CACHEROUT, CATEGORIES, SEASONS, PRICE_RANGES } from '../../utils/constants';
+import { useTranslation } from 'react-i18next';
+import { CITIES, CACHEROUT, CATEGORIES, SEASONS } from '../../utils/constants';
 
 const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount }) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(true);
 
   return (
@@ -19,7 +21,7 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
             className="flex items-center gap-2 text-gray-900 dark:text-white font-semibold"
           >
             <SlidersHorizontal className="w-5 h-5" />
-            Filtres
+            {t('filters.title')}
             {activeCount > 0 && (
               <span className="px-2 py-0.5 bg-gold-500 text-white rounded-full text-xs">
                 {activeCount}
@@ -32,7 +34,7 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
               className="text-sm text-gold-600 hover:text-gold-700 dark:text-gold-400 flex items-center gap-1"
             >
               <X className="w-4 h-4" />
-              Tout effacer
+              {t('filters.clearAll')}
             </button>
           )}
         </div>
@@ -46,14 +48,14 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
           >
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Ville
+                {t('filters.city')}
               </label>
               <select
                 value={filters.city || ''}
                 onChange={(e) => onFilterChange('city', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
-                <option value="">Toutes</option>
+                <option value="">{t('filters.all')}</option>
                 {CITIES.map((city) => (
                   <option key={city.value} value={city.value}>
                     {city.label}
@@ -64,14 +66,14 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Cacherout
+                {t('filters.cacherout')}
               </label>
               <select
                 value={filters.cacherout || ''}
                 onChange={(e) => onFilterChange('cacherout', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
-                <option value="">Tous</option>
+                <option value="">{t('filters.all')}</option>
                 {CACHEROUT.map((option) => (
                   <option key={option.value} value={option.value}>
                     {option.label}
@@ -82,14 +84,14 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Catégorie
+                {t('filters.category')}
               </label>
               <select
                 value={filters.category || ''}
                 onChange={(e) => onFilterChange('category', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
-                <option value="">Toutes</option>
+                <option value="">{t('filters.all')}</option>
                 {CATEGORIES.map((cat) => (
                   <option key={cat.value} value={cat.value}>
                     {cat.label}
@@ -100,14 +102,14 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Saison
+                {t('filters.season')}
               </label>
               <select
                 value={filters.season || ''}
                 onChange={(e) => onFilterChange('season', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
-                <option value="">Toutes</option>
+                <option value="">{t('filters.all')}</option>
                 {SEASONS.map((season) => (
                   <option key={season.value} value={season.value}>
                     {season.label}
@@ -118,17 +120,17 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                Trier par
+                {t('filters.sortBy')}
               </label>
               <select
                 value={filters.sort || 'popular'}
                 onChange={(e) => onFilterChange('sort', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
-                <option value="popular">Popularité</option>
-                <option value="recent">Plus récent</option>
-                <option value="price-asc">Prix croissant</option>
-                <option value="price-desc">Prix décroissant</option>
+                <option value="popular">{t('filters.sort.popular')}</option>
+                <option value="recent">{t('filters.sort.recent')}</option>
+                <option value="price-asc">{t('filters.sort.priceAsc')}</option>
+                <option value="price-desc">{t('filters.sort.priceDesc')}</option>
               </select>
             </div>
           </motion.div>

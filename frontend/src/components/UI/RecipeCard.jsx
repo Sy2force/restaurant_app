@@ -64,7 +64,7 @@ const RecipeCard = ({ recipe, onLike }) => {
           </div>
 
           <div className="p-4">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-gold-500 transition-colors mb-2">
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-gold-500 transition-colors mb-2 line-clamp-1">
               {recipe.title}
             </h3>
 

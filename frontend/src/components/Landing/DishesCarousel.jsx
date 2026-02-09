@@ -10,60 +10,18 @@ import 'swiper/css/effect-coverflow';
 
 import { Link } from 'react-router-dom';
 import { getImageUrl } from '../../utils/helpers';
-
-const featuredDishes = [
-  {
-    id: 1,
-    name: 'Shakshuka Traditionnelle',
-    image: 'https://images.unsplash.com/photo-1589302168068-964664d93dc0?q=80&w=2787',
-    chef: 'Chef David Cohen',
-    city: 'Tel Aviv',
-    mongoId: '1', // Mapped to mock ID
-  },
-  {
-    id: 2,
-    name: 'Hummus Maison',
-    image: 'https://images.unsplash.com/photo-1595855759920-86582396756a?q=80&w=2787',
-    chef: 'Chef Sarah Levi',
-    city: 'Jérusalem',
-    mongoId: '3',
-  },
-  {
-    id: 3,
-    name: 'Falafel Croustillant',
-    image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
-    chef: 'Chef Michael Azoulay',
-    city: 'Haïfa',
-    mongoId: '4',
-  },
-  {
-    id: 4,
-    name: 'Sabich Authentique',
-    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
-    chef: 'Chef Rachel Ben-David',
-    city: 'Tel Aviv',
-    mongoId: '2',
-  },
-  {
-    id: 5,
-    name: 'Shawarma Agneau',
-    image: 'https://images.unsplash.com/photo-1529193591176-1da79027d382?q=80&w=2940',
-    chef: 'Chef Eyal Shani',
-    city: 'Tel Aviv',
-    mongoId: '6',
-  },
-];
+import { featuredDishes } from '../../data/featuredDishes';
 
 const DishesCarousel = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-20 bg-[#1a1a1a] relative overflow-hidden">
+    <section className="py-20 bg-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: 'radial-gradient(circle, #D4AF37 1px, transparent 1px)',
+            backgroundImage: 'radial-gradient(circle, var(--color-gold-500) 1px, transparent 1px)',
             backgroundSize: '50px 50px',
           }}
         />
@@ -167,7 +125,7 @@ const DishesCarousel = () => {
         </motion.div>
       </div>
 
-      <style jsx>{`
+      <style>{`
         .dishes-carousel .swiper-button-next,
         .dishes-carousel .swiper-button-prev {
           color: #d4af37;

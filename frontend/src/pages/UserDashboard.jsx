@@ -21,6 +21,7 @@ import Modal from '../components/UI/Modal';
 import Input from '../components/Forms/Input';
 import { Link, useNavigate } from 'react-router-dom';
 import { getImageUrl } from '../utils/helpers';
+import { mockDashboardStats } from '../data/mockDashboardStats';
 
 const UserDashboard = () => {
   const { t } = useTranslation();
@@ -60,6 +61,8 @@ const UserDashboard = () => {
       }
     } catch (error) {
       console.error('Error fetching dashboard stats', error);
+      // Mock fallback
+      setStats(mockDashboardStats);
     } finally {
       setLoading(false);
     }
@@ -146,13 +149,13 @@ const UserDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       {/* Header Image */}
       <div className="absolute top-0 left-0 right-0 h-64 bg-olive-900 overflow-hidden z-0">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940')] bg-cover bg-center" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fcfaf7] dark:to-gray-900" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cream-50 dark:to-dark-900" />
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -186,7 +189,7 @@ const UserDashboard = () => {
 
               <div className="flex-1 text-center md:text-left">
                 <div className="flex flex-col md:flex-row md:items-center gap-3 mb-2 justify-center md:justify-start">
-                  <h1 className="text-3xl font-display font-bold text-gray-900 dark:text-white">
+                  <h1 className="text-3xl font-display font-bold text-gray-900 dark:text-white break-words">
                     {user?.firstName} {user?.lastName}
                   </h1>
                   {user?.role === 'business' && (

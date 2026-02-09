@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../UI/Button';
+import { getImageUrl } from '../../utils/helpers';
 
 const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -51,7 +52,7 @@ const Navbar = () => {
     { to: '/dishes', label: t('nav.dishes') },
     { to: '/restaurants', label: t('nav.restaurants') },
     { to: '/recipe-books', label: t('nav.recipeBooks') },
-    { to: '/explore', label: 'Explorer' },
+    { to: '/explore', label: t('nav.explore') },
   ];
 
   const isHome = location.pathname === '/';
@@ -121,7 +122,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute end-0 top-full mt-4 w-40 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden"
+                    className="absolute end-0 top-full mt-4 w-40 bg-dark-900 border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden"
                   >
                     {[
                       { code: 'fr', label: 'Français' },
@@ -180,7 +181,7 @@ const Navbar = () => {
                       initial={{ opacity: 0, y: 10, scale: 0.95 }}
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                      className="absolute end-0 top-full mt-4 w-60 bg-[#1a1a1a] border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden"
+                      className="absolute end-0 top-full mt-4 w-60 bg-dark-900 border border-white/10 rounded-xl shadow-2xl py-2 overflow-hidden"
                     >
                       <div className="px-4 py-3 border-b border-white/5 mb-2">
                         <p className="text-sm font-medium text-white">{user?.name}</p>
@@ -196,18 +197,18 @@ const Navbar = () => {
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <Shield className="w-4 h-4 text-gold-500" />
-                              Admin panel
+                              {t('nav.adminPanel')}
                             </Link>
                             <Link
                               to="/admin/users"
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <User className="w-4 h-4 text-gold-500" />
-                              Users management
+                              {t('nav.usersManagement')}
                             </Link>
                             <div className="px-4 py-2 text-sm text-gray-400 flex items-center gap-3">
                               <LayoutDashboard className="w-4 h-4 text-gold-500" />
-                              Stats
+                              {t('nav.stats')}
                             </div>
                           </>
                         )}
@@ -220,21 +221,21 @@ const Navbar = () => {
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <LayoutDashboard className="w-4 h-4 text-gold-500" />
-                              Dashboard
+                              {t('nav.dashboard')}
                             </Link>
                             <Link
                               to="/dashboard/cards"
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <Heart className="w-4 h-4 text-gold-500" />
-                              My Cards
+                              {t('nav.myCards')}
                             </Link>
                             <Link
                               to="/dashboard/cards/create"
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <LayoutDashboard className="w-4 h-4 text-gold-500" />
-                              Create Card
+                              {t('nav.createCard')}
                             </Link>
                           </>
                         )}
@@ -247,21 +248,21 @@ const Navbar = () => {
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <Globe className="w-4 h-4 text-gold-500" />
-                              Explore
+                              {t('nav.explore')}
                             </Link>
                             <Link
                               to="/favorites"
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <Heart className="w-4 h-4 text-gold-500" />
-                              My Cards / Favorites
+                              {t('nav.favorites')}
                             </Link>
                             <Link
                               to="/profile"
                               className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
                             >
                               <User className="w-4 h-4 text-gold-500" />
-                              Profile
+                              {t('nav.profile')}
                             </Link>
                           </>
                         )}
@@ -314,7 +315,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-[#1a1a1a] border-t border-white/10 overflow-hidden"
+            className="md:hidden bg-dark-900 border-t border-white/10 overflow-hidden"
           >
             <div className="container mx-auto px-6 py-6 space-y-4">
               {navLinks.map((link) => (

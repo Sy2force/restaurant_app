@@ -26,7 +26,7 @@ const PremiumBookCard = ({ book }) => {
           onHoverEnd={() => setIsFlipped(false)}
         >
           <div className="backface-hidden">
-            <div className="bg-gradient-to-br from-cream-50 to-white dark:from-gray-800 dark:to-gray-900 rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-500/20 hover:border-gold-500/50 transition-all duration-500">
+            <div className="bg-gradient-to-br from-cream-50 to-white dark:from-gray-800 dark:to-dark-900 rounded-2xl overflow-hidden shadow-2xl border-4 border-gold-500/20 hover:border-gold-500/50 transition-all duration-500">
               <div className="relative h-96 overflow-hidden">
                 <img
                   src={getImageUrl(book.coverImage)}
@@ -44,7 +44,7 @@ const PremiumBookCard = ({ book }) => {
                 </div>
 
                 <div className="absolute bottom-0 start-0 end-0 p-6">
-                  <h3 className="text-3xl font-display font-bold text-white mb-2">{book.title}</h3>
+                  <h3 className="text-3xl font-display font-bold text-white mb-2 line-clamp-1">{book.title}</h3>
                   <p className="text-cream-100 text-sm mb-3 line-clamp-2">{book.description}</p>
                   <div className="flex items-center gap-4 text-cream-200 text-sm">
                     <span className="flex items-center gap-1">

@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Lock, ArrowRight, CheckCircle, ChefHat } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
 import Button from '../../components/UI/Button';
 import Input from '../../components/Forms/Input';
 import { authAPI } from '../../services/api';
 import { getImageUrl } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
 
 const ResetPassword = () => {
   const { t } = useTranslation();
@@ -27,12 +27,12 @@ const ResetPassword = () => {
     setError('');
 
     if (formData.password !== formData.confirmPassword) {
-      setError('Les mots de passe ne correspondent pas');
+      setError(t('auth.resetPassword.errors.mismatch'));
       return;
     }
 
     if (!token) {
-      setError('Jeton de réinitialisation manquant ou invalide');
+      setError(t('auth.resetPassword.errors.noToken'));
       return;
     }
 
@@ -45,7 +45,7 @@ const ResetPassword = () => {
         navigate('/login');
       }, 3000);
     } catch (err) {
-      setError(err.response?.data?.message || 'Erreur lors de la réinitialisation du mot de passe');
+      setError(err.response?.data?.message || t('auth.resetPassword.errors.generic'));
     } finally {
       setLoading(false);
     }
@@ -78,13 +78,12 @@ const ResetPassword = () => {
             <div className="w-16 h-16 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-sm border border-gold-500/30">
               <ChefHat className="w-10 h-10 text-gold-400" />
             </div>
-            <h1 className="text-5xl font-display font-bold mb-6 leading-tight">
-              Nouveau <br />
-              <span className="text-gold-400">Départ</span>
-            </h1>
+            <h1 
+              className="text-5xl font-display font-bold mb-6 leading-tight"
+              dangerouslySetInnerHTML={{ __html: t('auth.resetPassword.heroTitle') }}
+            />
             <p className="text-xl text-gray-200 max-w-lg leading-relaxed">
-              Sécurisez votre compte avec un nouveau mot de passe et retrouvez vos recettes
-              préférées.
+              {t('auth.resetPassword.heroDesc')}
             </p>
           </motion.div>
         </div>
@@ -109,24 +108,23 @@ const ResetPassword = () => {
                 <CheckCircle className="w-10 h-10" />
               </motion.div>
               <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">
-                Mot de passe modifié !
+                {t('auth.resetPassword.successTitle')}
               </h2>
               <p className="text-gray-600 dark:text-gray-300 mb-8">
-                Votre mot de passe a été mis à jour avec succès. Vous allez être redirigé vers la
-                page de connexion.
+                {t('auth.resetPassword.successDesc')}
               </p>
               <Button variant="primary" fullWidth onClick={() => navigate('/login')}>
-                Se connecter maintenant
+                {t('auth.resetPassword.loginNow')}
               </Button>
             </div>
           ) : (
             <>
               <div className="text-center mb-10">
                 <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
-                  Réinitialiser le mot de passe
+                  {t('auth.resetPassword.title')}
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Choisissez un mot de passe fort pour votre compte
+                  {t('auth.resetPassword.subtitle')}
                 </p>
               </div>
 
@@ -138,7 +136,7 @@ const ResetPassword = () => {
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <Input
-                  label="Nouveau mot de passe"
+                  label={t('auth.resetPassword.newPassword')}
                   type="password"
                   icon={Lock}
                   required
@@ -148,7 +146,7 @@ const ResetPassword = () => {
                 />
 
                 <Input
-                  label="Confirmer le mot de passe"
+                  label={t('auth.resetPassword.confirmPassword')}
                   type="password"
                   icon={Lock}
                   required
@@ -167,11 +165,11 @@ const ResetPassword = () => {
                   {loading ? (
                     <div className="flex items-center justify-center">
                       <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
-                      Mise à jour...
+                      {t('auth.resetPassword.updating')}
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
-                      Réinitialiser
+                      {t('auth.resetPassword.submit')}
                       <ArrowRight className="w-5 h-5 ml-2" />
                     </div>
                   )}

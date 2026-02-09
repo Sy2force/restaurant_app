@@ -6,76 +6,14 @@ import { recipeBookAPI } from '../services/api';
 import PremiumBookCard from '../components/RecipeBooks/PremiumBookCard';
 import SkeletonCard from '../components/UI/SkeletonCard';
 
+import { mockRecipeBooks } from '../data/mockRecipeBooks';
+
 const RecipeBooks = () => {
   const { t } = useTranslation();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
-
-  // Mock data for development if API fails or is empty
-  const mockBooks = [
-    {
-      _id: '1',
-      title: 'Les Secrets de Jérusalem',
-      subtitle: 'Voyage culinaire dans la ville sainte',
-      description:
-        'Une plongée fascinante dans les ruelles de la vieille ville, à la découverte des saveurs millénaires qui font vibrer Jérusalem.',
-      author: { firstName: 'Yotam', lastName: 'Ottolenghi' },
-      coverImage: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2788',
-      theme: 'Traditionnel',
-      recipeCount: 120,
-      rating: 4.9,
-      price: '29.99',
-      likes: ['a', 'b'],
-      views: 1250,
-    },
-    {
-      _id: '2',
-      title: 'Tel Aviv Modern',
-      subtitle: 'La nouvelle cuisine israélienne',
-      description:
-        'Explorez la scène culinaire vibrante de Tel Aviv, où tradition et innovation se rencontrent pour créer des plats uniques.',
-      author: { firstName: 'Eyal', lastName: 'Shani' },
-      coverImage: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2940',
-      theme: 'Moderne',
-      recipeCount: 85,
-      rating: 4.7,
-      price: '24.99',
-      likes: ['c'],
-      views: 980,
-    },
-    {
-      _id: '3',
-      title: 'Pâtisseries du Shuk',
-      subtitle: 'Douceurs et desserts',
-      description:
-        "Les meilleures recettes de pâtisseries inspirées des marchés d'Israël. Babka, Rugelach et autres délices sucrés.",
-      author: { firstName: 'Karin', lastName: 'Goren' },
-      coverImage: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=2889',
-      theme: 'Desserts',
-      recipeCount: 60,
-      rating: 4.8,
-      price: '19.99',
-      likes: ['d', 'e', 'f'],
-      views: 1500,
-    },
-    {
-      _id: '4',
-      title: 'Vegan Israeli Kitchen',
-      subtitle: 'Plats végétaux gourmands',
-      description:
-        "Découvrez comment la cuisine israélienne se prête merveilleusement bien à l'alimentation végétale, sans compromis sur le goût.",
-      author: { firstName: 'Ori', lastName: 'Shavit' },
-      coverImage: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2940',
-      theme: 'Végétalien',
-      recipeCount: 90,
-      rating: 4.6,
-      price: '27.50',
-      likes: ['g'],
-      views: 850,
-    },
-  ];
 
   useEffect(() => {
     const fetchBooks = async () => {
@@ -95,7 +33,7 @@ const RecipeBooks = () => {
 
         // Mock data fallback
         setTimeout(() => {
-          setBooks(mockBooks);
+          setBooks(mockRecipeBooks);
           setLoading(false);
         }, 1000);
       } catch (error) {
@@ -118,7 +56,7 @@ const RecipeBooks = () => {
   const categories = ['All', 'Traditionnel', 'Moderne', 'Desserts', 'Végétalien'];
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900">
       {/* Header Section */}
       <div className="relative bg-olive-700 pt-32 pb-20 overflow-hidden">
         <div className="absolute inset-0 opacity-10">

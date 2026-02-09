@@ -1,20 +1,11 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Shield,
-  Users,
-  UtensilsCrossed,
-  BookOpen,
-  AlertCircle,
-  CheckCircle,
-  BarChart3,
-  Search,
-  Filter,
-} from 'lucide-react';
+import { Shield, Users, UtensilsCrossed, BookOpen, AlertCircle, CheckCircle } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/UI/Button';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { adminAPI } from '../../services/api';
+import { mockAdminStats, mockAdminUsers, mockPendingRestaurants } from '../../data/mockAdminData';
 
 const AdminPanel = () => {
   const { t } = useTranslation();
@@ -42,6 +33,8 @@ const AdminPanel = () => {
       setStats(response.data);
     } catch (error) {
       console.error('Error fetching admin stats', error);
+      // Mock stats
+      setStats(mockAdminStats);
     } finally {
       setLoading(false);
     }
@@ -53,6 +46,32 @@ const AdminPanel = () => {
       setUsers(response.data.users);
     } catch (error) {
       console.error('Error fetching users', error);
+      // Mock users
+      setUsers([
+        {
+          _id: 'u1',
+          name: 'Sarah Cohen',
+          email: 'sarah@example.com',
+          role: 'user',
+          createdAt: new Date().toISOString(),
+        },
+        {
+          _id: 'u2',
+          name: 'David Levi',
+          email: 'david@example.com',
+          role: 'business',
+          isBusiness: true,
+          createdAt: new Date(Date.now() - 86400000).toISOString(),
+        },
+        {
+          _id: 'u3',
+          name: 'Admin User',
+          email: 'admin@flavorsofisrael.com',
+          role: 'admin',
+          isAdmin: true,
+          createdAt: new Date(Date.now() - 100000000).toISOString(),
+        },
+      ]);
     }
   };
 
@@ -62,6 +81,8 @@ const AdminPanel = () => {
       setPendingRestaurants(response.data);
     } catch (error) {
       console.error('Error fetching pending restaurants', error);
+      // Mock pending restaurants
+      setPendingRestaurants(mockPendingRestaurants);
     }
   };
 
@@ -99,7 +120,7 @@ const AdminPanel = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -267,7 +288,11 @@ const AdminPanel = () => {
                                     : 'bg-blue-100 text-blue-600'
                               }`}
                             >
-                              {u.isAdmin ? 'Admin' : u.isBusiness ? 'Business' : 'User'}
+                              {u.isAdmin
+                                ? t('admin.roles.admin')
+                                : u.isBusiness
+                                  ? t('admin.roles.business')
+                                  : t('admin.roles.user')}
                             </span>
                           </td>
                           <td className="py-4 text-sm text-gray-500">
@@ -283,7 +308,7 @@ const AdminPanel = () => {
                     ) : (
                       <tr>
                         <td colSpan="5" className="py-8 text-center text-gray-500">
-                          Aucun utilisateur trouvé
+                          {t('admin.noUsersFound')}
                         </td>
                       </tr>
                     )}
@@ -318,8 +343,10 @@ const AdminPanel = () => {
                         <div>
                           <h4 className="font-bold text-gray-900 dark:text-white">{item.name}</h4>
                           <p className="text-sm text-gray-500">
-                            Soumis par {item.ownerId?.name || 'Inconnu'} •{' '}
-                            {new Date(item.createdAt).toLocaleDateString()}
+                            {t('admin.mock.submittedBy', {
+                              name: item.ownerId?.name || t('admin.unknownUser'),
+                              time: new Date(item.createdAt).toLocaleDateString(),
+                            })}
                           </p>
                         </div>
                       </div>
@@ -344,7 +371,9 @@ const AdminPanel = () => {
                     </div>
                   ))
                 ) : (
-                  <div className="text-center py-8 text-gray-500">Aucun restaurant en attente</div>
+                  <div className="text-center py-8 text-gray-500">
+                    {t('admin.noPendingRestaurants')}
+                  </div>
                 )}
               </div>
             </div>
@@ -362,7 +391,7 @@ const AdminPanel = () => {
                 <AlertCircle className="w-5 h-5 text-red-500" />
                 {t('admin.reports')}
               </h3>
-              <p className="text-gray-500 text-sm text-center py-8">Aucun signalement</p>
+              <p className="text-gray-500 text-sm text-center py-8">{t('admin.noReports')}</p>
             </div>
 
             <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 p-6">
@@ -370,7 +399,7 @@ const AdminPanel = () => {
                 <CheckCircle className="w-5 h-5 text-green-500" />
                 {t('admin.validations')}
               </h3>
-              <p className="text-gray-500 text-sm text-center py-8">Historique vide</p>
+              <p className="text-gray-500 text-sm text-center py-8">{t('admin.emptyHistory')}</p>
             </div>
           </motion.div>
         )}

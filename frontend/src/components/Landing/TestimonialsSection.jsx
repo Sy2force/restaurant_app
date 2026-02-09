@@ -2,39 +2,13 @@ import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getImageUrl } from '../../utils/helpers';
-
-const testimonials = [
-  {
-    id: 1,
-    name: 'Sarah Cohen',
-    role: 'Chef Pâtissière',
-    avatar: 'https://i.pravatar.cc/150?img=1',
-    text: "Flavors of Israel m'a permis de partager mes recettes familiales avec le monde entier. La communauté est incroyable !",
-    rating: 5,
-  },
-  {
-    id: 2,
-    name: 'David Levi',
-    role: 'Restaurateur',
-    avatar: 'https://i.pravatar.cc/150?img=12',
-    text: 'Grâce à cette plateforme, mon restaurant a gagné en visibilité. Les outils de gestion sont parfaits.',
-    rating: 5,
-  },
-  {
-    id: 3,
-    name: 'Rachel Mizrahi',
-    role: 'Passionnée de Cuisine',
-    avatar: 'https://i.pravatar.cc/150?img=5',
-    text: "Je découvre chaque jour de nouvelles recettes traditionnelles. C'est une véritable mine d'or culinaire !",
-    rating: 5,
-  },
-];
+import { testimonials } from '../../data/mockTestimonials';
 
 const TestimonialsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-cream-100 dark:bg-gray-900 relative">
+    <section className="py-24 bg-cream-100 dark:bg-dark-900 relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

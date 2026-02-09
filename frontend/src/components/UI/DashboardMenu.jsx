@@ -16,7 +16,7 @@ const DashboardMenu = () => {
 
   const menuItems = [
     { path: '/dashboard', icon: LayoutDashboard, label: t('dashboardMenu.overview') },
-    { path: '/dashboard/cards', icon: Store, label: 'Mes Cartes' },
+    { path: '/dashboard/cards', icon: Store, label: t('dashboardMenu.myCards') },
     {
       path: '/dashboard/restaurants',
       icon: UtensilsCrossed,
@@ -46,7 +46,7 @@ const DashboardMenu = () => {
                 }`}
               >
                 <Icon className="w-5 h-5" />
-                <span className="font-medium">{item.label}</span>
+                <span className="font-medium truncate">{item.label}</span>
               </motion.div>
             </Link>
           );

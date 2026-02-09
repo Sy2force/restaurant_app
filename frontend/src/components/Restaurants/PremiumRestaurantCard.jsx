@@ -54,12 +54,12 @@ const PremiumRestaurantCard = ({ restaurant }) => {
             )}
 
             <div className="absolute bottom-0 start-0 end-0 p-6">
-              <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-gold-400 transition-colors">
+              <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-gold-400 transition-colors line-clamp-1">
                 {restaurant.name}
               </h3>
               <button
                 onClick={openMaps}
-                className="flex items-center gap-2 text-cream-100 hover:text-gold-400 transition-colors text-sm"
+                className="flex items-center gap-2 text-cream-100 hover:text-gold-400 transition-colors text-sm truncate max-w-full"
               >
                 <MapPin className="w-4 h-4" />
                 {restaurant.address?.city}, {restaurant.address?.street}
@@ -68,7 +68,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
             </div>
           </div>
 
-          <div className="p-6 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-gray-900">
+          <div className="p-6 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
               {restaurant.description}
             </p>

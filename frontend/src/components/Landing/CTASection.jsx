@@ -9,7 +9,7 @@ const CTASection = () => {
   const { isAuthenticated } = useAuthStore();
 
   return (
-    <section className="py-24 bg-gradient-to-br from-[#1a1a1a] via-gray-900 to-[#1a1a1a] relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-br from-dark-900 via-gray-900 to-dark-900 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <div
           className="absolute inset-0"

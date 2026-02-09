@@ -1,19 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Sparkles, ChefHat, ArrowRight, Play, Info } from 'lucide-react';
+import { ChefHat, Play, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from '../UI/Button';
 import { getImageUrl } from '../../utils/helpers';
-
-const HERO_IMAGES = [
-  'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2069',
-  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
-  'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
-  'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?q=80&w=2785',
-  'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
-];
+import { HERO_IMAGES } from '../../data/constants';
 
 const HeroLanding = () => {
   const { t } = useTranslation();
@@ -27,15 +20,8 @@ const HeroLanding = () => {
     return () => clearInterval(timer);
   }, []);
 
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth',
-    });
-  };
-
   return (
-    <div ref={ref} className="relative h-screen flex items-center overflow-hidden bg-black">
+    <div ref={ref} className="relative h-screen flex items-center overflow-hidden bg-dark-900">
       {/* Background Carousel */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -52,8 +38,8 @@ const HeroLanding = () => {
               backgroundImage: `url('${getImageUrl(HERO_IMAGES[currentImageIndex])}')`,
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-dark-900/80 via-dark-900/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-dark-900/40" />
         </motion.div>
       </AnimatePresence>
 
@@ -65,7 +51,7 @@ const HeroLanding = () => {
           className="max-w-3xl"
         >
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-12 h-12 rounded-full border border-gold-500/30 flex items-center justify-center bg-black/20 backdrop-blur-sm">
+            <div className="w-12 h-12 rounded-full border border-gold-500/30 flex items-center justify-center bg-dark-900/20 backdrop-blur-sm">
               <ChefHat className="w-6 h-6 text-gold-500" />
             </div>
             <span className="text-gold-400 font-display tracking-widest uppercase text-sm">
@@ -73,11 +59,8 @@ const HeroLanding = () => {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-display font-bold text-white mb-6 leading-none tracking-tight drop-shadow-lg">
-            Flavors of <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-200">
-              Israel
-            </span>
+          <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+            {t('landing.hero.title')}
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed font-light drop-shadow-md max-w-2xl">

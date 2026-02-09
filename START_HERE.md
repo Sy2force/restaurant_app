@@ -42,7 +42,7 @@ cp .env.example .env
 **Éditer le fichier `.env` :**
 
 ```bash
-PORT=3007
+PORT=5000
 MONGODB_URI=mongodb://localhost:27017/flavors-of-israel
 JWT_SECRET=votre_secret_jwt_super_securise_changez_moi_en_production
 JWT_EXPIRE=7d
@@ -61,7 +61,7 @@ NODE_ENV=development
 npm run dev
 ```
 
-✅ Le backend démarre sur **http://localhost:3007**
+✅ Le backend démarre sur **http://localhost:5000**
 
 ---
 

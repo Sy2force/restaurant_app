@@ -23,7 +23,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-[#1a1a1a] to-black text-cream-100 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-dark-900 to-black text-cream-100 overflow-hidden">
       <div className="absolute inset-0 opacity-5">
         <div
           className="absolute inset-0"
@@ -185,7 +185,7 @@ const Footer = () => {
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-gold-400" />
-                Tel Aviv, Israël
+                {t('footer.location')}
               </p>
             </div>
           </motion.div>

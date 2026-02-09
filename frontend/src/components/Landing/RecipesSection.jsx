@@ -3,33 +3,7 @@ import { Link } from 'react-router-dom';
 import { BookOpen, Clock, Users, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getImageUrl } from '../../utils/helpers';
-
-const popularRecipes = [
-  {
-    id: 1,
-    title: 'Challah du Shabbat',
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2942',
-    time: '2h30',
-    servings: 8,
-    difficulty: 'medium',
-  },
-  {
-    id: 2,
-    title: 'Couscous Israélien',
-    image: 'https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?q=80&w=2864',
-    time: '45min',
-    servings: 4,
-    difficulty: 'easy',
-  },
-  {
-    id: 3,
-    title: 'Baklava Maison',
-    image: 'https://images.unsplash.com/photo-1598110750624-207050c4f28c?q=80&w=2940',
-    time: '1h30',
-    servings: 12,
-    difficulty: 'hard',
-  },
-];
+import { popularRecipes } from '../../data/mockLandingData';
 
 const RecipesSection = () => {
   const { t } = useTranslation();
@@ -74,7 +48,7 @@ const RecipesSection = () => {
                         'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940';
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/80 via-dark-900/20 to-transparent" />
 
                   <div className="absolute top-4 end-4">
                     <span
@@ -101,7 +75,7 @@ const RecipesSection = () => {
                       </span>
                       <span className="flex items-center gap-1">
                         <Users className="w-4 h-4" />
-                        {recipe.servings} pers.
+                        {recipe.servings} {t('common.pers')}
                       </span>
                     </div>
                   </div>

@@ -89,7 +89,7 @@ const PublishSection = () => {
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 20px 40px rgba(212, 175, 55, 0.3)' }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-[#1a1a1a] hover:bg-gold-500 text-white text-xl font-semibold rounded-full shadow-2xl transition-all duration-300 flex items-center gap-3 mx-auto"
+              className="px-10 py-5 bg-dark-900 hover:bg-gold-500 text-white text-xl font-semibold rounded-full shadow-2xl transition-all duration-300 flex items-center gap-3 mx-auto"
             >
               <Share2 className="w-6 h-6" />
               {t('landing.publish.button')}
@@ -115,7 +115,7 @@ const PublishSection = () => {
                 'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940';
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-3xl flex items-end p-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-dark-900/60 to-transparent rounded-3xl flex items-end p-8">
             <p className="text-white text-2xl font-display italic">
               "{t('landing.publish.quote')}"
             </p>

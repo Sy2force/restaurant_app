@@ -1,0 +1,42 @@
+export const featuredDishes = [
+  {
+    id: 1,
+    name: 'Shakshuka Traditionnelle',
+    image: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
+    chef: 'Chef David Cohen',
+    city: 'Jaffa',
+    mongoId: '1',
+  },
+  {
+    id: 2,
+    name: 'Hummus Maison',
+    image: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
+    chef: 'Chef Sarah Levi',
+    city: 'Jaffa',
+    mongoId: '3',
+  },
+  {
+    id: 3,
+    name: 'Falafel Croustillant',
+    image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
+    chef: 'Chef Michael Azoulay',
+    city: 'Tel Aviv',
+    mongoId: '4',
+  },
+  {
+    id: 4,
+    name: 'Sabich Authentique',
+    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
+    chef: 'Chef Rachel Ben-David',
+    city: 'Tel Aviv',
+    mongoId: '2',
+  },
+  {
+    id: 5,
+    name: 'Shawarma Agneau',
+    image: 'https://images.unsplash.com/photo-1529193591176-1da79027d382?q=80&w=2940',
+    chef: 'Chef Eyal Shani',
+    city: 'Tel Aviv',
+    mongoId: '6',
+  },
+];

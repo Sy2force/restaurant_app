@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import {
@@ -17,18 +17,14 @@ import { authAPI } from '../../services/api';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import Button from '../../components/UI/Button';
 import DashboardMenu from '../../components/UI/DashboardMenu';
-import { getImageUrl } from '../../utils/helpers';
+import { mockBusinessStats } from '../../data/mockBusinessStats';
 
 const BusinessDashboard = () => {
   const { t } = useTranslation();
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    fetchStats();
-  }, []);
-
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       const response = await authAPI.getDashboardStats();
       if (response.data) {
@@ -36,10 +32,16 @@ const BusinessDashboard = () => {
       }
     } catch (e) {
       console.error('Error fetching dashboard stats', e);
+      // Mock fallback
+      setStats(mockBusinessStats);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   if (loading) return <LoadingSpinner fullScreen />;
 
@@ -77,11 +79,11 @@ const BusinessDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       {/* Header with Background */}
       <div className="absolute top-0 left-0 right-0 h-64 bg-olive-900 overflow-hidden z-0">
         <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#fcfaf7] dark:to-gray-900"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-cream-50 dark:to-dark-900"></div>
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
@@ -96,7 +98,7 @@ const BusinessDashboard = () => {
                 <BarChart3 className="w-3 h-3" />
                 {t('businessDashboard.space')}
               </div>
-              <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-2">
+              <h1 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white mb-2 break-words">
                 {t('businessDashboard.title')}
               </h1>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl">

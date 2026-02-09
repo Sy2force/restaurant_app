@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useAuthStore } from './store/authStore';
 import Layout from './components/Layout/Layout';
 import LandingPage from './pages/LandingPage';
 import Dishes from './pages/Dishes';
@@ -12,6 +11,7 @@ import RecipeDetail from './pages/RecipeDetail';
 import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import ForgotPassword from './pages/Auth/ForgotPassword';
+import ResetPassword from './pages/Auth/ResetPassword';
 import Profile from './pages/Profile';
 import Favorites from './pages/Favorites';
 import UserDashboard from './pages/UserDashboard';
@@ -52,6 +52,8 @@ function App() {
           <Route path="explore/:id" element={<ExploreDetail />} />
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />
+          <Route path="forgot-password" element={<ForgotPassword />} />
+          <Route path="reset-password" element={<ResetPassword />} />
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />
           <Route path="contact" element={<Contact />} />

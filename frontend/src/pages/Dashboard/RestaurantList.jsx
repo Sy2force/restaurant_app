@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { Plus, Edit2, Trash2, Eye, MapPin, Star, Heart, Store, Search, Filter } from 'lucide-react';
+import { Plus, Edit2, Trash2, Eye, MapPin, Star, Store, Search, Filter } from 'lucide-react';
 import { restaurantAPI } from '../../services/api';
 import { useTranslation } from 'react-i18next';
 import Button from '../../components/UI/Button';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import DashboardMenu from '../../components/UI/DashboardMenu';
 import { getImageUrl } from '../../utils/helpers';
+import { mockMyRestaurants } from '../../data/mockBusinessStats';
 
 const RestaurantList = () => {
   const { t } = useTranslation();
@@ -33,7 +34,8 @@ const RestaurantList = () => {
       }
     } catch (error) {
       console.error('Error fetching restaurants', error);
-      setRestaurants([]);
+      // Mock fallback
+      setRestaurants(mockMyRestaurants);
     } finally {
       setLoading(false);
     }
@@ -65,7 +67,7 @@ const RestaurantList = () => {
   if (loading) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}

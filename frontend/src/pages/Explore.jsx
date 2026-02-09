@@ -1,17 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import {
-  Plus,
-  Search,
-  Filter,
-  X,
-  Grid,
-  Heart,
-  Camera,
-  Compass,
-  Layers,
-  CreditCard,
-} from 'lucide-react';
+import { Search, Filter, X, Grid, Camera, Compass, Layers, CreditCard } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../store/authStore';
@@ -22,22 +11,11 @@ import ImageModal from '../components/UI/ImageModal';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Button from '../components/UI/Button';
 import PageWrapper from '../components/Layout/PageWrapper';
-
-const POPULAR_TAGS = [
-  'Shabbat',
-  'Vegan',
-  'Grill',
-  'Kasher',
-  'Dessert',
-  'Traditionnel',
-  'Moderne',
-  'Fêtes',
-  'Pâtisserie',
-  'Street Food',
-];
+import { POPULAR_TAGS } from '../data/constants';
+import { mockPosts } from '../data/mockPosts';
 
 const Explore = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { isAuthenticated } = useAuthStore();
   const [posts, setPosts] = useState([]);
   const [cards, setCards] = useState([]);
@@ -49,57 +27,7 @@ const Explore = () => {
   const [showFilters, setShowFilters] = useState(false);
   const [activeTab, setActiveTab] = useState('posts'); // 'posts' or 'cards'
 
-  // Mock data for initial render or fallback
-  const mockPosts = [
-    {
-      _id: '1',
-      description:
-        'Délicieux pain Challah fait maison pour Shabbat. Une recette de ma grand-mère transmise de génération en génération. #Shabbat #Traditionnel',
-      photo: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2942',
-      author: {
-        firstName: 'Sarah',
-        lastName: 'Cohen',
-        avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
-      },
-      likes: ['1', '2', '3'],
-      tags: ['Shabbat', 'Traditionnel', 'Pain'],
-      createdAt: new Date().toISOString(),
-    },
-    {
-      _id: '2',
-      description:
-        'Shakshuka épicée pour le petit-déjeuner. Le secret est dans les poivrons rôtis ! #PetitDejeuner #Piment',
-      photo: 'https://images.unsplash.com/photo-1590412200988-a436970781fa?q=80&w=2787',
-      author: {
-        firstName: 'David',
-        lastName: 'Levi',
-        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
-      },
-      likes: ['1', '2'],
-      tags: ['PetitDejeuner', 'Oeufs', 'Tomates'],
-      createdAt: new Date().toISOString(),
-    },
-    {
-      _id: '3',
-      description:
-        "Falafels croustillants avec tahini maison. Rien de tel qu'un bon repas de rue à la maison. #Vegan #StreetFood",
-      photo: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
-      author: {
-        firstName: 'Noa',
-        lastName: 'Ben-Ari',
-        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256',
-      },
-      likes: ['1', '2', '3', '4', '5'],
-      tags: ['Vegan', 'StreetFood', 'Falafel'],
-      createdAt: new Date().toISOString(),
-    },
-  ];
-
-  useEffect(() => {
-    fetchContent();
-  }, [selectedTags, activeTab]);
-
-  const fetchContent = async () => {
+  const fetchContent = useCallback(async () => {
     setLoading(true);
     try {
       if (activeTab === 'posts') {
@@ -114,14 +42,21 @@ const Explore = () => {
         setCards(response.data || []);
       }
     } catch (error) {
-      console.error("Error fetching content", error);
+      console.error('Error fetching content', error);
       // Handle error gracefully, possibly clear posts/cards
-      setPosts([]);
-      setCards([]);
+      if (activeTab === 'posts') {
+        setPosts(mockPosts);
+      } else {
+        setCards([]); // Keep cards empty or add mock cards if needed
+      }
     } finally {
       setLoading(false);
     }
-  };
+  }, [activeTab, selectedTags]);
+
+  useEffect(() => {
+    fetchContent();
+  }, [fetchContent]);
 
   const handlePostClick = (post) => {
     setSelectedPost(post);
@@ -193,13 +128,13 @@ const Explore = () => {
   );
 
   return (
-    <PageWrapper className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900">
+    <PageWrapper className="min-h-screen bg-cream-50 dark:bg-dark-900">
       {/* Hero Header */}
       <div className="relative pt-32 pb-20 bg-olive-900 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?q=80&w=2832')] bg-cover bg-center" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-[#fcfaf7] dark:to-gray-900" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-cream-50 dark:to-dark-900" />
 
         <div className="container-custom relative z-10 text-center">
           <motion.div
@@ -400,10 +335,10 @@ const Explore = () => {
                     <CreditCard className="w-10 h-10" />
                   </div>
                   <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-2">
-                    Aucune carte trouvée
+                    {t('explore.noCards')}
                   </h3>
                   <p className="text-gray-500 dark:text-gray-400">
-                    Soyez le premier à créer votre carte de visite !
+                    {t('explore.noCardsDesc')}
                   </p>
                 </div>
               ) : (

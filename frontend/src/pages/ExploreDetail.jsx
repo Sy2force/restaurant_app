@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { postAPI } from '../services/api';
@@ -12,15 +12,15 @@ import {
   Send,
   Share2,
   MoreVertical,
-  Flag,
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import { getImageUrl } from '../utils/helpers';
+import { mockPostDetails } from '../data/mockPostDetails';
 
 const ExploreDetail = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuthStore();
@@ -31,144 +31,12 @@ const ExploreDetail = () => {
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
   const [showMenu, setShowMenu] = useState(false);
 
-  // Mock data fallback
-  const mockPost = {
-    _id: id,
-    title: "Mon Chef d'Oeuvre du Dimanche",
-    description:
-      "J'ai passé tout l'après-midi à préparer ce festin pour la famille. Des saveurs authentiques qui me rappellent mon enfance à Tel Aviv. Le mélange d'épices est secret mais je peux vous dire qu'il y a beaucoup d'amour (et de cumin) !",
-    image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2787',
-    userId: {
-      _id: 'user1',
-      name: 'Sarah Cohen',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
-    },
-    likes: ['1', '2', '3', '4', '5'],
-    views: 1250,
-    tags: ['FaitMaison', 'Famille', 'TelAviv', 'Épices'],
-    dishType: 'Plat Principal',
-    isKosher: true,
-    isVegetarian: false,
-    isVegan: false,
-    createdAt: new Date().toISOString(),
-    comments: [
-      {
-        _id: 'c1',
-        userId: {
-          name: 'David Levi',
-          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
-        },
-        text: "Ça a l'air incroyable ! Tu partagerais la recette ?",
-        createdAt: new Date(Date.now() - 86400000).toISOString(),
-      },
-      {
-        _id: 'c2',
-        userId: {
-          name: 'Noa Ben-Ari',
-          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256',
-        },
-        text: 'Magnifique présentation 😍',
-        createdAt: new Date(Date.now() - 3600000).toISOString(),
-      },
-    ],
-  };
-
-  useEffect(() => {
-    fetchPost();
-  }, [id]);
-
-  const fetchPost = async () => {
+  const fetchPost = useCallback(async () => {
+    setLoading(true);
     try {
-      // Mock data matching Explore.jsx
-      const mockPosts = {
-        1: {
-          _id: '1',
-          title: 'Délicieux pain Challah fait maison',
-          description:
-            'Une recette de ma grand-mère transmise de génération en génération. Ce pain est le cœur de notre table de Shabbat. Le secret réside dans le temps de levée et le tressage à 6 brins.',
-          image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2942',
-          userId: {
-            _id: 'user1',
-            name: 'Sarah Cohen',
-            avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
-          },
-          likes: ['1', '2', '3'],
-          views: 1250,
-          tags: ['Shabbat', 'Traditionnel', 'Pain'],
-          dishType: 'Boulangerie',
-          isKosher: true,
-          isVegetarian: true,
-          isVegan: false,
-          createdAt: new Date().toISOString(),
-          comments: [
-            {
-              _id: 'c1',
-              userId: {
-                name: 'David Levi',
-                avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
-              },
-              text: 'Magnifique tressage ! Tu utilises quelle farine ?',
-              createdAt: new Date(Date.now() - 86400000).toISOString(),
-            },
-          ],
-        },
-        2: {
-          _id: '2',
-          title: 'Shakshuka épicée du matin',
-          description:
-            "Le petit-déjeuner des champions ! Shakshuka avec des poivrons rôtis, beaucoup d'ail et des épices fraiches. N'oubliez pas le pain pour saucer !",
-          image: 'https://images.unsplash.com/photo-1590412200988-a436970781fa?q=80&w=2787',
-          userId: {
-            _id: 'user2',
-            name: 'David Levi',
-            avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
-          },
-          likes: ['1', '2'],
-          views: 850,
-          tags: ['PetitDejeuner', 'Oeufs', 'Tomates'],
-          dishType: 'Petit-déjeuner',
-          isKosher: true,
-          isVegetarian: true,
-          isVegan: false,
-          createdAt: new Date().toISOString(),
-          comments: [],
-        },
-        3: {
-          _id: '3',
-          title: 'Falafels maison & Tahini',
-          description:
-            "Rien de tel que des falafels faits maison, croustillants à l'extérieur et verts et moelleux à l'intérieur. Servis avec une sauce tahini citronnée.",
-          image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
-          userId: {
-            _id: 'user3',
-            name: 'Noa Ben-Ari',
-            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256',
-          },
-          likes: ['1', '2', '3', '4', '5'],
-          views: 2100,
-          tags: ['Vegan', 'StreetFood', 'Falafel'],
-          dishType: 'Plat Principal',
-          isKosher: true,
-          isVegetarian: true,
-          isVegan: true,
-          createdAt: new Date().toISOString(),
-          comments: [
-            {
-              _id: 'c2',
-              userId: {
-                name: 'Sarah Cohen',
-                avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
-              },
-              text: "Ils ont l'air parfaits !",
-              createdAt: new Date(Date.now() - 3600000).toISOString(),
-            },
-          ],
-        },
-      };
-
-      if (mockPosts[id]) {
+      if (mockPostDetails[id]) {
         await new Promise((resolve) => setTimeout(resolve, 600));
-        setPost(mockPosts[id]);
+        setPost(mockPostDetails[id]);
         return;
       }
 
@@ -177,20 +45,22 @@ const ExploreDetail = () => {
         if (response.data && response.data.post) {
           setPost(response.data.post);
         } else {
-          // If API returns success but no post, or custom structure
           throw new Error('Post not found in API response');
         }
       } catch (apiError) {
-        // Fallback to mock
-        setPost(mockPost);
+        // Fallback to empty if not found
+        setPost(null);
       }
     } catch (error) {
-      // Fallback to mock
-      setPost(mockPost);
+      setPost(null);
     } finally {
       setLoading(false);
     }
-  };
+  }, [id]);
+
+  useEffect(() => {
+    fetchPost();
+  }, [fetchPost]);
 
   const handleLike = async () => {
     if (!isAuthenticated) {
@@ -262,7 +132,7 @@ const ExploreDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 py-20 px-4">
+      <div className="min-h-screen bg-cream-50 dark:bg-dark-900 py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <SkeletonCard />
         </div>
@@ -283,7 +153,7 @@ const ExploreDetail = () => {
     post.likes?.includes(user?._id) || post.likes?.some((like) => like._id === user?._id);
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pb-20 pt-28">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pb-20 pt-28">
       {/* Navbar Placeholder / Back Button */}
       <div className="sticky top-20 z-40 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
         <div className="container-custom py-4">
@@ -378,7 +248,7 @@ const ExploreDetail = () => {
               {/* Post Content */}
               <div className="p-8">
                 <div className="flex justify-between items-start mb-6">
-                  <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white leading-tight">
+                  <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white leading-tight break-words">
                     {post.title}
                   </h1>
                   {isOwner && (

@@ -118,7 +118,7 @@ const Login = () => {
               label={t('auth.email')}
               type="email"
               icon={Mail}
-              placeholder="votre@email.com"
+              placeholder={t('auth.placeholders.email')}
               error={errors.email?.message}
               {...register('email')}
             />

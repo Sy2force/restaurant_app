@@ -3,42 +3,13 @@ import { Link } from 'react-router-dom';
 import { MapPin, Star, Award, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getImageUrl } from '../../utils/helpers';
-
-const featuredRestaurants = [
-  {
-    id: 1,
-    name: 'Mizlala',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
-    city: 'Tel Aviv',
-    kosher: 'Kasher Mehadrin',
-    rating: 4.8,
-    cuisine: 'Israélienne Moderne',
-  },
-  {
-    id: 2,
-    name: 'Machneyuda',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
-    city: 'Jérusalem',
-    kosher: 'Kasher Rabbanout',
-    rating: 4.9,
-    cuisine: 'Fusion Méditerranéenne',
-  },
-  {
-    id: 3,
-    name: 'Eucalyptus',
-    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940',
-    city: 'Jérusalem',
-    kosher: 'Kasher Mehadrin',
-    rating: 4.7,
-    cuisine: 'Biblique & Authentique',
-  },
-];
+import { featuredRestaurants } from '../../data/mockLandingData';
 
 const RestaurantsSection = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-[#1a1a1a] relative">
+    <section className="py-24 bg-dark-900 relative">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -66,7 +37,7 @@ const RestaurantsSection = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group"
             >
-              <div className="bg-gray-900 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={getImageUrl(restaurant.image)}
@@ -77,7 +48,7 @@ const RestaurantsSection = () => {
                         'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940';
                     }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 to-transparent" />
 
                   <div className="absolute top-4 start-4">
                     <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2">

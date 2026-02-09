@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-
 const SkeletonCard = () => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md">

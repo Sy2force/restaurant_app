@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { BarChart3, TrendingUp, Users, Eye, Heart, Calendar } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
@@ -12,11 +12,7 @@ const Analytics = () => {
   const [timeRange, setTimeRange] = useState('month');
   const [stats, setStats] = useState(null);
 
-  useEffect(() => {
-    fetchStats();
-  }, []);
-
-  const fetchStats = async () => {
+  const fetchStats = useCallback(async () => {
     try {
       setLoading(true);
       const response = await authAPI.getDashboardStats();
@@ -25,10 +21,16 @@ const Analytics = () => {
       }
     } catch (error) {
       console.error('Error fetching analytics', error);
+      // Mock fallback
+      setStats(mockBusinessStats);
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    fetchStats();
+  }, [fetchStats]);
 
   if (loading) return <LoadingSpinner fullScreen />;
 
@@ -73,7 +75,7 @@ const Analytics = () => {
   const maxView = Math.max(...viewsData);
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -232,7 +234,7 @@ const Analytics = () => {
                       </div>
                     ))
                   ) : (
-                    <p className="text-gray-500 text-sm">Pas assez de données</p>
+                    <p className="text-gray-500 text-sm">{t('analytics.notEnoughData')}</p>
                   )}
                 </div>
               </motion.div>

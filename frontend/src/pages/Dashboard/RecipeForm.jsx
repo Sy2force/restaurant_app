@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
@@ -112,9 +112,9 @@ const RecipeForm = () => {
     if (isEdit) {
       fetchRecipe();
     }
-  }, [id]);
+  }, [id, isEdit, fetchRecipe]);
 
-  const fetchRecipe = async () => {
+  const fetchRecipe = useCallback(async () => {
     try {
       setLoadingData(true);
       try {
@@ -149,7 +149,7 @@ const RecipeForm = () => {
       setServerError(t('dashboard.forms.errors.load'));
       setLoadingData(false);
     }
-  };
+  }, [id, setValue, t]);
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
@@ -200,7 +200,7 @@ const RecipeForm = () => {
   if (loadingData) return <LoadingSpinner fullScreen />;
 
   return (
-    <div className="min-h-screen bg-[#fcfaf7] dark:bg-gray-900 pt-32 pb-12">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-12">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -381,7 +381,7 @@ const RecipeForm = () => {
                   <div key={field.id} className="flex gap-4 items-start">
                     <div className="flex-1">
                       <Input
-                        placeholder="Ingrédient"
+                        placeholder={t('dashboard.forms.placeholders.ingredient')}
                         error={errors.ingredients?.[index]?.item?.message}
                         {...register(`ingredients.${index}.item`)}
                       />
@@ -507,7 +507,7 @@ const RecipeForm = () => {
                     <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
                       {t('dashboard.forms.upload')}
                     </p>
-                    <p className="text-xs text-gray-400 mt-1">Max 5MB (PNG, JPG)</p>
+                    <p className="text-xs text-gray-400 mt-1">{t('dashboard.forms.imageHelp')}</p>
                     <input
                       type="file"
                       className="hidden"

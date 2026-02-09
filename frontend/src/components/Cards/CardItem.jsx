@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Trash2, Edit2, Heart, Image as ImageIcon } from 'lucide-react';
+import { MapPin, Phone, Trash2, Edit2, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Button from '../UI/Button';
 import { getImageUrl } from '../../utils/helpers';
@@ -25,7 +25,7 @@ const CardItem = ({ card, onLike, onDelete, isOwner }) => {
           {onLike && (
             <button
               onClick={() => onLike(card._id)}
-              className="p-2 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm rounded-full shadow-lg text-red-500 hover:scale-110 transition-transform"
+              className="p-2 bg-white/90 dark:bg-dark-900/90 backdrop-blur-sm rounded-full shadow-lg text-red-500 hover:scale-110 transition-transform"
             >
               <Heart className={`w-5 h-5 ${card.likes?.includes('me') ? 'fill-current' : ''}`} />
             </button>

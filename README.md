@@ -52,7 +52,7 @@ cd flavors-of-israel
 cd backend
 npm install
 cp .env.example .env
-# Configure your .env variables (MONGODB_URI, JWT_SECRET, PORT=5001)
+# Configure your .env variables (MONGODB_URI, JWT_SECRET, PORT=5000)
 npm run seed  # Seed the database with initial data
 npm start     # Start the server
 ```
@@ -62,11 +62,11 @@ npm start     # Start the server
 cd frontend
 npm install
 cp .env.example .env
-# Set VITE_API_URL=http://localhost:5001/api
+# Set VITE_API_URL=http://localhost:5000/api
 npm run dev
 ```
 
-## 🧪 Running Tests
+## Running Tests
 
 ### Backend
 ```bash
