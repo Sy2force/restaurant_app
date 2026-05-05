@@ -14,10 +14,26 @@ const app = express();
 
 // Security Middleware
 app.use(helmet());
-app.use(cors({
-  origin: process.env.CLIENT_URL || '*', // Allow all for now or restrictive in prod
-  credentials: true
-}));
+
+// CORS: accept comma-separated CLIENT_URL list + *.vercel.app preview domains.
+// Fallback to '*' if nothing configured (dev convenience).
+const allowedOrigins = (process.env.CLIENT_URL || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+
+app.use(
+  cors({
+    origin: (origin, cb) => {
+      if (!origin) return cb(null, true); // curl, server-to-server
+      if (allowedOrigins.length === 0) return cb(null, true); // dev: allow all
+      if (allowedOrigins.includes(origin)) return cb(null, true);
+      if (/^https:\/\/[a-z0-9-]+\.vercel\.app$/i.test(origin)) return cb(null, true);
+      return cb(new Error(`CORS: origin ${origin} not allowed`));
+    },
+    credentials: true,
+  })
+);
 
 // Rate Limiting
 const limiter = rateLimit({
