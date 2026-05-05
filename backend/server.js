@@ -90,11 +90,13 @@ app.use((req, res, next) => {
 
 app.use(morgan('dev'));
 
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test' && process.env.MONGODB_URI) {
   mongoose
     .connect(process.env.MONGODB_URI)
     .then(() => console.log('✅ MongoDB connected'))
     .catch((err) => console.error('❌ MongoDB connection error:', err));
+} else if (!process.env.MONGODB_URI) {
+  console.log('⚠️  MONGODB_URI not set - running without database (mock mode)');
 }
 
 app.get('/', (req, res) => {
