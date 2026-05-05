@@ -139,23 +139,25 @@ export const recipeAPI = {
   getMyRecipes: () => api.get('/recipes/my-recipes'),
 };
 
+const POSTS_BASE = '/community-posts';
+
 export const postAPI = {
-  getAll: (params) => api.get('/posts', { params }),
-  getTrending: () => api.get('/posts/trending'),
-  getMyPosts: () => api.get('/posts/my-posts'),
-  getById: (id) => api.get(`/posts/${id}`),
+  getAll: (params) => api.get(POSTS_BASE, { params }),
+  getTrending: () => api.get(`${POSTS_BASE}/trending`),
+  getMyPosts: () => api.get(`${POSTS_BASE}/my-posts`),
+  getById: (id) => api.get(`${POSTS_BASE}/${id}`),
   create: (data) =>
-    api.post('/posts', data, {
+    api.post(POSTS_BASE, data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }),
   update: (id, data) =>
-    api.put(`/posts/${id}`, data, {
+    api.put(`${POSTS_BASE}/${id}`, data, {
       headers: { 'Content-Type': 'multipart/form-data' },
     }),
-  delete: (id) => api.delete(`/posts/${id}`),
-  like: (id) => api.post(`/posts/${id}/like`),
-  addComment: (id, content) => api.post(`/posts/${id}/comments`, { content }),
-  deleteComment: (id, commentId) => api.delete(`/posts/${id}/comments/${commentId}`),
+  delete: (id) => api.delete(`${POSTS_BASE}/${id}`),
+  like: (id) => api.post(`${POSTS_BASE}/${id}/like`),
+  addComment: (id, content) => api.post(`${POSTS_BASE}/${id}/comments`, { content }),
+  deleteComment: (id, commentId) => api.delete(`${POSTS_BASE}/${id}/comments/${commentId}`),
 };
 
 export const cardAPI = {

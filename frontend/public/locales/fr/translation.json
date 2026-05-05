@@ -89,12 +89,12 @@
       "registering": "Création du compte...",
       "heroTitle": "Rejoignez l'Élite <br /><span class=\"text-gold-400\">Gastronomique</span>",
       "heroDesc": "Créez votre compte pour partager vos recettes, découvrir des restaurants d'exception et participer à notre communauté exclusive.",
-      "benefits": [
-        "Accès aux recettes exclusives",
-        "Sauvegardez vos favoris",
-        "Partagez vos créations",
-        "Notes et avis vérifiés"
-      ]
+      "benefits": {
+        "save": "Save your favorite recipes and dishes",
+        "share": "Share your creations with the community",
+        "business": "Manage your restaurant if you are a professional",
+        "discover": "Discover restaurants near you"
+      }
     },
     "errors": {
       "required": "Champ obligatoire",
@@ -156,6 +156,32 @@
         "medium": "Intermédiaire",
         "hard": "Expert"
       }
+    },
+    "cta": {
+      "title": "Prêt à Déguster ?",
+      "subtitle": "Rejoignez l'aventure Flavors of Israel dès aujourd'hui.",
+      "share": {
+        "title": "Partager",
+        "desc": "Publiez vos découvertes culinaires",
+        "buttonAuth": "Créer une publication",
+        "buttonGuest": "Rejoindre pour partager"
+      },
+      "restaurant": {
+        "title": "Professionnels",
+        "desc": "Boostez la visibilité de votre restaurant",
+        "buttonAuth": "Accéder au tableau de bord",
+        "buttonGuest": "Créer un compte pro"
+      }
+    },
+    "restaurants": {
+      "title": "Adresses Vedettes",
+      "subtitle": "Les meilleures adresses sélectionnées pour vous",
+      "discover": "Découvrir",
+      "viewAll": "Voir tous les restaurants"
+    },
+    "testimonials": {
+      "title": "Paroles de la communauté",
+      "subtitle": "Ce que disent nos foodies passionnés"
     }
   },
   "common": {

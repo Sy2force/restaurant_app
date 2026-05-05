@@ -1,8 +1,12 @@
 const User = require('../models/User');
 const Restaurant = require('../models/Restaurant');
 const Dish = require('../models/Dish');
+const Recipe = require('../models/Recipe');
 const bcrypt = require('bcryptjs');
+const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const fs = require('fs');
+const cloudinary = require('../config/cloudinary');
 
 const generateToken = (userId, isAdmin, isBusiness) => {
   return jwt.sign({ _id: userId, isAdmin, isBusiness }, process.env.JWT_SECRET, {
@@ -223,6 +227,207 @@ exports.deleteUser = async (req, res) => {
     res.json({ message: 'User deleted successfully' });
   } catch (error) {
     res.status(500).json({ message: 'Error deleting user', error: error.message });
+  }
+};
+
+// PUT /users/profile - Update own profile (name, email)
+exports.updateProfile = async (req, res) => {
+  try {
+    const { password, isAdmin, isBusiness, avatar, avatarPublicId, _id, ...updateData } = req.body;
+
+    const user = await User.findByIdAndUpdate(
+      req.userId,
+      updateData,
+      { new: true, runValidators: true }
+    ).select('-password');
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.json({ user });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating profile', error: error.message });
+  }
+};
+
+// POST /users/avatar - Upload avatar
+exports.uploadAvatar = async (req, res) => {
+  try {
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    const user = await User.findById(req.userId);
+    if (!user) {
+      if (req.file.path) fs.unlinkSync(req.file.path);
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    // Remove previous avatar from cloudinary if any
+    if (user.avatarPublicId) {
+      try { await cloudinary.uploader.destroy(user.avatarPublicId); } catch (_) {}
+    }
+
+    const result = await cloudinary.uploader.upload(req.file.path, {
+      folder: 'flavors-of-israel/avatars',
+      transformation: [
+        { width: 400, height: 400, crop: 'fill', gravity: 'face' },
+        { quality: 'auto' },
+        { fetch_format: 'auto' }
+      ]
+    });
+
+    if (req.file.path) fs.unlinkSync(req.file.path);
+
+    user.avatar = result.secure_url;
+    user.avatarPublicId = result.public_id;
+    await user.save();
+
+    res.json({
+      message: 'Avatar uploaded successfully',
+      avatar: user.avatar,
+      user: { _id: user._id, name: user.name, email: user.email, avatar: user.avatar, isBusiness: user.isBusiness, isAdmin: user.isAdmin }
+    });
+  } catch (error) {
+    if (req.file && req.file.path) {
+      try { fs.unlinkSync(req.file.path); } catch (_) {}
+    }
+    res.status(500).json({ message: 'Error uploading avatar', error: error.message });
+  }
+};
+
+// DELETE /users/avatar - Remove avatar
+exports.deleteAvatar = async (req, res) => {
+  try {
+    const user = await User.findById(req.userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (user.avatarPublicId) {
+      try { await cloudinary.uploader.destroy(user.avatarPublicId); } catch (_) {}
+    }
+
+    user.avatar = 'https://res.cloudinary.com/demo/image/upload/v1/avatar-placeholder.jpg';
+    user.avatarPublicId = undefined;
+    await user.save();
+
+    res.json({ message: 'Avatar deleted successfully', avatar: user.avatar });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting avatar', error: error.message });
+  }
+};
+
+// POST /users/favorites - Add to favorites
+exports.addToFavorites = async (req, res) => {
+  try {
+    const { type, itemId } = req.body;
+    if (!type || !itemId) {
+      return res.status(400).json({ message: 'type and itemId are required' });
+    }
+
+    const field = type === 'recipe' || type === 'recipes' ? 'favoriteRecipes'
+                : type === 'dish' || type === 'dishes' ? 'likedDishes'
+                : null;
+    if (!field) return res.status(400).json({ message: 'Invalid favorite type' });
+
+    const user = await User.findByIdAndUpdate(
+      req.userId,
+      { $addToSet: { [field]: itemId } },
+      { new: true }
+    ).select('-password');
+
+    res.json({ message: 'Added to favorites', user });
+  } catch (error) {
+    res.status(500).json({ message: 'Error adding to favorites', error: error.message });
+  }
+};
+
+// DELETE /users/favorites - Remove from favorites
+exports.removeFromFavorites = async (req, res) => {
+  try {
+    const { type, itemId } = req.body;
+    if (!type || !itemId) {
+      return res.status(400).json({ message: 'type and itemId are required' });
+    }
+
+    const field = type === 'recipe' || type === 'recipes' ? 'favoriteRecipes'
+                : type === 'dish' || type === 'dishes' ? 'likedDishes'
+                : null;
+    if (!field) return res.status(400).json({ message: 'Invalid favorite type' });
+
+    const user = await User.findByIdAndUpdate(
+      req.userId,
+      { $pull: { [field]: itemId } },
+      { new: true }
+    ).select('-password');
+
+    res.json({ message: 'Removed from favorites', user });
+  } catch (error) {
+    res.status(500).json({ message: 'Error removing from favorites', error: error.message });
+  }
+};
+
+// POST /users/forgot-password
+exports.forgotPassword = async (req, res) => {
+  try {
+    const { email } = req.body;
+    if (!email) return res.status(400).json({ message: 'Email is required' });
+
+    const user = await User.findOne({ email });
+    // Always respond 200 to avoid email enumeration
+    if (!user) {
+      return res.json({ message: 'If an account exists, a reset link has been sent.' });
+    }
+
+    const rawToken = crypto.randomBytes(32).toString('hex');
+    user.resetPasswordToken = crypto.createHash('sha256').update(rawToken).digest('hex');
+    user.resetPasswordExpire = Date.now() + 60 * 60 * 1000; // 1h
+    await user.save();
+
+    // TODO: send email with reset link. Returning token only in non-production for testability.
+    const payload = { message: 'If an account exists, a reset link has been sent.' };
+    if (process.env.NODE_ENV !== 'production') {
+      payload.resetToken = rawToken;
+    }
+    res.json(payload);
+  } catch (error) {
+    res.status(500).json({ message: 'Error processing request', error: error.message });
+  }
+};
+
+// POST /users/reset-password
+exports.resetPassword = async (req, res) => {
+  try {
+    const { token, password } = req.body;
+    if (!token || !password) {
+      return res.status(400).json({ message: 'token and password are required' });
+    }
+    if (password.length < 6) {
+      return res.status(400).json({ message: 'Password must be at least 6 characters' });
+    }
+
+    const hashed = crypto.createHash('sha256').update(token).digest('hex');
+    const user = await User.findOne({
+      resetPasswordToken: hashed,
+      resetPasswordExpire: { $gt: Date.now() }
+    });
+
+    if (!user) {
+      return res.status(400).json({ message: 'Invalid or expired reset token' });
+    }
+
+    user.password = password;
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExpire = undefined;
+    user.loginAttempts = 0;
+    user.lockUntil = undefined;
+    await user.save();
+
+    res.json({ message: 'Password reset successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error resetting password', error: error.message });
   }
 };
 

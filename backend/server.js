@@ -92,6 +92,7 @@ app.use('/api/recipe-books', require('./routes/recipeBook.routes'));
 app.use('/api/recipes', require('./routes/recipe.routes'));
 app.use('/api/upload', require('./routes/upload.routes'));
 app.use('/api/community-posts', require('./routes/communityPost.routes'));
+app.use('/api/like', require('./routes/like.routes'));
 app.use('/api/admin', require('./routes/admin.routes'));
 
 app.use((err, req, res, next) => {

@@ -33,6 +33,9 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import Unauthorized from './pages/Unauthorized';
+import MyCards from './pages/Dashboard/MyCards';
+import CreateCard from './pages/Dashboard/CreateCard';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 
 function App() {
@@ -57,6 +60,7 @@ function App() {
           <Route path="privacy" element={<Privacy />} />
           <Route path="terms" element={<Terms />} />
           <Route path="contact" element={<Contact />} />
+          <Route path="unauthorized" element={<Unauthorized />} />
 
           <Route
             path="profile"
@@ -191,6 +195,24 @@ function App() {
             element={
               <ProtectedRoute requireBusiness>
                 <RecipeForm />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="dashboard/cards"
+            element={
+              <ProtectedRoute>
+                <MyCards />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="dashboard/cards/create"
+            element={
+              <ProtectedRoute>
+                <CreateCard />
               </ProtectedRoute>
             }
           />

@@ -42,11 +42,20 @@ const userSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Dish'
   }],
+  avatarPublicId: {
+    type: String
+  },
   loginAttempts: {
     type: Number,
     default: 0
   },
   lockUntil: {
+    type: Date
+  },
+  resetPasswordToken: {
+    type: String
+  },
+  resetPasswordExpire: {
     type: Date
   }
 }, {

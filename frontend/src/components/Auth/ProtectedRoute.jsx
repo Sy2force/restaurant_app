@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children, requireBusiness, requireAdmin }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-900 text-white">
+      <div className="min-h-screen flex items-center justify-center bg-cream-50 dark:bg-dark-900 text-olive-700 dark:text-cream-50">
         {t('common.loading')}
       </div>
     );

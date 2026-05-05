@@ -82,7 +82,7 @@ export const mockRestaurants = [
     name: 'Dr Shakshuka',
     description:
       "Le spécialiste incontesté de la Shakshuka à Jaffa. Une cuisine authentique tripolitaine servie dans un cadre rustique rempli d'antiquités.",
-    logo: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
+    logo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
     address: { city: 'Jaffa', street: 'Beit Eshel 3' },
     phone: '03-682-2842',
     cacherout: 'Rabbanout',
@@ -95,7 +95,7 @@ export const mockRestaurants = [
     name: 'Sabich Frishman',
     description:
       "Une échoppe légendaire au cœur de Tel Aviv, connue pour servir le meilleur Sabich de la ville. Une file d'attente qui en vaut la peine.",
-    logo: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Frishman 42' },
     phone: '03-522-2222',
     cacherout: 'Mehadrin',
@@ -108,7 +108,7 @@ export const mockRestaurants = [
     name: 'Abu Hassan',
     description:
       'Le temple du hummus à Jaffa. Une institution familiale qui sert le hummus le plus crémeux et authentique, une référence depuis plus de 40 ans.',
-    logo: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
+    logo: 'https://images.unsplash.com/photo-1538334421852-687c439c92f4?q=80&w=2940',
     address: { city: 'Jaffa', street: 'Ha-Dolfin 1' },
     phone: '03-682-0888',
     cacherout: 'Rabbanout',
@@ -121,7 +121,7 @@ export const mockRestaurants = [
     name: 'HaKosem',
     description:
       'Le "Magicien" du falafel. Une adresse moderne et vibrante qui a élevé le falafel au rang d\'art culinaire. Service rapide et souriant.',
-    logo: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
+    logo: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Shlomo HaMelech 1' },
     phone: '03-525-2033',
     cacherout: 'Mehadrin',

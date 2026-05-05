@@ -86,7 +86,15 @@
     "registerPage": {
       "businessAccount": "Professional Account",
       "businessDesc": "For chefs, restaurateurs, and creators",
-      "registering": "Creating account..."
+      "registering": "Creating account...",
+      "heroTitle": "Join Flavors of Israel",
+      "heroDesc": "Create your account to share, save and explore Israeli cuisine.",
+      "benefits": {
+        "save": "Save your favorite recipes and dishes",
+        "share": "Share your creations with the community",
+        "discover": "Discover restaurants near you",
+        "business": "Manage your restaurant if you are a professional"
+      }
     },
     "errors": {
       "required": "Required field",
