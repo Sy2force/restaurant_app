@@ -30,9 +30,14 @@ app.use(limiter);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const logsDir = path.join(__dirname, 'logs');
-if (!fs.existsSync(logsDir)) {
-  fs.mkdirSync(logsDir);
+// Vercel / serverless: /tmp is the only writable path. Locally: use ./logs.
+const logsDir = process.env.VERCEL
+  ? '/tmp/logs'
+  : path.join(__dirname, 'logs');
+try {
+  if (!fs.existsSync(logsDir)) fs.mkdirSync(logsDir, { recursive: true });
+} catch (_) {
+  // Non-fatal: log write attempts will silently no-op below.
 }
 
 // Logger helper function

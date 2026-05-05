@@ -30,6 +30,8 @@ async function loginAsBusiness(page) {
   }, businessUser);
 }
 
+test.describe.configure({ mode: 'serial' });
+
 test.describe('B2B — Business dashboard access', () => {
   test.beforeEach(async ({ page }) => {
     await loginAsBusiness(page);

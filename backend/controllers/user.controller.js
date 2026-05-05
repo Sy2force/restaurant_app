@@ -5,8 +5,8 @@ const Recipe = require('../models/Recipe');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const fs = require('fs');
 const cloudinary = require('../config/cloudinary');
+const { uploadBuffer } = require('../utils/cloudinaryUpload');
 
 const generateToken = (userId, isAdmin, isBusiness) => {
   return jwt.sign({ _id: userId, isAdmin, isBusiness }, process.env.JWT_SECRET, {
@@ -260,7 +260,6 @@ exports.uploadAvatar = async (req, res) => {
 
     const user = await User.findById(req.userId);
     if (!user) {
-      if (req.file.path) fs.unlinkSync(req.file.path);
       return res.status(404).json({ message: 'User not found' });
     }
 
@@ -269,7 +268,7 @@ exports.uploadAvatar = async (req, res) => {
       try { await cloudinary.uploader.destroy(user.avatarPublicId); } catch (_) {}
     }
 
-    const result = await cloudinary.uploader.upload(req.file.path, {
+    const result = await uploadBuffer(req.file.buffer, {
       folder: 'flavors-of-israel/avatars',
       transformation: [
         { width: 400, height: 400, crop: 'fill', gravity: 'face' },
@@ -277,8 +276,6 @@ exports.uploadAvatar = async (req, res) => {
         { fetch_format: 'auto' }
       ]
     });
-
-    if (req.file.path) fs.unlinkSync(req.file.path);
 
     user.avatar = result.secure_url;
     user.avatarPublicId = result.public_id;
@@ -290,9 +287,6 @@ exports.uploadAvatar = async (req, res) => {
       user: { _id: user._id, name: user.name, email: user.email, avatar: user.avatar, isBusiness: user.isBusiness, isAdmin: user.isAdmin }
     });
   } catch (error) {
-    if (req.file && req.file.path) {
-      try { fs.unlinkSync(req.file.path); } catch (_) {}
-    }
     res.status(500).json({ message: 'Error uploading avatar', error: error.message });
   }
 };

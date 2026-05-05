@@ -1,13 +1,13 @@
 const cloudinary = require('../config/cloudinary');
-const fs = require('fs');
+const { uploadBuffer } = require('../utils/cloudinaryUpload');
 
 exports.uploadImage = async (req, res) => {
   try {
     if (!req.file) {
       return res.status(400).json({ message: 'No file uploaded' });
     }
-    
-    const result = await cloudinary.uploader.upload(req.file.path, {
+
+    const result = await uploadBuffer(req.file.buffer, {
       folder: 'flavors-of-israel',
       transformation: [
         { width: 1200, height: 800, crop: 'limit' },
@@ -15,18 +15,13 @@ exports.uploadImage = async (req, res) => {
         { fetch_format: 'auto' }
       ]
     });
-    
-    fs.unlinkSync(req.file.path);
-    
+
     res.json({
       message: 'Image uploaded successfully',
       url: result.secure_url,
       publicId: result.public_id
     });
   } catch (error) {
-    if (req.file && req.file.path) {
-      fs.unlinkSync(req.file.path);
-    }
     res.status(500).json({ message: 'Error uploading image', error: error.message });
   }
 };
