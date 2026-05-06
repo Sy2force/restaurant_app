@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Send, Heart } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import LanguageSelector from '../UI/LanguageSelector';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -194,6 +195,8 @@ const Footer = () => {
         <div className="w-full h-px bg-gradient-to-r from-transparent via-gold-500/50 to-transparent mb-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <LanguageSelector />
+
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
