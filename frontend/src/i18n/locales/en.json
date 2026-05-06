@@ -582,7 +582,7 @@
       "siteName": "Application",
       "defaultLanguage": "Language",
       "theme": "Appearance",
-      "french": "Français",
+      "french": "French",
       "english": "English",
       "hebrew": "עברית",
       "light": "Light",
@@ -792,57 +792,57 @@
     "button": "Back to home"
   },
   "terms": {
-    "title": "Conditions Générales",
-    "subtitle": "Dernière mise à jour : Février 2024",
+    "title": "Terms of Service",
+    "subtitle": "Last updated: February 2024",
     "sections": {
       "1": {
-        "title": "Acceptation des Conditions",
-        "text": "En accédant à Flavors of Israel, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
+        "title": "Acceptance of Terms",
+        "text": "By accessing Flavors of Israel, you agree to be bound by these terms of service, all applicable laws and regulations."
       },
       "2": {
-        "title": "Licence d'Utilisation",
-        "text": "La permission est accordée de télécharger temporairement une copie des documents pour une visualisation transitoire personnelle et non commerciale."
+        "title": "Use License",
+        "text": "Permission is granted to temporarily download a copy of the documents for personal non-commercial transitory viewing."
       },
       "3": {
-        "title": "Clause de Non-responsabilité",
-        "text": "Les documents sur le site web de Flavors of Israel sont fournis 'tels quels'. Flavors of Israel ne donne aucune garantie, expresse ou implicite."
+        "title": "Disclaimer",
+        "text": "The documents on the Flavors of Israel website are provided 'as is'. Flavors of Israel makes no warranties, express or implied."
       },
       "4": {
         "title": "Limitations",
-        "text": "En aucun cas Flavors of Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
+        "text": "In no event shall Flavors of Israel be liable for any damages arising from the use or inability to use the documents."
       },
       "5": {
-        "title": "Révisions",
-        "text": "Les documents apparaissant sur le site web pourraient inclure des erreurs techniques, typographiques ou photographiques."
+        "title": "Revisions",
+        "text": "The documents appearing on the website may include technical, typographical or photographic errors."
       }
     },
-    "update": "Ces conditions peuvent être modifiées à tout moment sans préavis."
+    "update": "These terms may be modified at any time without notice."
   },
   "privacy": {
-    "title": "Politique de Confidentialité",
-    "subtitle": "Votre vie privée est notre priorité",
+    "title": "Privacy Policy",
+    "subtitle": "Your privacy is our priority",
     "sections": {
       "1": {
-        "title": "Collecte des Informations",
-        "text": "Nous collectons des informations lorsque vous vous inscrivez sur notre site, vous connectez à votre compte ou participez à un concours."
+        "title": "Information Collection",
+        "text": "We collect information when you register on our site, log in to your account or participate in a contest."
       },
       "2": {
-        "title": "Utilisation des Informations",
-        "text": "Toutes les informations que nous recueillons peuvent être utilisées pour personnaliser votre expérience et améliorer notre site Web."
+        "title": "Information Use",
+        "text": "All information we collect may be used to personalize your experience and improve our website."
       },
       "3": {
-        "title": "Confidentialité",
-        "text": "Nous sommes les seuls propriétaires des informations recueillies sur ce site. Vos informations personnelles ne seront pas vendues à des tiers."
+        "title": "Privacy",
+        "text": "We are the sole owners of the information collected on this site. Your personal information will not be sold to third parties."
       },
       "4": {
         "title": "Protection",
-        "text": "Nous mettons en œuvre une variété de mesures de sécurité pour préserver la sécurité de vos informations personnelles."
+        "text": "We implement a variety of security measures to preserve the security of your personal information."
       },
       "5": {
-        "title": "Consentement",
-        "text": "En utilisant notre site, vous consentez à notre politique de confidentialité en ligne."
+        "title": "Consent",
+        "text": "By using our site, you consent to our online privacy policy."
       }
     },
-    "update": "Dernière mise à jour : Février 2024"
+    "update": "Last updated: February 2024"
   }
 }
