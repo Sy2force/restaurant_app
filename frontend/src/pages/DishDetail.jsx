@@ -33,7 +33,7 @@ const DishDetail = () => {
       setDish(response.data);
     } catch (error) {
       // fallback to first mock dish if ID fails but looks somewhat valid or just error
-      setToast({ show: true, message: 'Erreur lors du chargement du plat', type: 'error' });
+      setToast({ show: true, message: t('dishDetail.loadError'), type: 'error' });
     } finally {
       setLoading(false);
     }
@@ -167,7 +167,7 @@ const DishDetail = () => {
             to="/dishes"
             className="inline-flex items-center text-white bg-black/20 hover:bg-black/40 backdrop-blur-sm px-4 py-2 rounded-full transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeft className="w-5 h-5 ms-2 rtl:mr-2 rtl:ms-0 rtl:rotate-180" />
             {t('dishDetail.backMenu')}
           </Link>
         </div>
@@ -315,7 +315,7 @@ const DishDetail = () => {
               className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-100 dark:border-gray-700 sticky top-24"
             >
               <h3 className="text-xl font-display font-bold text-gray-900 dark:text-white mb-6 flex items-center">
-                <span className="w-1 h-8 bg-gold-500 rounded-full mr-3"></span>
+                <span className="w-1 h-8 bg-gold-500 rounded-full ms-3 rtl:mr-3 rtl:ms-0"></span>
                 {t('dishDetail.proposedBy')}
               </h3>
 
@@ -334,7 +334,7 @@ const DishDetail = () => {
                     {dish.restaurant.name}
                   </h4>
                   <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
-                    <MapPin className="w-4 h-4 mr-1" />
+                    <MapPin className="w-4 h-4 ms-1 rtl:mr-1 rtl:ms-0" />
                     {dish.restaurant.address?.city || dish.restaurant.city}
                   </div>
                 </div>

@@ -4,11 +4,11 @@ import { Heart, Bookmark, Share2, MapPin, Star, Award } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthStore } from '../../store/authStore';
 import { likeAPI, authAPI } from '../../services/api';
-import { getImageUrl } from '../../utils/helpers';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 import { useTranslation } from 'react-i18next';
 
 const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthStore();
   const [isLiked, setIsLiked] = useState(false);
@@ -97,11 +97,11 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
             <div className="absolute top-3 start-3 flex gap-2">
               <span className="px-3 py-1 bg-gold-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
                 <Award className="w-3 h-3" />
-                {dish.cacherout}
+                {localizeValue(dish.cacherout, i18n.language)}
               </span>
               {dish.isVegetarian && (
                 <span className="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-md">
-                  Végétarien
+                  {localizeValue('Végétarien', i18n.language)}
                 </span>
               )}
             </div>
@@ -143,18 +143,18 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
 
             <div className="absolute bottom-0 left-0 right-0 p-4">
               <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-gold-400 transition-colors line-clamp-1">
-                {dish.name}
+                {localizeValue(dish.name, i18n.language)}
               </h3>
               <p className="text-cream-100 text-sm flex items-center gap-2 truncate">
                 <MapPin className="w-4 h-4" />
-                {dish.restaurant?.name || 'Restaurant'} • {dish.region}
+                {dish.restaurant?.name || t('common.restaurant')} • {localizeValue(dish.region, i18n.language)}
               </p>
             </div>
           </div>
 
           <div className="p-5 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
             <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
-              {dish.description}
+              {localizeValue(dish.description, i18n.language)}
             </p>
 
             <div className="flex items-center justify-between mb-4">
@@ -174,10 +174,10 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                 <Heart className="w-4 h-4" />
-                <span>{likesCount} likes</span>
+                <span>{likesCount} {t('common.likes')}</span>
               </div>
               <span className="px-3 py-1 bg-olive-100 dark:bg-olive-900 text-olive-700 dark:text-olive-200 text-xs rounded-full font-medium">
-                {dish.category}
+                {localizeValue(dish.category, i18n.language)}
               </span>
             </div>
 
@@ -186,7 +186,7 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
               whileTap={{ scale: 0.98 }}
               className="w-full mt-4 py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-semibold rounded-full shadow-md transition-all"
             >
-              Voir le Plat
+              {t('common.viewDetails')}
             </motion.button>
           </div>
         </div>

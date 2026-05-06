@@ -4,16 +4,17 @@
     "dishes": "Menu",
     "restaurants": "Restaurants",
     "recipes": "Recipes",
-    "recipeBooks": "Recipe Books",
-    "explore": "Explore",
+    "recipeBooks": "Cookbooks",
+    "explore": "Inspiration",
     "login": "Login",
     "register": "Join",
     "profile": "My Profile",
     "dashboard": "Pro Space",
+    "admin": "Administration",
     "logout": "Logout",
     "favorites": "My Favorites",
     "adminPanel": "Admin Panel",
-    "usersManagement": "Users",
+    "usersManagement": "Users Management",
     "stats": "Statistics",
     "myCards": "My Cards",
     "createCard": "Create Card"
@@ -31,28 +32,30 @@
     "email": "Email Address",
     "password": "Password",
     "confirmPassword": "Confirm Password",
-    "name": "First and Last Name",
-    "submit": "Sign In",
-    "submitRegister": "Start the Adventure",
+    "name": "Full Name",
+    "submit": "Login",
+    "submitRegister": "Start the Journey",
     "noAccount": "Not a member yet?",
     "hasAccount": "Already a member?",
     "register": "Create Account",
     "login": "Sign In",
     "loginPage": {
-      "heroTitle": "The Essence of <br /><span class=\"text-gold-400\">Israeli Cuisine</span>",
-      "heroDesc": "Access an exclusive platform bringing together the elite of gastronomy: chefs, restaurants and exceptional recipes.",
+      "heroTitle": "The Essence of <span class=\"text-gold-400\">Israeli Cuisine</span>",
+      "heroDesc": "Access an exclusive platform gathering the culinary elite: chefs, restaurants, and exceptional recipes.",
+      "heroImage": "Chef cooking",
       "welcomeBack": "Welcome Back",
       "accessAccount": "Access your personal space",
       "loginFailed": "Invalid credentials",
       "loggingIn": "Authenticating...",
-      "forgotPassword": "Forgot password?"
+      "forgotPassword": "Forgot Password?"
     },
     "resetPassword": {
-      "heroTitle": "Fresh <br /><span class=\"text-gold-400\">Start</span>",
-      "heroDesc": "Secure your account with a new password and find your favorite recipes.",
+      "heroTitle": "New <br /><span class=\"text-gold-400\">Start</span>",
+      "heroDesc": "Secure your account with a new password and rediscover your favorite recipes.",
+      "heroImage": "Cooking ingredients",
       "successTitle": "Password Changed!",
       "successDesc": "Your password has been successfully updated. You will be redirected to the login page.",
-      "loginNow": "Sign In Now",
+      "loginNow": "Login Now",
       "title": "Reset Password",
       "subtitle": "Choose a strong password for your account",
       "newPassword": "New Password",
@@ -61,21 +64,23 @@
       "submit": "Reset",
       "errors": {
         "mismatch": "Passwords do not match",
-        "noToken": "Reset token missing or invalid",
+        "noToken": "Missing or invalid reset token",
         "generic": "Error resetting password"
       }
     },
     "forgotPasswordPage": {
-      "heroTitle": "Fresh <br /><span class=\"text-gold-400\">Start</span>",
+      "heroTitle": "New <br /><span class=\"text-gold-400\">Start</span>",
       "heroDesc": "Reset your password to regain access to your account and favorite recipes.",
-      "emailSent": "Email sent!",
-      "backToLogin": "Back to login",
-      "title": "Forgot password?",
+      "heroImage": "Cooking ingredients",
+      "emailSent": "Email Sent!",
+      "emailSentDesc": "If an account exists with the address <strong>{{email}}</strong>, you will receive a reset link.",
+      "backToLogin": "Back to Login",
+      "title": "Forgot Password?",
       "subtitle": "Enter your email to receive instructions",
       "sending": "Sending...",
-      "sendLink": "Send link",
-      "rememberPassword": "Remember your password?",
-      "login": "Sign In"
+      "sendLink": "Send Link",
+      "rememberPassword": "Do you remember it?",
+      "login": "Login"
     },
     "placeholders": {
       "name": "Your full name",
@@ -83,10 +88,19 @@
     },
     "registerPage": {
       "businessAccount": "Professional Account",
-      "businessDesc": "For chefs, restaurateurs and creators",
+      "businessDesc": "For chefs, restaurateurs, and creators",
       "registering": "Creating account...",
-      "heroTitle": "Join the <br /><span class=\"text-gold-400\">Gastronomic Elite</span>",
-      "heroDesc": "Create your account to share your recipes, discover exceptional restaurants and join our exclusive community."
+      "heroTitle": "Join Flavors of Israel",
+      "heroDesc": "Create your account to share, save and explore Israeli cuisine.",
+      "heroImage": "Mediterranean food",
+      "benefits": {
+        "save": "Save your favorite recipes and dishes",
+        "share": "Share your creations with the community",
+        "discover": "Discover restaurants near you",
+        "business": "Manage your restaurant if you are a professional"
+      },
+      "subtitle": "Start your culinary journey today",
+      "error": "Registration failed"
     },
     "errors": {
       "required": "Required field",
@@ -97,13 +111,15 @@
   },
   "unauthorized": {
     "title": "Unauthorized Access",
-    "desc": "Sorry, you don't have the necessary permissions to access this page.",
-    "backHome": "Back to home",
-    "loginOther": "Sign in with another account"
+    "desc": "Sorry, you do not have the necessary permissions to access this page.",
+    "backHome": "Back to Home",
+    "loginOther": "Login with another account"
   },
   "landing": {
     "hero": {
-      "title": "The Culinary Art of Israel"
+      "title": "The Culinary Art of Israel",
+      "subtitle": "The ultimate guide to explore, savor, and share Israeli gastronomy.",
+      "cta": "Start Exploring"
     },
     "stats": {
       "restaurants": "Establishments",
@@ -112,15 +128,16 @@
       "users": "Foodies"
     },
     "dishesCarousel": {
-      "title": "Must-Try Dishes",
-      "subtitle": "A selection of signature dishes that make Israeli gastronomy famous.",
+      "title": "Signature Dishes",
+      "subtitle": "A selection of iconic dishes that define Israeli gastronomy.",
       "kosher": "Kosher"
     },
     "publish": {
       "title": "Reveal Your Talent",
       "subtitle": "Join a vibrant community and let your culinary creativity shine.",
       "button": "Share a Creation",
-      "quote": "Cooking is an art to be shared.",
+      "heroImage": "Israeli cuisine",
+      "quote": "Cooking is an art meant to be shared.",
       "steps": {
         "photo": {
           "title": "Capture",
@@ -138,39 +155,45 @@
     },
     "recipes": {
       "title": "Must-Try Recipes",
-      "subtitle": "Selected creations to awaken your taste buds, from traditional to modern.",
-      "viewRecipe": "Discover the Recipe",
-      "viewAll": "View All Collections"
+      "subtitle": "Creations selected to awaken your taste buds, from traditional to modern.",
+      "viewRecipe": "Discover Recipe",
+      "viewAll": "View All Collections",
+      "difficulty": {
+        "easy": "Simple",
+        "medium": "Intermediate",
+        "hard": "Expert"
+      }
+    },
+    "restaurants": {
+      "title": "Featured Places",
+      "subtitle": "The best addresses selected for you",
+      "discover": "Discover",
+      "viewAll": "See All Restaurants"
+    },
+    "testimonials": {
+      "title": "Community Words",
+      "subtitle": "What our passionate foodies say"
     },
     "cta": {
       "title": "Ready to Taste?",
       "subtitle": "Join the Flavors of Israel adventure today.",
       "share": {
         "title": "Share",
-        "desc": "Publish your culinary discoveries",
-        "buttonAuth": "Create a post",
-        "buttonGuest": "Join to share"
+        "desc": "Post your culinary discoveries",
+        "buttonAuth": "Create a Post",
+        "buttonGuest": "Join to Share"
       },
       "restaurant": {
         "title": "Professionals",
         "desc": "Boost your restaurant's visibility",
-        "buttonAuth": "Access dashboard",
-        "buttonGuest": "Create pro account"
+        "buttonAuth": "Access Dashboard",
+        "buttonGuest": "Create Business Account"
       }
-    },
-    "restaurants": {
-      "title": "Featured Addresses",
-      "subtitle": "The best addresses selected for you",
-      "discover": "Discover",
-      "viewAll": "View all restaurants"
-    },
-    "testimonials": {
-      "title": "Community Voices",
-      "subtitle": "What our passionate foodies say"
     }
   },
   "common": {
     "loading": "Loading...",
+    "error": "An error occurred",
     "back": "Back",
     "save": "Save",
     "saving": "Saving...",
@@ -180,6 +203,14 @@
     "create": "Create",
     "update": "Update",
     "publish": "Publish",
+    "search": "Search for a flavor...",
+    "actions": "Options",
+    "avatar": "Avatar",
+    "postImage": "Post image",
+    "userAvatar": "User avatar",
+    "post": "Post",
+    "status": "Status",
+    "date": "Date",
     "viewDetails": "Explore",
     "likes": "Likes",
     "min": "min",
@@ -189,6 +220,7 @@
     "confirmDelete": "This action is irreversible. Continue?",
     "comments": "Comments",
     "noComments": "No comments yet",
+    "all": "All",
     "liked": "Dish liked ❤️",
     "unliked": "Like removed",
     "errorLike": "Error liking",
@@ -197,22 +229,26 @@
     "errorFavorite": "Error adding to favorites",
     "linkCopied": "Link copied! 📋",
     "selectImage": "Please select an image",
-    "errorCreate": "Error during creation",
+    "errorCreate": "Error creating",
     "maxChars": "Max 500 characters",
-    "loginToLike": "Please sign in to like",
+    "loginToLike": "Please login to like",
     "print": "Print",
-    "share": "Share"
+    "share": "Share",
+    "recipes": "recipes",
+    "preview": "Preview"
   },
   "recipeDetail": {
     "loadError": "Unable to load recipe",
     "notFound": "Recipe not found"
   },
   "dishDetail": {
+    "loadError": "Error loading dish",
     "notFound": "Dish not found",
     "backList": "Back to list",
     "backMenu": "Back to menu",
     "proposedBy": "Proposed by",
-    "viewRestaurant": "View restaurant",
+    "viewRestaurant": "View Restaurant",
+    "moreFrom": "More from {{name}}",
     "cacherout": "Kosher",
     "about": "About this dish",
     "badges": {
@@ -236,9 +272,9 @@
     "sortBy": "Sort by",
     "sort": {
       "popular": "Popularity",
-      "recent": "Most recent",
-      "priceAsc": "Price ascending",
-      "priceDesc": "Price descending"
+      "recent": "Newest",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low"
     },
     "all": "All"
   },
@@ -257,7 +293,39 @@
     "noPostsDesc": "Be the first to share your favorite!",
     "createPost": "New Post",
     "noCards": "No cards found",
-    "noCardsDesc": "Be the first to create your business card!"
+    "noCardsDesc": "Be the first to create your business card!",
+    "tabs": {
+      "posts": "Posts",
+      "cards": "Business Cards"
+    }
+  },
+  "exploreDetail": {
+    "loginToLike": "Please sign in to like",
+    "likeRemoved": "Like removed",
+    "likeAdded": "Added to likes",
+    "confirmDelete": "Delete this post?",
+    "deleteSuccess": "Post deleted",
+    "deleteError": "Unable to delete post",
+    "commentAdded": "Comment added",
+    "commentError": "Unable to add comment",
+    "confirmDeleteComment": "Delete this comment?",
+    "commentDeleted": "Comment deleted",
+    "shareSuccess": "Link copied",
+    "notFound": "Post not found",
+    "back": "Back to explore",
+    "views": "views",
+    "delete": "Delete",
+    "commentsTitle": "Comments",
+    "commentPlaceholder": "Add a comment...",
+    "loginToComment": "to comment",
+    "noComments": "No comments yet",
+    "memberSince": "Member since",
+    "viewProfile": "View profile",
+    "contest": {
+      "title": "Weekly challenge",
+      "text": "Share your best Israeli flavor and inspire the community.",
+      "button": "Join"
+    }
   },
   "userLikes": {
     "loadError": "Unable to load your likes",
@@ -267,12 +335,12 @@
       "posts": "Posts"
     },
     "empty": {
-      "title": "No favorites",
+      "title": "No likes yet",
       "desc": "You haven't liked any content yet. Explore to find your favorites!",
       "button": "Explore"
     },
     "badge": "My Likes",
-    "title": "Favorites",
+    "title": "Liked Content",
     "subtitle": "Find all the content you loved"
   },
   "favorites": {
@@ -280,41 +348,41 @@
     "removeSuccess": "Removed from favorites",
     "removeError": "Error removing from favorites",
     "empty": {
-      "title": "No favorites",
+      "title": "No favorites yet",
       "desc": "You haven't added any favorites yet. Explore to build your collection!",
       "button": "Explore"
     },
     "badge": "My Collection",
     "title": "My Favorites",
-    "subtitle": "Your personal collection of flavors"
+    "subtitle": "Your personal flavor collection"
   },
   "postCreate": {
-    "badge": "Post",
+    "badge": "Publication",
     "title": "New Discovery",
     "subtitle": "Share the emotion of an exceptional dish",
     "form": {
       "photo": "Visual",
-      "clickToUpload": "Select a high quality photo",
+      "clickToUpload": "Select high-quality photo",
       "maxSize": "JPG/PNG format, max 5MB",
       "description": "The Story of the Dish",
-      "descPlaceholder": "Describe the flavors, the atmosphere, your feelings...",
+      "descPlaceholder": "Describe the flavors, ambiance, your feelings...",
       "tags": "Keywords",
       "addTagPlaceholder": "Add a tag (e.g. #TelAviv)...",
       "suggestions": "Suggestions"
     },
     "buttons": {
-      "publish": "Share with the community",
+      "publish": "Share with Community",
       "publishing": "Sending...",
-      "cancel": "Cancel"
+      "cancel": "Discard"
     },
     "tips": {
-      "1": "Use natural lighting",
+      "title": "For a successful post",
+      "1": "Prioritize natural light",
       "2": "Tell an authentic story",
-      "3": "Tag key ingredients",
-      "title": "For a successful post"
+      "3": "Tag key ingredients"
     },
     "inspiration": {
-      "text": "Need ideas?",
+      "text": "Out of ideas?",
       "link": "Browse the feed"
     }
   },
@@ -332,10 +400,10 @@
     "noRestaurantsAdded": "Start by listing your first restaurant.",
     "noResults": "No results.",
     "editRestaurant": "Edit Restaurant",
-    "restaurantFormDesc": "Showcase your establishment",
+    "restaurantFormDesc": "Highlight your establishment",
     "myDishes": "Dish Menu",
     "dishDesc": "Manage your culinary creations",
-    "menuManagement": "Menu & Cards",
+    "menuManagement": "Menu & Card",
     "noDishes": "No dishes",
     "noDishesAdded": "Enrich your menu with your best dishes.",
     "noResultsDesc": "Change your search criteria.",
@@ -343,7 +411,7 @@
     "dishFormDesc": "Add a new flavor to your menu",
     "dishFormEditDesc": "Update dish",
     "myRecipes": "My Recipes",
-    "recipeDesc": "Passing on know-how",
+    "recipeDesc": "Transmission of expertise",
     "yourCreations": "Your Masterpieces",
     "noRecipes": "No recipes",
     "noRecipesAdded": "Share your first secret recipe.",
@@ -353,6 +421,12 @@
     "editCard": "Edit Card",
     "cardFormDesc": "Create your digital business card",
     "cuisine": "Gastronomy",
+    "confirmDeleteDish": "Are you sure you want to delete this dish?",
+    "deleteDishError": "Error deleting dish",
+    "confirmDeleteRestaurant": "Are you sure you want to delete this restaurant? This will also delete all associated dishes.",
+    "deleteRestaurantError": "Error deleting restaurant",
+    "confirmDeleteRecipe": "Are you sure you want to delete this recipe?",
+    "deleteRecipeError": "Error deleting recipe",
     "forms": {
       "generalInfo": "The Essentials",
       "name": "Name",
@@ -360,8 +434,8 @@
       "descPlaceholder": "Tell your story with passion...",
       "cuisine": "Culinary Style",
       "cacherout": "Certification",
-      "priceRange": "Price Range",
-      "select": "Select...",
+      "priceRange": "Budget",
+      "select": "Choose...",
       "locationContact": "Contact & Access",
       "address": "Full Address",
       "city": "City",
@@ -370,16 +444,18 @@
       "email": "Pro Email",
       "website": "Website",
       "visualIdentity": "Brand Image",
-      "logo": "Logo",
+      "logo": "Logotype",
       "logoUpload": "Import your logo",
+      "logoPreview": "Logo preview",
       "image": "Cover Photo",
       "upload": "Import a photo",
+      "photoUpload": "Choose a visual",
       "maxSize": "Max 5MB",
       "imageHelp": "Max 5MB (PNG, JPG)",
       "actions": "Validation",
       "categorization": "Classification",
       "category": "Category",
-      "region": "Region",
+      "region": "Terroir",
       "season": "Seasonality",
       "dietary": "Dietary Specifics",
       "vegetarian": "Vegetarian",
@@ -389,9 +465,9 @@
       "price": "Price",
       "title": "Recipe Name",
       "titlePlaceholder": "Ex: Royal Shakshuka",
-      "prepTime": "Preparation (min)",
-      "cookTime": "Cooking (min)",
-      "servings": "Servings",
+      "prepTime": "Prep (min)",
+      "cookTime": "Cook (min)",
+      "servings": "Guests",
       "difficulty": "Level",
       "difficultyOptions": {
         "easy": "Beginner",
@@ -405,32 +481,35 @@
       "instructions": "Recipe Steps",
       "step": "Step",
       "addStep": "+ Step",
-      "bizName": "Business Name",
+      "bizName": "Company Name",
       "bizDescription": "Activity",
       "imageUrl": "Image Link",
       "preview": "Preview",
       "errors": {
         "required": "Information required",
+        "invalidEmail": "Invalid format",
         "invalidUrl": "Invalid link",
         "invalidPrice": "Invalid amount",
         "minCuisine": "Select at least one style",
         "minIngredients": "Missing ingredients",
         "minInstructions": "Missing instructions",
+        "titleRequired": "Title mandatory",
         "imageSize": "File too large (>5MB)",
         "save": "Save failed",
         "load": "Load failed"
       },
       "placeholders": {
-        "restaurantName": "Ex: The Garden of Flavors",
-        "restaurantDesc": "Tell your restaurant's story...",
+        "restaurantName": "Ex: The Flavor Garden",
+        "restaurantDesc": "Tell the story of your restaurant...",
         "street": "Street and number",
         "zipCode": "12345",
         "phone": "050-1234567",
         "email": "contact@restaurant.com",
         "website": "https://www.myrestaurant.com",
         "dishName": "Ex: Royal Shakshuka",
-        "dishDesc": "Describe the flavors and ingredients...",
-        "ingredient": "Ingredient"
+        "dishDesc": "Describe flavors and ingredients...",
+        "ingredient": "Ingredient",
+        "step": "Step"
       }
     }
   },
@@ -441,8 +520,8 @@
     "stats": {
       "favorites": "Favorites",
       "likesReceived": "Appreciations",
-      "recipes": "Saved recipes",
-      "dishes": "Favorite dishes"
+      "recipes": "Saved Recipes",
+      "dishes": "Favorite Dishes"
     },
     "becomeChef": "Upgrade to Chef",
     "becomeChefDesc": "Join the culinary elite and unlock professional features.",
@@ -450,48 +529,48 @@
     "quickAccess": "Shortcuts",
     "myFavorites": "My Collection",
     "explore": "Browse",
-    "publicProfile": "View my public profile",
+    "publicProfile": "View public profile",
     "memberSince": "Member since",
     "editModal": {
-      "title": "Profile update",
-      "firstName": "First name",
-      "lastName": "Last name",
+      "title": "Profile Update",
+      "firstName": "First Name",
+      "lastName": "Last Name",
       "pseudo": "Username",
       "phone": "Mobile"
     },
     "avatarModal": {
-      "title": "Profile photo",
+      "title": "Profile Picture",
       "choose": "Select",
       "upload": "Update"
     }
   },
   "businessDashboard": {
     "space": "Professional Space",
-    "title": "Dashboard",
+    "title": "Control Center",
     "subtitle": "Supervise your activity and analyze your impact.",
-    "newRestaurant": "Add a Restaurant",
+    "newRestaurant": "Add Restaurant",
     "needHelp": "Pro Support",
     "contactSupport": "Our dedicated team is available 24/7.",
-    "supportBtn": "Open a ticket",
+    "supportBtn": "Open Ticket",
     "stats": {
       "restaurants": "Establishments",
-      "dishes": "Dishes on the menu",
+      "dishes": "Dishes on Menu",
       "totalLikes": "Engagement",
-      "averageRating": "Overall Rating"
+      "averageRating": "Global Rating"
     },
     "yourRestaurants": "Your Portfolio",
     "noRestaurants": "No active establishment",
-    "topDishes": "Featured Dishes",
+    "topDishes": "Star Dishes",
     "noTopDishes": "Insufficient data",
-    "quickActions": "Quick Access",
+    "quickActions": "Direct Access",
     "newDish": "New Dish",
     "viewProfile": "Public Profile"
   },
   "admin": {
     "title": "Supervision",
-    "subtitle": "Platform control center",
+    "subtitle": "Platform Control Center",
     "tabs": {
-      "overview": "Overview",
+      "overview": "Summary",
       "users": "Community",
       "restaurants": "Partners",
       "content": "Moderation"
@@ -504,7 +583,7 @@
       "pending": "Pending",
       "actionRequired": "Urgent"
     },
-    "recentUsers": "Recent Members",
+    "recentUsers": "Latest Registrations",
     "table": {
       "user": "Member",
       "email": "Contact",
@@ -514,14 +593,16 @@
     },
     "actions": {
       "edit": "Edit",
-      "approve": "Approve",
-      "reject": "Reject"
+      "approve": "Validate",
+      "reject": "Refuse",
+      "ignore": "Archive",
+      "delete": "Ban"
     },
-    "pendingRestaurants": "Join requests",
+    "pendingRestaurants": "Membership Requests",
     "reports": "Reports",
     "validations": "History",
     "roles": {
-      "admin": "Administrator",
+      "admin": "Admin",
       "business": "Professional",
       "user": "Member"
     },
@@ -529,7 +610,16 @@
     "noPendingRestaurants": "No pending requests",
     "noReports": "No reports",
     "emptyHistory": "No history",
-    "unknownUser": "Unknown user"
+    "unknownUser": "Unknown user",
+    "mock": {
+      "inappropriate": "Inappropriate Content",
+      "today": "Today",
+      "commentBody": "Content excerpt...",
+      "approvedRestaurant": "{name} validated",
+      "approvedRecipe": "{name} validated",
+      "bannedUser": "{name} suspended",
+      "submittedBy": "Submitted by {{name}} on {{time}}"
+    }
   },
   "settings": {
     "title": "Configuration",
@@ -547,7 +637,7 @@
       "theme": "Appearance",
       "french": "French",
       "english": "English",
-      "hebrew": "עברית",
+      "hebrew": "Hebrew",
       "light": "Light",
       "dark": "Dark"
     },
@@ -555,33 +645,34 @@
       "changeAvatar": "Edit",
       "fullName": "Identity",
       "email": "Contact",
-      "bio": "About you"
+      "bio": "About You"
     },
     "notifications": {
       "email": {
         "title": "Newsletter",
-        "desc": "The best of culinary news"
+        "desc": "Culinary news essentials"
       },
       "marketing": {
-        "title": "Exclusive Offers",
-        "desc": "Exclusive promotions from our partners"
+        "title": "Privilege Offers",
+        "desc": "Exclusive partner promotions"
       }
     },
     "buttons": {
-      "save": "Apply changes"
+      "save": "Apply Changes"
     },
     "alert": {
       "saved": "Configuration updated"
     }
   },
   "profile": {
-    "notFound": "This profile is not accessible",
+    "notFound": "This profile is inaccessible",
     "memberSince": "Member since",
     "followers": "Followers",
     "following": "Following",
     "subscribe": "Follow",
     "about": "Bio",
     "noBio": "This user cultivates mystery.",
+    "coverImage": "Cover photo",
     "links": "Networks",
     "tabs": {
       "creations": "Portfolio",
@@ -590,17 +681,18 @@
     },
     "empty": {
       "posts": "No posts yet.",
-      "recipes": "The recipe book is empty.",
-      "restaurants": "No addresses referenced."
+      "recipes": "Recipe book is empty.",
+      "restaurants": "No address listed."
     }
   },
   "details": {
-    "website": "Official Website",
+    "website": "Official Site",
     "servings": "servings",
     "ingredients": "Ingredients",
-    "instructions": "Preparation",
+    "instructions": "Instructions",
     "step": "Step",
-    "chefsNote": "Chef's Note"
+    "chefsNote": "Chef's Note",
+    "moreFromAuthor": "More recipes by {{author}}"
   },
   "home": {
     "hero": {
@@ -615,17 +707,22 @@
     "title": "Audience",
     "subtitle": "Measure your culinary reach",
     "stats": {
-      "totalViews": "Total views",
+      "totalViews": "Global Views",
       "likes": "Appreciations",
-      "uniqueVisitors": "Unique audience",
-      "revenue": "Revenue generated"
+      "uniqueVisitors": "Unique Audience",
+      "revenue": "Generated Revenue"
+    },
+    "timeRanges": {
+      "week": "7 days",
+      "month": "30 days",
+      "year": "12 months"
     },
     "proTip": {
       "title": "Chef's Tip",
-      "text": "Photos taken in daylight generate 40% more engagement."
+      "text": "Photos taken in natural light generate 40% more engagement."
     },
     "charts": {
-      "visits": "Traffic",
+      "visits": "Attendance",
       "last7days": "Last week"
     },
     "popular": "Top Creations",
@@ -633,7 +730,7 @@
     "activities": {
       "like": "liked your creation",
       "comment": "reacted",
-      "share": "shared your profile"
+      "share": "relayed your profile"
     }
   },
   "restaurantDetail": {
@@ -641,13 +738,13 @@
     "notFound": "Restaurant not found",
     "menu": "The Menu",
     "about": "About",
-    "noDishes": "The menu is not yet available.",
+    "noDishes": "Menu not yet available.",
     "loadErrorToast": "Unable to load restaurant details",
     "info": {
       "phone": "Reservation",
       "website": "Website",
-      "visitWebsite": "Visit site",
-      "hours": "Hours",
+      "visitWebsite": "Visit Site",
+      "hours": "Opening Hours",
       "cuisines": "Specialties",
       "opening": {
         "sunThu": "Sun - Thu: 12:00 - 23:00",
@@ -660,7 +757,7 @@
     "title": "Let's Talk Food",
     "subtitle": "A question, a partnership? Our team is listening.",
     "info": {
-      "title": "Our Contact Details",
+      "title": "Contact Us",
       "email": "Email",
       "responseDelay": "Response within 24h",
       "phone": "Phone",
@@ -671,7 +768,7 @@
       "chat": {
         "title": "Live Chat",
         "desc": "Chat instantly with our support team.",
-        "button": "Start a conversation"
+        "button": "Start Conversation"
       }
     },
     "form": {
@@ -681,10 +778,10 @@
       "emailPlaceholder": "example@email.com",
       "subject": "Subject",
       "message": "Your message...",
-      "submit": "Send message",
+      "submit": "Send Message",
       "success": {
-        "title": "Message sent!",
-        "desc": "We will respond as soon as possible.",
+        "title": "Message Sent!",
+        "desc": "We will reply as soon as possible.",
         "new": "Send another message"
       }
     }
@@ -700,18 +797,18 @@
     "trending": "Trending",
     "noResults": "No dishes found",
     "noResultsDesc": "Try changing your filters or search.",
-    "loadMore": "View more dishes"
+    "loadMore": "Load more dishes"
   },
   "restaurantsPage": {
     "hero": {
       "badge": "Exceptional Tables",
       "title": "Discover the Best",
       "subtitle": "Restaurants",
-      "description": "From award-winning establishments to hidden gems, find the perfect table for your next culinary experience."
+      "description": "From award-winning establishments to hidden gems, find the perfect table for your next dining experience."
     },
     "noResults": "No restaurants found",
     "noResultsDesc": "Try changing your filters or search.",
-    "loadMore": "View more restaurants"
+    "loadMore": "Load more restaurants"
   },
   "recipeBooksPage": {
     "hero": {
@@ -724,9 +821,9 @@
     "noResultsDesc": "Try other keywords or browse our categories."
   },
   "footer": {
-    "description": "The first digital platform dedicated to promoting Israeli cuisine worldwide.",
+    "description": "The first digital platform dedicated to the promotion of Israeli cuisine worldwide.",
     "explore": "Explore",
-    "account": "Member Space",
+    "account": "Member Area",
     "newsletter": {
       "title": "Stay Informed",
       "text": "Receive our selection of the best addresses every week.",
@@ -740,13 +837,13 @@
     },
     "rights": "All rights reserved.",
     "madeWith": "Made with",
-    "for": "for lovers of taste",
+    "for": "for food lovers",
     "location": "Tel Aviv, Israel"
   },
   "notFound": {
     "title": "Page Not Found",
     "text": "Sorry, the page you are looking for does not exist or has been moved.",
-    "button": "Back to home"
+    "button": "Back to Home"
   },
   "terms": {
     "title": "Terms of Service",
@@ -758,19 +855,19 @@
       },
       "2": {
         "title": "Use License",
-        "text": "Permission is granted to temporarily download a copy of the documents for personal non-commercial transitory viewing."
+        "text": "Permission is granted to temporarily download one copy of the materials for personal, non-commercial transitory viewing only."
       },
       "3": {
         "title": "Disclaimer",
-        "text": "The documents on the Flavors of Israel website are provided 'as is'. Flavors of Israel makes no warranties, express or implied."
+        "text": "The materials on Flavors of Israel's website are provided on an 'as is' basis. Flavors of Israel makes no warranties, expressed or implied."
       },
       "4": {
         "title": "Limitations",
-        "text": "In no event shall Flavors of Israel be liable for any damages arising from the use or inability to use the documents."
+        "text": "In no event shall Flavors of Israel be liable for any damages arising out of the use or inability to use the materials."
       },
       "5": {
         "title": "Revisions",
-        "text": "The documents appearing on the website may include technical, typographical or photographic errors."
+        "text": "The materials appearing on the website could include technical, typographical, or photographic errors."
       }
     },
     "update": "These terms may be modified at any time without notice."
@@ -781,11 +878,11 @@
     "sections": {
       "1": {
         "title": "Information Collection",
-        "text": "We collect information when you register on our site, log in to your account or participate in a contest."
+        "text": "We collect information from you when you register on our site, log in to your account, or enter a contest."
       },
       "2": {
-        "title": "Information Use",
-        "text": "All information we collect may be used to personalize your experience and improve our website."
+        "title": "Information Usage",
+        "text": "Any of the information we collect from you may be used to personalize your experience and improve our website."
       },
       "3": {
         "title": "Privacy",
@@ -793,7 +890,7 @@
       },
       "4": {
         "title": "Protection",
-        "text": "We implement a variety of security measures to preserve the security of your personal information."
+        "text": "We implement a variety of security measures to maintain the safety of your personal information."
       },
       "5": {
         "title": "Consent",

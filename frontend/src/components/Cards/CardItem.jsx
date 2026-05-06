@@ -1,10 +1,13 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Trash2, Edit2, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Button from '../UI/Button';
-import { getImageUrl } from '../../utils/helpers';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 
 const CardItem = ({ card, onLike, onDelete, isOwner }) => {
+  const { t, i18n } = useTranslation();
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -41,7 +44,7 @@ const CardItem = ({ card, onLike, onDelete, isOwner }) => {
         </div>
 
         <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2 flex-1">
-          {card.bizDescription}
+          {localizeValue(card.bizDescription, i18n.language)}
         </p>
 
         <div className="space-y-2 mb-6">
@@ -65,7 +68,7 @@ const CardItem = ({ card, onLike, onDelete, isOwner }) => {
                 className="border-gray-200 hover:border-gold-500 hover:text-gold-500"
               >
                 <Edit2 className="w-4 h-4 me-2" />
-                Modifier
+                {t('common.edit')}
               </Button>
             </Link>
             <Button

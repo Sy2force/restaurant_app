@@ -5,11 +5,12 @@ import { useTranslation } from 'react-i18next';
 import { recipeBookAPI } from '../services/api';
 import PremiumBookCard from '../components/RecipeBooks/PremiumBookCard';
 import SkeletonCard from '../components/UI/SkeletonCard';
+import { localizeValue } from '../utils/helpers';
 
 import { mockRecipeBooks } from '../data/mockRecipeBooks';
 
 const RecipeBooks = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState('all');
@@ -112,7 +113,7 @@ const RecipeBooks = () => {
                         : 'bg-white/10 text-white hover:bg-white/20'
                     }`}
                   >
-                    {cat}
+                    {localizeValue(cat, i18n.language)}
                   </button>
                 ))}
               </div>

@@ -295,7 +295,7 @@ const Dishes = () => {
                 >
                   {loadingMore ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
+                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin ms-2 rtl:mr-2 rtl:ms-0" />
                       {t('common.loading')}
                     </>
                   ) : (

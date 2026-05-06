@@ -40,7 +40,7 @@ const ForgotPassword = () => {
             src={getImageUrl(
               'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940'
             )}
-            alt="Cooking ingredients"
+            alt={t('auth.forgotPasswordPage.heroImage')}
             className="w-full h-full object-cover opacity-60"
             onError={(e) => {
               e.target.src =
@@ -133,13 +133,13 @@ const ForgotPassword = () => {
                 >
                   {loading ? (
                     <div className="flex items-center justify-center">
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin ms-2 rtl:mr-2 rtl:ms-0" />
                       {t('auth.forgotPasswordPage.sending')}
                     </div>
                   ) : (
                     <div className="flex items-center justify-center">
                       {t('auth.forgotPasswordPage.sendLink')}
-                      <ArrowRight className="w-5 h-5 ml-2" />
+                      <ArrowRight className="w-5 h-5 ms-2 rtl:mr-2 rtl:ms-0 rtl:rotate-180" />
                     </div>
                   )}
                 </Button>

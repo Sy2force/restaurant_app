@@ -262,7 +262,7 @@ const Settings = () => {
                         {user?.avatar ? (
                           <img
                             src={user.avatar}
-                            alt="Avatar"
+                            alt={t('common.avatar')}
                             className="w-full h-full object-cover"
                           />
                         ) : (

@@ -64,7 +64,7 @@ const DishList = () => {
   };
 
   const handleDelete = async (dishId) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer ce plat ?')) {
+    if (!window.confirm(t('dashboard.confirmDeleteDish'))) {
       return;
     }
 
@@ -72,7 +72,7 @@ const DishList = () => {
       await dishAPI.delete(dishId);
       setDishes(dishes.filter((d) => d._id !== dishId));
     } catch (error) {
-      alert('Erreur lors de la suppression du plat');
+      alert(t('dashboard.deleteDishError'));
     }
   };
 

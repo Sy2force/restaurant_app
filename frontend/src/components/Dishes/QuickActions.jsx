@@ -1,29 +1,33 @@
 import { motion } from 'framer-motion';
 import { TrendingUp, Clock, Award, Sparkles } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+import { localizeValue } from '../../utils/helpers';
 
 const QuickActions = ({ onQuickFilter }) => {
+  const { i18n } = useTranslation();
+
   const quickFilters = [
     {
       icon: TrendingUp,
-      label: 'Populaires',
+      label: localizeValue('Populaires', i18n.language),
       filter: { sort: 'popular' },
       color: 'from-red-500 to-pink-500',
     },
     {
       icon: Clock,
-      label: 'Nouveautés',
+      label: localizeValue('Nouveautés', i18n.language),
       filter: { sort: 'recent' },
       color: 'from-blue-500 to-cyan-500',
     },
     {
       icon: Award,
-      label: 'Mehadrin',
+      label: localizeValue('Mehadrin', i18n.language),
       filter: { cacherout: 'Mehadrin' },
-      color: 'from-gold-500 to-yellow-500',
+      color: 'from-green-500 to-emerald-500',
     },
     {
       icon: Sparkles,
-      label: 'Végétarien',
+      label: localizeValue('Végétarien', i18n.language),
       filter: { isVegetarian: true },
       color: 'from-green-500 to-emerald-500',
     },
@@ -46,7 +50,7 @@ const QuickActions = ({ onQuickFilter }) => {
           >
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <Icon className="w-8 h-8 text-white mb-2 mx-auto" />
-            <p className="text-white font-semibold text-sm">{item.label}</p>
+            <p className="text-white font-semibold text-sm">{localizeValue(item.label, i18n.language)}</p>
           </motion.button>
         );
       })}

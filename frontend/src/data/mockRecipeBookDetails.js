@@ -6,7 +6,7 @@ export const mockRecipeBookDetails = {
     description:
       'Une plongée fascinante dans les ruelles de la vieille ville, à la découverte des saveurs millénaires qui font vibrer Jérusalem. Ce livre rassemble les recettes les plus emblématiques, des petits-déjeuners traditionnels aux festins de Shabbat, en passant par les douceurs du marché.',
     author: 'Chef Yotam Ottolenghi',
-    authorImage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2800',
+    authorImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2800',
     coverImage: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2788',
     theme: 'Traditionnel',
     price: '29.99',
@@ -20,7 +20,7 @@ export const mockRecipeBookDetails = {
     description:
       "Explorez la scène culinaire vibrante de Tel Aviv, où tradition et innovation se rencontrent pour créer des plats uniques. Des bars branchés aux tables gastronomiques, découvrez l'âme de la ville blanche.",
     author: 'Chef Eyal Shani',
-    authorImage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2800',
+    authorImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2800',
     coverImage: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2940',
     theme: 'Moderne',
     price: '24.99',
@@ -34,7 +34,7 @@ export const mockRecipeBookDetails = {
     description:
       "Les meilleures recettes de pâtisseries inspirées des marchés d'Israël. Babka, Rugelach, Halva et autres délices sucrés à réaliser chez vous.",
     author: 'Chef Karin Goren',
-    authorImage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2800',
+    authorImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2800',
     coverImage: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?q=80&w=2889',
     theme: 'Desserts',
     price: '19.99',
@@ -48,7 +48,7 @@ export const mockRecipeBookDetails = {
     description:
       "Découvrez comment la cuisine israélienne se prête merveilleusement bien à l'alimentation végétale, sans compromis sur le goût. Des recettes saines, colorées et savoureuses.",
     author: 'Chef Ori Shavit',
-    authorImage: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2800',
+    authorImage: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2800',
     coverImage: 'https://images.unsplash.com/photo-1511690656952-34342d2c7135?q=80&w=2940',
     theme: 'Végétalien',
     price: '27.50',

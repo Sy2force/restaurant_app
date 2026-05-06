@@ -58,7 +58,7 @@ const Login = () => {
             src={getImageUrl(
               'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940'
             )}
-            alt="Chef cooking"
+            alt={t('auth.loginPage.heroImage')}
             className="w-full h-full object-cover opacity-60"
             onError={(e) => {
               e.target.src =

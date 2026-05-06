@@ -40,8 +40,9 @@
     "register": "Create Account",
     "login": "Sign In",
     "loginPage": {
-      "heroTitle": "The Essence of <br /><span class=\"text-gold-400\">Israeli Cuisine</span>",
+      "heroTitle": "The Essence of <span class=\"text-gold-400\">Israeli Cuisine</span>",
       "heroDesc": "Access an exclusive platform gathering the culinary elite: chefs, restaurants, and exceptional recipes.",
+      "heroImage": "Chef cooking",
       "welcomeBack": "Welcome Back",
       "accessAccount": "Access your personal space",
       "loginFailed": "Invalid credentials",
@@ -51,6 +52,7 @@
     "resetPassword": {
       "heroTitle": "New <br /><span class=\"text-gold-400\">Start</span>",
       "heroDesc": "Secure your account with a new password and rediscover your favorite recipes.",
+      "heroImage": "Cooking ingredients",
       "successTitle": "Password Changed!",
       "successDesc": "Your password has been successfully updated. You will be redirected to the login page.",
       "loginNow": "Login Now",
@@ -69,6 +71,7 @@
     "forgotPasswordPage": {
       "heroTitle": "New <br /><span class=\"text-gold-400\">Start</span>",
       "heroDesc": "Reset your password to regain access to your account and favorite recipes.",
+      "heroImage": "Cooking ingredients",
       "emailSent": "Email Sent!",
       "emailSentDesc": "If an account exists with the address <strong>{{email}}</strong>, you will receive a reset link.",
       "backToLogin": "Back to Login",
@@ -89,12 +92,15 @@
       "registering": "Creating account...",
       "heroTitle": "Join Flavors of Israel",
       "heroDesc": "Create your account to share, save and explore Israeli cuisine.",
+      "heroImage": "Mediterranean food",
       "benefits": {
         "save": "Save your favorite recipes and dishes",
         "share": "Share your creations with the community",
         "discover": "Discover restaurants near you",
         "business": "Manage your restaurant if you are a professional"
-      }
+      },
+      "subtitle": "Start your culinary journey today",
+      "error": "Registration failed"
     },
     "errors": {
       "required": "Required field",
@@ -130,6 +136,7 @@
       "title": "Reveal Your Talent",
       "subtitle": "Join a vibrant community and let your culinary creativity shine.",
       "button": "Share a Creation",
+      "heroImage": "Israeli cuisine",
       "quote": "Cooking is an art meant to be shared.",
       "steps": {
         "photo": {
@@ -198,6 +205,10 @@
     "publish": "Publish",
     "search": "Search for a flavor...",
     "actions": "Options",
+    "avatar": "Avatar",
+    "postImage": "Post image",
+    "userAvatar": "User avatar",
+    "post": "Post",
     "status": "Status",
     "date": "Date",
     "viewDetails": "Explore",
@@ -222,13 +233,16 @@
     "maxChars": "Max 500 characters",
     "loginToLike": "Please login to like",
     "print": "Print",
-    "share": "Share"
+    "share": "Share",
+    "recipes": "recipes",
+    "preview": "Preview"
   },
   "recipeDetail": {
     "loadError": "Unable to load recipe",
     "notFound": "Recipe not found"
   },
   "dishDetail": {
+    "loadError": "Error loading dish",
     "notFound": "Dish not found",
     "backList": "Back to list",
     "backMenu": "Back to menu",
@@ -266,10 +280,10 @@
   },
   "explore": {
     "hero": {
-      "badge": "Inspiration",
-      "title": "The Foodie Feed",
+      "badge": "Inspirations",
+      "title": "The Gourmet Feed",
       "subtitle": "Dive into the latest culinary trends from our community.",
-      "share": "Share a Gem"
+      "share": "Share a gem"
     },
     "searchPlaceholder": "What would you like to taste today?",
     "filters": "Refine",
@@ -279,7 +293,39 @@
     "noPostsDesc": "Be the first to share your favorite!",
     "createPost": "New Post",
     "noCards": "No cards found",
-    "noCardsDesc": "Be the first to create your business card!"
+    "noCardsDesc": "Be the first to create your business card!",
+    "tabs": {
+      "posts": "Posts",
+      "cards": "Business Cards"
+    }
+  },
+  "exploreDetail": {
+    "loginToLike": "Please sign in to like",
+    "likeRemoved": "Like removed",
+    "likeAdded": "Added to likes",
+    "confirmDelete": "Delete this post?",
+    "deleteSuccess": "Post deleted",
+    "deleteError": "Unable to delete post",
+    "commentAdded": "Comment added",
+    "commentError": "Unable to add comment",
+    "confirmDeleteComment": "Delete this comment?",
+    "commentDeleted": "Comment deleted",
+    "shareSuccess": "Link copied",
+    "notFound": "Post not found",
+    "back": "Back to explore",
+    "views": "views",
+    "delete": "Delete",
+    "commentsTitle": "Comments",
+    "commentPlaceholder": "Add a comment...",
+    "loginToComment": "to comment",
+    "noComments": "No comments yet",
+    "memberSince": "Member since",
+    "viewProfile": "View profile",
+    "contest": {
+      "title": "Weekly challenge",
+      "text": "Share your best Israeli flavor and inspire the community.",
+      "button": "Join"
+    }
   },
   "userLikes": {
     "loadError": "Unable to load your likes",
@@ -375,6 +421,12 @@
     "editCard": "Edit Card",
     "cardFormDesc": "Create your digital business card",
     "cuisine": "Gastronomy",
+    "confirmDeleteDish": "Are you sure you want to delete this dish?",
+    "deleteDishError": "Error deleting dish",
+    "confirmDeleteRestaurant": "Are you sure you want to delete this restaurant? This will also delete all associated dishes.",
+    "deleteRestaurantError": "Error deleting restaurant",
+    "confirmDeleteRecipe": "Are you sure you want to delete this recipe?",
+    "deleteRecipeError": "Error deleting recipe",
     "forms": {
       "generalInfo": "The Essentials",
       "name": "Name",
@@ -394,6 +446,7 @@
       "visualIdentity": "Brand Image",
       "logo": "Logotype",
       "logoUpload": "Import your logo",
+      "logoPreview": "Logo preview",
       "image": "Cover Photo",
       "upload": "Import a photo",
       "photoUpload": "Choose a visual",
@@ -619,6 +672,7 @@
     "subscribe": "Follow",
     "about": "Bio",
     "noBio": "This user cultivates mystery.",
+    "coverImage": "Cover photo",
     "links": "Networks",
     "tabs": {
       "creations": "Portfolio",

@@ -8,7 +8,7 @@ export const mockPostDetails = {
     userId: {
       _id: 'user1',
       name: 'Sarah Cohen',
-      avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
     },
     likes: ['1', '2', '3'],
     views: 1250,
@@ -75,7 +75,7 @@ export const mockPostDetails = {
         _id: 'c2',
         userId: {
           name: 'Sarah Cohen',
-          avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=256',
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=256',
         },
         text: "Ils ont l'air parfaits !",
         createdAt: new Date(Date.now() - 3600000).toISOString(),

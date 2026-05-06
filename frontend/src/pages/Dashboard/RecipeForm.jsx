@@ -482,7 +482,7 @@ const RecipeForm = () => {
                   <div className="relative group">
                     <img
                       src={getImageUrl(imagePreview)}
-                      alt="Preview"
+                      alt={t('common.preview')}
                       className="w-full aspect-square object-cover rounded-2xl border-2 border-gold-100"
                       onError={(e) => {
                         e.target.src =

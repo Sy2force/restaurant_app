@@ -11,7 +11,7 @@ export const mockRecipeDetails = {
     difficulty: 'Moyen',
     author: {
       name: 'Chef Miriam Cohen',
-      image: 'https://images.unsplash.com/photo-1583394293214-28ded15ee548?q=80&w=2800',
+      image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2800',
     },
     ingredients: [
       { item: 'Farine T55', amount: '1', unit: 'kg' },

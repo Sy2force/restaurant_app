@@ -50,7 +50,7 @@ const Register = () => {
     } else {
       setError('root', {
         type: 'manual',
-        message: result.error || "Échec de l'inscription",
+        message: result.error || t('auth.registerPage.error'),
       });
     }
   };
@@ -64,7 +64,7 @@ const Register = () => {
             src={getImageUrl(
               'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874'
             )}
-            alt="Mediterranean food"
+            alt={t('auth.registerPage.heroImage')}
             className="w-full h-full object-cover opacity-60"
             onError={(e) => {
               e.target.src =
@@ -73,20 +73,20 @@ const Register = () => {
           />
           <div className="absolute inset-0 bg-gradient-to-l from-black/60 to-transparent" />
         </div>
-        <div className="relative z-10 flex flex-col justify-center px-16 text-white text-right">
+        <div className="relative z-10 flex flex-col justify-center px-16 text-white rtl:text-right ltr:text-left">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <div className="w-16 h-16 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-sm border border-gold-500/30 ml-auto">
+            <div className="w-16 h-16 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-sm border border-gold-500/30 rtl:ml-auto rtl:mr-0 ltr:mr-auto ltr:ml-0">
               <ChefHat className="w-10 h-10 text-gold-400" />
             </div>
             <h1
               className="text-5xl font-display font-bold mb-6 leading-tight"
               dangerouslySetInnerHTML={{ __html: t('auth.registerPage.heroTitle') }}
             />
-            <p className="text-xl text-gray-200 max-w-lg ml-auto leading-relaxed">
+            <p className="text-xl text-gray-200 max-w-lg rtl:ml-auto rtl:mr-0 ltr:mr-auto ltr:ml-0 leading-relaxed">
               {t('auth.registerPage.heroDesc')}
             </p>
 
@@ -119,10 +119,10 @@ const Register = () => {
         >
           <div className="text-center mb-10">
             <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
-              Créer un compte
+              {t('auth.register')}
             </h2>
             <p className="text-gray-500 dark:text-gray-400">
-              Commencez votre voyage culinaire dès aujourd'hui
+              {t('auth.registerPage.subtitle')}
             </p>
           </div>
 

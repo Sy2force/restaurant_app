@@ -40,8 +40,9 @@
     "register": "צור חשבון",
     "login": "כניסה",
     "loginPage": {
-      "heroTitle": "המהות של <br /><span class=\"text-gold-400\">המטבח הישראלי</span>",
+      "heroTitle": "המהות של <span class=\"text-gold-400\">המטבח הישראלי</span>",
       "heroDesc": "גישה לפלטפורמה אקסקלוסיבית המאגדת את האליטה הקולינרית: שפים, מסעדות ומתכונים יוצאי דופן.",
+      "heroImage": "שף מבשל",
       "welcomeBack": "ברוך שובך",
       "accessAccount": "היכנס לאזור האישי שלך",
       "loginFailed": "פרטים שגויים",
@@ -51,6 +52,7 @@
     "resetPassword": {
       "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
       "heroDesc": "אבטח את החשבון שלך עם סיסמה חדשה וגלה מחדש את המתכונים האהובים עליך.",
+      "heroImage": "מרכיבי בישול",
       "successTitle": "הסיסמה שונתה!",
       "successDesc": "הסיסמה שלך עודכנה בהצלחה. תועבר לדף ההתחברות.",
       "loginNow": "התחבר עכשיו",
@@ -68,8 +70,9 @@
     },
     "forgotPasswordPage": {
       "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
-      "heroDesc": "אפס את הסיסמה שלך כדי לקבל גישה מחדש לחשבון ולמתכונים המועדפים עליך.",
-      "emailSent": "אימייל נשלח!",
+      "heroDesc": "אפס את הסיסמה שלך כדי לשחזר גישה לחשבון שלך ולמתכונים האהובים עליך.",
+      "heroImage": "מרכיבי בישול",
+      "emailSent": "המייל נשלח!",
       "emailSentDesc": "אם קיים חשבון עם הכתובת <strong>{{email}}</strong>, תקבל קישור לאיפוס.",
       "backToLogin": "חזרה להתחברות",
       "title": "שכחת סיסמה?",
@@ -87,14 +90,17 @@
       "businessAccount": "חשבון מקצועי",
       "businessDesc": "לשפים, מסעדנים ויוצרים",
       "registering": "יוצר חשבון...",
-      "heroTitle": "הצטרף ל<br /><span class=\"text-gold-400\">אליטה הגסטרונומית</span>",
-      "heroDesc": "צור חשבון כדי לשתף מתכונים, לגלות מסעדות יוצאות דופן ולהשתתף בקהילה האקסקלוסיבית שלנו.",
+      "heroTitle": "הצטרף לFlavors of Israel",
+      "heroDesc": "צור חשבון כדי לשתף, לשמור ולחקור את המטבח הישראלי.",
+      "heroImage": "אוכל ים תיכוני",
       "benefits": {
-        "save": "Save your favorite recipes and dishes",
-        "share": "Share your creations with the community",
-        "business": "Manage your restaurant if you are a professional",
-        "discover": "Discover restaurants near you"
-      }
+        "save": "שמור את המתכונים והמנות האהובים עליך",
+        "share": "שתף את היצירות שלך עם הקהילה",
+        "business": "נהל את המסעדה שלך אם אתה מקצוען",
+        "discover": "גלה מסעדות בקרבתך"
+      },
+      "subtitle": "התחל את המסע הקולינרי שלך עוד היום",
+      "error": "ההרשמה נכשלה"
     },
     "errors": {
       "required": "שדה חובה",
@@ -127,10 +133,11 @@
       "kosher": "כשר"
     },
     "publish": {
-      "title": "גלה את הכישרון שלך",
-      "subtitle": "הצטרף לקהילה תוססת ותן ליצירתיות הקולינרית שלך לזרוח.",
-      "button": "שתף יצירה",
-      "quote": "בישול הוא אמנות שנועדה לשיתוף.",
+      "title": "חשפו את הכישרון שלכם",
+      "subtitle": "הצטרפו לקהילה תוססת ותנו ליצירתיות הקולינרית שלכם לזרוח.",
+      "button": "שתפו יצירה",
+      "heroImage": "מטבח ישראלי",
+      "quote": "בישול הוא אמנות שנועדה להישתף.",
       "steps": {
         "photo": {
           "title": "צלם",
@@ -198,6 +205,9 @@
     "publish": "פרסם",
     "search": "חפש טעם...",
     "actions": "אפשרויות",
+    "avatar": "תמונת פרופיל",
+    "postImage": "תמונת פוסט",
+    "userAvatar": "תמונת משתמש",
     "status": "סטטוס",
     "date": "תאריך",
     "viewDetails": "חקור",
@@ -222,9 +232,12 @@
     "maxChars": "מקסימום 500 תווים",
     "loginToLike": "נא להתחבר כדי לסמן לייק",
     "print": "הדפסה",
-    "share": "שיתוף"
+    "share": "שיתוף",
+    "recipes": "מתכונים",
+    "preview": "תצוגה מקדימה"
   },
   "dishDetail": {
+    "loadError": "שגיאה בטעינת המנה",
     "notFound": "המנה לא נמצאה",
     "backList": "חזרה לרשימה",
     "backMenu": "חזרה לתפריט",
@@ -275,7 +288,39 @@
     "noPostsDesc": "היה הראשון לשתף את המועדף עליך!",
     "createPost": "פוסט חדש",
     "noCards": "לא נמצאו כרטיסים",
-    "noCardsDesc": "היה הראשון ליצור את כרטיס הביקור שלך!"
+    "noCardsDesc": "היה הראשון ליצור את כרטיס הביקור שלך!",
+    "tabs": {
+      "posts": "פרסומים",
+      "cards": "כרטיסי ביקור"
+    }
+  },
+  "exploreDetail": {
+    "loginToLike": "נא להתחבר כדי לסמן לייק",
+    "likeRemoved": "הלייק הוסר",
+    "likeAdded": "נוסף ללייקים",
+    "confirmDelete": "למחוק את הפרסום הזה?",
+    "deleteSuccess": "הפרסום נמחק",
+    "deleteError": "לא ניתן למחוק את הפרסום",
+    "commentAdded": "התגובה נוספה",
+    "commentError": "לא ניתן להוסיף תגובה",
+    "confirmDeleteComment": "למחוק את התגובה הזו?",
+    "commentDeleted": "התגובה נמחקה",
+    "shareSuccess": "הקישור הועתק",
+    "notFound": "הפרסום לא נמצא",
+    "back": "חזרה לחקירה",
+    "views": "צפיות",
+    "delete": "מחק",
+    "commentsTitle": "תגובות",
+    "commentPlaceholder": "הוסף תגובה...",
+    "loginToComment": "כדי להגיב",
+    "noComments": "אין תגובות עדיין",
+    "memberSince": "חבר מאז",
+    "viewProfile": "צפה בפרופיל",
+    "contest": {
+      "title": "אתגר השבוע",
+      "text": "שתף את הטעם הישראלי הטוב ביותר שלך ותן השראה לקהילה.",
+      "button": "הצטרף"
+    }
   },
   "userLikes": {
     "loadError": "לא ניתן לטעון את הלייקים שלך",
@@ -371,6 +416,12 @@
     "editCard": "עריכת כרטיס",
     "cardFormDesc": "צור את כרטיס הביקור הדיגיטלי שלך",
     "cuisine": "גסטרונומיה",
+    "confirmDeleteDish": "האם אתה בטוח שברצונך למחוק את המנה הזו?",
+    "deleteDishError": "שגיאה במחיקת המנה",
+    "confirmDeleteRestaurant": "האם אתה בטוח שברצונך למחוק את המסעדה? פעולה זו תמחק גם את כל המנות המשויכות.",
+    "deleteRestaurantError": "שגיאה במחיקת המסעדה",
+    "confirmDeleteRecipe": "האם אתה בטוח שברצונך למחוק את המתכון הזו?",
+    "deleteRecipeError": "שגיאה במחיקת המתכון",
     "forms": {
       "generalInfo": "העיקר",
       "name": "שם",
@@ -390,6 +441,7 @@
       "visualIdentity": "תדמית מותג",
       "logo": "לוגו",
       "logoUpload": "ייבא את הלוגו שלך",
+      "logoPreview": "תצוגה מקדימה של לוגו",
       "image": "תמונת כיסוי",
       "upload": "ייבא תמונה",
       "photoUpload": "בחר ויזואלי",
@@ -608,13 +660,14 @@
     }
   },
   "profile": {
-    "notFound": "פרופיל זה אינו נגיש",
+    "notFound": "הפרופיל הזה אינו נגיש",
     "memberSince": "חבר מאז",
     "followers": "עוקבים",
     "following": "עוקב אחרי",
     "subscribe": "עקוב",
     "about": "ביו",
-    "noBio": "משתמש זה שומר על מסתורין.",
+    "noBio": "המשתמש הזה שומר על מסתורין.",
+    "coverImage": "תמונת כיסוי",
     "links": "רשתות",
     "tabs": {
       "creations": "פורטפוליו",

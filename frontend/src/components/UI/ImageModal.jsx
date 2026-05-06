@@ -71,7 +71,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
               <div className="flex-1 flex items-center justify-center bg-black">
                 <img
                   src={getImageUrl(post.photo)}
-                  alt={post.description}
+                  alt={t('common.postImage')}
                   className="max-w-full max-h-[90vh] object-contain"
                   onError={(e) => {
                     e.target.style.display = 'none';
@@ -143,7 +143,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
                         <div key={comment._id} className="flex gap-3">
                           <img
                             src={getImageUrl(comment.user?.avatar)}
-                            alt={comment.user?.firstName}
+                            alt={t('common.userAvatar')}
                             className="w-8 h-8 rounded-full object-cover"
                             onError={(e) => {
                               e.target.src =

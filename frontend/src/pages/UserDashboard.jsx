@@ -171,7 +171,7 @@ const UserDashboard = () => {
                 <div className="w-32 h-32 rounded-full p-1 border-2 border-gold-500 border-dashed">
                   <img
                     src={getImageUrl(user?.avatar)}
-                    alt="Avatar"
+                    alt={t('common.avatar')}
                     className="w-full h-full rounded-full object-cover"
                     onError={(e) => {
                       e.target.src =
@@ -405,7 +405,7 @@ const UserDashboard = () => {
               <div className="w-48 h-48 rounded-full p-1 border-4 border-gold-500 border-dashed">
                 <img
                   src={avatarPreview || getImageUrl(user?.avatar)}
-                  alt="Preview"
+                  alt={t('common.preview')}
                   className="w-full h-full rounded-full object-cover"
                   onError={(e) => {
                     e.target.src =

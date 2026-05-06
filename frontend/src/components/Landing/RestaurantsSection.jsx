@@ -2,11 +2,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, Star, Award, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getImageUrl } from '../../utils/helpers';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 import { featuredRestaurants } from '../../data/mockLandingData';
 
 const RestaurantsSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="py-24 bg-dark-900 relative">
@@ -53,7 +53,7 @@ const RestaurantsSection = () => {
                   <div className="absolute top-4 start-4">
                     <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2">
                       <Award className="w-4 h-4" />
-                      {restaurant.kosher}
+                      {localizeValue(restaurant.kosher, i18n.language)}
                     </span>
                   </div>
 
@@ -64,7 +64,7 @@ const RestaurantsSection = () => {
                     <div className="flex items-center justify-between text-cream-100">
                       <span className="flex items-center gap-1">
                         <MapPin className="w-4 h-4" />
-                        {restaurant.city}
+                        {localizeValue(restaurant.city, i18n.language)}
                       </span>
                       <span className="flex items-center gap-1">
                         <Star className="w-4 h-4 fill-gold-500 text-gold-500" />
@@ -75,7 +75,7 @@ const RestaurantsSection = () => {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-gray-400 mb-4">{restaurant.cuisine}</p>
+                  <p className="text-gray-400 mb-4">{localizeValue(restaurant.cuisine, i18n.language)}</p>
                   <Link to={`/restaurants/${restaurant.id}`}>
                     <button className="w-full py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold rounded-full transition-colors">
                       {t('landing.restaurants.discover')}

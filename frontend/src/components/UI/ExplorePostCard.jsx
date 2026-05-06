@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { getImageUrl } from '../../utils/helpers';
 
 const ExplorePostCard = ({ post, onLike, onClick }) => {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(post.likes?.length || 0);
 
@@ -38,7 +38,7 @@ const ExplorePostCard = ({ post, onLike, onClick }) => {
             <div className="relative h-64 overflow-hidden">
               <img
                 src={getImageUrl(post.photo)}
-                alt="Post"
+                alt={t('common.post')}
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 onError={(e) => {
                   e.target.style.display = 'none'; // Hide if fails

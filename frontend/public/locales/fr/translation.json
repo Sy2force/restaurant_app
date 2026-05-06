@@ -40,8 +40,9 @@
     "register": "Créer un compte",
     "login": "S'identifier",
     "loginPage": {
-      "heroTitle": "L'Essence de la <br /><span class=\"text-gold-400\">Cuisine Israélienne</span>",
-      "heroDesc": "Accédez à une plateforme exclusive réunissant l'élite de la gastronomie : chefs, restaurants et recettes d'exception.",
+      "heroTitle": "L'Essence de la <span class=\"text-gold-400\">Cuisine Israélienne</span>",
+      "heroDesc": "Accédez à une plateforme exclusive rassemblant l'élite culinaire : chefs, restaurants et recettes d'exception.",
+      "heroImage": "Chef en train de cuisiner",
       "welcomeBack": "Ravi de vous revoir",
       "accessAccount": "Accédez à votre espace personnel",
       "loginFailed": "Identifiants incorrects",
@@ -51,6 +52,7 @@
     "resetPassword": {
       "heroTitle": "Nouveau <br /><span class=\"text-gold-400\">Départ</span>",
       "heroDesc": "Sécurisez votre compte avec un nouveau mot de passe et retrouvez vos recettes préférées.",
+      "heroImage": "Ingrédients de cuisine",
       "successTitle": "Mot de passe modifié !",
       "successDesc": "Votre mot de passe a été mis à jour avec succès. Vous allez être redirigé vers la page de connexion.",
       "loginNow": "Se connecter maintenant",
@@ -68,7 +70,8 @@
     },
     "forgotPasswordPage": {
       "heroTitle": "Nouveau <br /><span class=\"text-gold-400\">Départ</span>",
-      "heroDesc": "Réinitialisez votre mot de passe pour retrouver l'accès à votre compte et à vos recettes préférées.",
+      "heroDesc": "Réinitialisez votre mot de passe pour retrouver l'accès à votre compte et vos recettes préférées.",
+      "heroImage": "Ingrédients de cuisine",
       "emailSent": "Email envoyé !",
       "emailSentDesc": "Si un compte existe avec l'adresse <strong>{{email}}</strong>, vous recevrez un lien de réinitialisation.",
       "backToLogin": "Retour à la connexion",
@@ -87,14 +90,17 @@
       "businessAccount": "Compte Professionnel",
       "businessDesc": "Pour les chefs, restaurateurs et créateurs",
       "registering": "Création du compte...",
-      "heroTitle": "Rejoignez l'Élite <br /><span class=\"text-gold-400\">Gastronomique</span>",
-      "heroDesc": "Créez votre compte pour partager vos recettes, découvrir des restaurants d'exception et participer à notre communauté exclusive.",
+      "heroTitle": "Rejoignez Flavors of Israel",
+      "heroDesc": "Créez votre compte pour partager, enregistrer et explorer la cuisine israélienne.",
+      "heroImage": "Cuisine méditerranéenne",
       "benefits": {
-        "save": "Save your favorite recipes and dishes",
-        "share": "Share your creations with the community",
-        "business": "Manage your restaurant if you are a professional",
-        "discover": "Discover restaurants near you"
-      }
+        "save": "Enregistrez vos recettes et plats favoris",
+        "share": "Partagez vos créations avec la communauté",
+        "business": "Gérez votre restaurant si vous êtes professionnel",
+        "discover": "Découvrez des restaurants près de chez vous"
+      },
+      "subtitle": "Commencez votre voyage culinaire dès aujourd'hui",
+      "error": "Échec de l'inscription"
     },
     "errors": {
       "required": "Champ obligatoire",
@@ -128,8 +134,9 @@
     },
     "publish": {
       "title": "Révélez Votre Talent",
-      "subtitle": "Rejoignez une communauté vibrante et faites rayonner votre créativité culinaire.",
+      "subtitle": "Rejoignez une communauté passionnée et faites briller votre créativité culinaire.",
       "button": "Partager une Création",
+      "heroImage": "Cuisine israélienne",
       "quote": "La cuisine est un art qui se partage.",
       "steps": {
         "photo": {
@@ -198,7 +205,10 @@
     "publish": "Publier",
     "search": "Rechercher une saveur...",
     "actions": "Options",
-    "status": "État",
+    "avatar": "Avatar",
+    "postImage": "Image de publication",
+    "userAvatar": "Avatar utilisateur",
+    "post": "Publication",
     "date": "Date",
     "viewDetails": "Explorer",
     "likes": "Coups de cœur",
@@ -210,25 +220,28 @@
     "comments": "Commentaires",
     "noComments": "Aucun commentaire pour le moment",
     "all": "Tout",
-    "liked": "Plat liké ❤️",
+    "liked": "Plat liké ",
     "unliked": "Like retiré",
     "errorLike": "Erreur lors du like",
-    "addedToFavorites": "Ajouté aux favoris ✅",
+    "addedToFavorites": "Ajouté aux favoris ",
     "removedFromFavorites": "Retiré des favoris",
     "errorFavorite": "Erreur lors de l'ajout aux favoris",
-    "linkCopied": "Lien copié ! 📋",
+    "linkCopied": "Lien copié ! ",
     "selectImage": "Veuillez sélectionner une image",
     "errorCreate": "Erreur lors de la création",
     "maxChars": "Max 500 caractères",
     "loginToLike": "Veuillez vous connecter pour liker",
     "print": "Imprimer",
-    "share": "Partager"
+    "share": "Partager",
+    "recipes": "recettes",
+    "preview": "Aperçu"
   },
   "recipeDetail": {
     "loadError": "Impossible de charger la recette",
     "notFound": "Recette introuvable"
   },
   "dishDetail": {
+    "loadError": "Erreur lors du chargement du plat",
     "notFound": "Plat introuvable",
     "backList": "Retour à la liste",
     "backMenu": "Retour au menu",
@@ -271,15 +284,47 @@
       "subtitle": "Plongez dans les dernières tendances culinaires de notre communauté.",
       "share": "Partager une pépite"
     },
-    "searchPlaceholder": "Que souhaitez-vous déguster aujourd'hui ?",
-    "filters": "Affiner",
-    "popularTags": "En Vogue",
+    "searchPlaceholder": "Que souhaitez-vous goûter aujourd'hui?",
+    "filters": "Filtrer",
+    "popularTags": "Tendance",
     "clearFilters": "Réinitialiser",
     "noPosts": "Aucune inspiration pour le moment",
-    "noPostsDesc": "Soyez le premier à partager votre coup de cœur !",
-    "createPost": "Nouvelle Publication",
+    "noPostsDesc": "Soyez le premier à partager votre coup de cœur!",
+    "createPost": "Nouveau post",
     "noCards": "Aucune carte trouvée",
-    "noCardsDesc": "Soyez le premier à créer votre carte de visite !"
+    "noCardsDesc": "Soyez le premier à créer votre carte de visite!",
+    "tabs": {
+      "posts": "Publications",
+      "cards": "Cartes de visite"
+    }
+  },
+  "exploreDetail": {
+    "loginToLike": "Veuillez vous connecter pour aimer",
+    "likeRemoved": "Like retiré",
+    "likeAdded": "Ajouté aux coups de cœur",
+    "confirmDelete": "Supprimer cette publication ?",
+    "deleteSuccess": "Publication supprimée",
+    "deleteError": "Impossible de supprimer la publication",
+    "commentAdded": "Commentaire ajouté",
+    "commentError": "Impossible d'ajouter le commentaire",
+    "confirmDeleteComment": "Supprimer ce commentaire ?",
+    "commentDeleted": "Commentaire supprimé",
+    "shareSuccess": "Lien copié",
+    "notFound": "Publication introuvable",
+    "back": "Retour à l'exploration",
+    "views": "vues",
+    "delete": "Supprimer",
+    "commentsTitle": "Commentaires",
+    "commentPlaceholder": "Ajouter un commentaire...",
+    "loginToComment": "pour commenter",
+    "noComments": "Aucun commentaire pour le moment",
+    "memberSince": "Membre depuis",
+    "viewProfile": "Voir le profil",
+    "contest": {
+      "title": "Défi de la semaine",
+      "text": "Partagez votre meilleure saveur israélienne et inspirez la communauté.",
+      "button": "Participer"
+    }
   },
   "userLikes": {
     "loadError": "Impossible de charger vos likes",
@@ -375,6 +420,12 @@
     "editCard": "Édition Carte",
     "cardFormDesc": "Créez votre carte de visite numérique",
     "cuisine": "Gastronomie",
+    "confirmDeleteDish": "Êtes-vous sûr de vouloir supprimer ce plat ?",
+    "deleteDishError": "Erreur lors de la suppression du plat",
+    "confirmDeleteRestaurant": "Êtes-vous sûr de vouloir supprimer ce restaurant ? Cela supprimera également tous les plats associés.",
+    "deleteRestaurantError": "Erreur lors de la suppression du restaurant",
+    "confirmDeleteRecipe": "Êtes-vous sûr de vouloir supprimer cette recette ?",
+    "deleteRecipeError": "Erreur lors de la suppression de la recette",
     "forms": {
       "generalInfo": "L'Essentiel",
       "name": "Appellation",
@@ -393,7 +444,8 @@
       "website": "Site Internet",
       "visualIdentity": "Image de Marque",
       "logo": "Logotype",
-      "logoUpload": "Importer votre logo",
+      "logoUpload": "Importez votre logo",
+      "logoPreview": "Aperçu du logo",
       "image": "Photo de Couverture",
       "upload": "Importer une photo",
       "photoUpload": "Choisir un visuel",
@@ -612,13 +664,14 @@
     }
   },
   "profile": {
-    "notFound": "Ce profil n'est pas accessible",
+    "notFound": "Ce profil est inaccessible",
     "memberSince": "Membre depuis",
     "followers": "Abonnés",
     "following": "Abonnements",
     "subscribe": "Suivre",
     "about": "Bio",
     "noBio": "Cet utilisateur cultive le mystère.",
+    "coverImage": "Photo de couverture",
     "links": "Réseaux",
     "tabs": {
       "creations": "Portfolio",

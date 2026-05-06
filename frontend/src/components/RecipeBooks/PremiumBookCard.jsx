@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { BookOpen, Heart, Eye, User } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getImageUrl } from '../../utils/helpers';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 
 const PremiumBookCard = ({ book }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
 
   return (
@@ -40,12 +40,12 @@ const PremiumBookCard = ({ book }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
                 <div className="absolute top-4 end-4 px-3 py-1 bg-gold-500 text-white text-xs font-bold rounded-full">
-                  {book.theme}
+                  {localizeValue(book.theme, i18n.language)}
                 </div>
 
                 <div className="absolute bottom-0 start-0 end-0 p-6">
-                  <h3 className="text-3xl font-display font-bold text-white mb-2 line-clamp-1">{book.title}</h3>
-                  <p className="text-cream-100 text-sm mb-3 line-clamp-2">{book.description}</p>
+                  <h3 className="text-3xl font-display font-bold text-white mb-2 line-clamp-1">{localizeValue(book.title, i18n.language)}</h3>
+                  <p className="text-cream-100 text-sm mb-3 line-clamp-2">{localizeValue(book.description, i18n.language)}</p>
                   <div className="flex items-center gap-4 text-cream-200 text-sm">
                     <span className="flex items-center gap-1">
                       <BookOpen className="w-4 h-4" />

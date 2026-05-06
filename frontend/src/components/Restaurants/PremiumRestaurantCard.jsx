@@ -1,9 +1,12 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, Star, Award, Phone, ExternalLink, UtensilsCrossed } from 'lucide-react';
-import { getImageUrl } from '../../utils/helpers';
+import { useTranslation } from 'react-i18next';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 
 const PremiumRestaurantCard = ({ restaurant }) => {
+  const { t, i18n } = useTranslation();
+
   const openMaps = (e) => {
     e.preventDefault();
     const address = `${restaurant.address?.street}, ${restaurant.address?.city}, Israel`;
@@ -40,7 +43,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
             <div className="absolute top-4 start-4">
               <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-xl flex items-center gap-2">
                 <Award className="w-4 h-4" />
-                {restaurant.cacherout}
+                {localizeValue(restaurant.cacherout, i18n.language)}
               </span>
             </div>
 
@@ -70,7 +73,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
 
           <div className="p-6 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
             <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
-              {restaurant.description}
+              {localizeValue(restaurant.description, i18n.language)}
             </p>
 
             <div className="flex flex-wrap gap-2 mb-4">
@@ -79,7 +82,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
                   key={index}
                   className="px-3 py-1 bg-olive-100 dark:bg-olive-900 text-olive-700 dark:text-olive-200 text-xs rounded-full font-medium"
                 >
-                  {cuisine}
+                  {localizeValue(cuisine, i18n.language)}
                 </span>
               ))}
             </div>
@@ -96,7 +99,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
                 className="flex-1 py-3 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-white font-semibold rounded-full shadow-md transition-all flex items-center justify-center gap-2"
               >
                 <UtensilsCrossed className="w-4 h-4" />
-                Voir les Plats
+                {t('restaurantDetail.menu')}
               </motion.button>
             </div>
           </div>

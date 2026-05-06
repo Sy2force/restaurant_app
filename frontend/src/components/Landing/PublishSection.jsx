@@ -108,7 +108,7 @@ const PublishSection = () => {
             src={getImageUrl(
               'https://images.unsplash.com/photo-1556910103-1c02745aae4d?q=80&w=2940'
             )}
-            alt="Cuisine israélienne"
+            alt={t('landing.publish.heroImage')}
             className="w-full h-96 object-cover rounded-3xl shadow-2xl"
             onError={(e) => {
               e.target.src =

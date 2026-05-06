@@ -10,6 +10,7 @@
     "register": "Rejoindre",
     "profile": "Mon Profil",
     "dashboard": "Espace Pro",
+    "admin": "Administration",
     "logout": "Déconnexion",
     "favorites": "Mes Favoris",
     "adminPanel": "Administration",
@@ -21,7 +22,7 @@
   "dashboardMenu": {
     "overview": "Vue d'ensemble",
     "myCards": "Mes Cartes",
-    "restaurants": "Établissements",
+    "restaurants": "Restaurants",
     "dishes": "Plats",
     "recipes": "Recettes",
     "analytics": "Analyses",
@@ -39,8 +40,9 @@
     "register": "Créer un compte",
     "login": "S'identifier",
     "loginPage": {
-      "heroTitle": "L'Essence de la <br /><span class=\"text-gold-400\">Cuisine Israélienne</span>",
-      "heroDesc": "Accédez à une plateforme exclusive réunissant l'élite de la gastronomie : chefs, restaurants et recettes d'exception.",
+      "heroTitle": "L'Essence de la <span class=\"text-gold-400\">Cuisine Israélienne</span>",
+      "heroDesc": "Accédez à une plateforme exclusive rassemblant l'élite culinaire : chefs, restaurants et recettes d'exception.",
+      "heroImage": "Chef en train de cuisiner",
       "welcomeBack": "Ravi de vous revoir",
       "accessAccount": "Accédez à votre espace personnel",
       "loginFailed": "Identifiants incorrects",
@@ -50,6 +52,7 @@
     "resetPassword": {
       "heroTitle": "Nouveau <br /><span class=\"text-gold-400\">Départ</span>",
       "heroDesc": "Sécurisez votre compte avec un nouveau mot de passe et retrouvez vos recettes préférées.",
+      "heroImage": "Ingrédients de cuisine",
       "successTitle": "Mot de passe modifié !",
       "successDesc": "Votre mot de passe a été mis à jour avec succès. Vous allez être redirigé vers la page de connexion.",
       "loginNow": "Se connecter maintenant",
@@ -67,8 +70,10 @@
     },
     "forgotPasswordPage": {
       "heroTitle": "Nouveau <br /><span class=\"text-gold-400\">Départ</span>",
-      "heroDesc": "Réinitialisez votre mot de passe pour retrouver l'accès à votre compte et à vos recettes préférées.",
+      "heroDesc": "Réinitialisez votre mot de passe pour retrouver l'accès à votre compte et vos recettes préférées.",
+      "heroImage": "Ingrédients de cuisine",
       "emailSent": "Email envoyé !",
+      "emailSentDesc": "Si un compte existe avec l'adresse <strong>{{email}}</strong>, vous recevrez un lien de réinitialisation.",
       "backToLogin": "Retour à la connexion",
       "title": "Mot de passe oublié ?",
       "subtitle": "Entrez votre email pour recevoir les instructions",
@@ -85,8 +90,17 @@
       "businessAccount": "Compte Professionnel",
       "businessDesc": "Pour les chefs, restaurateurs et créateurs",
       "registering": "Création du compte...",
-      "heroTitle": "Rejoignez l'Élite <br /><span class=\"text-gold-400\">Gastronomique</span>",
-      "heroDesc": "Créez votre compte pour partager vos recettes, découvrir des restaurants d'exception et participer à notre communauté exclusive."
+      "heroTitle": "Rejoignez Flavors of Israel",
+      "heroDesc": "Créez votre compte pour partager, enregistrer et explorer la cuisine israélienne.",
+      "heroImage": "Cuisine méditerranéenne",
+      "benefits": {
+        "save": "Enregistrez vos recettes et plats favoris",
+        "share": "Partagez vos créations avec la communauté",
+        "business": "Gérez votre restaurant si vous êtes professionnel",
+        "discover": "Découvrez des restaurants près de chez vous"
+      },
+      "subtitle": "Commencez votre voyage culinaire dès aujourd'hui",
+      "error": "Échec de l'inscription"
     },
     "errors": {
       "required": "Champ obligatoire",
@@ -103,7 +117,9 @@
   },
   "landing": {
     "hero": {
-      "title": "L'Art Culinaire d'Israël"
+      "title": "L'Art Culinaire d'Israël",
+      "subtitle": "Le guide ultime pour explorer, savourer et partager la gastronomie israélienne.",
+      "cta": "Commencer l'Exploration"
     },
     "stats": {
       "restaurants": "Établissements",
@@ -118,8 +134,9 @@
     },
     "publish": {
       "title": "Révélez Votre Talent",
-      "subtitle": "Rejoignez une communauté vibrante et faites rayonner votre créativité culinaire.",
+      "subtitle": "Rejoignez une communauté passionnée et faites briller votre créativité culinaire.",
       "button": "Partager une Création",
+      "heroImage": "Cuisine israélienne",
       "quote": "La cuisine est un art qui se partage.",
       "steps": {
         "photo": {
@@ -140,7 +157,12 @@
       "title": "Recettes Incontournables",
       "subtitle": "Des créations sélectionnées pour éveiller vos papilles, du traditionnel au moderne.",
       "viewRecipe": "Découvrir la Recette",
-      "viewAll": "Voir Toutes les Collections"
+      "viewAll": "Voir Toutes les Collections",
+      "difficulty": {
+        "easy": "Simple",
+        "medium": "Intermédiaire",
+        "hard": "Expert"
+      }
     },
     "cta": {
       "title": "Prêt à Déguster ?",
@@ -171,6 +193,7 @@
   },
   "common": {
     "loading": "Chargement en cours...",
+    "error": "Une erreur est survenue",
     "back": "Retour",
     "save": "Enregistrer",
     "saving": "Sauvegarde...",
@@ -180,15 +203,23 @@
     "create": "Créer",
     "update": "Mettre à jour",
     "publish": "Publier",
+    "search": "Rechercher une saveur...",
+    "actions": "Options",
+    "avatar": "Avatar",
+    "postImage": "Image de publication",
+    "userAvatar": "Avatar utilisateur",
+    "post": "Publication",
+    "date": "Date",
     "viewDetails": "Explorer",
     "likes": "Coups de cœur",
     "min": "min",
-    "pers": "personnes",
+    "pers": "pers.",
     "new": "Nouveau",
     "backToList": "Retour à la liste",
     "confirmDelete": "Cette action est irréversible. Continuer ?",
     "comments": "Commentaires",
     "noComments": "Aucun commentaire pour le moment",
+    "all": "Tout",
     "liked": "Plat liké ",
     "unliked": "Like retiré",
     "errorLike": "Erreur lors du like",
@@ -201,25 +232,29 @@
     "maxChars": "Max 500 caractères",
     "loginToLike": "Veuillez vous connecter pour liker",
     "print": "Imprimer",
-    "share": "Partager"
+    "share": "Partager",
+    "recipes": "recettes",
+    "preview": "Aperçu"
   },
   "recipeDetail": {
     "loadError": "Impossible de charger la recette",
     "notFound": "Recette introuvable"
   },
   "dishDetail": {
+    "loadError": "Erreur lors du chargement du plat",
     "notFound": "Plat introuvable",
     "backList": "Retour à la liste",
     "backMenu": "Retour au menu",
     "proposedBy": "Proposé par",
     "viewRestaurant": "Voir le restaurant",
+    "moreFrom": "Plus de {{name}}",
     "cacherout": "Cacherout",
     "about": "À propos de ce plat",
     "badges": {
       "vegetarian": "Végétarien",
       "vegan": "Végétalien",
       "glutenFree": "Sans Gluten",
-      "type": "Catégorie",
+      "type": "Type",
       "region": "Région",
       "season": "Saison",
       "yes": "Oui",
@@ -244,20 +279,52 @@
   },
   "explore": {
     "hero": {
-      "badge": "Découvertes",
+      "badge": "Inspirations",
       "title": "Le Fil Gourmand",
       "subtitle": "Plongez dans les dernières tendances culinaires de notre communauté.",
       "share": "Partager une pépite"
     },
-    "searchPlaceholder": "Que souhaitez-vous déguster aujourd'hui ?",
-    "filters": "Affiner",
-    "popularTags": "En Vogue",
+    "searchPlaceholder": "Que souhaitez-vous goûter aujourd'hui?",
+    "filters": "Filtrer",
+    "popularTags": "Tendance",
     "clearFilters": "Réinitialiser",
     "noPosts": "Aucune inspiration pour le moment",
-    "noPostsDesc": "Soyez le premier à partager votre coup de cœur !",
-    "createPost": "Nouvelle Publication",
+    "noPostsDesc": "Soyez le premier à partager votre coup de cœur!",
+    "createPost": "Nouveau post",
     "noCards": "Aucune carte trouvée",
-    "noCardsDesc": "Soyez le premier à créer votre carte de visite !"
+    "noCardsDesc": "Soyez le premier à créer votre carte de visite!",
+    "tabs": {
+      "posts": "Publications",
+      "cards": "Cartes de visite"
+    }
+  },
+  "exploreDetail": {
+    "loginToLike": "Veuillez vous connecter pour aimer",
+    "likeRemoved": "Like retiré",
+    "likeAdded": "Ajouté aux coups de cœur",
+    "confirmDelete": "Supprimer cette publication ?",
+    "deleteSuccess": "Publication supprimée",
+    "deleteError": "Impossible de supprimer la publication",
+    "commentAdded": "Commentaire ajouté",
+    "commentError": "Impossible d'ajouter le commentaire",
+    "confirmDeleteComment": "Supprimer ce commentaire ?",
+    "commentDeleted": "Commentaire supprimé",
+    "shareSuccess": "Lien copié",
+    "notFound": "Publication introuvable",
+    "back": "Retour à l'exploration",
+    "views": "vues",
+    "delete": "Supprimer",
+    "commentsTitle": "Commentaires",
+    "commentPlaceholder": "Ajouter un commentaire...",
+    "loginToComment": "pour commenter",
+    "noComments": "Aucun commentaire pour le moment",
+    "memberSince": "Membre depuis",
+    "viewProfile": "Voir le profil",
+    "contest": {
+      "title": "Défi de la semaine",
+      "text": "Partagez votre meilleure saveur israélienne et inspirez la communauté.",
+      "button": "Participer"
+    }
   },
   "userLikes": {
     "loadError": "Impossible de charger vos likes",
@@ -300,7 +367,7 @@
       "descPlaceholder": "Décrivez les saveurs, l'ambiance, votre ressenti...",
       "tags": "Mots-clés",
       "addTagPlaceholder": "Ajouter un tag (ex: #TelAviv)...",
-      "suggestions": "Recommandations"
+      "suggestions": "Suggestions"
     },
     "buttons": {
       "publish": "Partager avec la communauté",
@@ -308,10 +375,10 @@
       "cancel": "Abandonner"
     },
     "tips": {
+      "title": "Pour un post réussi",
       "1": "Privilégiez la lumière naturelle",
       "2": "Racontez une histoire authentique",
-      "3": "Taguez les ingrédients clés",
-      "title": "Pour un post réussi"
+      "3": "Taguez les ingrédients clés"
     },
     "inspiration": {
       "text": "En manque d'idées ?",
@@ -353,6 +420,12 @@
     "editCard": "Édition Carte",
     "cardFormDesc": "Créez votre carte de visite numérique",
     "cuisine": "Gastronomie",
+    "confirmDeleteDish": "Êtes-vous sûr de vouloir supprimer ce plat ?",
+    "deleteDishError": "Erreur lors de la suppression du plat",
+    "confirmDeleteRestaurant": "Êtes-vous sûr de vouloir supprimer ce restaurant ? Cela supprimera également tous les plats associés.",
+    "deleteRestaurantError": "Erreur lors de la suppression du restaurant",
+    "confirmDeleteRecipe": "Êtes-vous sûr de vouloir supprimer cette recette ?",
+    "deleteRecipeError": "Erreur lors de la suppression de la recette",
     "forms": {
       "generalInfo": "L'Essentiel",
       "name": "Appellation",
@@ -371,11 +444,13 @@
       "website": "Site Internet",
       "visualIdentity": "Image de Marque",
       "logo": "Logotype",
-      "logoUpload": "Importer votre logo",
+      "logoUpload": "Importez votre logo",
+      "logoPreview": "Aperçu du logo",
       "image": "Photo de Couverture",
       "upload": "Importer une photo",
-      "maxSize": "Max 5 Mo",
-      "imageHelp": "Max 5 Mo (PNG, JPG)",
+      "photoUpload": "Choisir un visuel",
+      "maxSize": "Max 5MB",
+      "imageHelp": "Max 5MB (PNG, JPG)",
       "actions": "Validation",
       "categorization": "Classement",
       "category": "Catégorie",
@@ -411,11 +486,13 @@
       "preview": "Prévisualisation",
       "errors": {
         "required": "Information requise",
+        "invalidEmail": "Format invalide",
         "invalidUrl": "Lien invalide",
         "invalidPrice": "Montant invalide",
         "minCuisine": "Sélectionnez au moins un style",
         "minIngredients": "Ingrédients manquants",
         "minInstructions": "Instructions manquantes",
+        "titleRequired": "Titre obligatoire",
         "imageSize": "Fichier trop volumineux (>5MB)",
         "save": "Échec de la sauvegarde",
         "load": "Échec du chargement"
@@ -424,13 +501,14 @@
         "restaurantName": "Ex: Le Jardin des Saveurs",
         "restaurantDesc": "Racontez l'histoire de votre restaurant...",
         "street": "Rue et numéro",
-        "zipCode": "Code postal",
+        "zipCode": "12345",
         "phone": "050-1234567",
         "email": "contact@restaurant.com",
         "website": "https://www.monrestaurant.com",
         "dishName": "Ex: Shakshuka Royale",
         "dishDesc": "Décrivez les saveurs et les ingrédients...",
-        "ingredient": "Ingrédient"
+        "ingredient": "Ingrédient",
+        "step": "Étape"
       }
     }
   },
@@ -457,7 +535,7 @@
       "firstName": "Prénom",
       "lastName": "Nom",
       "pseudo": "Nom d'utilisateur",
-      "phone": "Téléphone"
+      "phone": "Mobile"
     },
     "avatarModal": {
       "title": "Photo de profil",
@@ -498,7 +576,7 @@
     },
     "stats": {
       "users": "Membres",
-      "restaurants": "Établissements",
+      "restaurants": "Restaurants",
       "recipes": "Recettes",
       "moderation": "À Modérer",
       "pending": "En attente",
@@ -507,7 +585,7 @@
     "recentUsers": "Derniers Inscrits",
     "table": {
       "user": "Membre",
-      "email": "Email",
+      "email": "Contact",
       "role": "Statut",
       "date": "Date",
       "action": "Gérer"
@@ -515,7 +593,9 @@
     "actions": {
       "edit": "Modifier",
       "approve": "Valider",
-      "reject": "Refuser"
+      "reject": "Refuser",
+      "ignore": "Archiver",
+      "delete": "Bannir"
     },
     "pendingRestaurants": "Demandes d'adhésion",
     "reports": "Signalements",
@@ -529,10 +609,19 @@
     "noPendingRestaurants": "Aucune demande en attente",
     "noReports": "Aucun signalement",
     "emptyHistory": "Aucun historique",
-    "unknownUser": "Utilisateur inconnu"
+    "unknownUser": "Utilisateur inconnu",
+    "mock": {
+      "inappropriate": "Contenu inapproprié",
+      "today": "Aujourd'hui",
+      "commentBody": "Extrait du contenu...",
+      "approvedRestaurant": "{name} validé",
+      "approvedRecipe": "{name} validée",
+      "bannedUser": "{name} suspendu",
+      "submittedBy": "Proposé par {{name}} le {{time}}"
+    }
   },
   "settings": {
-    "title": "Paramètres",
+    "title": "Configuration",
     "subtitle": "Personnalisez votre expérience",
     "tabs": {
       "general": "Affichage",
@@ -546,7 +635,7 @@
       "defaultLanguage": "Langue",
       "theme": "Apparence",
       "french": "Français",
-      "english": "Anglais",
+      "english": "English",
       "hebrew": "עברית",
       "light": "Clarté",
       "dark": "Nuit"
@@ -554,12 +643,12 @@
     "profile": {
       "changeAvatar": "Modifier",
       "fullName": "Identité",
-      "email": "Email",
+      "email": "Contact",
       "bio": "À propos de vous"
     },
     "notifications": {
       "email": {
-        "title": "Infolettre",
+        "title": "Newsletter",
         "desc": "L'essentiel de l'actualité culinaire"
       },
       "marketing": {
@@ -575,16 +664,17 @@
     }
   },
   "profile": {
-    "notFound": "Ce profil n'est pas accessible",
+    "notFound": "Ce profil est inaccessible",
     "memberSince": "Membre depuis",
     "followers": "Abonnés",
     "following": "Abonnements",
     "subscribe": "Suivre",
     "about": "Bio",
     "noBio": "Cet utilisateur cultive le mystère.",
+    "coverImage": "Photo de couverture",
     "links": "Réseaux",
     "tabs": {
-      "creations": "Créations",
+      "creations": "Portfolio",
       "recipes": "Recettes",
       "restaurants": "Adresses"
     },
@@ -600,7 +690,8 @@
     "ingredients": "Ingrédients",
     "instructions": "Préparation",
     "step": "Étape",
-    "chefsNote": "Le mot du Chef"
+    "chefsNote": "Le mot du Chef",
+    "moreFromAuthor": "Plus de recettes de {{author}}"
   },
   "home": {
     "hero": {
@@ -619,6 +710,11 @@
       "likes": "Appréciations",
       "uniqueVisitors": "Audience unique",
       "revenue": "Revenus générés"
+    },
+    "timeRanges": {
+      "week": "7 jours",
+      "month": "30 jours",
+      "year": "12 mois"
     },
     "proTip": {
       "title": "Astuce de Chef",
@@ -677,7 +773,7 @@
     "form": {
       "title": "Envoyez-nous un message",
       "name": "Votre Nom",
-      "email": "Votre Courriel",
+      "email": "Votre Email",
       "emailPlaceholder": "exemple@email.com",
       "subject": "Sujet",
       "message": "Votre message...",
@@ -706,7 +802,7 @@
     "hero": {
       "badge": "Tables d'Exception",
       "title": "Découvrez les Meilleurs",
-      "subtitle": "Établissements",
+      "subtitle": "Restaurants",
       "description": "Des établissements primés aux perles cachées, trouvez la table parfaite pour votre prochaine expérience culinaire."
     },
     "noResults": "Aucun restaurant trouvé",
@@ -736,7 +832,7 @@
     "links": {
       "privacy": "Confidentialité",
       "terms": "CGU",
-      "contact": "Nous contacter"
+      "contact": "Contact"
     },
     "rights": "Tous droits réservés.",
     "madeWith": "Fait avec",
@@ -765,7 +861,7 @@
         "text": "Les documents sur le site web de Flavors of Israel sont fournis 'tels quels'. Flavors of Israel ne donne aucune garantie, expresse ou implicite."
       },
       "4": {
-        "title": "Limitation de responsabilité",
+        "title": "Limitations",
         "text": "En aucun cas Flavors of Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
       },
       "5": {
@@ -792,7 +888,7 @@
         "text": "Nous sommes les seuls propriétaires des informations recueillies sur ce site. Vos informations personnelles ne seront pas vendues à des tiers."
       },
       "4": {
-        "title": "Sécurité",
+        "title": "Protection",
         "text": "Nous mettons en œuvre une variété de mesures de sécurité pour préserver la sécurité de vos informations personnelles."
       },
       "5": {

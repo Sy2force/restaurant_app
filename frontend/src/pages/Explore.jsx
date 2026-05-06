@@ -13,9 +13,10 @@ import Button from '../components/UI/Button';
 import PageWrapper from '../components/Layout/PageWrapper';
 import { POPULAR_TAGS } from '../data/constants';
 import { mockPosts } from '../data/mockPosts';
+import { localizeValue } from '../utils/helpers';
 
 const Explore = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { isAuthenticated } = useAuthStore();
   const [posts, setPosts] = useState([]);
   const [cards, setCards] = useState([]);
@@ -184,7 +185,7 @@ const Explore = () => {
               }`}
             >
               <Layers className="w-5 h-5" />
-              Publications
+              {t('explore.tabs.posts')}
             </button>
             <button
               onClick={() => setActiveTab('cards')}
@@ -195,7 +196,7 @@ const Explore = () => {
               }`}
             >
               <CreditCard className="w-5 h-5" />
-              Cartes de Visite
+              {t('explore.tabs.cards')}
             </button>
           </div>
         </div>
@@ -215,7 +216,7 @@ const Explore = () => {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder={t('explore.searchPlaceholder')}
-                className="w-full pl-12 pr-4 py-3 bg-gray-50 dark:bg-gray-700 border-none rounded-xl focus:ring-2 focus:ring-gold-500 text-gray-900 dark:text-white placeholder-gray-400 transition-all"
+                className="w-full ps-12 pe-4 rtl:pr-12 rtl:pl-4 rtl:ps-4 rtl:pe-12 py-3 bg-gray-50 dark:bg-gray-700 border-none rounded-xl focus:ring-2 focus:ring-gold-500 text-gray-900 dark:text-white placeholder-gray-400 transition-all"
               />
             </div>
             {activeTab === 'posts' && (
@@ -230,7 +231,7 @@ const Explore = () => {
                 <Filter className="w-5 h-5" />
                 {t('explore.filters')}
                 {selectedTags.length > 0 && (
-                  <span className="ml-1 px-2 py-0.5 bg-gold-500 text-white rounded-full text-xs">
+                  <span className="ms-1 rtl:mr-1 rtl:ms-0 px-2 py-0.5 bg-gold-500 text-white rounded-full text-xs">
                     {selectedTags.length}
                   </span>
                 )}
@@ -272,7 +273,7 @@ const Explore = () => {
                           : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
                       }`}
                     >
-                      #{tag}
+                      #{localizeValue(tag, i18n.language)}
                     </button>
                   ))}
                 </div>

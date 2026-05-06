@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { Quote, Star } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getImageUrl } from '../../utils/helpers';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 import { testimonials } from '../../data/mockTestimonials';
 
 const TestimonialsSection = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="py-24 bg-cream-100 dark:bg-dark-900 relative">
@@ -49,7 +49,7 @@ const TestimonialsSection = () => {
                 />
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.role}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{localizeValue(testimonial.role, i18n.language)}</p>
                 </div>
               </div>
 

@@ -250,7 +250,7 @@ const AdminPanel = () => {
                 {t('admin.recentUsers')}
               </h3>
               <div className="overflow-x-auto">
-                <table className="w-full text-left">
+                <table className="w-full text-left rtl:text-right ltr:text-left">
                   <thead>
                     <tr className="text-sm text-gray-500 border-b border-gray-100 dark:border-gray-700">
                       <th className="pb-3 font-medium">{t('admin.table.user')}</th>

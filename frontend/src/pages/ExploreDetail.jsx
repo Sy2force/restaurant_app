@@ -16,11 +16,11 @@ import {
 import { useTranslation } from 'react-i18next';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
-import { getImageUrl } from '../utils/helpers';
+import { getImageUrl, localizeValue } from '../utils/helpers';
 import { mockPostDetails } from '../data/mockPostDetails';
 
 const ExploreDetail = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { isAuthenticated, user } = useAuthStore();
@@ -161,7 +161,7 @@ const ExploreDetail = () => {
             to="/explore"
             className="inline-flex items-center text-gray-600 dark:text-gray-300 hover:text-gold-500 transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeft className="w-5 h-5 ms-2 rtl:mr-2 rtl:ms-0 rtl:rotate-180" />
             {t('exploreDetail.back')}
           </Link>
         </div>
@@ -193,17 +193,17 @@ const ExploreDetail = () => {
                 <div className="absolute top-6 left-6 right-6 flex justify-between items-start">
                   {post.isKosher && (
                     <span className="bg-gold-500/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
-                      Casher
+                      {t('dishDetail.cacherout')}
                     </span>
                   )}
                   {post.isVegan && (
                     <span className="bg-green-600/90 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
-                      Vegan
+                      {t('dishDetail.badges.vegan')}
                     </span>
                   )}
                   {post.dishType && (
                     <span className="bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide shadow-lg">
-                      {post.dishType}
+                      {localizeValue(post.dishType, i18n.language)}
                     </span>
                   )}
                 </div>
@@ -285,7 +285,7 @@ const ExploreDetail = () => {
                         key={idx}
                         className="px-3 py-1 bg-cream-100 dark:bg-gray-700 text-olive-800 dark:text-olive-200 rounded-lg text-sm font-medium"
                       >
-                        #{tag}
+                        #{localizeValue(tag, i18n.language)}
                       </span>
                     ))}
                   </div>
@@ -357,7 +357,7 @@ const ExploreDetail = () => {
                         <div className="bg-gray-50 dark:bg-gray-700/30 px-6 py-4 rounded-2xl rounded-tl-none">
                           <div className="flex justify-between items-start mb-2">
                             <div>
-                              <span className="font-bold text-gray-900 dark:text-white mr-2">
+                              <span className="font-bold text-gray-900 dark:text-white ms-2 rtl:mr-2 rtl:ms-0">
                                 {comment.userId?.name}
                               </span>
                               <span className="text-xs text-gray-400">

@@ -200,7 +200,7 @@ const CreateCard = () => {
                       {watchedBizImage ? (
                         <img
                           src={getImageUrl(watchedBizImage)}
-                          alt="Preview"
+                          alt={t('common.preview')}
                           className="w-full h-full object-cover"
                           onError={(e) => {
                             e.target.style.display = 'none';

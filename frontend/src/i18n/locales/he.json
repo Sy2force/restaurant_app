@@ -10,6 +10,7 @@
     "register": "הצטרפות",
     "profile": "הפרופיל שלי",
     "dashboard": "אזור מקצועי",
+    "admin": "ניהול",
     "logout": "התנתק",
     "favorites": "המועדפים שלי",
     "adminPanel": "פאנל ניהול",
@@ -39,8 +40,9 @@
     "register": "צור חשבון",
     "login": "כניסה",
     "loginPage": {
-      "heroTitle": "המהות של <br /><span class=\"text-gold-400\">המטבח הישראלי</span>",
+      "heroTitle": "המהות של <span class=\"text-gold-400\">המטבח הישראלי</span>",
       "heroDesc": "גישה לפלטפורמה אקסקלוסיבית המאגדת את האליטה הקולינרית: שפים, מסעדות ומתכונים יוצאי דופן.",
+      "heroImage": "שף מבשל",
       "welcomeBack": "ברוך שובך",
       "accessAccount": "היכנס לאזור האישי שלך",
       "loginFailed": "פרטים שגויים",
@@ -50,6 +52,7 @@
     "resetPassword": {
       "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
       "heroDesc": "אבטח את החשבון שלך עם סיסמה חדשה וגלה מחדש את המתכונים האהובים עליך.",
+      "heroImage": "מרכיבי בישול",
       "successTitle": "הסיסמה שונתה!",
       "successDesc": "הסיסמה שלך עודכנה בהצלחה. תועבר לדף ההתחברות.",
       "loginNow": "התחבר עכשיו",
@@ -67,8 +70,10 @@
     },
     "forgotPasswordPage": {
       "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
-      "heroDesc": "אפס את הסיסמה שלך כדי לקבל גישה מחדש לחשבון ולמתכונים המועדפים עליך.",
-      "emailSent": "אימייל נשלח!",
+      "heroDesc": "אפס את הסיסמה שלך כדי לשחזר גישה לחשבון שלך ולמתכונים האהובים עליך.",
+      "heroImage": "מרכיבי בישול",
+      "emailSent": "המייל נשלח!",
+      "emailSentDesc": "אם קיים חשבון עם הכתובת <strong>{{email}}</strong>, תקבל קישור לאיפוס.",
       "backToLogin": "חזרה להתחברות",
       "title": "שכחת סיסמה?",
       "subtitle": "הזן את האימייל שלך לקבלת הוראות",
@@ -79,14 +84,23 @@
     },
     "placeholders": {
       "name": "שמך המלא",
-      "email": "האימייל שלך"
+      "email": "your@email.com"
     },
     "registerPage": {
       "businessAccount": "חשבון מקצועי",
       "businessDesc": "לשפים, מסעדנים ויוצרים",
       "registering": "יוצר חשבון...",
-      "heroTitle": "הצטרף ל<br /><span class=\"text-gold-400\">אליטה הגסטרונומית</span>",
-      "heroDesc": "צור חשבון כדי לשתף מתכונים, לגלות מסעדות יוצאות דופן ולהשתתף בקהילה האקסקלוסיבית שלנו."
+      "heroTitle": "הצטרף לFlavors of Israel",
+      "heroDesc": "צור חשבון כדי לשתף, לשמור ולחקור את המטבח הישראלי.",
+      "heroImage": "אוכל ים תיכוני",
+      "benefits": {
+        "save": "שמור את המתכונים והמנות האהובים עליך",
+        "share": "שתף את היצירות שלך עם הקהילה",
+        "business": "נהל את המסעדה שלך אם אתה מקצוען",
+        "discover": "גלה מסעדות בקרבתך"
+      },
+      "subtitle": "התחל את המסע הקולינרי שלך עוד היום",
+      "error": "ההרשמה נכשלה"
     },
     "errors": {
       "required": "שדה חובה",
@@ -103,7 +117,9 @@
   },
   "landing": {
     "hero": {
-      "title": "האמנות הקולינרית של ישראל"
+      "title": "האמנות הקולינרית של ישראל",
+      "subtitle": "המדריך האולטימטיבי לחקור, לטעום ולשתף את הגסטרונומיה הישראלית.",
+      "cta": "התחל לחקור"
     },
     "stats": {
       "restaurants": "מקומות",
@@ -117,10 +133,11 @@
       "kosher": "כשר"
     },
     "publish": {
-      "title": "גלה את הכישרון שלך",
-      "subtitle": "הצטרף לקהילה תוססת ותן ליצירתיות הקולינרית שלך לזרוח.",
-      "button": "שתף יצירה",
-      "quote": "בישול הוא אמנות שנועדה לשיתוף.",
+      "title": "חשפו את הכישרון שלכם",
+      "subtitle": "הצטרפו לקהילה תוססת ותנו ליצירתיות הקולינרית שלכם לזרוח.",
+      "button": "שתפו יצירה",
+      "heroImage": "מטבח ישראלי",
+      "quote": "בישול הוא אמנות שנועדה להישתף.",
       "steps": {
         "photo": {
           "title": "צלם",
@@ -140,7 +157,12 @@
       "title": "מתכוני חובה",
       "subtitle": "יצירות שנבחרו לעורר את בלוטות הטעם, ממסורתי למודרני.",
       "viewRecipe": "גלה מתכון",
-      "viewAll": "צפה בכל האוספים"
+      "viewAll": "צפה בכל האוספים",
+      "difficulty": {
+        "easy": "קל",
+        "medium": "בינוני",
+        "hard": "מומחה"
+      }
     },
     "restaurants": {
       "title": "מקומות מומלצים",
@@ -171,6 +193,7 @@
   },
   "common": {
     "loading": "טוען...",
+    "error": "אירעה שגיאה",
     "back": "חזור",
     "save": "שמור",
     "saving": "שומר...",
@@ -180,6 +203,13 @@
     "create": "צור",
     "update": "עדכן",
     "publish": "פרסם",
+    "search": "חפש טעם...",
+    "actions": "אפשרויות",
+    "avatar": "תמונת פרופיל",
+    "postImage": "תמונת פוסט",
+    "userAvatar": "תמונת משתמש",
+    "status": "סטטוס",
+    "date": "תאריך",
     "viewDetails": "חקור",
     "likes": "לייקים",
     "min": "דק'",
@@ -189,6 +219,7 @@
     "confirmDelete": "פעולה זו היא בלתי הפיכה. להמשיך?",
     "comments": "תגובות",
     "noComments": "אין תגובות עדיין",
+    "all": "הכל",
     "liked": "מנה אהובה ❤️",
     "unliked": "לייק הוסר",
     "errorLike": "שגיאה בלייק",
@@ -201,14 +232,18 @@
     "maxChars": "מקסימום 500 תווים",
     "loginToLike": "נא להתחבר כדי לסמן לייק",
     "print": "הדפסה",
-    "share": "שיתוף"
+    "share": "שיתוף",
+    "recipes": "מתכונים",
+    "preview": "תצוגה מקדימה"
   },
   "dishDetail": {
+    "loadError": "שגיאה בטעינת המנה",
     "notFound": "המנה לא נמצאה",
     "backList": "חזרה לרשימה",
     "backMenu": "חזרה לתפריט",
     "proposedBy": "מוצע על ידי",
     "viewRestaurant": "צפה במסעדה",
+    "moreFrom": "עוד מ-{{name}}",
     "cacherout": "כשרות",
     "about": "אודות המנה",
     "badges": {
@@ -253,7 +288,39 @@
     "noPostsDesc": "היה הראשון לשתף את המועדף עליך!",
     "createPost": "פוסט חדש",
     "noCards": "לא נמצאו כרטיסים",
-    "noCardsDesc": "היה הראשון ליצור את כרטיס הביקור שלך!"
+    "noCardsDesc": "היה הראשון ליצור את כרטיס הביקור שלך!",
+    "tabs": {
+      "posts": "פרסומים",
+      "cards": "כרטיסי ביקור"
+    }
+  },
+  "exploreDetail": {
+    "loginToLike": "נא להתחבר כדי לסמן לייק",
+    "likeRemoved": "הלייק הוסר",
+    "likeAdded": "נוסף ללייקים",
+    "confirmDelete": "למחוק את הפרסום הזה?",
+    "deleteSuccess": "הפרסום נמחק",
+    "deleteError": "לא ניתן למחוק את הפרסום",
+    "commentAdded": "התגובה נוספה",
+    "commentError": "לא ניתן להוסיף תגובה",
+    "confirmDeleteComment": "למחוק את התגובה הזו?",
+    "commentDeleted": "התגובה נמחקה",
+    "shareSuccess": "הקישור הועתק",
+    "notFound": "הפרסום לא נמצא",
+    "back": "חזרה לחקירה",
+    "views": "צפיות",
+    "delete": "מחק",
+    "commentsTitle": "תגובות",
+    "commentPlaceholder": "הוסף תגובה...",
+    "loginToComment": "כדי להגיב",
+    "noComments": "אין תגובות עדיין",
+    "memberSince": "חבר מאז",
+    "viewProfile": "צפה בפרופיל",
+    "contest": {
+      "title": "אתגר השבוע",
+      "text": "שתף את הטעם הישראלי הטוב ביותר שלך ותן השראה לקהילה.",
+      "button": "הצטרף"
+    }
   },
   "userLikes": {
     "loadError": "לא ניתן לטעון את הלייקים שלך",
@@ -304,10 +371,10 @@
       "cancel": "בטל"
     },
     "tips": {
+      "title": "לפוסט מוצלח",
       "1": "העדף תאורה טבעית",
       "2": "ספר סיפור אותנטי",
-      "3": "תייג מרכיבים מרכזיים",
-      "title": "לפוסט מוצלח"
+      "3": "תייג מרכיבים מרכזיים"
     },
     "inspiration": {
       "text": "חסר רעיונות?",
@@ -349,6 +416,12 @@
     "editCard": "עריכת כרטיס",
     "cardFormDesc": "צור את כרטיס הביקור הדיגיטלי שלך",
     "cuisine": "גסטרונומיה",
+    "confirmDeleteDish": "האם אתה בטוח שברצונך למחוק את המנה הזו?",
+    "deleteDishError": "שגיאה במחיקת המנה",
+    "confirmDeleteRestaurant": "האם אתה בטוח שברצונך למחוק את המסעדה? פעולה זו תמחק גם את כל המנות המשויכות.",
+    "deleteRestaurantError": "שגיאה במחיקת המסעדה",
+    "confirmDeleteRecipe": "האם אתה בטוח שברצונך למחוק את המתכון הזו?",
+    "deleteRecipeError": "שגיאה במחיקת המתכון",
     "forms": {
       "generalInfo": "העיקר",
       "name": "שם",
@@ -368,8 +441,10 @@
       "visualIdentity": "תדמית מותג",
       "logo": "לוגו",
       "logoUpload": "ייבא את הלוגו שלך",
+      "logoPreview": "תצוגה מקדימה של לוגו",
       "image": "תמונת כיסוי",
       "upload": "ייבא תמונה",
+      "photoUpload": "בחר ויזואלי",
       "maxSize": "מקס' 5MB",
       "imageHelp": "מקס' 5MB (PNG, JPG)",
       "actions": "אימות",
@@ -407,11 +482,13 @@
       "preview": "תצוגה מקדימה",
       "errors": {
         "required": "מידע נדרש",
+        "invalidEmail": "פורמט שגוי",
         "invalidUrl": "קישור לא תקין",
         "invalidPrice": "סכום לא תקין",
         "minCuisine": "בחר לפחות סגנון אחד",
         "minIngredients": "חסרים מרכיבים",
         "minInstructions": "חסרות הוראות",
+        "titleRequired": "כותרת חובה",
         "imageSize": "קובץ גדול מדי (>5MB)",
         "save": "השמירה נכשלה",
         "load": "טעינה נכשלה"
@@ -420,18 +497,19 @@
         "restaurantName": "דוגמה: גן הטעמים",
         "restaurantDesc": "ספר את הסיפור של המסעדה שלך...",
         "street": "רחוב ומספר",
-        "zipCode": "מיקוד",
-        "phone": "טלפון",
-        "email": "אימייל",
-        "website": "אתר אינטרנט",
+        "zipCode": "12345",
+        "phone": "050-1234567",
+        "email": "contact@restaurant.com",
+        "website": "https://www.myrestaurant.com",
         "dishName": "דוגמה: שקשוקה מלכותית",
         "dishDesc": "תאר את הטעמים והמרכיבים...",
-        "ingredient": "מרכיב"
+        "ingredient": "מרכיב",
+        "step": "שלב"
       }
     }
   },
   "userDashboard": {
-    "pro": "מקצועי",
+    "pro": "PRO",
     "editProfile": "ערוך פרופיל",
     "statsTitle": "הביצועים שלי",
     "stats": {
@@ -511,7 +589,9 @@
     "actions": {
       "edit": "ערוך",
       "approve": "אמת",
-      "reject": "סרב"
+      "reject": "סרב",
+      "ignore": "ארכב",
+      "delete": "חסום"
     },
     "pendingRestaurants": "בקשות הצטרפות",
     "reports": "דיווחים",
@@ -525,7 +605,16 @@
     "noPendingRestaurants": "אין בקשות ממתינות",
     "noReports": "אין דיווחים",
     "emptyHistory": "אין היסטוריה",
-    "unknownUser": "משתמש לא ידוע"
+    "unknownUser": "משתמש לא ידוע",
+    "mock": {
+      "inappropriate": "תוכן לא ראוי",
+      "today": "היום",
+      "commentBody": "קטע תוכן...",
+      "approvedRestaurant": "{name} אומת",
+      "approvedRecipe": "{name} אומת",
+      "bannedUser": "{name} הושעה",
+      "submittedBy": "הוגש ע״י {{name}} בתאריך {{time}}"
+    }
   },
   "settings": {
     "title": "תצורה",
@@ -571,13 +660,14 @@
     }
   },
   "profile": {
-    "notFound": "פרופיל זה אינו נגיש",
+    "notFound": "הפרופיל הזה אינו נגיש",
     "memberSince": "חבר מאז",
     "followers": "עוקבים",
     "following": "עוקב אחרי",
     "subscribe": "עקוב",
     "about": "ביו",
-    "noBio": "משתמש זה שומר על מסתורין.",
+    "noBio": "המשתמש הזה שומר על מסתורין.",
+    "coverImage": "תמונת כיסוי",
     "links": "רשתות",
     "tabs": {
       "creations": "פורטפוליו",
@@ -596,7 +686,8 @@
     "ingredients": "מרכיבים",
     "instructions": "אופן ההכנה",
     "step": "שלב",
-    "chefsNote": "דבר השף"
+    "chefsNote": "דבר השף",
+    "moreFromAuthor": "עוד מתכונים של {{author}}"
   },
   "home": {
     "hero": {
@@ -615,6 +706,11 @@
       "likes": "הערכות",
       "uniqueVisitors": "קהל ייחודי",
       "revenue": "הכנסה שנוצרה"
+    },
+    "timeRanges": {
+      "week": "7 ימים",
+      "month": "30 ימים",
+      "year": "12 חודשים"
     },
     "proTip": {
       "title": "טיפ של שף",
@@ -674,7 +770,7 @@
       "title": "שלח לנו הודעה",
       "name": "השם שלך",
       "email": "האימייל שלך",
-      "emailPlaceholder": "דוגמה@email.com",
+      "emailPlaceholder": "example@email.com",
       "subject": "נושא",
       "message": "ההודעה שלך...",
       "submit": "שלח הודעה",

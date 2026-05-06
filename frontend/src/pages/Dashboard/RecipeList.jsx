@@ -76,7 +76,7 @@ const RecipeList = () => {
   };
 
   const handleDelete = async (recipeId) => {
-    if (!window.confirm('Êtes-vous sûr de vouloir supprimer cette recette ?')) {
+    if (!window.confirm(t('dashboard.confirmDeleteRecipe'))) {
       return;
     }
 
@@ -84,7 +84,7 @@ const RecipeList = () => {
       await recipeAPI.delete(recipeId);
       setRecipes(recipes.filter((r) => r._id !== recipeId));
     } catch (error) {
-      alert('Erreur lors de la suppression de la recette');
+      alert(t('dashboard.deleteRecipeError'));
     }
   };
 

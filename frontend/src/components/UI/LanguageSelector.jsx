@@ -18,7 +18,7 @@ const LanguageSelector = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-cream-300 text-sm mr-2">{t('settings.general.defaultLanguage')}:</span>
+      <span className="text-cream-300 text-sm ms-2 rtl:mr-2 rtl:ms-0">{t('settings.general.defaultLanguage')}:</span>
       <div className="flex gap-1">
         {languages.map((lang) => (
           <motion.button
@@ -33,7 +33,7 @@ const LanguageSelector = () => {
             }`}
             title={lang.label}
           >
-            <span className="mr-1">{lang.flag}</span>
+            <span className="ms-1 rtl:mr-1 rtl:ms-0">{lang.flag}</span>
             <span className="hidden sm:inline">{lang.code.toUpperCase()}</span>
           </motion.button>
         ))}

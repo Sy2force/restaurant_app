@@ -68,7 +68,7 @@ const DishForm = () => {
       description: '',
       price: '',
       category: '',
-      season: "toute l'année",
+      season: '',
       region: '',
       cacherout: '',
       restaurant: '',
@@ -471,7 +471,7 @@ const DishForm = () => {
                   <div className="relative group">
                     <img
                       src={getImageUrl(imagePreview)}
-                      alt="Preview"
+                      alt={t('common.preview')}
                       className="w-full aspect-[4/3] object-cover rounded-2xl border-2 border-gold-100"
                       onError={(e) => {
                         e.target.src =

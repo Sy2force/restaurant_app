@@ -427,7 +427,7 @@ const RestaurantForm = () => {
                   <div className="relative group">
                     <img
                       src={getImageUrl(logoPreview)}
-                      alt="Logo preview"
+                      alt={t('dashboard.forms.logoPreview')}
                       className="w-full aspect-square object-cover rounded-2xl border-2 border-gold-100"
                       onError={(e) => {
                         e.target.src =

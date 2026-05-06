@@ -76,7 +76,7 @@ const Profile = () => {
       <div className="h-[50vh] w-full overflow-hidden relative">
         <img
           src={getImageUrl(profileUser.coverImage)}
-          alt="Cover"
+          alt={t('profile.coverImage')}
           className="w-full h-full object-cover"
           onError={(e) => {
             e.target.src =
@@ -112,7 +112,7 @@ const Profile = () => {
                 </div>
 
                 {/* Main Info */}
-                <div className="flex-1 text-center md:text-left mb-6">
+                <div className="flex-1 text-center md:text-left rtl:md:text-right ltr:md:text-left mb-6">
                   <h1 className="text-3xl md:text-4xl font-display font-bold text-gray-900 dark:text-white mb-1 break-words">
                     {profileUser.name}
                   </h1>
@@ -120,7 +120,7 @@ const Profile = () => {
                     {profileUser.pseudo}
                   </p>
 
-                  <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-600 dark:text-gray-300">
+                  <div className="flex flex-wrap justify-center md:justify-start rtl:md:justify-end ltr:md:justify-start gap-4 text-sm text-gray-600 dark:text-gray-300">
                     {profileUser.location && (
                       <div className="flex items-center gap-1">
                         <MapPin className="w-4 h-4 text-gold-500" />

@@ -13,9 +13,10 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { SUGGESTED_TAGS } from '../data/constants';
+import { localizeValue } from '../utils/helpers';
 
 const PostCreate = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const navigate = useNavigate();
   const { isAuthenticated } = useAuthStore();
   const [imageFile, setImageFile] = useState(null);
@@ -165,7 +166,7 @@ const PostCreate = () => {
                   <div className="relative group">
                     <img
                       src={getImageUrl(imagePreview)}
-                      alt="Preview"
+                      alt={t('common.preview')}
                       className="w-full h-[400px] object-cover rounded-2xl shadow-md"
                       onError={(e) => {
                         e.target.src =
@@ -215,7 +216,7 @@ const PostCreate = () => {
                   required
                 />
                 <p className="mt-2 text-end text-xs text-gray-400 font-medium">
-                  Max 500 caractères
+                  {t('common.maxChars')}
                 </p>
               </div>
 
@@ -284,7 +285,7 @@ const PostCreate = () => {
                           : 'bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:bg-gold-50 dark:hover:bg-gray-600 hover:border-gold-200'
                       }`}
                     >
-                      #{tag}
+                      #{localizeValue(tag, i18n.language)}
                     </button>
                   ))}
                 </div>
@@ -301,12 +302,12 @@ const PostCreate = () => {
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin ms-2 rtl:mr-2 rtl:ms-0" />
                       {t('postCreate.buttons.publishing')}
                     </>
                   ) : (
                     <>
-                      <ImageIcon className="w-5 h-5 mr-2" />
+                      <ImageIcon className="w-5 h-5 ms-2 rtl:mr-2 rtl:ms-0" />
                       {t('postCreate.buttons.publish')}
                     </>
                   )}

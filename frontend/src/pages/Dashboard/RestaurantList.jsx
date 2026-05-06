@@ -43,9 +43,7 @@ const RestaurantList = () => {
 
   const handleDelete = async (restaurantId) => {
     if (
-      !window.confirm(
-        'Êtes-vous sûr de vouloir supprimer ce restaurant ? Cela supprimera également tous les plats associés.'
-      )
+      !window.confirm(t('dashboard.confirmDeleteRestaurant'))
     ) {
       return;
     }
@@ -54,7 +52,7 @@ const RestaurantList = () => {
       await restaurantAPI.delete(restaurantId);
       setRestaurants(restaurants.filter((r) => r._id !== restaurantId));
     } catch (error) {
-      alert('Erreur lors de la suppression du restaurant');
+      alert(t('dashboard.deleteRestaurantError'));
     }
   };
 

@@ -95,7 +95,7 @@ const RecipeBookDetail = () => {
             to="/recipe-books"
             className="absolute top-28 left-4 md:left-8 z-20 inline-flex items-center text-white/80 hover:text-white transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
+            <ArrowLeft className="w-5 h-5 ms-2 rtl:mr-2 rtl:ms-0 rtl:rotate-180" />
             {t('recipeBookDetail.back')}
           </Link>
 

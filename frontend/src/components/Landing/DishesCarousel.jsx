@@ -9,11 +9,11 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
 import { Link } from 'react-router-dom';
-import { getImageUrl } from '../../utils/helpers';
+import { getImageUrl, localizeValue } from '../../utils/helpers';
 import { featuredDishes } from '../../data/featuredDishes';
 
 const DishesCarousel = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   return (
     <section className="py-20 bg-dark-900 relative overflow-hidden">
@@ -97,7 +97,7 @@ const DishesCarousel = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3 }}
                         >
-                          <h3 className="text-3xl font-display font-bold mb-3">{dish.name}</h3>
+                          <h3 className="text-3xl font-display font-bold mb-3">{localizeValue(dish.name, i18n.language)}</h3>
                           <div className="flex items-center gap-4 text-cream-200">
                             <span className="flex items-center gap-2">
                               <ChefHat className="w-5 h-5" />
