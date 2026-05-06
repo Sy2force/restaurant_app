@@ -81,7 +81,7 @@
     },
     "placeholders": {
       "name": "שמך המלא",
-      "email": "your@email.com"
+      "email": "האימייל שלך"
     },
     "registerPage": {
       "businessAccount": "חשבון מקצועי",
@@ -90,10 +90,10 @@
       "heroTitle": "הצטרף ל<br /><span class=\"text-gold-400\">אליטה הגסטרונומית</span>",
       "heroDesc": "צור חשבון כדי לשתף מתכונים, לגלות מסעדות יוצאות דופן ולהשתתף בקהילה האקסקלוסיבית שלנו.",
       "benefits": {
-        "save": "Save your favorite recipes and dishes",
-        "share": "Share your creations with the community",
-        "business": "Manage your restaurant if you are a professional",
-        "discover": "Discover restaurants near you"
+        "save": "שמור את המתכונים והמנות האהובים עליך",
+        "share": "שתף את היצירות שלך עם הקהילה",
+        "business": "נהל את המסעדה שלך אם אתה מקצוען",
+        "discover": "גלה מסעדות בקרבת מקום"
       }
     },
     "errors": {
@@ -457,7 +457,7 @@
     }
   },
   "userDashboard": {
-    "pro": "PRO",
+    "pro": "מקצועי",
     "editProfile": "ערוך פרופיל",
     "statsTitle": "הביצועים שלי",
     "stats": {
@@ -717,7 +717,7 @@
       "title": "שלח לנו הודעה",
       "name": "השם שלך",
       "email": "האימייל שלך",
-      "emailPlaceholder": "example@email.com",
+      "emailPlaceholder": "דוגמה@email.com",
       "subject": "נושא",
       "message": "ההודעה שלך...",
       "submit": "שלח הודעה",
