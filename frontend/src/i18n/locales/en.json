@@ -10,7 +10,6 @@
     "register": "Join",
     "profile": "My Profile",
     "dashboard": "Pro Space",
-    "admin": "Administration",
     "logout": "Logout",
     "favorites": "My Favorites",
     "adminPanel": "Admin Panel",
@@ -70,7 +69,6 @@
       "heroTitle": "Fresh <br /><span class=\"text-gold-400\">Start</span>",
       "heroDesc": "Reset your password to regain access to your account and favorite recipes.",
       "emailSent": "Email sent!",
-      "emailSentDesc": "If an account exists with <strong>{{email}}</strong>, you will receive a reset link.",
       "backToLogin": "Back to login",
       "title": "Forgot password?",
       "subtitle": "Enter your email to receive instructions",
@@ -88,13 +86,7 @@
       "businessDesc": "For chefs, restaurateurs and creators",
       "registering": "Creating account...",
       "heroTitle": "Join the <br /><span class=\"text-gold-400\">Gastronomic Elite</span>",
-      "heroDesc": "Create your account to share your recipes, discover exceptional restaurants and join our exclusive community.",
-      "benefits": {
-        "save": "Save your favorite recipes and dishes",
-        "share": "Share your creations with the community",
-        "business": "Manage your restaurant if you are a professional",
-        "discover": "Discover restaurants near you"
-      }
+      "heroDesc": "Create your account to share your recipes, discover exceptional restaurants and join our exclusive community."
     },
     "errors": {
       "required": "Required field",
@@ -111,9 +103,7 @@
   },
   "landing": {
     "hero": {
-      "title": "The Culinary Art of Israel",
-      "subtitle": "The ultimate guide to explore, taste and share Israeli gastronomy.",
-      "cta": "Start Exploring"
+      "title": "The Culinary Art of Israel"
     },
     "stats": {
       "restaurants": "Establishments",
@@ -150,12 +140,7 @@
       "title": "Must-Try Recipes",
       "subtitle": "Selected creations to awaken your taste buds, from traditional to modern.",
       "viewRecipe": "Discover the Recipe",
-      "viewAll": "View All Collections",
-      "difficulty": {
-        "easy": "Easy",
-        "medium": "Intermediate",
-        "hard": "Expert"
-      }
+      "viewAll": "View All Collections"
     },
     "cta": {
       "title": "Ready to Taste?",
@@ -186,7 +171,6 @@
   },
   "common": {
     "loading": "Loading...",
-    "error": "An error occurred",
     "back": "Back",
     "save": "Save",
     "saving": "Saving...",
@@ -196,10 +180,6 @@
     "create": "Create",
     "update": "Update",
     "publish": "Publish",
-    "search": "Search for a flavor...",
-    "actions": "Options",
-    "status": "Status",
-    "date": "Date",
     "viewDetails": "Explore",
     "likes": "Likes",
     "min": "min",
@@ -209,7 +189,6 @@
     "confirmDelete": "This action is irreversible. Continue?",
     "comments": "Comments",
     "noComments": "No comments yet",
-    "all": "All",
     "liked": "Dish liked ❤️",
     "unliked": "Like removed",
     "errorLike": "Error liking",
@@ -234,7 +213,6 @@
     "backMenu": "Back to menu",
     "proposedBy": "Proposed by",
     "viewRestaurant": "View restaurant",
-    "moreFrom": "More from {{name}}",
     "cacherout": "Kosher",
     "about": "About this dish",
     "badges": {
@@ -330,10 +308,10 @@
       "cancel": "Cancel"
     },
     "tips": {
-      "title": "For a successful post",
       "1": "Use natural lighting",
       "2": "Tell an authentic story",
-      "3": "Tag key ingredients"
+      "3": "Tag key ingredients",
+      "title": "For a successful post"
     },
     "inspiration": {
       "text": "Need ideas?",
@@ -396,7 +374,6 @@
       "logoUpload": "Import your logo",
       "image": "Cover Photo",
       "upload": "Import a photo",
-      "photoUpload": "Choose a visual",
       "maxSize": "Max 5MB",
       "imageHelp": "Max 5MB (PNG, JPG)",
       "actions": "Validation",
@@ -434,13 +411,11 @@
       "preview": "Preview",
       "errors": {
         "required": "Information required",
-        "invalidEmail": "Invalid format",
         "invalidUrl": "Invalid link",
         "invalidPrice": "Invalid amount",
         "minCuisine": "Select at least one style",
         "minIngredients": "Missing ingredients",
         "minInstructions": "Missing instructions",
-        "titleRequired": "Title required",
         "imageSize": "File too large (>5MB)",
         "save": "Save failed",
         "load": "Load failed"
@@ -455,8 +430,7 @@
         "website": "https://www.myrestaurant.com",
         "dishName": "Ex: Royal Shakshuka",
         "dishDesc": "Describe the flavors and ingredients...",
-        "ingredient": "Ingredient",
-        "step": "Step"
+        "ingredient": "Ingredient"
       }
     }
   },
@@ -541,9 +515,7 @@
     "actions": {
       "edit": "Edit",
       "approve": "Approve",
-      "reject": "Reject",
-      "ignore": "Archive",
-      "delete": "Ban"
+      "reject": "Reject"
     },
     "pendingRestaurants": "Join requests",
     "reports": "Reports",
@@ -557,16 +529,7 @@
     "noPendingRestaurants": "No pending requests",
     "noReports": "No reports",
     "emptyHistory": "No history",
-    "unknownUser": "Unknown user",
-    "mock": {
-      "inappropriate": "Inappropriate content",
-      "today": "Today",
-      "commentBody": "Content excerpt...",
-      "approvedRestaurant": "{name} approved",
-      "approvedRecipe": "{name} approved",
-      "bannedUser": "{name} suspended",
-      "submittedBy": "Submitted by {{name}} on {{time}}"
-    }
+    "unknownUser": "Unknown user"
   },
   "settings": {
     "title": "Configuration",
@@ -637,8 +600,7 @@
     "ingredients": "Ingredients",
     "instructions": "Preparation",
     "step": "Step",
-    "chefsNote": "Chef's Note",
-    "moreFromAuthor": "More recipes from {{author}}"
+    "chefsNote": "Chef's Note"
   },
   "home": {
     "hero": {
@@ -657,11 +619,6 @@
       "likes": "Appreciations",
       "uniqueVisitors": "Unique audience",
       "revenue": "Revenue generated"
-    },
-    "timeRanges": {
-      "week": "7 days",
-      "month": "30 days",
-      "year": "12 months"
     },
     "proTip": {
       "title": "Chef's Tip",

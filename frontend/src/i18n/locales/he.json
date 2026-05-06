@@ -10,7 +10,6 @@
     "register": "הצטרפות",
     "profile": "הפרופיל שלי",
     "dashboard": "אזור מקצועי",
-    "admin": "ניהול",
     "logout": "התנתק",
     "favorites": "המועדפים שלי",
     "adminPanel": "פאנל ניהול",
@@ -70,7 +69,6 @@
       "heroTitle": "התחלה <br /><span class=\"text-gold-400\">חדשה</span>",
       "heroDesc": "אפס את הסיסמה שלך כדי לקבל גישה מחדש לחשבון ולמתכונים המועדפים עליך.",
       "emailSent": "אימייל נשלח!",
-      "emailSentDesc": "אם קיים חשבון עם הכתובת <strong>{{email}}</strong>, תקבל קישור לאיפוס.",
       "backToLogin": "חזרה להתחברות",
       "title": "שכחת סיסמה?",
       "subtitle": "הזן את האימייל שלך לקבלת הוראות",
@@ -88,13 +86,7 @@
       "businessDesc": "לשפים, מסעדנים ויוצרים",
       "registering": "יוצר חשבון...",
       "heroTitle": "הצטרף ל<br /><span class=\"text-gold-400\">אליטה הגסטרונומית</span>",
-      "heroDesc": "צור חשבון כדי לשתף מתכונים, לגלות מסעדות יוצאות דופן ולהשתתף בקהילה האקסקלוסיבית שלנו.",
-      "benefits": {
-        "save": "שמור את המתכונים והמנות האהובים עליך",
-        "share": "שתף את היצירות שלך עם הקהילה",
-        "business": "נהל את המסעדה שלך אם אתה מקצוען",
-        "discover": "גלה מסעדות בקרבת מקום"
-      }
+      "heroDesc": "צור חשבון כדי לשתף מתכונים, לגלות מסעדות יוצאות דופן ולהשתתף בקהילה האקסקלוסיבית שלנו."
     },
     "errors": {
       "required": "שדה חובה",
@@ -111,9 +103,7 @@
   },
   "landing": {
     "hero": {
-      "title": "האמנות הקולינרית של ישראל",
-      "subtitle": "המדריך האולטימטיבי לחקור, לטעום ולשתף את הגסטרונומיה הישראלית.",
-      "cta": "התחל לחקור"
+      "title": "האמנות הקולינרית של ישראל"
     },
     "stats": {
       "restaurants": "מקומות",
@@ -150,12 +140,7 @@
       "title": "מתכוני חובה",
       "subtitle": "יצירות שנבחרו לעורר את בלוטות הטעם, ממסורתי למודרני.",
       "viewRecipe": "גלה מתכון",
-      "viewAll": "צפה בכל האוספים",
-      "difficulty": {
-        "easy": "קל",
-        "medium": "בינוני",
-        "hard": "מומחה"
-      }
+      "viewAll": "צפה בכל האוספים"
     },
     "restaurants": {
       "title": "מקומות מומלצים",
@@ -186,7 +171,6 @@
   },
   "common": {
     "loading": "טוען...",
-    "error": "אירעה שגיאה",
     "back": "חזור",
     "save": "שמור",
     "saving": "שומר...",
@@ -196,10 +180,6 @@
     "create": "צור",
     "update": "עדכן",
     "publish": "פרסם",
-    "search": "חפש טעם...",
-    "actions": "אפשרויות",
-    "status": "סטטוס",
-    "date": "תאריך",
     "viewDetails": "חקור",
     "likes": "לייקים",
     "min": "דק'",
@@ -209,7 +189,6 @@
     "confirmDelete": "פעולה זו היא בלתי הפיכה. להמשיך?",
     "comments": "תגובות",
     "noComments": "אין תגובות עדיין",
-    "all": "הכל",
     "liked": "מנה אהובה ❤️",
     "unliked": "לייק הוסר",
     "errorLike": "שגיאה בלייק",
@@ -230,7 +209,6 @@
     "backMenu": "חזרה לתפריט",
     "proposedBy": "מוצע על ידי",
     "viewRestaurant": "צפה במסעדה",
-    "moreFrom": "עוד מ-{{name}}",
     "cacherout": "כשרות",
     "about": "אודות המנה",
     "badges": {
@@ -326,10 +304,10 @@
       "cancel": "בטל"
     },
     "tips": {
-      "title": "לפוסט מוצלח",
       "1": "העדף תאורה טבעית",
       "2": "ספר סיפור אותנטי",
-      "3": "תייג מרכיבים מרכזיים"
+      "3": "תייג מרכיבים מרכזיים",
+      "title": "לפוסט מוצלח"
     },
     "inspiration": {
       "text": "חסר רעיונות?",
@@ -392,7 +370,6 @@
       "logoUpload": "ייבא את הלוגו שלך",
       "image": "תמונת כיסוי",
       "upload": "ייבא תמונה",
-      "photoUpload": "בחר ויזואלי",
       "maxSize": "מקס' 5MB",
       "imageHelp": "מקס' 5MB (PNG, JPG)",
       "actions": "אימות",
@@ -430,13 +407,11 @@
       "preview": "תצוגה מקדימה",
       "errors": {
         "required": "מידע נדרש",
-        "invalidEmail": "פורמט שגוי",
         "invalidUrl": "קישור לא תקין",
         "invalidPrice": "סכום לא תקין",
         "minCuisine": "בחר לפחות סגנון אחד",
         "minIngredients": "חסרים מרכיבים",
         "minInstructions": "חסרות הוראות",
-        "titleRequired": "כותרת חובה",
         "imageSize": "קובץ גדול מדי (>5MB)",
         "save": "השמירה נכשלה",
         "load": "טעינה נכשלה"
@@ -451,8 +426,7 @@
         "website": "https://www.myrestaurant.com",
         "dishName": "דוגמה: שקשוקה מלכותית",
         "dishDesc": "תאר את הטעמים והמרכיבים...",
-        "ingredient": "מרכיב",
-        "step": "שלב"
+        "ingredient": "מרכיב"
       }
     }
   },
@@ -537,9 +511,7 @@
     "actions": {
       "edit": "ערוך",
       "approve": "אמת",
-      "reject": "סרב",
-      "ignore": "ארכב",
-      "delete": "חסום"
+      "reject": "סרב"
     },
     "pendingRestaurants": "בקשות הצטרפות",
     "reports": "דיווחים",
@@ -553,16 +525,7 @@
     "noPendingRestaurants": "אין בקשות ממתינות",
     "noReports": "אין דיווחים",
     "emptyHistory": "אין היסטוריה",
-    "unknownUser": "משתמש לא ידוע",
-    "mock": {
-      "inappropriate": "תוכן לא ראוי",
-      "today": "היום",
-      "commentBody": "קטע תוכן...",
-      "approvedRestaurant": "{name} אומת",
-      "approvedRecipe": "{name} אומת",
-      "bannedUser": "{name} הושעה",
-      "submittedBy": "הוגש ע״י {{name}} בתאריך {{time}}"
-    }
+    "unknownUser": "משתמש לא ידוע"
   },
   "settings": {
     "title": "תצורה",
@@ -633,8 +596,7 @@
     "ingredients": "מרכיבים",
     "instructions": "אופן ההכנה",
     "step": "שלב",
-    "chefsNote": "דבר השף",
-    "moreFromAuthor": "עוד מתכונים של {{author}}"
+    "chefsNote": "דבר השף"
   },
   "home": {
     "hero": {
@@ -653,11 +615,6 @@
       "likes": "הערכות",
       "uniqueVisitors": "קהל ייחודי",
       "revenue": "הכנסה שנוצרה"
-    },
-    "timeRanges": {
-      "week": "7 ימים",
-      "month": "30 ימים",
-      "year": "12 חודשים"
     },
     "proTip": {
       "title": "טיפ של שף",
