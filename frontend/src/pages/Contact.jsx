@@ -30,7 +30,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-20">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pt-32 pb-24 md:pb-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -111,9 +111,12 @@ const Contact = () => {
                   {t('contact.info.chat.title')}
                 </h3>
                 <p className="text-olive-100 mb-6">{t('contact.info.chat.desc')}</p>
-                <button className="w-full py-3 bg-white text-olive-900 font-bold rounded-xl hover:bg-gray-100 transition-colors">
+                <a
+                  href="mailto:contact@flavorsofisrael.com"
+                  className="block w-full py-3 bg-white text-olive-900 font-bold rounded-xl hover:bg-gray-100 transition-colors text-center"
+                >
                   {t('contact.info.chat.button')}
-                </button>
+                </a>
               </div>
             </div>
           </motion.div>

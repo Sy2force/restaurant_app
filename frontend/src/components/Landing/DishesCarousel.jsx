@@ -1,19 +1,24 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
 import { motion } from 'framer-motion';
-import { MapPin, ChefHat } from 'lucide-react';
+import { MapPin, ChefHat, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link, useNavigate } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
-import { Link } from 'react-router-dom';
 import { getImageUrl, localizeValue } from '../../utils/helpers';
 import { featuredDishes } from '../../data/featuredDishes';
 
 const DishesCarousel = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleDishClick = (dishId) => {
+    navigate(`/dishes/${dishId}`);
+  };
 
   return (
     <section className="py-20 bg-dark-900 relative overflow-hidden">
@@ -75,7 +80,7 @@ const DishesCarousel = () => {
               1024: { slidesPerView: 3 },
             }}
           >
-            {featuredDishes.map((dish) => (
+            {featuredDishes.slice(0, 6).map((dish) => (
               <SwiperSlide key={dish.id} className="!w-96">
                 <Link to={`/dishes/${dish.mongoId || dish.id}`}>
                   <div className="relative group cursor-pointer">
@@ -83,7 +88,8 @@ const DishesCarousel = () => {
                       <img
                         src={getImageUrl(dish.image)}
                         alt={dish.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
+                        onClick={() => handleDishClick(dish.mongoId || dish.id)}
                         onError={(e) => {
                           e.target.src =
                             'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
@@ -122,6 +128,25 @@ const DishesCarousel = () => {
               </SwiperSlide>
             ))}
           </Swiper>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-center mt-12"
+        >
+          <Link to="/dishes">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-8 py-4 border-2 border-gold-500 hover:bg-gold-500 text-gold-500 hover:text-white text-lg font-semibold rounded-full transition-all duration-300 flex items-center gap-2 mx-auto"
+            >
+              {t('landing.dishesCarousel.discover')}
+              <ArrowRight className="w-5 h-5" />
+            </motion.button>
+          </Link>
         </motion.div>
       </div>
 

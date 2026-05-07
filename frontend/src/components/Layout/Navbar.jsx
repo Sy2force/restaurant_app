@@ -7,9 +7,6 @@ import {
   X,
   User,
   LogOut,
-  Heart,
-  LayoutDashboard,
-  Shield,
   Globe,
   ChefHat,
 } from 'lucide-react';
@@ -49,10 +46,9 @@ const Navbar = () => {
 
   const navLinks = [
     { to: '/', label: t('nav.home') },
-    { to: '/dishes', label: t('nav.dishes') },
     { to: '/restaurants', label: t('nav.restaurants') },
-    { to: '/recipe-books', label: t('nav.recipeBooks') },
-    { to: '/explore', label: t('nav.explore') },
+    { to: '/dishes', label: t('nav.dishes') },
+    { to: '/contact', label: t('nav.contact') },
   ];
 
   const isHome = location.pathname === '/';
@@ -186,86 +182,6 @@ const Navbar = () => {
                       <div className="px-4 py-3 border-b border-white/5 mb-2">
                         <p className="text-sm font-medium text-white">{user?.name}</p>
                         <p className="text-xs text-gray-500 truncate">{user?.email}</p>
-                      </div>
-
-                      <div className="space-y-1">
-                        {/* Admin Menu */}
-                        {user?.isAdmin && (
-                          <>
-                            <Link
-                              to="/admin"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <Shield className="w-4 h-4 text-gold-500" />
-                              {t('nav.adminPanel')}
-                            </Link>
-                            <Link
-                              to="/admin/users"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <User className="w-4 h-4 text-gold-500" />
-                              {t('nav.usersManagement')}
-                            </Link>
-                            <div className="px-4 py-2 text-sm text-gray-400 flex items-center gap-3">
-                              <LayoutDashboard className="w-4 h-4 text-gold-500" />
-                              {t('nav.stats')}
-                            </div>
-                          </>
-                        )}
-
-                        {/* Business Menu */}
-                        {user?.isBusiness && !user?.isAdmin && (
-                          <>
-                            <Link
-                              to="/dashboard"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <LayoutDashboard className="w-4 h-4 text-gold-500" />
-                              {t('nav.dashboard')}
-                            </Link>
-                            <Link
-                              to="/dashboard/cards"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <Heart className="w-4 h-4 text-gold-500" />
-                              {t('nav.myCards')}
-                            </Link>
-                            <Link
-                              to="/dashboard/cards/create"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <LayoutDashboard className="w-4 h-4 text-gold-500" />
-                              {t('nav.createCard')}
-                            </Link>
-                          </>
-                        )}
-
-                        {/* User Menu (Standard) */}
-                        {!user?.isBusiness && !user?.isAdmin && (
-                          <>
-                            <Link
-                              to="/explore"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <Globe className="w-4 h-4 text-gold-500" />
-                              {t('nav.explore')}
-                            </Link>
-                            <Link
-                              to="/favorites"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <Heart className="w-4 h-4 text-gold-500" />
-                              {t('nav.favorites')}
-                            </Link>
-                            <Link
-                              to="/profile"
-                              className="flex items-center gap-3 px-4 py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
-                            >
-                              <User className="w-4 h-4 text-gold-500" />
-                              {t('nav.profile')}
-                            </Link>
-                          </>
-                        )}
                       </div>
 
                       <div className="mt-2 pt-2 border-t border-white/5">

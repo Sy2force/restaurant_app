@@ -127,8 +127,8 @@ export const mockDishes = {
     isVegetarian: false,
     rating: { average: 4.6, count: 215 },
   },
-  101: {
-    _id: '101',
+  7: {
+    _id: '7',
     name: 'Croissant Foie Gras',
     description:
       "Un croissant pur beurre fait maison, croustillant et doré, garni d'une escalope de foie gras poêlée et d'un confit de figues violettes.",
@@ -150,8 +150,8 @@ export const mockDishes = {
     isGlutenFree: false,
     rating: { average: 4.9, count: 50 },
   },
-  102: {
-    _id: '102',
+  8: {
+    _id: '8',
     name: 'Tartare de Thon Épicé',
     description:
       "Thon rouge de Méditerranée coupé au couteau, assaisonné de piment frais, coriandre et citron vert, dressé sur un lit d'avocat crémeux.",
@@ -173,8 +173,8 @@ export const mockDishes = {
     isGlutenFree: true,
     rating: { average: 4.7, count: 45 },
   },
-  201: {
-    _id: '201',
+  9: {
+    _id: '9',
     name: 'Polenta aux Champignons',
     description:
       "La célèbre polenta crémeuse servie en bocal, agrémentée d'un ragoût de champignons sauvages, copeaux de parmesan affiné et huile de truffe noire.",
@@ -196,8 +196,8 @@ export const mockDishes = {
     isGlutenFree: false,
     rating: { average: 5.0, count: 120 },
   },
-  301: {
-    _id: '301',
+  10: {
+    _id: '10',
     name: 'Maqluba au Poulet',
     description:
       'Le plat de fête par excellence : une tour renversée de riz parfumé aux épices, légumes rôtis et morceaux de poulet tendre, servie avec des amandes grillées.',
@@ -219,8 +219,8 @@ export const mockDishes = {
     isGlutenFree: true,
     rating: { average: 4.8, count: 85 },
   },
-  401: {
-    _id: '401',
+  11: {
+    _id: '11',
     name: 'Filet de Bar',
     description:
       'Filet de bar frais grillé sur peau croustillante, servi avec une purée de pommes de terre au beurre et des légumes de saison glacés.',
@@ -241,8 +241,8 @@ export const mockDishes = {
     isGlutenFree: true,
     rating: { average: 4.7, count: 65 },
   },
-  501: {
-    _id: '501',
+  12: {
+    _id: '12',
     name: 'Canard Laqué aux Figues',
     description:
       "Magret de canard cuit à la perfection, laqué d'une réduction soja et miel, accompagné de figues rôties et d'une mousseline de céleri.",
@@ -262,133 +262,5 @@ export const mockDishes = {
     isVegetarian: false,
     isGlutenFree: false,
     rating: { average: 4.9, count: 80 },
-  },
-  601: {
-    _id: '601',
-    name: 'Côte de Veau',
-    description:
-      'Côte de veau tendre et juteuse, servie avec une purée de topinambours, une poêlée de champignons sauvages et un jus corsé.',
-    price: 140,
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=2939',
-    restaurant: {
-      _id: '6',
-      name: '1868',
-      city: 'Jérusalem',
-      cacherout: 'Mehadrin',
-      logo: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
-    },
-    region: 'Jérusalem',
-    season: 'Hiver',
-    category: 'Plat Principal',
-    cacherout: 'Mehadrin',
-    isVegetarian: false,
-    isGlutenFree: true,
-    rating: { average: 4.9, count: 45 },
-  },
-  701: {
-    _id: '701',
-    name: 'Shakshuka Royale',
-    description:
-      'Œufs fermiers pochés dans une compotée de tomates fraîches, poivrons rouges et oignons caramélisés, relevée au paprika fumé. Servie avec pain challah.',
-    price: 45,
-    image: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
-    restaurant: {
-      _id: '7',
-      name: 'Dr Shakshuka',
-      city: 'Jaffa',
-      cacherout: 'Rabbanout',
-      description: 'Le spécialiste incontesté de la Shakshuka.',
-      logo: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
-    },
-    region: 'Jaffa',
-    season: "Toute l'année",
-    category: 'Petit-déjeuner',
-    cacherout: 'Rabbanout',
-    isVegetarian: true,
-    rating: { average: 4.8, count: 124 },
-  },
-  801: {
-    _id: '801',
-    name: 'Sabich Deluxe',
-    description:
-      "L'alliance parfaite : aubergines fondantes, œufs durs marinés, pommes de terre rissolées, salade israélienne et sauce amba onctueuse.",
-    price: 38,
-    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
-    restaurant: {
-      _id: '8',
-      name: 'Sabich Frishman',
-      city: 'Tel Aviv',
-      cacherout: 'Mehadrin',
-      logo: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=2940',
-    },
-    region: 'Tel Aviv',
-    season: "Toute l'année",
-    category: 'Street Food',
-    cacherout: 'Mehadrin',
-    isVegetarian: true,
-    rating: { average: 4.9, count: 250 },
-  },
-  901: {
-    _id: '901',
-    name: 'Hummus Bassar',
-    description:
-      "L'authentique hummus crémeux de Jaffa, couronné de bœuf haché épicé aux pignons de pin torréfiés et huile d'olive de Galilée.",
-    price: 52,
-    image: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
-    restaurant: {
-      _id: '9',
-      name: 'Abu Hassan',
-      city: 'Jaffa',
-      cacherout: 'Rabbanout',
-      logo: 'https://images.unsplash.com/photo-1538334421852-687c439c92f4?q=80&w=2940',
-    },
-    region: 'Jaffa',
-    season: "Toute l'année",
-    category: 'Plat Principal',
-    cacherout: 'Rabbanout',
-    isVegetarian: false,
-    rating: { average: 4.7, count: 310 },
-  },
-  1001: {
-    _id: '1001',
-    name: 'Falafel Doré',
-    description:
-      'Boulettes de pois chiches croustillantes aux herbes fraîches, accompagnées de tahini velouté, sauce piquante zhug et pickles maison.',
-    price: 30,
-    image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
-    restaurant: {
-      _id: '10',
-      name: 'HaKosem',
-      city: 'Tel Aviv',
-      cacherout: 'Mehadrin',
-      logo: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2940',
-    },
-    region: 'Tel Aviv',
-    season: "Toute l'année",
-    category: 'Street Food',
-    cacherout: 'Mehadrin',
-    isVegetarian: true,
-    rating: { average: 4.8, count: 420 },
-  },
-  1101: {
-    _id: '1101',
-    name: 'Shawarma Agneau',
-    description:
-      "Fines tranches d'agneau marinées aux épices orientales, grillées à la broche, servies dans une laffa chaude avec hummus et tehina.",
-    price: 55,
-    image: 'https://images.unsplash.com/photo-1529193591176-1da79027d382?q=80&w=2940',
-    restaurant: {
-      _id: '11',
-      name: 'Miznon',
-      city: 'Tel Aviv',
-      cacherout: 'Rabbanout',
-      logo: 'https://images.unsplash.com/photo-1563583733075-d91295a706be?q=80&w=3000',
-    },
-    region: 'Tel Aviv',
-    season: 'Hiver',
-    category: 'Viandes',
-    cacherout: 'Rabbanout',
-    isVegetarian: false,
-    rating: { average: 4.6, count: 215 },
   },
 };

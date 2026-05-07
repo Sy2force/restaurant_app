@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { BookOpen, Heart, Eye, User } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -8,6 +8,11 @@ import { getImageUrl, localizeValue } from '../../utils/helpers';
 const PremiumBookCard = ({ book }) => {
   const { t, i18n } = useTranslation();
   const [isFlipped, setIsFlipped] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/recipe-books/${book._id}`);
+  };
 
   return (
     <motion.div
@@ -21,7 +26,7 @@ const PremiumBookCard = ({ book }) => {
         <motion.div
           animate={{ rotateY: isFlipped ? 180 : 0 }}
           transition={{ duration: 0.6 }}
-          className="relative preserve-3d"
+          className="relative preserve-3d cursor-pointer"
           onHoverStart={() => setIsFlipped(true)}
           onHoverEnd={() => setIsFlipped(false)}
         >
@@ -31,7 +36,8 @@ const PremiumBookCard = ({ book }) => {
                 <img
                   src={getImageUrl(book.coverImage)}
                   alt={book.title}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover cursor-pointer"
+                  onClick={handleCardClick}
                   onError={(e) => {
                     e.target.src =
                       'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=2898';

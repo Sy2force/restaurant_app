@@ -105,7 +105,6 @@ const Dishes = () => {
           });
         }
       } catch (error) {
-        console.error('Erreur chargement plats:', error);
         showToast(t('dashboard.forms.errors.load'), 'error');
         setDishes(Object.values(mockDishes));
       } finally {
@@ -146,7 +145,7 @@ const Dishes = () => {
   const activeFilterCount = Object.keys(filters).length;
 
   return (
-    <div className="min-h-screen bg-cream-50 dark:bg-dark-900">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pb-24 md:pb-0">
       <div className="relative pt-32 pb-24 bg-gradient-to-r from-coffee-900 via-dark-900 to-coffee-900 overflow-hidden">
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=2940')] bg-cover bg-center bg-fixed opacity-30 mix-blend-overlay"></div>
@@ -286,7 +285,7 @@ const Dishes = () => {
             </div>
 
             {hasMore && (
-              <div className="text-center pb-20">
+              <div className="text-center pb-24 md:pb-20">
                 <Button
                   variant="outline"
                   onClick={() => fetchDishes(false)}
@@ -295,7 +294,7 @@ const Dishes = () => {
                 >
                   {loadingMore ? (
                     <>
-                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin ms-2 rtl:mr-2 rtl:ms-0" />
+                      <div className="w-4 h-4 border-2 border-current border-t-transparent rounded-full animate-spin mr-2" />
                       {t('common.loading')}
                     </>
                   ) : (

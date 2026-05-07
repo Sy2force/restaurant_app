@@ -1,12 +1,10 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useAuthStore } from '../../store/authStore';
-import { Camera, ChefHat, ArrowRight } from 'lucide-react';
+import { Store, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const CTASection = () => {
   const { t } = useTranslation();
-  const { isAuthenticated } = useAuthStore();
 
   return (
     <section className="py-24 bg-gradient-to-br from-dark-900 via-gray-900 to-dark-900 relative overflow-hidden">
@@ -26,69 +24,27 @@ const CTASection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12"
+          className="text-center max-w-4xl mx-auto"
         >
           <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
             {t('landing.cta.title')}
           </h2>
-          <p className="text-xl text-cream-200 max-w-3xl mx-auto">{t('landing.cta.subtitle')}</p>
+          <p className="text-xl text-cream-200 mb-12">
+            {t('landing.cta.subtitle')}
+          </p>
+
+          <Link to="/restaurants">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-3 px-10 py-5 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-full transition-all shadow-xl shadow-gold-500/30 text-lg"
+            >
+              <Store className="w-6 h-6" />
+              {t('landing.cta.button')}
+              <ArrowRight className="w-6 h-6" />
+            </motion.button>
+          </Link>
         </motion.div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gradient-to-br from-gold-500 to-gold-600 rounded-2xl p-8 shadow-2xl"
-          >
-            <Camera className="w-12 h-12 text-white mb-4" />
-            <h3 className="text-3xl font-display font-bold text-white mb-4">
-              {t('landing.cta.share.title')}
-            </h3>
-            <p className="text-white/90 mb-6">{t('landing.cta.share.desc')}</p>
-            <Link to={isAuthenticated ? '/explore/create' : '/register'}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full py-4 bg-white text-gold-600 font-bold rounded-full hover:bg-cream-100 transition-colors flex items-center justify-center gap-2"
-              >
-                {isAuthenticated
-                  ? t('landing.cta.share.buttonAuth')
-                  : t('landing.cta.share.buttonGuest')}
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-            </Link>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-gradient-to-br from-olive-600 to-olive-700 rounded-2xl p-8 shadow-2xl"
-          >
-            <ChefHat className="w-12 h-12 text-white mb-4" />
-            <h3 className="text-3xl font-display font-bold text-white mb-4">
-              {t('landing.cta.restaurant.title')}
-            </h3>
-            <p className="text-white/90 mb-6">{t('landing.cta.restaurant.desc')}</p>
-            <Link to={isAuthenticated ? '/dashboard' : '/register'}>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="w-full py-4 bg-white text-olive-700 font-bold rounded-full hover:bg-cream-100 transition-colors flex items-center justify-center gap-2"
-              >
-                {isAuthenticated
-                  ? t('landing.cta.restaurant.buttonAuth')
-                  : t('landing.cta.restaurant.buttonGuest')}
-                <ArrowRight className="w-5 h-5" />
-              </motion.button>
-            </Link>
-          </motion.div>
-        </div>
       </div>
     </section>
   );

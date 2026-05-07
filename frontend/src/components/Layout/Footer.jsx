@@ -46,7 +46,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-3xl font-display font-bold text-gold-400 mb-4">
-              Flavors of Israel
+              Restaurant Israel
             </h3>
             <p className="text-cream-200 mb-6 leading-relaxed">{t('footer.description')}</p>
             <div className="flex gap-4">
@@ -93,8 +93,8 @@ const Footer = () => {
               {[
                 { to: '/dishes', label: t('nav.dishes') },
                 { to: '/restaurants', label: t('nav.restaurants') },
-                { to: '/recipe-books', label: t('nav.recipeBooks') },
-                { to: '/explore', label: t('nav.explore') },
+                { to: '/contact', label: t('nav.contact') },
+                { to: '/privacy', label: t('footer.links.privacy') },
               ].map((link, index) => (
                 <li key={index}>
                   <Link
@@ -122,8 +122,8 @@ const Footer = () => {
               {[
                 { to: '/register', label: t('auth.register') },
                 { to: '/login', label: t('auth.login') },
-                { to: '/dashboard', label: t('nav.dashboard') },
-                { to: '/profile', label: t('nav.profile') },
+                { to: '/terms', label: t('footer.links.terms') },
+                { to: '/forgot-password', label: t('auth.loginPage.forgotPassword') },
               ].map((link, index) => (
                 <li key={index}>
                   <Link
@@ -182,7 +182,7 @@ const Footer = () => {
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-gold-400" />
-                contact@flavorsofisrael.com
+                contact@restaurantisrael.com
               </p>
               <p className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 text-gold-400" />
@@ -203,7 +203,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-cream-300 text-sm"
           >
-            © {currentYear} Flavors of Israel. {t('footer.rights')}
+            © {currentYear} Restaurant Israel. {t('footer.rights')}
           </motion.p>
 
           <div className="flex gap-6 text-sm">

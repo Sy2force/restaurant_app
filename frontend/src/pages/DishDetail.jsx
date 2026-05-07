@@ -3,11 +3,12 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { dishAPI } from '../services/api';
 import { useAuthStore } from '../store/authStore';
-import { Heart, MapPin, Star, ArrowLeft, Share2, Award, Clock } from 'lucide-react';
+import { Heart, MapPin, Star, ArrowLeft, Share2, Award, Clock, Store } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import Toast from '../components/UI/Toast';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import { mockDishes } from '../data/mockDishes';
+import { getImageUrl } from '../utils/helpers';
 
 const DishDetail = () => {
   const { t } = useTranslation();
@@ -64,7 +65,7 @@ const DishDetail = () => {
       {
         _id: '903',
         name: 'Chou-fleur Rôti',
-        image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=2787',
+        image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=2940',
         price: 35,
         cacherout: dish.cacherout,
         rating: { average: 4.7, count: 95 },
@@ -72,7 +73,7 @@ const DishDetail = () => {
       {
         _id: '904',
         name: 'Poulet Grillé',
-        image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=2787',
+        image: 'https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=2925',
         price: 40,
         cacherout: dish.cacherout,
         rating: { average: 4.5, count: 80 },
@@ -80,7 +81,7 @@ const DishDetail = () => {
       {
         _id: '905',
         name: 'Tarte aux Fruits',
-        image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=2787',
+        image: 'https://images.unsplash.com/photo-1464306076886-da185f6a9d05?q=80&w=2942',
         price: 30,
         cacherout: dish.cacherout,
         rating: { average: 4.4, count: 70 },
@@ -122,8 +123,8 @@ const DishDetail = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-cream-50 dark:bg-dark-900 py-20 px-4">
-        <div className="max-w-4xl mx-auto">
+      <div className="min-h-screen bg-cream-50 dark:bg-dark-900 py-20 px-4 pb-24 md:pb-0">
+        <div className="max-w-7xl mx-auto">
           <SkeletonCard />
         </div>
       </div>
@@ -132,7 +133,7 @@ const DishDetail = () => {
 
   if (!dish) {
     return (
-      <div className="min-h-screen bg-cream-50 dark:bg-dark-900 flex items-center justify-center">
+      <div className="min-h-screen bg-cream-50 dark:bg-dark-900 flex items-center justify-center pb-24 md:pb-0">
         <div className="text-center">
           <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-4">
             {t('dishDetail.notFound')}
@@ -146,7 +147,7 @@ const DishDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream-50 dark:bg-dark-900">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pb-24 md:pb-0">
       {/* Hero Banner for Dish */}
       <div className="relative h-[70vh] w-full overflow-hidden">
         <motion.img
@@ -351,9 +352,10 @@ const DishDetail = () => {
               </div>
 
               <Link
-                to={`/restaurants/${dish.restaurant._id}`}
-                className="block w-full py-4 bg-dark-900 hover:bg-gold-500 text-white text-center font-bold rounded-full transition-all duration-300 shadow-lg"
+                to={dish.restaurant?._id ? `/restaurants/${dish.restaurant._id}` : '/restaurants'}
+                className="flex items-center justify-center gap-2 w-full py-4 bg-gold-500 hover:bg-gold-600 text-white text-center font-bold rounded-full transition-all shadow-lg shadow-gold-500/20"
               >
+                <Store className="w-5 h-5" />
                 {t('dishDetail.viewRestaurant')}
               </Link>
             </motion.div>

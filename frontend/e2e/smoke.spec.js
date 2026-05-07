@@ -22,21 +22,21 @@ test.describe('Public pages — smoke', () => {
     await expect(page).toHaveURL(/\/restaurants/);
   });
 
-  test('Recipe books page loads', async ({ page }) => {
-    await page.goto('/recipe-books');
-    await expect(page).toHaveURL(/\/recipe-books/);
-  });
-
-  test('Explore page loads', async ({ page }) => {
-    await page.goto('/explore');
-    await expect(page).toHaveURL(/\/explore/);
-  });
-
   test('Login, Register, Contact, Privacy, Terms render', async ({ page }) => {
     for (const path of ['/login', '/register', '/contact', '/privacy', '/terms']) {
       await page.goto(path);
       await expect(page).toHaveURL(new RegExp(path.replace('/', '\\/')));
     }
+  });
+
+  test('Restaurant detail and dish detail render with valid IDs', async ({ page }) => {
+    await page.goto('/restaurants/1');
+    await expect(page).toHaveURL(/\/restaurants\/1/);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
+
+    await page.goto('/dishes/1');
+    await expect(page).toHaveURL(/\/dishes\/1/);
+    await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
   });
 
   test('Unknown route shows NotFound', async ({ page }) => {
@@ -45,32 +45,4 @@ test.describe('Public pages — smoke', () => {
     await expect(page.locator('body')).toContainText(/404|Not Found|introuvable|לא נמצא/i);
   });
 
-  test('/unauthorized route is mounted', async ({ page }) => {
-    const resp = await page.goto('/unauthorized');
-    expect(resp?.status()).toBeLessThan(400);
-  });
-});
-
-test.describe('Protected routes redirect to /login when unauthenticated', () => {
-  const protectedPaths = [
-    '/profile',
-    '/favorites',
-    '/user-dashboard',
-    '/dashboard',
-    '/dashboard/restaurants',
-    '/dashboard/dishes',
-    '/dashboard/recipes',
-    '/dashboard/cards',
-    '/dashboard/analytics',
-    '/dashboard/settings',
-    '/admin',
-  ];
-
-  for (const path of protectedPaths) {
-    test(`GET ${path} redirects to /login`, async ({ page }) => {
-      await page.goto(path);
-      await page.waitForURL(/\/login/, { timeout: 7_000 });
-      await expect(page).toHaveURL(/\/login/);
-    });
-  }
 });

@@ -1,107 +1,120 @@
-# 🇮🇱 Flavors of Israel
+# Restaurant Israel
 
-> The Ultimate Guide to Israeli Gastronomy. A full-stack platform connecting foodies with the best chefs, restaurants, and recipes from Israel.
+Application React moderne pour découvrir des restaurants et des plats en Israël, avec interface multilingue (FR/EN/HE) et support RTL.
 
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Node](https://img.shields.io/badge/node-v18+-green.svg)
-![React](https://img.shields.io/badge/react-v18-blue.svg)
-![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg)
+## Stack technique
 
-## 🚀 Features
+- Frontend: React 18, Vite, React Router, Tailwind CSS, Zustand, i18next, Axios, Framer Motion
+- Validation/Formulaires: React Hook Form, Yup
+- Tests: Vitest, Playwright
+- Déploiement: Vercel (frontend), Render (API backend si activée)
+- Backend (présent dans le repo): Node.js, Express, MongoDB, JWT, Helmet, CORS, Rate Limit
 
-- **Authentication & Authorization**: Secure JWT-based auth with Role-Based Access Control (User, Business, Admin).
-- **Business Dashboard**: Dedicated interface for restaurant owners to manage dishes, cards, and recipes.
-- **Admin Panel**: Comprehensive oversight with analytics and moderation tools.
-- **Explore Feed**: Interactive feed of culinary cards and community posts.
-- **Internationalization (i18n)**: Full support for English, French, and Hebrew (including RTL layout).
-- **Responsive Design**: Modern, fluid UI built with Tailwind CSS and Framer Motion.
+## Fonctionnalités principales (version finalisée v1)
 
-## 🛠 Tech Stack
+- Pages publiques: accueil, restaurants, détail restaurant, plats, détail plat, contact
+- Pages utilitaires: login, register, forgot/reset password, privacy, terms, 404
+- Navigation mobile fixe en bas (mobile only), responsive global
+- Données mock de fallback si API indisponible
+- Internationalisation FR/EN/HE + direction RTL en hébreu
 
-### Backend
-- **Node.js & Express**: RESTful API architecture.
-- **MongoDB & Mongoose**: Data modeling and persistence.
-- **Security**: Helmet, CORS, Rate Limiting, bcrypt, JWT.
-- **Validation**: Joi for request payload validation.
-- **Logging**: Morgan and custom file-based logging for errors.
-- **Testing**: Jest & Supertest.
+## Routes principales
+
+- `/`
+- `/restaurants`
+- `/restaurants/:id`
+- `/dishes`
+- `/dishes/:id`
+- `/contact`
+- `/login`
+- `/register`
+- `/forgot-password`
+- `/reset-password`
+- `/privacy`
+- `/terms`
+- `/*`
+
+## Installation
 
 ### Frontend
-- **React (Vite)**: Fast and modern frontend framework.
-- **Tailwind CSS**: Utility-first styling.
-- **Zustand**: Lightweight state management with persistence.
-- **Framer Motion**: Smooth animations.
-- **React Hook Form & Yup**: robust form handling.
-- **i18next**: Advanced internationalization.
-- **Testing**: Vitest & React Testing Library.
 
-## 📦 Installation
-
-### Prerequisites
-- Node.js (v18 or higher)
-- MongoDB (Local or Atlas URI)
-
-### 1. Clone the repository
-```bash
-git clone https://github.com/yourusername/flavors-of-israel.git
-cd flavors-of-israel
-```
-
-### 2. Backend Setup
-```bash
-cd backend
-npm install
-cp .env.example .env
-# Configure your .env variables (MONGODB_URI, JWT_SECRET, PORT=5000)
-npm run seed  # Seed the database with initial data
-npm start     # Start the server
-```
-
-### 3. Frontend Setup
 ```bash
 cd frontend
 npm install
 cp .env.example .env
-# Set VITE_API_URL=http://localhost:5000/api
 npm run dev
 ```
 
-## Running Tests
+### Backend (optionnel)
 
-### Backend
 ```bash
 cd backend
-npm test
+npm install
+cp ../.env.example .env
+npm start
 ```
 
-### Frontend
+## Variables d'environnement
+
+Exemple (`.env.example`):
+
+```bash
+VITE_API_URL=http://localhost:5000/api
+VITE_APP_NAME=Restaurant Israel
+NODE_ENV=development
+PORT=5000
+JWT_SECRET=change_me
+MONGODB_URI=mongodb://localhost:27017/flavors-of-israel
+CLIENT_URL=http://localhost:5173
+```
+
+## Scripts utiles (frontend)
+
+```bash
+npm run dev
+npm run lint
+npm run test:unit
+npm run test:e2e
+npm run validate:data
+npm run build
+npm run preview
+```
+
+## Validation des données mock
+
+Script disponible:
+
 ```bash
 cd frontend
-npm test
+npm run validate:data
 ```
 
-## 🔑 Test Accounts
+Vérifie notamment les IDs dupliqués, images dupliquées sur les plats, présence d'images et cohérence `restaurantId`.
 
-| Role | Email | Password |
-|------|-------|----------|
-| **Admin** | `admin@test.com` | `password123` |
-| **Business** | `business@test.com` | `password123` |
-| **User** | `user@test.com` | `password123` |
+## Déploiement Vercel (frontend)
 
-## 🌍 Deployment
+- Framework: Vite
+- Build command: `npm run build`
+- Output directory: `dist`
+- Variable: `VITE_API_URL=https://<render-service>.onrender.com/api`
+- SPA rewrite déjà configurée dans `frontend/vercel.json`
 
-### Backend (Render)
-1. Push `backend` folder to a repository.
-2. Create a Web Service on Render.
-3. Set Build Command: `npm install`.
-4. Set Start Command: `node server.js`.
-5. Add Environment Variables: `MONGODB_URI`, `JWT_SECRET`.
+## Déploiement Render (backend)
 
-### Frontend (Vercel)
-1. Push `frontend` folder to a repository.
-2. Import project into Vercel.
-3. Set Framework Preset: `Vite`.
-4. Add Environment Variable: `VITE_API_URL` (pointing to your Render backend).
+- Config repo: `render.yaml`
+- Root dir: `backend`
+- Build command: `npm install`
+- Start command: `npm start`
+- Variables à définir côté Render: `MONGODB_URI`, `JWT_SECRET`, `CLIENT_URL`, Cloudinary si upload activé
 
-## 📄 License
-MIT © 2026 Flavors of Israel
+## Structure du projet
+
+- `frontend/`: app React
+- `backend/`: API Express
+- `scripts/`: scripts utilitaires (validation data)
+- `render.yaml`: config Render
+
+## Notes importantes
+
+- `.env` ne doit jamais être commité.
+- La sécurité finale des permissions doit aussi être appliquée côté backend (pas uniquement frontend).

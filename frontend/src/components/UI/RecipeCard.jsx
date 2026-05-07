@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Heart, Clock, Users, ChefHat } from 'lucide-react';
 import { useState } from 'react';
 
@@ -8,6 +8,11 @@ import { getImageUrl } from '../../utils/helpers';
 const RecipeCard = ({ recipe, onLike }) => {
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(recipe.likes?.length || 0);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/recipes/${recipe._id}`);
+  };
 
   const handleLike = (e) => {
     e.preventDefault();
@@ -27,12 +32,13 @@ const RecipeCard = ({ recipe, onLike }) => {
       transition={{ duration: 0.3 }}
     >
       <Link to={`/recipes/${recipe._id}`} className="block group">
-        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
           <div className="relative h-48 overflow-hidden">
             <img
               src={getImageUrl(recipe.image)}
               alt={recipe.title}
-              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
+              onClick={handleCardClick}
               onError={(e) => {
                 e.target.src =
                   'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940'; // Fallback recipe image

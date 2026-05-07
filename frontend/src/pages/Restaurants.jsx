@@ -4,7 +4,7 @@ import { Store } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { restaurantAPI } from '../services/api';
 import PremiumRestaurantCard from '../components/Restaurants/PremiumRestaurantCard';
-import StickyFilters from '../components/Dishes/StickyFilters';
+import RestaurantStickyFilters from '../components/Restaurants/RestaurantStickyFilters';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import Button from '../components/UI/Button';
@@ -77,6 +77,12 @@ const Restaurants = () => {
             filteredData = filteredData.filter(
               (r) => r.address.city === filters.city || r.address.city === filters.region
             );
+          }
+          if (filters.cuisine) {
+            filteredData = filteredData.filter((r) => r.cuisine === filters.cuisine);
+          }
+          if (filters.priceRange) {
+            filteredData = filteredData.filter((r) => r.priceRange === filters.priceRange);
           }
 
           data = filteredData;
@@ -161,7 +167,7 @@ const Restaurants = () => {
       </div>
 
       <div className="container mx-auto px-4 -mt-16 relative z-20">
-        <StickyFilters
+        <RestaurantStickyFilters
           filters={filters}
           onFilterChange={handleFilterChange}
           onClearFilters={handleClearFilters}
@@ -206,7 +212,7 @@ const Restaurants = () => {
             </div>
 
             {hasMore && (
-              <div className="text-center pb-20">
+              <div className="text-center pb-24 md:pb-20">
                 <Button
                   variant="outline"
                   onClick={() => fetchRestaurants(false)}

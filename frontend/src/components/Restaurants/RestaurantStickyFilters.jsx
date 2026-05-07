@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { X, SlidersHorizontal } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { CITIES, CACHEROUT, CATEGORIES, CUISINES, PRICE_RANGES } from '../../utils/constants';
+import { CITIES, CACHEROUT, CUISINES, PRICE_RANGES } from '../../utils/constants';
 
-const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount }) => {
+const RestaurantStickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount }) => {
   const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -84,17 +84,17 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                {t('filters.category')}
+                {t('filters.cuisine')}
               </label>
               <select
-                value={filters.category || ''}
-                onChange={(e) => onFilterChange('category', e.target.value)}
+                value={filters.cuisine || ''}
+                onChange={(e) => onFilterChange('cuisine', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
                 <option value="">{t('filters.all')}</option>
-                {CATEGORIES.map((cat) => (
-                  <option key={cat.value} value={cat.value}>
-                    {cat.label}
+                {CUISINES.map((cuisine) => (
+                  <option key={cuisine.value} value={cuisine.value}>
+                    {cuisine.label}
                   </option>
                 ))}
               </select>
@@ -102,17 +102,19 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
 
             <div>
               <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                {t('filters.sortBy')}
+                {t('filters.priceRange')}
               </label>
               <select
-                value={filters.sort || 'popular'}
-                onChange={(e) => onFilterChange('sort', e.target.value)}
+                value={filters.priceRange || ''}
+                onChange={(e) => onFilterChange('priceRange', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
               >
-                <option value="popular">{t('filters.sort.popular')}</option>
-                <option value="recent">{t('filters.sort.recent')}</option>
-                <option value="price-asc">{t('filters.sort.priceAsc')}</option>
-                <option value="price-desc">{t('filters.sort.priceDesc')}</option>
+                <option value="">{t('filters.all')}</option>
+                {PRICE_RANGES.map((price) => (
+                  <option key={price.value} value={price.value}>
+                    {price.label}
+                  </option>
+                ))}
               </select>
             </div>
           </motion.div>
@@ -122,4 +124,4 @@ const StickyFilters = ({ filters, onFilterChange, onClearFilters, activeCount })
   );
 };
 
-export default StickyFilters;
+export default RestaurantStickyFilters;

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MapPin, Star, Award, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getImageUrl, localizeValue } from '../../utils/helpers';
@@ -7,6 +7,11 @@ import { featuredRestaurants } from '../../data/mockLandingData';
 
 const RestaurantsSection = () => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleRestaurantClick = (restaurantId) => {
+    navigate(`/restaurants/${restaurantId}`);
+  };
 
   return (
     <section className="py-24 bg-dark-900 relative">
@@ -27,7 +32,7 @@ const RestaurantsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {featuredRestaurants.map((restaurant, index) => (
+          {featuredRestaurants.slice(0, 6).map((restaurant, index) => (
             <motion.div
               key={restaurant.id}
               initial={{ opacity: 0, y: 30 }}
@@ -37,12 +42,13 @@ const RestaurantsSection = () => {
               whileHover={{ y: -10, scale: 1.02 }}
               className="group"
             >
-              <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300">
+              <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer">
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={getImageUrl(restaurant.image)}
                     alt={restaurant.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
+                    onClick={() => handleRestaurantClick(restaurant.id)}
                     onError={(e) => {
                       e.target.src =
                         'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940';

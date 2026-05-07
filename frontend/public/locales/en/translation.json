@@ -90,7 +90,7 @@
       "businessAccount": "Professional Account",
       "businessDesc": "For chefs, restaurateurs, and creators",
       "registering": "Creating account...",
-      "heroTitle": "Join Flavors of Israel",
+      "heroTitle": "Join Restaurant Israel",
       "heroDesc": "Create your account to share, save and explore Israeli cuisine.",
       "heroImage": "Mediterranean food",
       "benefits": {
@@ -176,7 +176,7 @@
     },
     "cta": {
       "title": "Ready to Taste?",
-      "subtitle": "Join the Flavors of Israel adventure today.",
+      "subtitle": "Join the Restaurant Israel adventure today.",
       "share": {
         "title": "Share",
         "desc": "Post your culinary discoveries",
@@ -740,6 +740,12 @@
     "about": "About",
     "noDishes": "Menu not yet available.",
     "loadErrorToast": "Unable to load restaurant details",
+    "cta": {
+      "call": "Call",
+      "directions": "View Route",
+      "reserve": "Reserve",
+      "contact": "Contact Restaurant"
+    },
     "info": {
       "phone": "Reservation",
       "website": "Website",
@@ -851,7 +857,7 @@
     "sections": {
       "1": {
         "title": "Acceptance of Terms",
-        "text": "By accessing Flavors of Israel, you agree to be bound by these terms of service, all applicable laws and regulations."
+        "text": "By accessing Restaurant Israel, you agree to be bound by these terms of service, all applicable laws and regulations."
       },
       "2": {
         "title": "Use License",
@@ -859,11 +865,11 @@
       },
       "3": {
         "title": "Disclaimer",
-        "text": "The materials on Flavors of Israel's website are provided on an 'as is' basis. Flavors of Israel makes no warranties, expressed or implied."
+        "text": "The materials on Restaurant Israel's website are provided on an 'as is' basis. Restaurant Israel makes no warranties, expressed or implied."
       },
       "4": {
         "title": "Limitations",
-        "text": "In no event shall Flavors of Israel be liable for any damages arising out of the use or inability to use the materials."
+        "text": "In no event shall Restaurant Israel be liable for any damages arising out of the use or inability to use the materials."
       },
       "5": {
         "title": "Revisions",

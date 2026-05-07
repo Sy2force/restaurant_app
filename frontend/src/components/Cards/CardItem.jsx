@@ -1,24 +1,30 @@
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Trash2, Edit2, Heart } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Button from '../UI/Button';
 import { getImageUrl, localizeValue } from '../../utils/helpers';
 
 const CardItem = ({ card, onLike, onDelete, isOwner }) => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/dashboard/cards/${card._id}`);
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col h-full"
+      className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden border border-gray-100 dark:border-gray-700 hover:shadow-xl transition-all duration-300 flex flex-col h-full cursor-pointer"
     >
       <div className="relative h-48 overflow-hidden">
         <img
           src={getImageUrl(card.bizImage)}
           alt={card.bizName}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105 cursor-pointer"
+          onClick={handleCardClick}
           onError={(e) => {
             e.target.src =
               'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940';

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Heart, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -7,6 +7,7 @@ import { getImageUrl } from '../../utils/helpers';
 
 const ExplorePostCard = ({ post, onLike, onClick }) => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
   const [isLiked, setIsLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(post.likes?.length || 0);
 
@@ -16,6 +17,14 @@ const ExplorePostCard = ({ post, onLike, onClick }) => {
     setIsLiked(!isLiked);
     setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
     onLike?.(post._id);
+  };
+
+  const handleCardClick = () => {
+    if (onClick) {
+      onClick(post);
+    } else {
+      navigate(`/explore/${post._id}`);
+    }
   };
 
   const handleClick = (e) => {
@@ -33,13 +42,14 @@ const ExplorePostCard = ({ post, onLike, onClick }) => {
       transition={{ duration: 0.3 }}
     >
       <Link to={`/explore/${post._id}`} className="block group" onClick={handleClick}>
-        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer">
           {post.photo && (
             <div className="relative h-64 overflow-hidden">
               <img
                 src={getImageUrl(post.photo)}
                 alt={t('common.post')}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 cursor-pointer"
+                onClick={handleCardClick}
                 onError={(e) => {
                   e.target.style.display = 'none'; // Hide if fails
                 }}

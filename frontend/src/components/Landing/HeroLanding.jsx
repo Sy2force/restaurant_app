@@ -60,7 +60,7 @@ const HeroLanding = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
-            {t('landing.hero.title')}
+            {t('home.hero.title')}
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed font-light drop-shadow-md max-w-2xl">
@@ -79,7 +79,7 @@ const HeroLanding = () => {
               </Button>
             </Link>
 
-            <Link to="/explore">
+            <Link to="/dishes">
               <Button
                 variant="outline"
                 size="lg"

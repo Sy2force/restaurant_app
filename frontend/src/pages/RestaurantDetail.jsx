@@ -3,10 +3,11 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { restaurantAPI } from '../services/api';
-import { MapPin, Phone, Globe, ArrowLeft, Star, Award, Clock } from 'lucide-react';
+import { MapPin, Phone, Globe, ArrowLeft, Star, Award, Clock, Navigation, Calendar } from 'lucide-react';
 import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
+import Button from '../components/UI/Button';
 import { mockRestaurantDetails } from '../data/mockRestaurantDetails';
 import { getImageUrl } from '../utils/helpers';
 
@@ -87,7 +88,7 @@ const RestaurantDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-cream-50 dark:bg-dark-900">
+    <div className="min-h-screen bg-cream-50 dark:bg-dark-900 pb-24 md:pb-0">
       {/* Hero Banner */}
       <div className="relative h-[50vh] md:h-[60vh] w-full overflow-hidden">
         {restaurant.coverImage ? (
@@ -201,6 +202,40 @@ const RestaurantDetail = () => {
             <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
               {restaurant.description}
             </p>
+
+            {/* CTA Buttons */}
+            <div className="space-y-3 mb-6">
+              <a
+                href={`tel:${restaurant.phone}`}
+                className="flex items-center justify-center gap-2 w-full py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-full transition-all shadow-xl shadow-gold-500/20"
+              >
+                <Phone className="w-5 h-5" />
+                {t('restaurantDetail.cta.call')}
+              </a>
+              <a
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurant.address?.street || ''} ${restaurant.address?.city || ''}`.trim())}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-dark-900 hover:bg-gray-800 text-white font-bold rounded-full transition-all shadow-lg"
+              >
+                <Navigation className="w-5 h-5" />
+                {t('restaurantDetail.cta.directions')}
+              </a>
+              <a
+                href={`tel:${restaurant.phone}`}
+                className="flex items-center justify-center gap-2 w-full py-4 border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-bold rounded-full transition-all"
+              >
+                <Calendar className="w-5 h-5" />
+                {t('restaurantDetail.cta.reserve')}
+              </a>
+              <Link
+                to="/contact"
+                className="flex items-center justify-center gap-2 w-full py-4 border border-dark-900 dark:border-gray-500 text-dark-900 dark:text-white hover:bg-dark-900 hover:text-white font-bold rounded-full transition-all"
+              >
+                <Globe className="w-5 h-5" />
+                {t('restaurantDetail.cta.contact')}
+              </Link>
+            </div>
 
             <div className="space-y-4 border-t border-gray-100 dark:border-gray-700 pt-6">
               <div className="flex items-center gap-3 text-gray-700 dark:text-gray-200">

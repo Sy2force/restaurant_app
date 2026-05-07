@@ -15,6 +15,10 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
   const [isFavorited, setIsFavorited] = useState(false);
   const [likesCount, setLikesCount] = useState(dish.rating?.count || 0);
 
+  const handleCardClick = () => {
+    navigate(`/dishes/${dish._id}`);
+  };
+
   const handleLike = async (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -79,14 +83,15 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
       className="group"
     >
       <Link to={`/dishes/${dish._id}`}>
-        <div className="bg-cream-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold-500/30">
+        <div className="bg-cream-50 dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold-500/30 cursor-pointer">
           <div className="relative h-64 overflow-hidden">
             <motion.img
               whileHover={{ scale: 1.1 }}
               transition={{ duration: 0.6 }}
               src={getImageUrl(dish.image)}
               alt={dish.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={handleCardClick}
               onError={(e) => {
                 e.target.src =
                   'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940'; // Fallback

@@ -90,7 +90,7 @@
       "businessAccount": "Compte Professionnel",
       "businessDesc": "Pour les chefs, restaurateurs et créateurs",
       "registering": "Création du compte...",
-      "heroTitle": "Rejoignez Flavors of Israel",
+      "heroTitle": "Rejoignez Restaurant Israel",
       "heroDesc": "Créez votre compte pour partager, enregistrer et explorer la cuisine israélienne.",
       "heroImage": "Cuisine méditerranéenne",
       "benefits": {
@@ -166,7 +166,7 @@
     },
     "cta": {
       "title": "Prêt à Déguster ?",
-      "subtitle": "Rejoignez l'aventure Flavors of Israel dès aujourd'hui.",
+      "subtitle": "Rejoignez l'aventure Restaurant Israel dès aujourd'hui.",
       "share": {
         "title": "Partager",
         "desc": "Publiez vos découvertes culinaires",
@@ -739,6 +739,12 @@
     "about": "À Propos",
     "noDishes": "Le menu n'est pas encore disponible.",
     "loadErrorToast": "Impossible de charger les détails du restaurant",
+    "cta": {
+      "call": "Appeler",
+      "directions": "Voir l'itinéraire",
+      "reserve": "Réserver",
+      "contact": "Contacter le restaurant"
+    },
     "info": {
       "phone": "Réservation",
       "website": "Site Web",
@@ -850,7 +856,7 @@
     "sections": {
       "1": {
         "title": "Acceptation des Conditions",
-        "text": "En accédant à Flavors of Israel, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
+        "text": "En accédant à Restaurant Israel, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
       },
       "2": {
         "title": "Licence d'Utilisation",
@@ -858,11 +864,11 @@
       },
       "3": {
         "title": "Clause de Non-responsabilité",
-        "text": "Les documents sur le site web de Flavors of Israel sont fournis 'tels quels'. Flavors of Israel ne donne aucune garantie, expresse ou implicite."
+        "text": "Les documents sur le site web de Restaurant Israel sont fournis 'tels quels'. Restaurant Israel ne donne aucune garantie, expresse ou implicite."
       },
       "4": {
         "title": "Limitations",
-        "text": "En aucun cas Flavors of Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
+        "text": "En aucun cas Restaurant Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
       },
       "5": {
         "title": "Révisions",

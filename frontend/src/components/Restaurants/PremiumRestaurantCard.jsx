@@ -1,14 +1,20 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { MapPin, Star, Award, Phone, ExternalLink, UtensilsCrossed } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { getImageUrl, localizeValue } from '../../utils/helpers';
 
 const PremiumRestaurantCard = ({ restaurant }) => {
   const { t, i18n } = useTranslation();
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/restaurants/${restaurant._id}`);
+  };
 
   const openMaps = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     const address = `${restaurant.address?.street}, ${restaurant.address?.city}, Israel`;
     window.open(
       `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`,
@@ -25,14 +31,15 @@ const PremiumRestaurantCard = ({ restaurant }) => {
       className="group"
     >
       <Link to={`/restaurants/${restaurant._id}`}>
-        <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold-500/30">
+        <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-transparent hover:border-gold-500/30 cursor-pointer">
           <div className="relative h-72 overflow-hidden">
             <motion.img
               whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.7 }}
               src={getImageUrl(restaurant.logo)}
               alt={restaurant.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover cursor-pointer"
+              onClick={handleCardClick}
               onError={(e) => {
                 e.target.src =
                   'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940'; // Fallback

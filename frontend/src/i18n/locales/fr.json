@@ -1,11 +1,12 @@
 {
   "nav": {
     "home": "Accueil",
-    "dishes": "La Carte",
-    "restaurants": "Adresses",
+    "dishes": "Plats",
+    "restaurants": "Restaurants",
+    "contact": "Contact",
     "recipes": "Recettes",
-    "recipeBooks": "Livres",
-    "explore": "Inspirations",
+    "recipeBooks": "Livres de recettes",
+    "explore": "Inspiration",
     "login": "Connexion",
     "register": "Rejoindre",
     "profile": "Mon Profil",
@@ -90,7 +91,7 @@
       "businessAccount": "Compte Professionnel",
       "businessDesc": "Pour les chefs, restaurateurs et créateurs",
       "registering": "Création du compte...",
-      "heroTitle": "Rejoignez Flavors of Israel",
+      "heroTitle": "Rejoignez Restaurant Israel",
       "heroDesc": "Créez votre compte pour partager, enregistrer et explorer la cuisine israélienne.",
       "heroImage": "Cuisine méditerranéenne",
       "benefits": {
@@ -117,9 +118,11 @@
   },
   "landing": {
     "hero": {
-      "title": "L'Art Culinaire d'Israël",
-      "subtitle": "Le guide ultime pour explorer, savourer et partager la gastronomie israélienne.",
-      "cta": "Commencer l'Exploration"
+      "badge": "Guide de Restaurants",
+      "title": "Découvre les meilleurs restaurants israéliens",
+      "subtitle": "Explore des restaurants, plats populaires et menus en Israël selon ta ville, ton budget et tes envies.",
+      "cta": "Voir les restaurants",
+      "moreInfo": "Découvrir les plats"
     },
     "stats": {
       "restaurants": "Établissements",
@@ -128,9 +131,10 @@
       "users": "Passionnés"
     },
     "dishesCarousel": {
-      "title": "Les Incontournables",
-      "subtitle": "Une sélection de plats signatures qui font la renommée de la gastronomie israélienne.",
-      "kosher": "Kasher"
+      "title": "Plats Populaires",
+      "subtitle": "Découvre les plats israéliens les plus appréciés",
+      "kosher": "Cacherout",
+      "discover": "Découvrir les plats"
     },
     "publish": {
       "title": "Révélez Votre Talent",
@@ -165,26 +169,31 @@
       }
     },
     "cta": {
-      "title": "Prêt à Déguster ?",
-      "subtitle": "Rejoignez l'aventure Flavors of Israel dès aujourd'hui.",
-      "share": {
-        "title": "Partager",
-        "desc": "Publiez vos découvertes culinaires",
-        "buttonAuth": "Créer une publication",
-        "buttonGuest": "Rejoindre pour partager"
-      },
-      "restaurant": {
-        "title": "Professionnels",
-        "desc": "Boostez la visibilité de votre restaurant",
-        "buttonAuth": "Accéder au tableau de bord",
-        "buttonGuest": "Créer un compte pro"
-      }
+      "title": "Prêt à découvrir ton prochain restaurant ?",
+      "subtitle": "Explore les meilleurs restaurants israéliens et trouve ta prochaine expérience culinaire",
+      "button": "Explorer les restaurants"
     },
     "restaurants": {
-      "title": "Adresses Vedettes",
-      "subtitle": "Les meilleures adresses sélectionnées pour vous",
-      "discover": "Découvrir",
+      "title": "Restaurants Populaires",
+      "subtitle": "Découvre les restaurants les plus appréciés d'Israël",
+      "discover": "Voir détails",
       "viewAll": "Voir tous les restaurants"
+    },
+    "advantages": {
+      "title": "Pourquoi utiliser notre guide ?",
+      "subtitle": "Une expérience simple et rapide pour découvrir les meilleurs restaurants israéliens",
+      "findQuickly": {
+        "title": "Trouve rapidement où manger",
+        "description": "Découvre des restaurants près de chez toi en quelques clics"
+      },
+      "discoverPopular": {
+        "title": "Découvre les plats populaires",
+        "description": "Explore les plats israéliens les plus appréciés et recommandés"
+      },
+      "filterPreferences": {
+        "title": "Filtre selon tes préférences",
+        "description": "Trouve le restaurant idéal selon ta ville, ton budget et tes envies"
+      }
     },
     "testimonials": {
       "title": "Paroles de la communauté",
@@ -267,6 +276,8 @@
     "city": "Ville",
     "cacherout": "Cacherout",
     "category": "Catégorie",
+    "cuisine": "Cuisine",
+    "priceRange": "Gamme de prix",
     "season": "Saison",
     "sortBy": "Trier par",
     "sort": {
@@ -695,10 +706,11 @@
   },
   "home": {
     "hero": {
-      "badge": "Excellence & Tradition",
-      "subtitle": "Plongez au cœur de la gastronomie israélienne : une rencontre unique entre traditions millénaires et créativité moderne.",
-      "cta": "Découvrir les Tables",
-      "moreInfo": "Notre Philosophie"
+      "badge": "Guide de Restaurants",
+      "title": "Découvre les meilleurs restaurants israéliens",
+      "subtitle": "Explore des restaurants, plats populaires et menus en Israël selon ta ville, ton budget et tes envies.",
+      "cta": "Voir les restaurants",
+      "moreInfo": "Découvrir les plats"
     }
   },
   "analytics": {
@@ -739,6 +751,12 @@
     "about": "À Propos",
     "noDishes": "Le menu n'est pas encore disponible.",
     "loadErrorToast": "Impossible de charger les détails du restaurant",
+    "cta": {
+      "call": "Appeler",
+      "directions": "Voir l'itinéraire",
+      "reserve": "Réserver",
+      "contact": "Contacter le restaurant"
+    },
     "info": {
       "phone": "Réservation",
       "website": "Site Web",
@@ -787,27 +805,27 @@
   },
   "dishesPage": {
     "hero": {
-      "badge": "Carte & Saveurs",
-      "title": "Explorez Notre",
-      "subtitle": "Carte des Plats",
-      "description": "Une sélection exquise des meilleures créations culinaires d'Israël, des classiques de la rue aux chefs-d'œuvre gastronomiques."
+      "badge": "Plats Populaires",
+      "title": "Plats israéliens",
+      "subtitle": "Découvrez les saveurs de la Méditerranée",
+      "description": "Explorez les plats les plus appréciés et trouvez où les déguster"
     },
     "chefsChoice": "Le Choix du Chef",
     "trending": "Tendance",
     "noResults": "Aucun plat trouvé",
-    "noResultsDesc": "Essayez de modifier vos filtres ou votre recherche.",
-    "loadMore": "Voir plus de plats"
+    "noResultsDesc": "Essayez de modifier vos filtres de recherche",
+    "loadMore": "Charger plus"
   },
   "restaurantsPage": {
     "hero": {
-      "badge": "Tables d'Exception",
-      "title": "Découvrez les Meilleurs",
-      "subtitle": "Restaurants",
-      "description": "Des établissements primés aux perles cachées, trouvez la table parfaite pour votre prochaine expérience culinaire."
+      "badge": "Guide de Restaurants",
+      "title": "Restaurants en Israël",
+      "subtitle": "Découvrez le meilleur de la cuisine israélienne",
+      "description": "Trouvez le restaurant idéal selon votre ville, votre budget et vos envies"
     },
     "noResults": "Aucun restaurant trouvé",
-    "noResultsDesc": "Essayez de modifier vos filtres ou votre recherche.",
-    "loadMore": "Voir plus de restaurants"
+    "noResultsDesc": "Essayez de modifier vos filtres de recherche",
+    "loadMore": "Charger plus"
   },
   "recipeBooksPage": {
     "hero": {
@@ -850,7 +868,7 @@
     "sections": {
       "1": {
         "title": "Acceptation des Conditions",
-        "text": "En accédant à Flavors of Israel, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
+        "text": "En accédant à Restaurant Israel, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
       },
       "2": {
         "title": "Licence d'Utilisation",
@@ -858,11 +876,11 @@
       },
       "3": {
         "title": "Clause de Non-responsabilité",
-        "text": "Les documents sur le site web de Flavors of Israel sont fournis 'tels quels'. Flavors of Israel ne donne aucune garantie, expresse ou implicite."
+        "text": "Les documents sur le site web de Restaurant Israel sont fournis 'tels quels'. Restaurant Israel ne donne aucune garantie, expresse ou implicite."
       },
       "4": {
         "title": "Limitations",
-        "text": "En aucun cas Flavors of Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
+        "text": "En aucun cas Restaurant Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
       },
       "5": {
         "title": "Révisions",

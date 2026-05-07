@@ -39,4 +39,28 @@ export const featuredDishes = [
     city: 'Tel Aviv',
     mongoId: '6',
   },
+  {
+    id: 6,
+    name: 'Carpaccio d\'Aubergine',
+    image: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
+    chef: 'Chef Yossi Shitrit',
+    city: 'Jérusalem',
+    mongoId: '5',
+  },
+  {
+    id: 7,
+    name: 'Tartare de Thon',
+    image: 'https://images.unsplash.com/photo-1548943487-a2e4e43b485c?q=80&w=2940',
+    chef: 'Chef Meir Adoni',
+    city: 'Tel Aviv',
+    mongoId: '8',
+  },
+  {
+    id: 8,
+    name: 'Polenta aux Champignons',
+    image: 'https://images.unsplash.com/photo-1541544744-378c5d8a6b93?q=80&w=2956',
+    chef: 'Chef Assaf Granit',
+    city: 'Jérusalem',
+    mongoId: '9',
+  },
 ];
