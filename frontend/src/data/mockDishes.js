@@ -1,4 +1,4 @@
-export const mockDishes = {
+const baseMockDishes = {
   1: {
     _id: '1',
     name: 'Shakshuka Royale',
@@ -264,3 +264,33 @@ export const mockDishes = {
     rating: { average: 4.9, count: 80 },
   },
 };
+
+export const mockDishes = Object.fromEntries(
+  Object.entries(baseMockDishes).map(([key, dish]) => [
+    key,
+    {
+      ...dish,
+      slug: dish.name
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, ''),
+      currency: 'ILS',
+      restaurantId: dish.restaurant?._id,
+      restaurantName: dish.restaurant?.name,
+      city: dish.restaurant?.city || dish.region,
+      imageUrl: dish.image,
+      imageAlt: `${dish.name} served by ${dish.restaurant?.name || 'Restaurant Israel'}`,
+      imageSource: 'Unsplash',
+      imageVerified: false,
+      imageStatus: 'available',
+      verificationStatus: 'needs_manual_verification',
+      tags: [
+        dish.category,
+        dish.cacherout,
+        dish.region,
+        dish.isVegetarian ? 'Végétarien' : null,
+        dish.isGlutenFree ? 'Sans Gluten' : null,
+      ].filter(Boolean),
+    },
+  ])
+);

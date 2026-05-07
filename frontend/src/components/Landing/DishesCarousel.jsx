@@ -81,13 +81,14 @@ const DishesCarousel = () => {
             }}
           >
             {featuredDishes.slice(0, 6).map((dish) => (
-              <SwiperSlide key={dish.id} className="!w-96">
+              <SwiperSlide key={dish.id} className="!w-[min(22rem,calc(100vw-2rem))] sm:!w-96">
                 <Link to={`/dishes/${dish.mongoId || dish.id}`}>
                   <div className="relative group cursor-pointer">
                     <div className="relative h-[500px] rounded-2xl overflow-hidden">
                       <img
                         src={getImageUrl(dish.image)}
                         alt={dish.name}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                         onClick={() => handleDishClick(dish.mongoId || dish.id)}
                         onError={(e) => {
@@ -103,7 +104,9 @@ const DishesCarousel = () => {
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3 }}
                         >
-                          <h3 className="text-3xl font-display font-bold mb-3">{localizeValue(dish.name, i18n.language)}</h3>
+                          <h3 className="text-3xl font-display font-bold mb-3">
+                            {localizeValue(dish.name, i18n.language)}
+                          </h3>
                           <div className="flex items-center gap-4 text-cream-200">
                             <span className="flex items-center gap-2">
                               <ChefHat className="w-5 h-5" />
@@ -137,16 +140,15 @@ const DishesCarousel = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center mt-12"
         >
-          <Link to="/dishes">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-gold-500 hover:bg-gold-500 text-gold-500 hover:text-white text-lg font-semibold rounded-full transition-all duration-300 flex items-center gap-2 mx-auto"
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/dishes"
+              className="mx-auto flex min-h-11 w-fit items-center gap-2 rounded-full border-2 border-gold-500 px-8 py-4 text-lg font-semibold text-gold-500 transition-all duration-300 hover:bg-gold-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900"
             >
               {t('landing.dishesCarousel.discover')}
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </Link>
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
 

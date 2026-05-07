@@ -18,6 +18,7 @@ import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import Button from '../../components/UI/Button';
 import DashboardMenu from '../../components/UI/DashboardMenu';
 import { mockBusinessStats } from '../../data/mockBusinessStats';
+import { getImageUrl } from '../../utils/helpers';
 
 const BusinessDashboard = () => {
   const { t } = useTranslation();
@@ -30,8 +31,7 @@ const BusinessDashboard = () => {
       if (response.data) {
         setStats(response.data);
       }
-    } catch (e) {
-      console.error('Error fetching dashboard stats', e);
+    } catch {
       // Mock fallback
       setStats(mockBusinessStats);
     } finally {

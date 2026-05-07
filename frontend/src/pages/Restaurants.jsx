@@ -10,6 +10,9 @@ import Toast from '../components/UI/Toast';
 import Button from '../components/UI/Button';
 import { mockRestaurants } from '../data/mockRestaurants';
 
+const sortRestaurants = (items) =>
+  [...items].sort((a, b) => (b.rating?.average || 0) - (a.rating?.average || 0));
+
 const Restaurants = () => {
   const { t } = useTranslation();
   const [restaurants, setRestaurants] = useState([]);
@@ -21,7 +24,7 @@ const Restaurants = () => {
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
   const fetchRestaurants = useCallback(
-    async (reset = false) => {
+    async (targetPage = 1, reset = false) => {
       try {
         if (reset) {
           setLoading(true);
@@ -37,7 +40,7 @@ const Restaurants = () => {
         try {
           const params = {
             limit: 12,
-            page: reset ? 1 : page,
+            page: targetPage,
             ...filters,
           };
           const response = await restaurantAPI.getAll(params);
@@ -50,7 +53,7 @@ const Restaurants = () => {
             apiSuccess = true;
             setHasMore(response.data.restaurants.length === 12);
           }
-        } catch (apiError) {
+        } catch {
           // API error fetching restaurants, using mock data
         }
 
@@ -66,26 +69,24 @@ const Restaurants = () => {
             filteredData = filteredData.filter(
               (r) =>
                 r.name.toLowerCase().includes(searchLower) ||
-                r.description.toLowerCase().includes(searchLower)
+                r.description.toLowerCase().includes(searchLower) ||
+                r.address?.city?.toLowerCase().includes(searchLower)
             );
           }
           if (filters.cacherout) {
             filteredData = filteredData.filter((r) => r.cacherout === filters.cacherout);
           }
           if (filters.city) {
-            // sticky filters might send 'region' or 'city'
-            filteredData = filteredData.filter(
-              (r) => r.address.city === filters.city || r.address.city === filters.region
-            );
+            filteredData = filteredData.filter((r) => r.address?.city === filters.city);
           }
           if (filters.cuisine) {
-            filteredData = filteredData.filter((r) => r.cuisine === filters.cuisine);
+            filteredData = filteredData.filter((r) => r.cuisine?.includes(filters.cuisine));
           }
           if (filters.priceRange) {
             filteredData = filteredData.filter((r) => r.priceRange === filters.priceRange);
           }
 
-          data = filteredData;
+          data = sortRestaurants(filteredData);
           setHasMore(false); // No pagination for mock
         }
 
@@ -98,19 +99,25 @@ const Restaurants = () => {
             return [...prev, ...newItems];
           });
         }
-      } catch (error) {
+      } catch {
         setRestaurants(mockRestaurants);
       } finally {
         setLoading(false);
         setLoadingMore(false);
       }
     },
-    [filters, page]
+    [filters]
   ); // Add dependencies
 
   useEffect(() => {
-    fetchRestaurants(true);
+    fetchRestaurants(1, true);
   }, [fetchRestaurants]);
+
+  const handleLoadMore = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchRestaurants(nextPage, false);
+  };
 
   const handleFilterChange = (key, value) => {
     setFilters((prev) => {
@@ -215,7 +222,7 @@ const Restaurants = () => {
               <div className="text-center pb-24 md:pb-20">
                 <Button
                   variant="outline"
-                  onClick={() => fetchRestaurants(false)}
+                  onClick={handleLoadMore}
                   disabled={loadingMore}
                   className="px-10 py-4 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 uppercase tracking-widest font-semibold text-sm"
                 >

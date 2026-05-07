@@ -1,13 +1,16 @@
 {
   "nav": {
     "home": "Home",
-    "dishes": "Menu",
+    "dishes": "Dishes",
     "restaurants": "Restaurants",
+    "contact": "Contact",
     "recipes": "Recipes",
     "recipeBooks": "Cookbooks",
     "explore": "Inspiration",
     "login": "Login",
     "register": "Join",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "profile": "My Profile",
     "dashboard": "Pro Space",
     "admin": "Administration",
@@ -117,9 +120,11 @@
   },
   "landing": {
     "hero": {
-      "title": "The Culinary Art of Israel",
-      "subtitle": "The ultimate guide to explore, savor, and share Israeli gastronomy.",
-      "cta": "Start Exploring"
+      "badge": "Restaurant Guide",
+      "title": "Discover the Best Israeli Restaurants",
+      "subtitle": "Explore restaurants, popular dishes, and menus in Israel by city, budget, and preferences.",
+      "cta": "View Restaurants",
+      "moreInfo": "Discover Dishes"
     },
     "stats": {
       "restaurants": "Establishments",
@@ -128,9 +133,10 @@
       "users": "Foodies"
     },
     "dishesCarousel": {
-      "title": "Signature Dishes",
-      "subtitle": "A selection of iconic dishes that define Israeli gastronomy.",
-      "kosher": "Kosher"
+      "title": "Popular Dishes",
+      "subtitle": "Discover the most loved Israeli dishes",
+      "kosher": "Kosher",
+      "discover": "Discover Dishes"
     },
     "publish": {
       "title": "Reveal Your Talent",
@@ -165,29 +171,34 @@
       }
     },
     "restaurants": {
-      "title": "Featured Places",
-      "subtitle": "The best addresses selected for you",
-      "discover": "Discover",
-      "viewAll": "See All Restaurants"
+      "title": "Popular Restaurants",
+      "subtitle": "Discover the most loved restaurants in Israel",
+      "discover": "View Details",
+      "viewAll": "View All Restaurants"
     },
     "testimonials": {
       "title": "Community Words",
       "subtitle": "What our passionate foodies say"
     },
     "cta": {
-      "title": "Ready to Taste?",
-      "subtitle": "Join the Restaurant Israel adventure today.",
-      "share": {
-        "title": "Share",
-        "desc": "Post your culinary discoveries",
-        "buttonAuth": "Create a Post",
-        "buttonGuest": "Join to Share"
+      "title": "Ready to Discover Your Next Restaurant?",
+      "subtitle": "Explore the best Israeli restaurants and find your next culinary experience",
+      "button": "Explore Restaurants"
+    },
+    "advantages": {
+      "title": "Why Use Our Guide?",
+      "subtitle": "A simple and fast experience to discover the best Israeli restaurants",
+      "findQuickly": {
+        "title": "Find Where to Eat Quickly",
+        "description": "Discover restaurants near you in a few clicks"
       },
-      "restaurant": {
-        "title": "Professionals",
-        "desc": "Boost your restaurant's visibility",
-        "buttonAuth": "Access Dashboard",
-        "buttonGuest": "Create Business Account"
+      "discoverPopular": {
+        "title": "Discover Popular Dishes",
+        "description": "Explore the most loved and recommended Israeli dishes"
+      },
+      "filterPreferences": {
+        "title": "Filter by Your Preferences",
+        "description": "Find the perfect restaurant by city, budget, and desires"
       }
     }
   },
@@ -212,6 +223,9 @@
     "status": "Status",
     "date": "Date",
     "viewDetails": "Explore",
+    "restaurant": "Restaurant",
+    "likeDish": "Like dish",
+    "saveDish": "Save dish",
     "likes": "Likes",
     "min": "min",
     "pers": "pers.",
@@ -264,15 +278,18 @@
   },
   "filters": {
     "title": "Filters",
-    "clearAll": "Clear all",
+    "clearAll": "Clear All",
+    "search": "Search",
     "city": "City",
     "cacherout": "Kosher",
     "category": "Category",
+    "cuisine": "Cuisine",
+    "priceRange": "Price Range",
     "season": "Season",
-    "sortBy": "Sort by",
+    "sortBy": "Sort By",
     "sort": {
-      "popular": "Popularity",
-      "recent": "Newest",
+      "popular": "Popular",
+      "recent": "Most Recent",
       "priceAsc": "Price: Low to High",
       "priceDesc": "Price: High to Low"
     },
@@ -696,11 +713,20 @@
   },
   "home": {
     "hero": {
-      "badge": "Excellence & Tradition",
-      "subtitle": "Dive into the heart of Israeli gastronomy: a unique encounter between ancient traditions and modern creativity.",
-      "cta": "Discover Tables",
-      "moreInfo": "Our Philosophy"
+      "badge": "Restaurant Guide",
+      "title": "Discover the best Israeli restaurants",
+      "subtitle": "Explore restaurants, popular dishes, and menus in Israel based on your city, budget, and preferences.",
+      "cta": "View restaurants",
+      "moreInfo": "Discover dishes",
+      "slide": "Image"
     }
+  },
+  "language": {
+    "select": "Change language"
+  },
+  "comingSoon": {
+    "title": "Feature coming soon",
+    "text": "This protected section is reserved for version 2. The public restaurant guide remains available."
   },
   "analytics": {
     "badge": "Statistics",
@@ -747,13 +773,13 @@
       "contact": "Contact Restaurant"
     },
     "info": {
-      "phone": "Reservation",
+      "phone": "Order",
       "website": "Website",
-      "visitWebsite": "Visit Site",
+      "visitWebsite": "Visit Website",
       "hours": "Opening Hours",
       "cuisines": "Specialties",
       "opening": {
-        "sunThu": "Sun - Thu: 12:00 - 23:00",
+        "sunThu": "Sun-Thu: 12:00 - 23:00",
         "fri": "Fri: 12:00 - 15:00",
         "sat": "Sat: 20:00 - 00:00"
       }
@@ -794,33 +820,34 @@
   },
   "dishesPage": {
     "hero": {
-      "badge": "Menu & Flavors",
-      "title": "Explore Our",
-      "subtitle": "Dish Menu",
-      "description": "An exquisite selection of Israel's best culinary creations, from street classics to gastronomic masterpieces."
+      "badge": "Popular Dishes",
+      "title": "Israeli Dishes",
+      "subtitle": "Discover Mediterranean flavors",
+      "description": "Explore the most popular dishes and find where to taste them"
     },
     "chefsChoice": "Chef's Choice",
     "trending": "Trending",
     "noResults": "No dishes found",
-    "noResultsDesc": "Try changing your filters or search.",
-    "loadMore": "Load more dishes"
+    "noResultsDesc": "Try adjusting your search filters",
+    "loadMore": "Load more",
+    "viewDish": "View dish"
   },
   "restaurantsPage": {
     "hero": {
-      "badge": "Exceptional Tables",
-      "title": "Discover the Best",
-      "subtitle": "Restaurants",
-      "description": "From award-winning establishments to hidden gems, find the perfect table for your next dining experience."
+      "badge": "Restaurant Guide",
+      "title": "Restaurants in Israel",
+      "subtitle": "Discover the best of Israeli cuisine",
+      "description": "Find the ideal restaurant based on your city, budget, and preferences"
     },
     "noResults": "No restaurants found",
-    "noResultsDesc": "Try changing your filters or search.",
-    "loadMore": "Load more restaurants"
+    "noResultsDesc": "Try adjusting your search filters",
+    "loadMore": "Load more",
+    "viewDetails": "View details"
   },
   "recipeBooksPage": {
     "hero": {
-      "badge": "Culinary Library",
       "title": "Recipe Books",
-      "description": "Explore thematic collections created by our chefs and enthusiasts."
+      "subtitle": "Manage your recipe books"
     },
     "searchPlaceholder": "Search for a book, a chef...",
     "noResults": "No books found",

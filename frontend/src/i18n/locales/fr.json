@@ -9,6 +9,8 @@
     "explore": "Inspiration",
     "login": "Connexion",
     "register": "Rejoindre",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
     "profile": "Mon Profil",
     "dashboard": "Espace Pro",
     "admin": "Administration",
@@ -220,6 +222,9 @@
     "post": "Publication",
     "date": "Date",
     "viewDetails": "Explorer",
+    "restaurant": "Restaurant",
+    "likeDish": "Aimer le plat",
+    "saveDish": "Enregistrer le plat",
     "likes": "Coups de cœur",
     "min": "min",
     "pers": "pers.",
@@ -273,6 +278,7 @@
   "filters": {
     "title": "Filtres",
     "clearAll": "Tout effacer",
+    "search": "Recherche",
     "city": "Ville",
     "cacherout": "Cacherout",
     "category": "Catégorie",
@@ -710,8 +716,16 @@
       "title": "Découvre les meilleurs restaurants israéliens",
       "subtitle": "Explore des restaurants, plats populaires et menus en Israël selon ta ville, ton budget et tes envies.",
       "cta": "Voir les restaurants",
-      "moreInfo": "Découvrir les plats"
+      "moreInfo": "Découvrir les plats",
+      "slide": "Image"
     }
+  },
+  "language": {
+    "select": "Changer de langue"
+  },
+  "comingSoon": {
+    "title": "Fonctionnalité bientôt disponible",
+    "text": "Cette section est protégée et reviendra dans une version 2. Les pages publiques du guide restent disponibles."
   },
   "analytics": {
     "badge": "Statistiques",
@@ -814,7 +828,8 @@
     "trending": "Tendance",
     "noResults": "Aucun plat trouvé",
     "noResultsDesc": "Essayez de modifier vos filtres de recherche",
-    "loadMore": "Charger plus"
+    "loadMore": "Charger plus",
+    "viewDish": "Voir le plat"
   },
   "restaurantsPage": {
     "hero": {
@@ -825,7 +840,8 @@
     },
     "noResults": "Aucun restaurant trouvé",
     "noResultsDesc": "Essayez de modifier vos filtres de recherche",
-    "loadMore": "Charger plus"
+    "loadMore": "Charger plus",
+    "viewDetails": "Voir détails"
   },
   "recipeBooksPage": {
     "hero": {

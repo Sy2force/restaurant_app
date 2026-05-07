@@ -19,7 +19,6 @@ import Button from '../../components/UI/Button';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import DashboardMenu from '../../components/UI/DashboardMenu';
 import { getImageUrl } from '../../utils/helpers';
-import { mockMyRecipes } from '../../data/mockBusinessStats';
 
 const RecipeList = () => {
   const { t } = useTranslation();
@@ -43,8 +42,7 @@ const RecipeList = () => {
       } else {
         setRecipes([]);
       }
-    } catch (error) {
-      console.error('Error fetching recipes', error);
+    } catch {
       // Mock fallback
       setRecipes([
         {

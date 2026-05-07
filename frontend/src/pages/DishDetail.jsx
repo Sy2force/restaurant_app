@@ -32,62 +32,29 @@ const DishDetail = () => {
 
       const response = await dishAPI.getById(id);
       setDish(response.data);
-    } catch (error) {
+    } catch {
       // fallback to first mock dish if ID fails but looks somewhat valid or just error
       setToast({ show: true, message: t('dishDetail.loadError'), type: 'error' });
     } finally {
       setLoading(false);
     }
-  }, [id]);
+  }, [id, t]);
 
   const fetchMoreDishes = useCallback(async () => {
     if (!dish || !dish.restaurant) return;
 
-    // In a real app, this would be an API call like: dishAPI.getByRestaurant(dish.restaurant._id)
-    // For now, we mock it using random ones but ensure they don't have IDs that collide with the current dish
-    const mockDishes = [
-      {
-        _id: '901',
-        name: 'Salade Fatoush',
-        image: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2787',
-        price: 42,
-        cacherout: dish.cacherout,
-        rating: { average: 4.6, count: 85 },
-      },
-      {
-        _id: '902',
-        name: "Kebab d'Agneau",
-        image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=2787',
-        price: 68,
-        cacherout: dish.cacherout,
-        rating: { average: 4.8, count: 120 },
-      },
-      {
-        _id: '903',
-        name: 'Chou-fleur Rôti',
-        image: 'https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=2940',
-        price: 35,
-        cacherout: dish.cacherout,
-        rating: { average: 4.7, count: 95 },
-      },
-      {
-        _id: '904',
-        name: 'Poulet Grillé',
-        image: 'https://images.unsplash.com/photo-1608039755401-742074f0548d?q=80&w=2925',
-        price: 40,
-        cacherout: dish.cacherout,
-        rating: { average: 4.5, count: 80 },
-      },
-      {
-        _id: '905',
-        name: 'Tarte aux Fruits',
-        image: 'https://images.unsplash.com/photo-1464306076886-da185f6a9d05?q=80&w=2942',
-        price: 30,
-        cacherout: dish.cacherout,
-        rating: { average: 4.4, count: 70 },
-      },
-    ];
-    setMoreDishes(mockDishes.filter((d) => d._id !== id));
+    const dishes = Object.values(mockDishes);
+    const sameRestaurant = dishes.filter(
+      (item) => item.restaurant?._id === dish.restaurant._id && item._id !== id
+    );
+    const fallback = dishes.filter(
+      (item) =>
+        item._id !== id &&
+        (item.region === dish.region ||
+          item.category === dish.category ||
+          item.cacherout === dish.cacherout)
+    );
+    setMoreDishes((sameRestaurant.length > 0 ? sameRestaurant : fallback).slice(0, 3));
   }, [dish, id]);
 
   useEffect(() => {
@@ -110,15 +77,25 @@ const DishDetail = () => {
     try {
       // await dishAPI.like(id); // Assuming this endpoint exists
       setIsLiked(!isLiked);
-      setToast({ show: true, message: isLiked ? t('common.unliked') : t('common.liked'), type: 'success' });
-    } catch (error) {
+      setToast({
+        show: true,
+        message: isLiked ? t('common.unliked') : t('common.liked'),
+        type: 'success',
+      });
+    } catch {
       // Error liking dish
     }
   };
 
   const handleShare = () => {
-    navigator.clipboard.writeText(window.location.href);
-    setToast({ show: true, message: t('common.linkCopied'), type: 'success' });
+    if (navigator.clipboard?.writeText) {
+      navigator.clipboard
+        .writeText(window.location.href)
+        .then(() => setToast({ show: true, message: t('common.linkCopied'), type: 'success' }))
+        .catch(() => setToast({ show: true, message: window.location.href, type: 'info' }));
+    } else {
+      setToast({ show: true, message: window.location.href, type: 'info' });
+    }
   };
 
   if (loading) {
@@ -155,7 +132,7 @@ const DishDetail = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.8 }}
           src={getImageUrl(dish.image)}
-          alt={dish.name}
+          alt={dish.imageAlt || dish.name}
           className="w-full h-full object-cover"
           onError={(e) => {
             e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
@@ -245,6 +222,7 @@ const DishDetail = () => {
               <div className="flex gap-3">
                 <button
                   onClick={handleLike}
+                  aria-label={t('common.likeDish')}
                   className={`p-3 rounded-full transition-all shadow-md ${
                     isLiked
                       ? 'bg-red-50 text-red-500'
@@ -255,6 +233,7 @@ const DishDetail = () => {
                 </button>
                 <button
                   onClick={handleShare}
+                  aria-label={t('common.share')}
                   className="p-3 bg-gray-50 text-gray-600 hover:bg-gray-100 dark:bg-gray-700 dark:text-gray-300 rounded-full transition-all shadow-md"
                 >
                   <Share2 className="w-6 h-6" />
@@ -323,7 +302,7 @@ const DishDetail = () => {
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src={getImageUrl(dish.restaurant.logo)}
-                  alt={dish.restaurant.name}
+                  alt={dish.restaurant.imageAlt || dish.restaurant.name}
                   className="w-20 h-20 rounded-2xl object-cover shadow-md"
                   onError={(e) => {
                     e.target.src =
@@ -389,7 +368,8 @@ const DishDetail = () => {
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={getImageUrl(moreDish.image)}
-                        alt={moreDish.name}
+                        alt={moreDish.imageAlt || moreDish.name}
+                        loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
                           e.target.src =

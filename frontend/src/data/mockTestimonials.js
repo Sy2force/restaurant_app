@@ -4,7 +4,7 @@ export const testimonials = [
     name: 'Sarah Cohen',
     role: 'Chef Pâtissière',
     avatar: 'https://i.pravatar.cc/150?img=1',
-    text: "Flavors of Israel est une vitrine exceptionnelle pour notre patrimoine culinaire. Partager mes recettes familiales avec une communauté aussi passionnée est un véritable privilège.",
+    text: 'Flavors of Israel est une vitrine exceptionnelle pour notre patrimoine culinaire. Partager mes recettes familiales avec une communauté aussi passionnée est un véritable privilège.',
     rating: 5,
   },
   {
@@ -12,7 +12,7 @@ export const testimonials = [
     name: 'David Levi',
     role: 'Restaurateur à Tel Aviv',
     avatar: 'https://i.pravatar.cc/150?img=12',
-    text: "Une plateforme indispensable pour les professionnels. La visibilité de mon établissement a considérablement augmenté, et les outils de gestion sont intuitifs et performants.",
+    text: 'Une plateforme indispensable pour les professionnels. La visibilité de mon établissement a considérablement augmenté, et les outils de gestion sont intuitifs et performants.',
     rating: 5,
   },
   {

@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, TrendingUp, ChefHat, Flame, Leaf } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 import { dishAPI } from '../services/api';
 import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import StickyFilters from '../components/Dishes/StickyFilters';
@@ -11,6 +12,14 @@ import Toast from '../components/UI/Toast';
 import Button from '../components/UI/Button';
 import { getImageUrl } from '../utils/helpers';
 import { mockDishes } from '../data/mockDishes';
+
+const sortDishes = (items, sort) => {
+  const sorted = [...items];
+  if (sort === 'price-asc') return sorted.sort((a, b) => a.price - b.price);
+  if (sort === 'price-desc') return sorted.sort((a, b) => b.price - a.price);
+  if (sort === 'recent') return sorted.sort((a, b) => Number(b._id) - Number(a._id));
+  return sorted.sort((a, b) => (b.rating?.average || 0) - (a.rating?.average || 0));
+};
 
 const Dishes = () => {
   const { t } = useTranslation();
@@ -28,7 +37,7 @@ const Dishes = () => {
   };
 
   const fetchDishes = useCallback(
-    async (reset = false) => {
+    async (targetPage = 1, reset = false) => {
       try {
         if (reset) {
           setLoading(true);
@@ -44,7 +53,7 @@ const Dishes = () => {
         try {
           const params = {
             limit: 12,
-            page: reset ? 1 : page,
+            page: targetPage,
             ...filters,
           };
           const response = await dishAPI.getAll(params);
@@ -53,7 +62,7 @@ const Dishes = () => {
             apiSuccess = true;
             setHasMore(response.data.dishes.length === 12);
           }
-        } catch (apiError) {
+        } catch {
           // API error
         }
 
@@ -71,7 +80,8 @@ const Dishes = () => {
               (d) =>
                 d.name.toLowerCase().includes(searchLower) ||
                 d.description.toLowerCase().includes(searchLower) ||
-                d.restaurant.name.toLowerCase().includes(searchLower)
+                d.restaurant.name.toLowerCase().includes(searchLower) ||
+                d.region.toLowerCase().includes(searchLower)
             );
           }
           if (filters.cacherout) {
@@ -84,7 +94,7 @@ const Dishes = () => {
             const regionFilter = filters.region || filters.city;
             filteredData = filteredData.filter((d) => d.region === regionFilter);
           }
-          data = filteredData;
+          data = sortDishes(filteredData, filters.sort);
           setHasMore(false);
         }
 
@@ -104,21 +114,27 @@ const Dishes = () => {
             return [...prev, ...newItems];
           });
         }
-      } catch (error) {
-        showToast(t('dashboard.forms.errors.load'), 'error');
+      } catch {
+        setToast({ show: true, message: t('dashboard.forms.errors.load'), type: 'error' });
         setDishes(Object.values(mockDishes));
       } finally {
         setLoading(false);
         setLoadingMore(false);
       }
     },
-    [filters, page]
+    [filters, t]
   );
 
   useEffect(() => {
-    fetchDishes(true);
+    fetchDishes(1, true);
     setFeaturedDishes(Object.values(mockDishes).slice(0, 3));
-  }, [fetchDishes, filters]);
+  }, [fetchDishes]);
+
+  const handleLoadMore = () => {
+    const nextPage = page + 1;
+    setPage(nextPage);
+    fetchDishes(nextPage, false);
+  };
 
   const handleFilterChange = (key, value) => {
     setFilters((prev) => {
@@ -197,35 +213,37 @@ const Dishes = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {featuredDishes.map((dish) => (
-                <motion.div
-                  key={`featured-${dish._id}`}
-                  whileHover={{ y: -5 }}
-                  className="relative group overflow-hidden rounded-2xl shadow-xl cursor-pointer bg-white dark:bg-gray-800"
-                >
-                  <div className="absolute top-0 right-0 z-10 p-3">
-                    <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-red-900 flex items-center gap-1 shadow-sm">
-                      <Flame className="w-3 h-3" /> {t('dishesPage.trending')}
+                <motion.div key={`featured-${dish._id}`} whileHover={{ y: -5 }}>
+                  <Link
+                    to={`/dishes/${dish._id}`}
+                    className="relative group block overflow-hidden rounded-2xl shadow-xl bg-white dark:bg-gray-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
+                  >
+                    <div className="absolute top-0 right-0 z-10 p-3">
+                      <div className="bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-red-900 flex items-center gap-1 shadow-sm">
+                        <Flame className="w-3 h-3" /> {t('dishesPage.trending')}
+                      </div>
                     </div>
-                  </div>
-                  <div className="h-48 overflow-hidden">
-                    <img
-                      src={getImageUrl(dish.image)}
-                      alt={dish.name}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      onError={(e) => {
-                        e.target.src =
-                          'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
-                      }}
-                    />
-                  </div>
-                  <div className="p-4 border-b-4 border-gold-500">
-                    <h3 className="font-display font-bold text-lg text-gray-900 dark:text-white mb-1 truncate">
-                      {dish.name}
-                    </h3>
-                    <p className="text-olive-600 text-sm font-medium flex items-center gap-1">
-                      <Leaf className="w-3 h-3" /> {dish.category}
-                    </p>
-                  </div>
+                    <div className="h-48 overflow-hidden">
+                      <img
+                        src={getImageUrl(dish.image)}
+                        alt={dish.imageAlt || dish.name}
+                        loading="lazy"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        onError={(e) => {
+                          e.target.src =
+                            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
+                        }}
+                      />
+                    </div>
+                    <div className="p-4 border-b-4 border-gold-500">
+                      <h3 className="font-display font-bold text-lg text-gray-900 dark:text-white mb-1 truncate">
+                        {dish.name}
+                      </h3>
+                      <p className="text-olive-600 text-sm font-medium flex items-center gap-1">
+                        <Leaf className="w-3 h-3" /> {dish.category}
+                      </p>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -288,7 +306,7 @@ const Dishes = () => {
               <div className="text-center pb-24 md:pb-20">
                 <Button
                   variant="outline"
-                  onClick={() => fetchDishes(false)}
+                  onClick={handleLoadMore}
                   disabled={loadingMore}
                   className="px-10 py-4 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white transition-all duration-300 uppercase tracking-widest font-semibold text-sm"
                 >

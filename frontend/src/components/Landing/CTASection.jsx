@@ -29,21 +29,18 @@ const CTASection = () => {
           <h2 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
             {t('landing.cta.title')}
           </h2>
-          <p className="text-xl text-cream-200 mb-12">
-            {t('landing.cta.subtitle')}
-          </p>
+          <p className="text-xl text-cream-200 mb-12">{t('landing.cta.subtitle')}</p>
 
-          <Link to="/restaurants">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-3 px-10 py-5 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-full transition-all shadow-xl shadow-gold-500/30 text-lg"
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/restaurants"
+              className="inline-flex min-h-11 items-center gap-3 rounded-full bg-gold-500 px-10 py-5 text-lg font-bold text-white shadow-xl shadow-gold-500/30 transition-all hover:bg-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900"
             >
-              <Store className="w-6 h-6" />
+              <Store className="w-6 h-6" aria-hidden="true" />
               {t('landing.cta.button')}
-              <ArrowRight className="w-6 h-6" />
-            </motion.button>
-          </Link>
+              <ArrowRight className="w-6 h-6" aria-hidden="true" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

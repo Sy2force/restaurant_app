@@ -90,9 +90,7 @@ const MyCards = () => {
                 <h1 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
                   {t('dashboard.myCards')}
                 </h1>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {t('dashboard.cardFormDesc')}
-                </p>
+                <p className="text-gray-600 dark:text-gray-300">{t('dashboard.cardFormDesc')}</p>
               </div>
               <Link to="/dashboard/cards/create">
                 <Button variant="primary" className="shadow-lg shadow-gold-500/20">
@@ -124,9 +122,7 @@ const MyCards = () => {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                   {t('dashboard.noCards')}
                 </h3>
-                <p className="text-gray-500 mb-6">
-                  {t('dashboard.noCardsDesc')}
-                </p>
+                <p className="text-gray-500 mb-6">{t('dashboard.noCardsDesc')}</p>
                 <Link to="/dashboard/cards/create">
                   <Button variant="outline">{t('dashboard.createCard')}</Button>
                 </Link>

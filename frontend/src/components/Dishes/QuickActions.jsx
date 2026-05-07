@@ -50,7 +50,9 @@ const QuickActions = ({ onQuickFilter }) => {
           >
             <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
             <Icon className="w-8 h-8 text-white mb-2 mx-auto" />
-            <p className="text-white font-semibold text-sm">{localizeValue(item.label, i18n.language)}</p>
+            <p className="text-white font-semibold text-sm">
+              {localizeValue(item.label, i18n.language)}
+            </p>
           </motion.button>
         );
       })}

@@ -1,24 +1,29 @@
 # Restaurant Israel
 
-Application React moderne pour découvrir des restaurants et des plats en Israël, avec interface multilingue (FR/EN/HE) et support RTL.
+Restaurant Israel est un guide moderne de restaurants israeliens. L'application permet de decouvrir des restaurants, consulter des plats populaires, filtrer selon ses preferences et acceder rapidement aux informations essentielles: adresse, horaires, contact, itineraire et reservation.
 
-## Stack technique
+## Stack Technique
 
-- Frontend: React 18, Vite, React Router, Tailwind CSS, Zustand, i18next, Axios, Framer Motion
-- Validation/Formulaires: React Hook Form, Yup
+- Frontend: React 18, Vite, React Router, Tailwind CSS, Zustand, i18next, Axios, Framer Motion, Swiper
+- Formulaires: React Hook Form, Yup
 - Tests: Vitest, Playwright
-- Déploiement: Vercel (frontend), Render (API backend si activée)
-- Backend (présent dans le repo): Node.js, Express, MongoDB, JWT, Helmet, CORS, Rate Limit
+- Backend present dans le repo: Node.js, Express, MongoDB, JWT, Helmet, CORS, Rate Limit
+- Deploiement: Vercel pour le frontend, Render pour l'API backend si elle est activee
 
-## Fonctionnalités principales (version finalisée v1)
+## Fonctionnalites V1
 
-- Pages publiques: accueil, restaurants, détail restaurant, plats, détail plat, contact
-- Pages utilitaires: login, register, forgot/reset password, privacy, terms, 404
-- Navigation mobile fixe en bas (mobile only), responsive global
-- Données mock de fallback si API indisponible
-- Internationalisation FR/EN/HE + direction RTL en hébreu
+- Pages publiques finalisees: accueil, restaurants, detail restaurant, plats, detail plat, contact
+- Pages compte: login, register, forgot/reset password
+- Pages legales: privacy, terms
+- Fallback donnees mockees si l'API n'est pas disponible
+- Navigation responsive avec bottom nav mobile
+- Internationalisation FR / EN / HE avec support RTL pour l'hebreu
+- Routes protegees pour les zones user, business et admin
+- Tests unitaires, E2E et validation des donnees mock
 
-## Routes principales
+Les pages avancees comme Explore, Recipe Books, recettes, dashboards complexes, admin, analytics, likes, commentaires et posts sont conservees dans le code pour une V2, mais elles ne sont plus exposees dans la navigation publique principale.
+
+## Routes Principales
 
 - `/`
 - `/restaurants`
@@ -32,43 +37,60 @@ Application React moderne pour découvrir des restaurants et des plats en Israë
 - `/reset-password`
 - `/privacy`
 - `/terms`
+- `/unauthorized`
 - `/*`
 
 ## Installation
 
-### Frontend
+Depuis la racine:
+
+```bash
+npm install --prefix frontend
+npm install --prefix backend
+```
+
+Frontend uniquement:
 
 ```bash
 cd frontend
-npm install
 cp .env.example .env
 npm run dev
 ```
 
-### Backend (optionnel)
+Backend optionnel:
 
 ```bash
 cd backend
-npm install
-cp ../.env.example .env
-npm start
+cp .env.example .env
+npm run dev
 ```
 
-## Variables d'environnement
+## Variables D'environnement
 
-Exemple (`.env.example`):
+Frontend:
 
 ```bash
 VITE_API_URL=http://localhost:5000/api
 VITE_APP_NAME=Restaurant Israel
+VITE_ENABLE_MOCK_AUTH=false
+```
+
+Backend:
+
+```bash
 NODE_ENV=development
 PORT=5000
-JWT_SECRET=change_me
 MONGODB_URI=mongodb://localhost:27017/flavors-of-israel
+JWT_SECRET=change_me
+JWT_EXPIRE=7d
 CLIENT_URL=http://localhost:5173
 ```
 
-## Scripts utiles (frontend)
+Ne jamais commiter de fichier `.env` reel.
+
+## Scripts
+
+Scripts racine:
 
 ```bash
 npm run dev
@@ -77,44 +99,99 @@ npm run test:unit
 npm run test:e2e
 npm run validate:data
 npm run build
-npm run preview
 ```
 
-## Validation des données mock
-
-Script disponible:
+Scripts frontend:
 
 ```bash
 cd frontend
+npm run dev
+npm run lint
+npm run format
+npm run test:unit
+npm run test:e2e
+npm run validate:data
+npm run build
+npm run preview
+```
+
+Scripts backend:
+
+```bash
+cd backend
+npm run dev
+npm start
+npm test
+```
+
+## Validation Des Donnees
+
+```bash
 npm run validate:data
 ```
 
-Vérifie notamment les IDs dupliqués, images dupliquées sur les plats, présence d'images et cohérence `restaurantId`.
+Le script `scripts/validateRestaurantData.mjs` verifie notamment:
 
-## Déploiement Vercel (frontend)
+- IDs restaurants et plats uniques
+- images presentes et alt texts presents
+- aucune image de plat dupliquee
+- `restaurantId` valides
+- villes et metadonnees essentielles presentes
+- routes detail coherentes pour les donnees visibles
+
+## Build
+
+```bash
+npm run build
+```
+
+Le build Vite produit le frontend dans `frontend/dist`.
+
+## Deploiement Vercel
+
+Configuration recommandee:
 
 - Framework: Vite
+- Install command: `npm install`
 - Build command: `npm run build`
-- Output directory: `dist`
-- Variable: `VITE_API_URL=https://<render-service>.onrender.com/api`
-- SPA rewrite déjà configurée dans `frontend/vercel.json`
+- Output directory: `frontend/dist`
+- Variable: `VITE_API_URL=https://<service-render>.onrender.com/api`
 
-## Déploiement Render (backend)
+Le fichier `vercel.json` a une rewrite SPA vers `index.html` pour que le refresh fonctionne sur les routes React Router.
 
-- Config repo: `render.yaml`
-- Root dir: `backend`
+## Deploiement Render
+
+Le backend Express est configure via `render.yaml`.
+
+- Root directory: `backend`
 - Build command: `npm install`
 - Start command: `npm start`
-- Variables à définir côté Render: `MONGODB_URI`, `JWT_SECRET`, `CLIENT_URL`, Cloudinary si upload activé
+- Health check path: `/`
 
-## Structure du projet
+Variables Render a definir:
 
-- `frontend/`: app React
-- `backend/`: API Express
-- `scripts/`: scripts utilitaires (validation data)
-- `render.yaml`: config Render
+```bash
+NODE_ENV=production
+MONGODB_URI=<mongodb-uri>
+JWT_SECRET=<secret-fort>
+JWT_EXPIRE=7d
+CLIENT_URL=https://<site-vercel>.vercel.app
+```
 
-## Notes importantes
+Render n'est necessaire que si l'API backend est utilisee en production. Le frontend peut fonctionner avec les donnees mockees sans backend.
 
-- `.env` ne doit jamais être commité.
-- La sécurité finale des permissions doit aussi être appliquée côté backend (pas uniquement frontend).
+## Structure
+
+```text
+frontend/   Application React/Vite
+backend/    API Express optionnelle
+scripts/    Scripts de validation et maintenance
+render.yaml Configuration Render backend
+vercel.json Configuration Vercel frontend SPA
+```
+
+## Notes Securite
+
+- `.env`, `.env.local` et `.env.production` sont ignores par Git.
+- La protection frontend ameliore l'UX, mais les permissions reelles doivent rester verifiees cote backend.
+- Les tokens, secrets JWT, URLs privees et cles Cloudinary doivent etre configures uniquement dans l'environnement de deploiement.

@@ -44,13 +44,33 @@ const RestaurantStickyFilters = ({ filters, onFilterChange, onClearFilters, acti
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="grid grid-cols-1 md:grid-cols-4 gap-4"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4"
           >
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="restaurant-search"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
+                {t('filters.search')}
+              </label>
+              <input
+                id="restaurant-search"
+                value={filters.search || ''}
+                onChange={(e) => onFilterChange('search', e.target.value)}
+                placeholder={t('common.search')}
+                className="w-full min-h-11 px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="restaurant-city"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 {t('filters.city')}
               </label>
               <select
+                id="restaurant-city"
                 value={filters.city || ''}
                 onChange={(e) => onFilterChange('city', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
@@ -65,10 +85,14 @@ const RestaurantStickyFilters = ({ filters, onFilterChange, onClearFilters, acti
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="restaurant-cacherout"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 {t('filters.cacherout')}
               </label>
               <select
+                id="restaurant-cacherout"
                 value={filters.cacherout || ''}
                 onChange={(e) => onFilterChange('cacherout', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
@@ -83,10 +107,14 @@ const RestaurantStickyFilters = ({ filters, onFilterChange, onClearFilters, acti
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="restaurant-cuisine"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 {t('filters.cuisine')}
               </label>
               <select
+                id="restaurant-cuisine"
                 value={filters.cuisine || ''}
                 onChange={(e) => onFilterChange('cuisine', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"
@@ -101,10 +129,14 @@ const RestaurantStickyFilters = ({ filters, onFilterChange, onClearFilters, acti
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              <label
+                htmlFor="restaurant-price"
+                className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+              >
                 {t('filters.priceRange')}
               </label>
               <select
+                id="restaurant-price"
                 value={filters.priceRange || ''}
                 onChange={(e) => onFilterChange('priceRange', e.target.value)}
                 className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-gold-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white text-sm"

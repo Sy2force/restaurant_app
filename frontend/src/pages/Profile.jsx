@@ -20,6 +20,7 @@ import ExplorePostCard from '../components/UI/ExplorePostCard';
 import RecipeCard from '../components/UI/RecipeCard';
 import PremiumRestaurantCard from '../components/Restaurants/PremiumRestaurantCard';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
+import { mockProfileUser, mockUserPosts } from '../data/mockUsers';
 
 const Profile = () => {
   const { t } = useTranslation();
@@ -57,11 +58,10 @@ const Profile = () => {
         setUserRecipes([]);
         setUserRestaurants([]);
       }
-    } catch (e) {
-      console.error('Error fetching profile', e);
+    } catch {
       // Mock fallback
       setProfileUser({ ...mockProfileUser, _id: userId });
-      setUserPosts(mockUserPosts.map(p => ({ ...p, author: { ...p.author, _id: userId } })));
+      setUserPosts(mockUserPosts.map((p) => ({ ...p, author: { ...p.author, _id: userId } })));
     } finally {
       setLoading(false);
     }

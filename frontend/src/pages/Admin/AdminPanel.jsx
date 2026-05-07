@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../../components/UI/Button';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import { adminAPI } from '../../services/api';
-import { mockAdminStats, mockAdminUsers, mockPendingRestaurants } from '../../data/mockAdminData';
+import { mockAdminStats, mockPendingRestaurants } from '../../data/mockAdminData';
 
 const AdminPanel = () => {
   const { t } = useTranslation();
@@ -31,8 +31,7 @@ const AdminPanel = () => {
       setLoading(true);
       const response = await adminAPI.getStats();
       setStats(response.data);
-    } catch (error) {
-      console.error('Error fetching admin stats', error);
+    } catch {
       // Mock stats
       setStats(mockAdminStats);
     } finally {

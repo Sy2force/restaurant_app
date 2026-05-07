@@ -2,14 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../../store/authStore';
-import {
-  Menu,
-  X,
-  User,
-  LogOut,
-  Globe,
-  ChefHat,
-} from 'lucide-react';
+import { Menu, X, User, LogOut, Globe, ChefHat } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../UI/Button';
 import { getImageUrl } from '../../utils/helpers';
@@ -108,7 +101,8 @@ const Navbar = () => {
             <div className="relative hidden md:block">
               <button
                 onClick={() => setUserMenuOpen(userMenuOpen === 'lang' ? false : 'lang')}
-                className="text-gray-300 hover:text-gold-500 transition-colors"
+                aria-label={t('language.select')}
+                className="text-gray-300 hover:text-gold-500 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full p-2"
               >
                 <Globe className="w-5 h-5" />
               </button>
@@ -146,7 +140,8 @@ const Navbar = () => {
               <div className="relative">
                 <button
                   onClick={() => setUserMenuOpen(userMenuOpen === 'user' ? false : 'user')}
-                  className="flex items-center gap-3 ps-4 border-s border-white/10 group"
+                  aria-label={t('nav.profile')}
+                  className="flex items-center gap-3 ps-4 border-s border-white/10 group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full"
                 >
                   <div className="w-9 h-9 rounded-full bg-gradient-to-br from-gold-400 to-gold-600 p-[1px] group-hover:shadow-[0_0_15px_rgba(212,175,55,0.4)] transition-all duration-300">
                     <div className="w-full h-full rounded-full bg-black flex items-center justify-center overflow-hidden">
@@ -216,7 +211,8 @@ const Navbar = () => {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-gray-300 hover:text-white"
+              aria-label={mobileMenuOpen ? t('nav.closeMenu') : t('nav.openMenu')}
+              className="md:hidden text-gray-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black rounded-full p-2"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>

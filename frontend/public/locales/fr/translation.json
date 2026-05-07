@@ -1,13 +1,16 @@
 {
   "nav": {
     "home": "Accueil",
-    "dishes": "La Carte",
-    "restaurants": "Adresses",
+    "dishes": "Plats",
+    "restaurants": "Restaurants",
+    "contact": "Contact",
     "recipes": "Recettes",
-    "recipeBooks": "Livres",
-    "explore": "Inspirations",
+    "recipeBooks": "Livres de recettes",
+    "explore": "Inspiration",
     "login": "Connexion",
     "register": "Rejoindre",
+    "openMenu": "Ouvrir le menu",
+    "closeMenu": "Fermer le menu",
     "profile": "Mon Profil",
     "dashboard": "Espace Pro",
     "admin": "Administration",
@@ -117,9 +120,11 @@
   },
   "landing": {
     "hero": {
-      "title": "L'Art Culinaire d'Israël",
-      "subtitle": "Le guide ultime pour explorer, savourer et partager la gastronomie israélienne.",
-      "cta": "Commencer l'Exploration"
+      "badge": "Guide de Restaurants",
+      "title": "Découvre les meilleurs restaurants israéliens",
+      "subtitle": "Explore des restaurants, plats populaires et menus en Israël selon ta ville, ton budget et tes envies.",
+      "cta": "Voir les restaurants",
+      "moreInfo": "Découvrir les plats"
     },
     "stats": {
       "restaurants": "Établissements",
@@ -128,9 +133,10 @@
       "users": "Passionnés"
     },
     "dishesCarousel": {
-      "title": "Les Incontournables",
-      "subtitle": "Une sélection de plats signatures qui font la renommée de la gastronomie israélienne.",
-      "kosher": "Kasher"
+      "title": "Plats Populaires",
+      "subtitle": "Découvre les plats israéliens les plus appréciés",
+      "kosher": "Cacherout",
+      "discover": "Découvrir les plats"
     },
     "publish": {
       "title": "Révélez Votre Talent",
@@ -165,26 +171,31 @@
       }
     },
     "cta": {
-      "title": "Prêt à Déguster ?",
-      "subtitle": "Rejoignez l'aventure Restaurant Israel dès aujourd'hui.",
-      "share": {
-        "title": "Partager",
-        "desc": "Publiez vos découvertes culinaires",
-        "buttonAuth": "Créer une publication",
-        "buttonGuest": "Rejoindre pour partager"
-      },
-      "restaurant": {
-        "title": "Professionnels",
-        "desc": "Boostez la visibilité de votre restaurant",
-        "buttonAuth": "Accéder au tableau de bord",
-        "buttonGuest": "Créer un compte pro"
-      }
+      "title": "Prêt à découvrir ton prochain restaurant ?",
+      "subtitle": "Explore les meilleurs restaurants israéliens et trouve ta prochaine expérience culinaire",
+      "button": "Explorer les restaurants"
     },
     "restaurants": {
-      "title": "Adresses Vedettes",
-      "subtitle": "Les meilleures adresses sélectionnées pour vous",
-      "discover": "Découvrir",
+      "title": "Restaurants Populaires",
+      "subtitle": "Découvre les restaurants les plus appréciés d'Israël",
+      "discover": "Voir détails",
       "viewAll": "Voir tous les restaurants"
+    },
+    "advantages": {
+      "title": "Pourquoi utiliser notre guide ?",
+      "subtitle": "Une expérience simple et rapide pour découvrir les meilleurs restaurants israéliens",
+      "findQuickly": {
+        "title": "Trouve rapidement où manger",
+        "description": "Découvre des restaurants près de chez toi en quelques clics"
+      },
+      "discoverPopular": {
+        "title": "Découvre les plats populaires",
+        "description": "Explore les plats israéliens les plus appréciés et recommandés"
+      },
+      "filterPreferences": {
+        "title": "Filtre selon tes préférences",
+        "description": "Trouve le restaurant idéal selon ta ville, ton budget et tes envies"
+      }
     },
     "testimonials": {
       "title": "Paroles de la communauté",
@@ -211,6 +222,9 @@
     "post": "Publication",
     "date": "Date",
     "viewDetails": "Explorer",
+    "restaurant": "Restaurant",
+    "likeDish": "Aimer le plat",
+    "saveDish": "Enregistrer le plat",
     "likes": "Coups de cœur",
     "min": "min",
     "pers": "pers.",
@@ -264,9 +278,12 @@
   "filters": {
     "title": "Filtres",
     "clearAll": "Tout effacer",
+    "search": "Recherche",
     "city": "Ville",
     "cacherout": "Cacherout",
     "category": "Catégorie",
+    "cuisine": "Cuisine",
+    "priceRange": "Gamme de prix",
     "season": "Saison",
     "sortBy": "Trier par",
     "sort": {
@@ -695,11 +712,20 @@
   },
   "home": {
     "hero": {
-      "badge": "Excellence & Tradition",
-      "subtitle": "Plongez au cœur de la gastronomie israélienne : une rencontre unique entre traditions millénaires et créativité moderne.",
-      "cta": "Découvrir les Tables",
-      "moreInfo": "Notre Philosophie"
+      "badge": "Guide de Restaurants",
+      "title": "Découvre les meilleurs restaurants israéliens",
+      "subtitle": "Explore des restaurants, plats populaires et menus en Israël selon ta ville, ton budget et tes envies.",
+      "cta": "Voir les restaurants",
+      "moreInfo": "Découvrir les plats",
+      "slide": "Image"
     }
+  },
+  "language": {
+    "select": "Changer de langue"
+  },
+  "comingSoon": {
+    "title": "Fonctionnalité bientôt disponible",
+    "text": "Cette section est protégée et reviendra dans une version 2. Les pages publiques du guide restent disponibles."
   },
   "analytics": {
     "badge": "Statistiques",
@@ -793,27 +819,29 @@
   },
   "dishesPage": {
     "hero": {
-      "badge": "Carte & Saveurs",
-      "title": "Explorez Notre",
-      "subtitle": "Carte des Plats",
-      "description": "Une sélection exquise des meilleures créations culinaires d'Israël, des classiques de la rue aux chefs-d'œuvre gastronomiques."
+      "badge": "Plats Populaires",
+      "title": "Plats israéliens",
+      "subtitle": "Découvrez les saveurs de la Méditerranée",
+      "description": "Explorez les plats les plus appréciés et trouvez où les déguster"
     },
     "chefsChoice": "Le Choix du Chef",
     "trending": "Tendance",
     "noResults": "Aucun plat trouvé",
-    "noResultsDesc": "Essayez de modifier vos filtres ou votre recherche.",
-    "loadMore": "Voir plus de plats"
+    "noResultsDesc": "Essayez de modifier vos filtres de recherche",
+    "loadMore": "Charger plus",
+    "viewDish": "Voir le plat"
   },
   "restaurantsPage": {
     "hero": {
-      "badge": "Tables d'Exception",
-      "title": "Découvrez les Meilleurs",
-      "subtitle": "Restaurants",
-      "description": "Des établissements primés aux perles cachées, trouvez la table parfaite pour votre prochaine expérience culinaire."
+      "badge": "Guide de Restaurants",
+      "title": "Restaurants en Israël",
+      "subtitle": "Découvrez le meilleur de la cuisine israélienne",
+      "description": "Trouvez le restaurant idéal selon votre ville, votre budget et vos envies"
     },
     "noResults": "Aucun restaurant trouvé",
-    "noResultsDesc": "Essayez de modifier vos filtres ou votre recherche.",
-    "loadMore": "Voir plus de restaurants"
+    "noResultsDesc": "Essayez de modifier vos filtres de recherche",
+    "loadMore": "Charger plus",
+    "viewDetails": "Voir détails"
   },
   "recipeBooksPage": {
     "hero": {

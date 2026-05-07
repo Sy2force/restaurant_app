@@ -13,6 +13,9 @@ import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import NotFound from './pages/NotFound';
+import Unauthorized from './pages/Unauthorized';
+import FeatureUnavailable from './pages/FeatureUnavailable';
+import ProtectedRoute from './components/Auth/ProtectedRoute';
 
 // VERSION 2 - Commented out for simplified restaurant guide
 // import RecipeBooks from './pages/RecipeBooks';
@@ -35,10 +38,8 @@ import NotFound from './pages/NotFound';
 // import Analytics from './pages/Dashboard/Analytics';
 // import Settings from './pages/Dashboard/Settings';
 // import AdminPanel from './pages/Admin/AdminPanel';
-// import Unauthorized from './pages/Unauthorized';
 // import MyCards from './pages/Dashboard/MyCards';
 // import CreateCard from './pages/Dashboard/CreateCard';
-// import ProtectedRoute from './components/Auth/ProtectedRoute';
 
 function App() {
   return (
@@ -65,9 +66,33 @@ function App() {
           {/* <Route path="recipes/:id" element={<RecipeDetail />} /> */}
           {/* <Route path="explore" element={<Explore />} /> */}
           {/* <Route path="explore/:id" element={<ExploreDetail />} /> */}
-          {/* <Route path="unauthorized" element={<Unauthorized />} /> */}
+          <Route path="unauthorized" element={<Unauthorized />} />
 
           {/* User Dashboard - VERSION 2 */}
+          <Route
+            path="user-dashboard"
+            element={
+              <ProtectedRoute>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <ProtectedRoute>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="favorites"
+            element={
+              <ProtectedRoute>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
           {/* <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} /> */}
           {/* <Route path="profile/:id" element={<Profile />} /> */}
           {/* <Route path="user-dashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} /> */}
@@ -76,6 +101,22 @@ function App() {
           {/* <Route path="explore/create" element={<ProtectedRoute><PostCreate /></ProtectedRoute>} /> */}
 
           {/* Business Dashboard - VERSION 2 */}
+          <Route
+            path="dashboard"
+            element={
+              <ProtectedRoute requireBusiness>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="dashboard/*"
+            element={
+              <ProtectedRoute requireBusiness>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
           {/* <Route path="dashboard" element={<ProtectedRoute requireBusiness><BusinessDashboard /></ProtectedRoute>} /> */}
           {/* <Route path="dashboard/restaurants" element={<ProtectedRoute requireBusiness><RestaurantList /></ProtectedRoute>} /> */}
           {/* <Route path="dashboard/restaurants/create" element={<ProtectedRoute requireBusiness><RestaurantForm /></ProtectedRoute>} /> */}
@@ -92,6 +133,22 @@ function App() {
           {/* <Route path="dashboard/settings" element={<ProtectedRoute requireBusiness><Settings /></ProtectedRoute>} /> */}
 
           {/* Admin Panel - VERSION 2 */}
+          <Route
+            path="admin"
+            element={
+              <ProtectedRoute requireAdmin>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="admin/*"
+            element={
+              <ProtectedRoute requireAdmin>
+                <FeatureUnavailable />
+              </ProtectedRoute>
+            }
+          />
           {/* <Route path="admin" element={<ProtectedRoute requireAdmin><AdminPanel /></ProtectedRoute>} /> */}
           {/* <Route path="admin/:tab" element={<ProtectedRoute requireAdmin><AdminPanel /></ProtectedRoute>} /> */}
 

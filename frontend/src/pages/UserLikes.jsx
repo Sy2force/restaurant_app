@@ -17,7 +17,6 @@ import PremiumBookCard from '../components/RecipeBooks/PremiumBookCard';
 import ExplorePostCard from '../components/UI/ExplorePostCard';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 import Toast from '../components/UI/Toast';
-import { mockUserLikes } from '../data/mockUserLikes';
 
 const UserLikes = () => {
   const { t } = useTranslation();
@@ -36,7 +35,7 @@ const UserLikes = () => {
           setLoading(false);
           return;
         }
-      } catch (apiError) {
+      } catch {
         // Mock data fallback
       }
 

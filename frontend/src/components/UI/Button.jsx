@@ -14,7 +14,7 @@ const Button = ({
   icon: Icon,
 }) => {
   const baseClasses =
-    'relative font-display font-medium rounded-full transition-all duration-300 flex items-center justify-center gap-2 tracking-wide overflow-hidden group';
+    'relative min-h-11 font-display font-medium rounded-full transition-all duration-300 flex items-center justify-center gap-2 tracking-wide overflow-hidden group focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 disabled:pointer-events-none';
 
   const variants = {
     primary:
@@ -46,7 +46,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${widthClass} ${className} ${disabled ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}
+      className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${widthClass} ${className} ${disabled || loading ? 'opacity-50 cursor-not-allowed grayscale' : ''}`}
     >
       {/* Shine effect overlay */}
       <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -55,7 +55,7 @@ const Button = ({
         <Loader2 className="w-5 h-5 animate-spin" />
       ) : (
         <>
-          {Icon && <Icon className="w-5 h-5" />}
+          {Icon && <Icon className="w-5 h-5" aria-hidden="true" />}
           <span className="relative z-10">{children}</span>
         </>
       )}

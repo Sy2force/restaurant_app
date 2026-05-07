@@ -78,7 +78,7 @@ export const mockRestaurantDetails = {
         _id: '5',
         name: "Carpaccio d'Aubergine",
         description:
-          "Aubergine brûlée à la flamme vive, servie avec un tahini brut, du silan (miel de dattes), des pistaches croquantes, des graines de grenade et une pincée de fleur de sel.",
+          'Aubergine brûlée à la flamme vive, servie avec un tahini brut, du silan (miel de dattes), des pistaches croquantes, des graines de grenade et une pincée de fleur de sel.',
         price: 48,
         image: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
         category: 'Entrée',
@@ -262,7 +262,8 @@ export const mockRestaurantDetails = {
       {
         _id: '2',
         name: 'Sabich Deluxe',
-        description: "L'équilibre parfait : aubergines frites fondantes, œuf dur, pommes de terre, salade fraîche et amba, le tout dans une pita moelleuse.",
+        description:
+          "L'équilibre parfait : aubergines frites fondantes, œuf dur, pommes de terre, salade fraîche et amba, le tout dans une pita moelleuse.",
         price: 38,
         image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
         category: 'Street Food',
@@ -291,7 +292,8 @@ export const mockRestaurantDetails = {
       {
         _id: '3',
         name: 'Hummus Bassar',
-        description: 'Hummus crémeux et tiède, couronné de viande hachée épicée et de pignons grillés croquants.',
+        description:
+          'Hummus crémeux et tiède, couronné de viande hachée épicée et de pignons grillés croquants.',
         price: 52,
         image: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
         category: 'Plat Principal',
@@ -320,7 +322,8 @@ export const mockRestaurantDetails = {
       {
         _id: '4',
         name: 'Falafel Doré',
-        description: "Boulettes de falafel dorées et croustillantes, gorgées d'herbes fraîches et d'épices, servies chaudes.",
+        description:
+          "Boulettes de falafel dorées et croustillantes, gorgées d'herbes fraîches et d'épices, servies chaudes.",
         price: 30,
         image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
         category: 'Street Food',
@@ -349,7 +352,8 @@ export const mockRestaurantDetails = {
       {
         _id: '6',
         name: 'Shawarma Agneau',
-        description: "Shawarma d'agneau juteux, grillé à la perfection, servi dans une pita avec tehina, tomates et herbes fraîches.",
+        description:
+          "Shawarma d'agneau juteux, grillé à la perfection, servi dans une pita avec tehina, tomates et herbes fraîches.",
         price: 55,
         image: 'https://images.unsplash.com/photo-1529193591176-1da79027d382?q=80&w=2940',
         category: 'Viandes',

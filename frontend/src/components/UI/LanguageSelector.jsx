@@ -18,7 +18,9 @@ const LanguageSelector = () => {
 
   return (
     <div className="flex items-center gap-2">
-      <span className="text-cream-300 text-sm ms-2 rtl:mr-2 rtl:ms-0">{t('settings.general.defaultLanguage')}:</span>
+      <span className="text-cream-300 text-sm ms-2 rtl:mr-2 rtl:ms-0">
+        {t('settings.general.defaultLanguage')}:
+      </span>
       <div className="flex gap-1">
         {languages.map((lang) => (
           <motion.button

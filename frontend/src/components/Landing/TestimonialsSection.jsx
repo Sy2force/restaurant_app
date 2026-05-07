@@ -49,7 +49,9 @@ const TestimonialsSection = () => {
                 />
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{localizeValue(testimonial.role, i18n.language)}</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    {localizeValue(testimonial.role, i18n.language)}
+                  </p>
                 </div>
               </div>
 

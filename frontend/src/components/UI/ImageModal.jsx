@@ -164,9 +164,7 @@ const ImageModal = ({ isOpen, onClose, post, onLike }) => {
                       ))}
                     </div>
                   ) : (
-                    <p className="text-gray-500 text-center py-8">
-                      {t('common.noComments')}
-                    </p>
+                    <p className="text-gray-500 text-center py-8">{t('common.noComments')}</p>
                   )}
                 </div>
               </div>

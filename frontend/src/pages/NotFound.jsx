@@ -31,11 +31,12 @@ const NotFound = () => {
           </h1>
           <p className="text-gray-600 dark:text-gray-300 text-lg mb-8">{t('notFound.text')}</p>
 
-          <Link to="/">
-            <button className="px-8 py-3 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-full transition-colors inline-flex items-center gap-2 shadow-lg hover:shadow-xl">
-              <Home className="w-5 h-5" />
-              {t('notFound.button')}
-            </button>
+          <Link
+            to="/"
+            className="inline-flex min-h-11 items-center gap-2 rounded-full bg-gold-500 px-8 py-3 font-bold text-white shadow-lg transition-colors hover:bg-gold-600 hover:shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
+          >
+            <Home className="w-5 h-5" aria-hidden="true" />
+            {t('notFound.button')}
           </Link>
         </motion.div>
       </div>

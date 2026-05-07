@@ -3,12 +3,22 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { restaurantAPI } from '../services/api';
-import { MapPin, Phone, Globe, ArrowLeft, Star, Award, Clock, Navigation, Calendar } from 'lucide-react';
+import {
+  MapPin,
+  Phone,
+  Globe,
+  ArrowLeft,
+  Star,
+  Award,
+  Clock,
+  Navigation,
+  Calendar,
+} from 'lucide-react';
 import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
-import Button from '../components/UI/Button';
 import { mockRestaurantDetails } from '../data/mockRestaurantDetails';
+import { mockDishes } from '../data/mockDishes';
 import { getImageUrl } from '../utils/helpers';
 
 const RestaurantDetail = () => {
@@ -30,7 +40,7 @@ const RestaurantDetail = () => {
           setLoading(false);
           return;
         }
-      } catch (apiError) {
+      } catch {
         // Fallback to mock
       }
 
@@ -38,8 +48,12 @@ const RestaurantDetail = () => {
       if (mockRestaurantDetails[id]) {
         // Simulate loading
         await new Promise((resolve) => setTimeout(resolve, 500));
-        setRestaurant(mockRestaurantDetails[id]);
-        setDishes(mockRestaurantDetails[id].dishes || []);
+        const detail = mockRestaurantDetails[id];
+        const canonicalDishes = Object.values(mockDishes).filter(
+          (dish) => dish.restaurant?._id === id
+        );
+        setRestaurant(detail);
+        setDishes(canonicalDishes);
       } else {
         // Handle not found
       }
@@ -94,7 +108,7 @@ const RestaurantDetail = () => {
         {restaurant.coverImage ? (
           <img
             src={getImageUrl(restaurant.coverImage)}
-            alt={restaurant.name}
+            alt={restaurant.coverImageAlt || restaurant.imageAlt || restaurant.name}
             className="w-full h-full object-cover"
           />
         ) : (
@@ -124,12 +138,14 @@ const RestaurantDetail = () => {
             <div className="relative">
               <img
                 src={getImageUrl(restaurant.logo) || '/default-restaurant.jpg'}
-                alt={restaurant.name}
+                alt={restaurant.imageAlt || restaurant.name}
                 className="w-24 h-24 md:w-32 md:h-32 rounded-2xl border-4 border-white/20 shadow-xl object-cover bg-white"
               />
               <div className="absolute -bottom-3 -right-3 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
                 <Star className="w-3 h-3 fill-white" />
-                {restaurant.rating?.average ? restaurant.rating.average.toFixed(1) : t('common.new')}
+                {restaurant.rating?.average
+                  ? restaurant.rating.average.toFixed(1)
+                  : t('common.new')}
               </div>
             </div>
 
@@ -207,6 +223,7 @@ const RestaurantDetail = () => {
             <div className="space-y-3 mb-6">
               <a
                 href={`tel:${restaurant.phone}`}
+                aria-label={`${t('restaurantDetail.cta.call')} ${restaurant.name}`}
                 className="flex items-center justify-center gap-2 w-full py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-full transition-all shadow-xl shadow-gold-500/20"
               >
                 <Phone className="w-5 h-5" />
@@ -216,6 +233,7 @@ const RestaurantDetail = () => {
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurant.address?.street || ''} ${restaurant.address?.city || ''}`.trim())}`}
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label={`${t('restaurantDetail.cta.directions')} ${restaurant.name}`}
                 className="flex items-center justify-center gap-2 w-full py-4 bg-dark-900 hover:bg-gray-800 text-white font-bold rounded-full transition-all shadow-lg"
               >
                 <Navigation className="w-5 h-5" />
@@ -223,6 +241,7 @@ const RestaurantDetail = () => {
               </a>
               <a
                 href={`tel:${restaurant.phone}`}
+                aria-label={`${t('restaurantDetail.cta.reserve')} ${restaurant.name}`}
                 className="flex items-center justify-center gap-2 w-full py-4 border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-bold rounded-full transition-all"
               >
                 <Calendar className="w-5 h-5" />

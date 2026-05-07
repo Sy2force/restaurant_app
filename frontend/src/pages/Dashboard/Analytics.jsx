@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import LoadingSpinner from '../../components/UI/LoadingSpinner';
 import DashboardMenu from '../../components/UI/DashboardMenu';
 import { authAPI } from '../../services/api';
+import { mockBusinessStats } from '../../data/mockBusinessStats';
 
 const Analytics = () => {
   const { t } = useTranslation();
@@ -19,8 +20,7 @@ const Analytics = () => {
       if (response.data) {
         setStats(response.data);
       }
-    } catch (error) {
-      console.error('Error fetching analytics', error);
+    } catch {
       // Mock fallback
       setStats(mockBusinessStats);
     } finally {

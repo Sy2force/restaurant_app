@@ -50,10 +50,10 @@ export const RECIPE_BOOK_THEMES = [
 ];
 
 export const PRICE_RANGES = [
-  { value: '$', label: '$ - Économique' },
-  { value: '$$', label: '$$ - Modéré' },
-  { value: '$$$', label: '$$$ - Élevé' },
-  { value: '$$$$', label: '$$$$ - Luxe' },
+  { value: '₪', label: '₪ - Économique' },
+  { value: '₪₪', label: '₪₪ - Modéré' },
+  { value: '₪₪₪', label: '₪₪₪ - Élevé' },
+  { value: '₪₪₪₪', label: '₪₪₪₪ - Luxe' },
 ];
 
 export const CITIES = [
@@ -69,14 +69,16 @@ export const CITIES = [
 ];
 
 export const CUISINES = [
-  { value: 'Israélienne', label: 'Israélienne' },
-  { value: 'Méditerranéenne', label: 'Méditerranéenne' },
-  { value: 'Moyen-orientale', label: 'Moyen-orientale' },
-  { value: 'Ashkénaze', label: 'Ashkénaze' },
-  { value: 'Séfarade', label: 'Séfarade' },
-  { value: 'Yéménite', label: 'Yéménite' },
-  { value: 'Éthiopienne', label: 'Éthiopienne' },
+  { value: 'Israélien', label: 'Israélien' },
+  { value: 'Méditerranéen', label: 'Méditerranéen' },
+  { value: 'Street Food', label: 'Street Food' },
+  { value: 'Chef', label: 'Chef' },
+  { value: 'Gastronomique', label: 'Gastronomique' },
   { value: 'Fusion', label: 'Fusion' },
+  { value: 'Marché', label: 'Marché' },
+  { value: 'Authentique', label: 'Authentique' },
   { value: 'Asiatique', label: 'Asiatique' },
   { value: 'Français', label: 'Français' },
+  { value: 'Hummus', label: 'Hummus' },
+  { value: 'Falafel', label: 'Falafel' },
 ];

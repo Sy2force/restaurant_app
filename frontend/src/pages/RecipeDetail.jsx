@@ -7,6 +7,7 @@ import { recipeAPI } from '../services/api';
 import Toast from '../components/UI/Toast';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import { mockRecipeDetails } from '../data/mockRecipeDetails';
+import { getImageUrl } from '../utils/helpers';
 
 const RecipeDetail = () => {
   const { t } = useTranslation();
@@ -30,7 +31,7 @@ const RecipeDetail = () => {
           setServings(response.data.servings || 4);
           apiSuccess = true;
         }
-      } catch (e) {
+      } catch {
         // API error fetching recipe, using mock
       }
 

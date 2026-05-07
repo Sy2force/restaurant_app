@@ -50,8 +50,12 @@ const PremiumBookCard = ({ book }) => {
                 </div>
 
                 <div className="absolute bottom-0 start-0 end-0 p-6">
-                  <h3 className="text-3xl font-display font-bold text-white mb-2 line-clamp-1">{localizeValue(book.title, i18n.language)}</h3>
-                  <p className="text-cream-100 text-sm mb-3 line-clamp-2">{localizeValue(book.description, i18n.language)}</p>
+                  <h3 className="text-3xl font-display font-bold text-white mb-2 line-clamp-1">
+                    {localizeValue(book.title, i18n.language)}
+                  </h3>
+                  <p className="text-cream-100 text-sm mb-3 line-clamp-2">
+                    {localizeValue(book.description, i18n.language)}
+                  </p>
                   <div className="flex items-center gap-4 text-cream-200 text-sm">
                     <span className="flex items-center gap-1">
                       <BookOpen className="w-4 h-4" />

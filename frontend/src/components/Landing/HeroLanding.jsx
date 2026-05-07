@@ -4,7 +4,6 @@ import { ChefHat, Play, Info } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from '../UI/Button';
 import { getImageUrl } from '../../utils/helpers';
 import { HERO_IMAGES } from '../../data/constants';
 
@@ -67,27 +66,21 @@ const HeroLanding = () => {
             {t('home.hero.subtitle')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6">
-            <Link to="/restaurants">
-              <Button
-                variant="primary"
-                size="lg"
-                className="px-8 py-4 text-lg bg-white text-black hover:bg-gray-200 border-none flex items-center gap-3"
-              >
-                <Play className="w-6 h-6 fill-black" />
-                {t('home.hero.cta')}
-              </Button>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+            <Link
+              to="/restaurants"
+              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-semibold text-black shadow-lg transition-colors hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
+              <Play className="w-6 h-6 fill-black" aria-hidden="true" />
+              {t('home.hero.cta')}
             </Link>
 
-            <Link to="/dishes">
-              <Button
-                variant="outline"
-                size="lg"
-                className="px-8 py-4 text-lg bg-gray-500/30 border-none text-white hover:bg-gray-500/50 backdrop-blur-sm flex items-center gap-3"
-              >
-                <Info className="w-6 h-6" />
-                {t('home.hero.moreInfo')}
-              </Button>
+            <Link
+              to="/dishes"
+              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-gray-500/30 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-colors hover:bg-gray-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+            >
+              <Info className="w-6 h-6" aria-hidden="true" />
+              {t('home.hero.moreInfo')}
             </Link>
           </div>
         </motion.div>
@@ -99,6 +92,7 @@ const HeroLanding = () => {
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
+            aria-label={`${t('home.hero.slide')} ${index + 1}`}
             className={`h-1 rounded-full transition-all duration-300 ${
               index === currentImageIndex ? 'w-8 bg-gold-500' : 'w-4 bg-white/30 hover:bg-white/50'
             }`}

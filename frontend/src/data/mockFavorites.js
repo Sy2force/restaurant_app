@@ -49,8 +49,7 @@ export const mockFavorites = {
     {
       _id: '2',
       title: 'Tel Aviv Modern',
-      coverImage:
-        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2940',
+      coverImage: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?q=80&w=2940',
       author: { firstName: 'Eyal', lastName: 'Shani' },
       theme: 'Moderne',
       rating: 4.7,

@@ -3,24 +3,33 @@ import { motion } from 'framer-motion';
 
 const Input = forwardRef(
   ({ label, error, type = 'text', placeholder, icon: Icon, ...props }, ref) => {
+    const inputId = props.id || props.name;
+    const errorId = inputId ? `${inputId}-error` : undefined;
+
     return (
       <div className="w-full">
         {label && (
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+          <label
+            htmlFor={inputId}
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+          >
             {label}
           </label>
         )}
         <div className="relative">
           {Icon && (
             <div className="absolute start-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-              <Icon className="w-5 h-5" />
+              <Icon className="w-5 h-5" aria-hidden="true" />
             </div>
           )}
           <input
             ref={ref}
+            id={inputId}
             type={type}
             placeholder={placeholder}
-            className={`w-full ${Icon ? 'ps-10' : 'ps-4'} pe-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 ${
+            aria-invalid={Boolean(error)}
+            aria-describedby={error ? errorId : undefined}
+            className={`w-full min-h-11 ${Icon ? 'ps-10' : 'ps-4'} pe-4 py-3 border rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 ${
               error ? 'border-red-500 focus:ring-red-500' : 'border-gray-300 dark:border-gray-600'
             }`}
             {...props}
@@ -28,6 +37,7 @@ const Input = forwardRef(
         </div>
         {error && (
           <motion.p
+            id={errorId}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             className="mt-1 text-sm text-red-500"

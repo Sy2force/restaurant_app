@@ -6,6 +6,8 @@ const ProtectedRoute = ({ children, requireBusiness, requireAdmin }) => {
   const { t } = useTranslation();
   const { isAuthenticated, user, loading } = useAuthStore();
   const location = useLocation();
+  const isAdmin = user?.isAdmin || user?.role === 'admin';
+  const isBusiness = user?.isBusiness || user?.role === 'business';
 
   if (loading) {
     return (
@@ -19,11 +21,11 @@ const ProtectedRoute = ({ children, requireBusiness, requireAdmin }) => {
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
-  if (requireAdmin && !user?.isAdmin) {
+  if (requireAdmin && !isAdmin) {
     return <Navigate to="/unauthorized" replace />;
   }
 
-  if (requireBusiness && !user?.isBusiness && !user?.isAdmin) {
+  if (requireBusiness && !isBusiness && !isAdmin) {
     return <Navigate to="/unauthorized" replace />;
   }
 

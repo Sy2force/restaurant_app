@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { UtensilsCrossed, Store, BookOpen, Users } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { dishAPI, restaurantAPI, recipeAPI } from '../../services/api';
-import { landingStats } from '../../data/mockLandingData';
 
 const StatsSection = () => {
   const { t } = useTranslation();
@@ -34,7 +33,7 @@ const StatsSection = () => {
           recipes: recipesRes.data.total || 850,
           users: 2300,
         });
-      } catch (innerError) {
+      } catch {
         // Fallback data if API fails
         setStats({
           dishes: 450,
@@ -43,7 +42,7 @@ const StatsSection = () => {
           users: 2300,
         });
       }
-    } catch (error) {
+    } catch {
       // Error loading stats
     }
   };

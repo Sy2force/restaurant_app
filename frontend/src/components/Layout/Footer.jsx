@@ -55,6 +55,7 @@ const Footer = () => {
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Facebook"
                 className="w-10 h-10 bg-gold-500/20 hover:bg-gold-500 rounded-full flex items-center justify-center transition-colors"
               >
                 <Facebook className="w-5 h-5" />
@@ -64,6 +65,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Instagram"
                 className="w-10 h-10 bg-gold-500/20 hover:bg-gold-500 rounded-full flex items-center justify-center transition-colors"
               >
                 <Instagram className="w-5 h-5" />
@@ -73,6 +75,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noopener noreferrer"
+                aria-label="Twitter"
                 className="w-10 h-10 bg-gold-500/20 hover:bg-gold-500 rounded-full flex items-center justify-center transition-colors"
               >
                 <Twitter className="w-5 h-5" />
@@ -154,12 +157,14 @@ const Footer = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder={t('footer.newsletter.placeholder')}
+                aria-label={t('footer.newsletter.placeholder')}
                 className="w-full px-4 py-3 bg-white/10 border border-gold-500/30 rounded-full text-white placeholder-cream-300 focus:outline-none focus:ring-2 focus:ring-gold-500"
               />
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 type="submit"
+                aria-label={t('footer.newsletter.title')}
                 className="absolute end-1 top-1 bottom-1 px-4 bg-gold-500 hover:bg-gold-600 rounded-full transition-colors"
               >
                 <Send className="w-5 h-5" />

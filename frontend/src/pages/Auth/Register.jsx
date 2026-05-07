@@ -42,11 +42,7 @@ const Register = () => {
     const result = await registerUser(data.name, data.email, data.password, data.isBusiness);
 
     if (result.success) {
-      if (data.isBusiness) {
-        navigate('/dashboard');
-      } else {
-        navigate('/user-dashboard');
-      }
+      navigate('/restaurants', { replace: true });
     } else {
       setError('root', {
         type: 'manual',
@@ -121,9 +117,7 @@ const Register = () => {
             <h2 className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-2">
               {t('auth.register')}
             </h2>
-            <p className="text-gray-500 dark:text-gray-400">
-              {t('auth.registerPage.subtitle')}
-            </p>
+            <p className="text-gray-500 dark:text-gray-400">{t('auth.registerPage.subtitle')}</p>
           </div>
 
           {errors.root && (

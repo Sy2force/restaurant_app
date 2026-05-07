@@ -9,6 +9,7 @@ import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import RecipeCard from '../components/UI/RecipeCard';
 import PremiumBookCard from '../components/RecipeBooks/PremiumBookCard';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
+import Toast from '../components/UI/Toast';
 import { mockFavorites } from '../data/mockFavorites';
 
 const Favorites = () => {
@@ -28,7 +29,7 @@ const Favorites = () => {
           setLoading(false);
           return;
         }
-      } catch (apiError) {
+      } catch {
         // Mock data fallback
       }
 
@@ -37,7 +38,7 @@ const Favorites = () => {
         setFavorites(mockFavorites);
         setLoading(false);
       }, 800);
-    } catch (error) {
+    } catch {
       setToast({ show: true, message: t('favorites.loadError'), type: 'error' });
       setLoading(false);
     }
@@ -55,7 +56,7 @@ const Favorites = () => {
         [type]: prev[type].filter((item) => item._id !== itemId),
       }));
       setToast({ show: true, message: t('favorites.removeSuccess'), type: 'success' });
-    } catch (error) {
+    } catch {
       setToast({ show: true, message: t('favorites.removeError'), type: 'error' });
     }
   };

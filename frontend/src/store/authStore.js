@@ -81,7 +81,6 @@ export const useAuthStore = create(
         if (!token) return;
 
         try {
-          // If using mock token, skip API call and verify locally
           if (token.startsWith('mock-')) {
             if (user) {
               set({ isAuthenticated: true });
@@ -91,8 +90,7 @@ export const useAuthStore = create(
 
           const response = await authAPI.getProfile();
           set({ user: response.data.user, isAuthenticated: true });
-        } catch (error) {
-          console.warn('Session check failed, logging out');
+        } catch {
           get().logout();
         }
       },

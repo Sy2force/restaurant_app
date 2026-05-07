@@ -9,6 +9,8 @@
     "explore": "Inspiration",
     "login": "Login",
     "register": "Join",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
     "profile": "My Profile",
     "dashboard": "Pro Space",
     "admin": "Administration",
@@ -221,6 +223,9 @@
     "status": "Status",
     "date": "Date",
     "viewDetails": "Explore",
+    "restaurant": "Restaurant",
+    "likeDish": "Like dish",
+    "saveDish": "Save dish",
     "likes": "Likes",
     "min": "min",
     "pers": "pers.",
@@ -274,6 +279,7 @@
   "filters": {
     "title": "Filters",
     "clearAll": "Clear All",
+    "search": "Search",
     "city": "City",
     "cacherout": "Kosher",
     "category": "Category",
@@ -711,8 +717,16 @@
       "title": "Discover the best Israeli restaurants",
       "subtitle": "Explore restaurants, popular dishes, and menus in Israel based on your city, budget, and preferences.",
       "cta": "View restaurants",
-      "moreInfo": "Discover dishes"
+      "moreInfo": "Discover dishes",
+      "slide": "Image"
     }
+  },
+  "language": {
+    "select": "Change language"
+  },
+  "comingSoon": {
+    "title": "Feature coming soon",
+    "text": "This protected section is reserved for version 2. The public restaurant guide remains available."
   },
   "analytics": {
     "badge": "Statistics",
@@ -815,7 +829,8 @@
     "trending": "Trending",
     "noResults": "No dishes found",
     "noResultsDesc": "Try adjusting your search filters",
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "viewDish": "View dish"
   },
   "restaurantsPage": {
     "hero": {
@@ -826,7 +841,8 @@
     },
     "noResults": "No restaurants found",
     "noResultsDesc": "Try adjusting your search filters",
-    "loadMore": "Load more"
+    "loadMore": "Load more",
+    "viewDetails": "View details"
   },
   "recipeBooksPage": {
     "hero": {

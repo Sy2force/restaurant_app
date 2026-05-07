@@ -81,11 +81,14 @@ const RestaurantsSection = () => {
                 </div>
 
                 <div className="p-6">
-                  <p className="text-gray-400 mb-4">{localizeValue(restaurant.cuisine, i18n.language)}</p>
-                  <Link to={`/restaurants/${restaurant.id}`}>
-                    <button className="w-full py-3 bg-gold-500 hover:bg-gold-600 text-white font-semibold rounded-full transition-colors">
-                      {t('landing.restaurants.discover')}
-                    </button>
+                  <p className="text-gray-400 mb-4">
+                    {localizeValue(restaurant.cuisine, i18n.language)}
+                  </p>
+                  <Link
+                    to={`/restaurants/${restaurant.id}`}
+                    className="flex min-h-11 w-full items-center justify-center rounded-full bg-gold-500 py-3 font-semibold text-white transition-colors hover:bg-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
+                  >
+                    {t('landing.restaurants.discover')}
                   </Link>
                 </div>
               </div>
@@ -100,16 +103,15 @@ const RestaurantsSection = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-center"
         >
-          <Link to="/restaurants">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border-2 border-gold-500 hover:bg-gold-500 text-gold-500 hover:text-white text-lg font-semibold rounded-full transition-all duration-300 flex items-center gap-2 mx-auto"
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Link
+              to="/restaurants"
+              className="mx-auto flex min-h-11 w-fit items-center gap-2 rounded-full border-2 border-gold-500 px-8 py-4 text-lg font-semibold text-gold-500 transition-all duration-300 hover:bg-gold-500 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-dark-900"
             >
               {t('landing.restaurants.viewAll')}
-              <ArrowRight className="w-5 h-5" />
-            </motion.button>
-          </Link>
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+            </Link>
+          </motion.div>
         </motion.div>
       </div>
     </section>

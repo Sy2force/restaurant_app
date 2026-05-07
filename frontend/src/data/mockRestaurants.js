@@ -1,4 +1,4 @@
-export const mockRestaurants = [
+const baseMockRestaurants = [
   {
     _id: '1',
     name: 'Mizlala',
@@ -154,3 +154,49 @@ export const mockRestaurants = [
     tags: ['Eyal Shani', 'Branché', 'Festif'],
   },
 ];
+
+const priceRangesById = {
+  1: '₪₪₪',
+  2: '₪₪₪₪',
+  3: '₪₪₪',
+  4: '₪₪₪₪',
+  5: '₪₪₪₪',
+  6: '₪₪₪₪',
+  7: '₪₪',
+  8: '₪',
+  9: '₪',
+  10: '₪₪',
+  11: '₪₪',
+};
+
+export const mockRestaurants = baseMockRestaurants.map((restaurant) => {
+  const mapQuery = encodeURIComponent(
+    `${restaurant.address?.street || ''} ${restaurant.address?.city || ''} Israel`.trim()
+  );
+
+  return {
+    ...restaurant,
+    slug: restaurant.name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-|-$/g, ''),
+    imageUrl: restaurant.logo,
+    imageAlt: `${restaurant.name} restaurant in ${restaurant.address?.city}`,
+    imageSource: 'Unsplash',
+    imageVerified: false,
+    imageStatus: 'available',
+    coverImageAlt: `${restaurant.name} dining room`,
+    cuisineType: restaurant.cuisine?.[0],
+    priceRange: priceRangesById[restaurant._id] || '₪₪',
+    isKosher: restaurant.cacherout !== 'Non-Kasher',
+    openingHours: {
+      sunThu: '12:00 - 23:00',
+      fri: '12:00 - 15:00',
+      sat: '20:00 - 00:00',
+    },
+    website: restaurant.website || '',
+    mapUrl: `https://www.google.com/maps/search/?api=1&query=${mapQuery}`,
+    verified: false,
+    verificationStatus: 'needs_manual_verification',
+  };
+});

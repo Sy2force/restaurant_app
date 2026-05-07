@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../../store/authStore';
 import { motion } from 'framer-motion';
@@ -13,6 +13,7 @@ import * as yup from 'yup';
 const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const { login } = useAuthStore();
 
   const schema = yup.object().shape({
@@ -33,14 +34,8 @@ const Login = () => {
     const result = await login(data.email, data.password);
 
     if (result.success) {
-      const user = useAuthStore.getState().user;
-      if (user?.isAdmin || user?.role === 'admin') {
-        navigate('/admin');
-      } else if (user?.isBusiness || user?.role === 'business') {
-        navigate('/dashboard');
-      } else {
-        navigate('/user-dashboard');
-      }
+      const from = location.state?.from?.pathname;
+      navigate(from && from !== '/login' ? from : '/restaurants', { replace: true });
     } else {
       setError('root', {
         type: 'manual',

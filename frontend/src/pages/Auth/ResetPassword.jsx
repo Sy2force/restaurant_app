@@ -78,7 +78,7 @@ const ResetPassword = () => {
             <div className="w-16 h-16 bg-gold-500/20 rounded-2xl flex items-center justify-center mb-8 backdrop-blur-sm border border-gold-500/30">
               <ChefHat className="w-10 h-10 text-gold-400" />
             </div>
-            <h1 
+            <h1
               className="text-5xl font-display font-bold mb-6 leading-tight"
               dangerouslySetInnerHTML={{ __html: t('auth.resetPassword.heroTitle') }}
             />

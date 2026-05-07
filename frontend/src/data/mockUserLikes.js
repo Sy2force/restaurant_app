@@ -35,8 +35,7 @@ export const mockUserLikes = {
     {
       _id: '1',
       title: 'Les Secrets de Jérusalem',
-      coverImage:
-        'https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2788',
+      coverImage: 'https://images.unsplash.com/photo-1541963463532-d68292c34b19?q=80&w=2788',
       author: { firstName: 'Yotam', lastName: 'Ottolenghi' },
       theme: 'Traditionnel',
       rating: 4.9,
@@ -45,7 +44,8 @@ export const mockUserLikes = {
   communityPosts: [
     {
       _id: '1',
-      description: 'Mon premier pain de Shabbat ! Le tressage était un défi mais le résultat est tellement gratifiant.',
+      description:
+        'Mon premier pain de Shabbat ! Le tressage était un défi mais le résultat est tellement gratifiant.',
       photo: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?q=80&w=2942',
       author: {
         firstName: 'Sarah',

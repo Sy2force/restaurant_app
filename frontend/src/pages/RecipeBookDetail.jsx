@@ -27,7 +27,7 @@ const RecipeBookDetail = () => {
             setRecipes(response.data.recipes || []);
             apiSuccess = true;
           }
-        } catch (e) {
+        } catch {
           // API error fetching recipe book, using mock
         }
 
@@ -38,20 +38,20 @@ const RecipeBookDetail = () => {
 
         // Mock data logic fallback
         setTimeout(() => {
-          if (mockBooks[id]) {
-            setBook(mockBooks[id]);
-            setRecipes(mockRecipes); // In a real app, recipes would be filtered by book ID
+          if (mockRecipeBookDetails[id]) {
+            setBook(mockRecipeBookDetails[id]);
+            setRecipes(mockRecipesForBook);
           } else {
             // Fallback to first book if not found, or handle error
-            setBook(mockBooks['1']);
-            setRecipes(mockRecipes);
+            setBook(mockRecipeBookDetails['1']);
+            setRecipes(mockRecipesForBook);
           }
           setLoading(false);
         }, 800);
-      } catch (error) {
+      } catch {
         // Fallback to mock
-        setBook(mockBooks['1']);
-        setRecipes(mockRecipes);
+        setBook(mockRecipeBookDetails['1']);
+        setRecipes(mockRecipesForBook);
         setLoading(false);
       }
     };

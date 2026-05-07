@@ -41,7 +41,7 @@ export const featuredDishes = [
   },
   {
     id: 6,
-    name: 'Carpaccio d\'Aubergine',
+    name: "Carpaccio d'Aubergine",
     image: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
     chef: 'Chef Yossi Shitrit',
     city: 'Jérusalem',

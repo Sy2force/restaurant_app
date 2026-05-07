@@ -67,7 +67,7 @@ const Contact = () => {
                     <h3 className="font-bold text-gray-900 dark:text-white mb-1">
                       {t('contact.info.email')}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300">contact@flavorsofisrael.com</p>
+                    <p className="text-gray-600 dark:text-gray-300">contact@restaurantisrael.com</p>
                     <p className="text-sm text-gray-500 mt-1">{t('contact.info.responseDelay')}</p>
                   </div>
                 </div>
@@ -112,7 +112,7 @@ const Contact = () => {
                 </h3>
                 <p className="text-olive-100 mb-6">{t('contact.info.chat.desc')}</p>
                 <a
-                  href="mailto:contact@flavorsofisrael.com"
+                  href="mailto:contact@restaurantisrael.com"
                   className="block w-full py-3 bg-white text-olive-900 font-bold rounded-xl hover:bg-gray-100 transition-colors text-center"
                 >
                   {t('contact.info.chat.button')}

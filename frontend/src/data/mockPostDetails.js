@@ -85,7 +85,8 @@ export const mockPostDetails = {
   4: {
     _id: '4',
     title: 'Sabich du Dimanche',
-    description: "Une explosion de saveurs avec ces aubergines frites et cette sauce amba maison ! Le mariage parfait entre l'aubergine fondante et l'œuf dur.",
+    description:
+      "Une explosion de saveurs avec ces aubergines frites et cette sauce amba maison ! Le mariage parfait entre l'aubergine fondante et l'œuf dur.",
     image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
     userId: {
       _id: 'user4',
@@ -105,7 +106,8 @@ export const mockPostDetails = {
   5: {
     _id: '5',
     title: 'Hummus & Pignons',
-    description: "Le secret d'un bon hummus ? La patience et de bons pois chiches ! Servi tiède avec un filet d'huile d'olive d'exception.",
+    description:
+      "Le secret d'un bon hummus ? La patience et de bons pois chiches ! Servi tiède avec un filet d'huile d'olive d'exception.",
     image: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
     userId: {
       _id: 'user5',
@@ -125,7 +127,8 @@ export const mockPostDetails = {
   6: {
     _id: '6',
     title: 'Cheesecake de Shavuot',
-    description: "Un gâteau au fromage crémeux et léger, parfait pour les fêtes. La texture est aérienne et le goût citronné juste comme il faut.",
+    description:
+      'Un gâteau au fromage crémeux et léger, parfait pour les fêtes. La texture est aérienne et le goût citronné juste comme il faut.',
     image: 'https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?q=80&w=2787',
     userId: {
       _id: 'user6',

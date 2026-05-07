@@ -42,9 +42,7 @@ const RestaurantList = () => {
   };
 
   const handleDelete = async (restaurantId) => {
-    if (
-      !window.confirm(t('dashboard.confirmDeleteRestaurant'))
-    ) {
+    if (!window.confirm(t('dashboard.confirmDeleteRestaurant'))) {
       return;
     }
 
