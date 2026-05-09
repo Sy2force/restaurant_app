@@ -2,11 +2,11 @@
   "name": "flavors-of-israel-root",
   "version": "1.0.0",
   "scripts": {
-    "build": "npm --prefix frontend install && npm --prefix frontend run build",
-    "dev": "npm --prefix frontend run dev",
-    "lint": "npm --prefix frontend run lint",
-    "test:unit": "npm --prefix frontend run test:unit",
-    "test:e2e": "npm --prefix frontend run test:e2e",
-    "validate:data": "npm --prefix frontend run validate:data"
+    "build": "cd frontend && npm install && npm run build",
+    "dev": "cd frontend && npm run dev",
+    "lint": "cd frontend && npm run lint",
+    "test:unit": "cd frontend && npm run test:unit",
+    "test:e2e": "cd frontend && npm run test:e2e",
+    "validate:data": "cd frontend && npm run validate:data"
   }
 }
