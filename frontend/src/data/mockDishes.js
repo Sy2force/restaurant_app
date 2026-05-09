@@ -279,7 +279,7 @@ export const mockDishes = Object.fromEntries(
       restaurantName: dish.restaurant?.name,
       city: dish.restaurant?.city || dish.region,
       imageUrl: dish.image,
-      imageAlt: `${dish.name} served by ${dish.restaurant?.name || 'Restaurant Israel'}`,
+      imageAlt: `${dish.name} served by ${dish.restaurant?.name || 'FoodApp'}`,
       imageSource: 'Unsplash',
       imageVerified: false,
       imageStatus: 'available',

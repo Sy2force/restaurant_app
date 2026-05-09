@@ -173,7 +173,7 @@ export const mockRestaurantDetails = {
         description:
           "Magret de canard cuit à la perfection, laqué d'une réduction soja et miel, sublimé par des figues rôties et une mousseline de céleri aérienne.",
         price: 125,
-        image: 'https://images.unsplash.com/photo-1627662236879-c29019672689?q=80&w=2874',
+        image: 'https://images.unsplash.com/photo-1432139555190-58524dae6a55?q=80&w=2940',
         category: 'Plat Principal',
         cacherout: 'Mehadrin',
         isVegetarian: false,

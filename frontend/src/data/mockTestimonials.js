@@ -4,7 +4,7 @@ export const testimonials = [
     name: 'Sarah Cohen',
     role: 'Chef Pâtissière',
     avatar: 'https://i.pravatar.cc/150?img=1',
-    text: 'Flavors of Israel est une vitrine exceptionnelle pour notre patrimoine culinaire. Partager mes recettes familiales avec une communauté aussi passionnée est un véritable privilège.',
+    text: 'FoodApp est une vitrine exceptionnelle pour notre patrimoine culinaire. Partager mes recettes familiales avec une communauté aussi passionnée est un véritable privilège.',
     rating: 5,
   },
   {

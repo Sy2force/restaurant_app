@@ -113,7 +113,7 @@ const RestaurantDetail = () => {
           />
         ) : (
           <div className="w-full h-full bg-gray-800 flex items-center justify-center">
-            <span className="text-white/20 text-4xl font-display">Flavors of Israel</span>
+            <span className="text-white/20 text-4xl font-display">FoodApp</span>
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent" />
