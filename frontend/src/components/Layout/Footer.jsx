@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Send, Heart } from 'lucide-react';
+import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Send } from 'lucide-react';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageSelector from '../UI/LanguageSelector';
@@ -221,16 +221,6 @@ const Footer = () => {
               {t('footer.links.contact')}
             </Link>
           </div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-cream-300 text-sm flex items-center gap-2"
-          >
-            {t('footer.madeWith')} <Heart className="w-4 h-4 text-red-500 fill-red-500" />{' '}
-            {t('footer.for')}
-          </motion.p>
         </div>
       </div>
     </footer>
