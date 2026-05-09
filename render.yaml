@@ -1,5 +1,16 @@
 services:
   - type: web
+    name: foodapp-frontend
+    runtime: node
+    region: frankfurt
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run preview
+    envVars:
+      - key: NODE_ENV
+        value: production
+  - type: web
     name: flavors-of-israel-api
     runtime: node
     region: frankfurt

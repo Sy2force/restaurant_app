@@ -46,7 +46,7 @@ const Footer = () => {
             transition={{ duration: 0.6 }}
           >
             <h3 className="text-3xl font-display font-bold text-gold-400 mb-4">
-              Restaurant Israel
+              FoodApp
             </h3>
             <p className="text-cream-200 mb-6 leading-relaxed">{t('footer.description')}</p>
             <div className="flex gap-4">
@@ -209,7 +209,7 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-cream-300 text-sm"
           >
-            © {currentYear} Restaurant Israel. {t('footer.rights')}
+            © {currentYear} FoodApp. {t('footer.rights')}
           </motion.p>
 
           <div className="flex gap-6 text-sm">

@@ -64,11 +64,11 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col">
               <span className="text-2xl font-display font-bold text-white tracking-wide">
-                FLAVORS
+                FOOD
                 <span className="text-gold-500">.</span>
               </span>
               <span className="text-[0.65rem] uppercase tracking-[0.2em] text-gold-400 font-medium">
-                Of Israel
+                APP
               </span>
             </div>
           </Link>
