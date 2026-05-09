@@ -4,7 +4,7 @@ export const mockRestaurantDetails = {
     name: 'Mizlala',
     description:
       "Une symphonie culinaire orchestrée par le chef Meir Adoni. Une fusion audacieuse où l'âme du Moyen-Orient rencontre la virtuosité de la haute cuisine européenne. Dans un cadre à la fois chic et vibrant, chaque assiette raconte une histoire de passion et de créativité.",
-    coverImage: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
+    coverImage: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=2940',
     logo: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
     address: { city: 'Tel Aviv', street: 'Nahalat Binyamin 57' },
     phone: '03-566-5505',
@@ -50,7 +50,7 @@ export const mockRestaurantDetails = {
     name: 'Machneyuda',
     description:
       "L'âme vibrante du marché Mahane Yehuda capturée dans votre assiette. Une atmosphère électrique, une cuisine débridée et joyeuse, préparée sous vos yeux par une brigade de chefs passionnés au rythme de la musique.",
-    coverImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
+    coverImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
     logo: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
     address: { city: 'Jérusalem', street: 'Beit Yaakov 10' },
     phone: '02-533-3442',
@@ -126,8 +126,8 @@ export const mockRestaurantDetails = {
     name: 'Herbert Samuel',
     description:
       "L'excellence gastronomique casher face à la mer. Une carte qui célèbre la fraîcheur absolue des produits locaux, des poissons de la pêche du jour aux viandes d'exception, dans un cadre élégant.",
-    coverImage: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
-    logo: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=2940',
     address: { city: 'Herzliya', street: 'HaShunit 2' },
     phone: '09-955-5555',
     cacherout: 'Rabbanout',
@@ -157,7 +157,7 @@ export const mockRestaurantDetails = {
     name: 'Darya',
     description:
       "Une odyssée culinaire envoûtante sur la Route de la Soie. Une fusion magistrale entre les cuisines d'Asie centrale et méditerranéenne, orchestrée dans le cadre luxueux de l'hôtel Hilton.",
-    coverImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
     logo: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Hilton Hotel' },
     phone: '03-520-2222',
@@ -188,7 +188,7 @@ export const mockRestaurantDetails = {
     name: '1868',
     description:
       "L'apogée de la gastronomie dans un écrin historique aux voûtes de pierre. Une expérience intime et raffinée où la technique française rencontre et sublime le terroir unique de Jérusalem.",
-    coverImage: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940',
     logo: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
     address: { city: 'Jérusalem', street: 'King David 10' },
     phone: '02-622-2312',
@@ -235,7 +235,7 @@ export const mockRestaurantDetails = {
         description:
           "Œufs fermiers pochés doucement dans une compotée riche de tomates fraîches, poivrons rouges et oignons caramélisés, relevée d'une touche de paprika fumé.",
         price: 45,
-        image: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
+        image: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
         category: 'Petit-déjeuner',
         cacherout: 'Rabbanout',
         isVegetarian: true,
@@ -280,7 +280,7 @@ export const mockRestaurantDetails = {
     description:
       "Le temple sacré du hummus à Jaffa. Une institution familiale vénérée qui sert un hummus d'une onctuosité inégalée, véritable référence culinaire depuis plus de 40 ans.",
     coverImage: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
-    logo: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
+    logo: 'https://images.unsplash.com/photo-1538334421852-687c439c92f4?q=80&w=2940',
     address: { city: 'Jaffa', street: 'Ha-Dolfin 1' },
     phone: '03-682-0888',
     cacherout: 'Rabbanout',
@@ -325,7 +325,7 @@ export const mockRestaurantDetails = {
         description:
           "Boulettes de falafel dorées et croustillantes, gorgées d'herbes fraîches et d'épices, servies chaudes.",
         price: 30,
-        image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
+        image: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
         category: 'Street Food',
         cacherout: 'Mehadrin',
         isVegetarian: true,
