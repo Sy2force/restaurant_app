@@ -94,7 +94,7 @@
       "businessAccount": "Compte Professionnel",
       "businessDesc": "Pour les chefs, restaurateurs et créateurs",
       "registering": "Création du compte...",
-      "heroTitle": "Rejoignez Restaurant Israel",
+      "heroTitle": "Rejoignez FoodApp",
       "heroDesc": "Créez votre compte pour partager, enregistrer et explorer la cuisine israélienne.",
       "heroImage": "Cuisine méditerranéenne",
       "benefits": {
@@ -935,7 +935,7 @@
     "sections": {
       "1": {
         "title": "Acceptation des Conditions",
-        "text": "En accédant à Restaurant Israel, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
+        "text": "En accédant à FoodApp, vous acceptez d'être lié par ces conditions d'utilisation, toutes les lois et réglementations applicables."
       },
       "2": {
         "title": "Licence d'Utilisation",
@@ -943,11 +943,11 @@
       },
       "3": {
         "title": "Clause de Non-responsabilité",
-        "text": "Les documents sur le site web de Restaurant Israel sont fournis 'tels quels'. Restaurant Israel ne donne aucune garantie, expresse ou implicite."
+        "text": "Les documents sur le site web de FoodApp sont fournis 'tels quels'. FoodApp ne donne aucune garantie, expresse ou implicite."
       },
       "4": {
         "title": "Limitations",
-        "text": "En aucun cas Restaurant Israel ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
+        "text": "En aucun cas FoodApp ne sera responsable de tout dommage découlant de l'utilisation ou de l'incapacité d'utiliser les documents."
       },
       "5": {
         "title": "Révisions",
