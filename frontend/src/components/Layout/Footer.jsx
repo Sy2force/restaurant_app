@@ -45,9 +45,7 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="text-3xl font-display font-bold text-gold-400 mb-4">
-              FoodApp
-            </h3>
+            <h3 className="text-3xl font-display font-bold text-gold-400 mb-4">FoodApp</h3>
             <p className="text-cream-200 mb-6 leading-relaxed">{t('footer.description')}</p>
             <div className="flex gap-4">
               <motion.a
