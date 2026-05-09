@@ -20,7 +20,8 @@
     "usersManagement": "Users Management",
     "stats": "Statistics",
     "myCards": "My Cards",
-    "createCard": "Create Card"
+    "createCard": "Create Card",
+    "aboutProject": "About Project"
   },
   "dashboardMenu": {
     "overview": "Overview",
@@ -197,8 +198,12 @@
         "description": "Explore the most loved and recommended Israeli dishes"
       },
       "filterPreferences": {
-        "title": "Filter by Your Preferences",
-        "description": "Find the perfect restaurant by city, budget, and desires"
+        "title": "Filter by your preferences",
+        "description": "Apply filters by city, budget, cuisine type"
+      },
+      "portfolio": {
+        "title": "Portfolio Project",
+        "description": "A demonstration of modern frontend development skills and best practices"
       }
     }
   },
@@ -727,6 +732,85 @@
   "comingSoon": {
     "title": "Feature coming soon",
     "text": "This protected section is reserved for version 2. The public restaurant guide remains available."
+  },
+  "aboutProject": {
+    "title": "Flavors of Israel — Restaurant Discovery Platform",
+    "subtitle": "Portfolio Project Case Study",
+    "presentation": {
+      "title": "Project Presentation",
+      "content": "Modern web application dedicated to discovering Israeli restaurants and dishes. Built as a frontend skills demonstration with modern React, clean architecture, responsive design and multilingual support."
+    },
+    "objectives": {
+      "title": "Objectives",
+      "content": "Build a modern interface, manage clean mock data, implement routing, filters, auth UI, dark mode, i18n, create a coherent mobile/desktop experience, and prepare the project for portfolio."
+    },
+    "techStack": {
+      "title": "Tech Stack",
+      "react": "React 18",
+      "vite": "Vite",
+      "tailwind": "Tailwind CSS",
+      "router": "React Router",
+      "zustand": "Zustand",
+      "i18next": "i18next",
+      "framer": "Framer Motion",
+      "vitest": "Vitest",
+      "playwright": "Playwright"
+    },
+    "features": {
+      "title": "Key Features",
+      "landing": "Landing page",
+      "restaurants": "Restaurants",
+      "dishes": "Dishes",
+      "details": "Detail pages",
+      "auth": "Authentication UI",
+      "contact": "Contact",
+      "responsive": "Responsive layout",
+      "dark": "Dark mode",
+      "multilingual": "Multilingual support",
+      "mock": "Mock data",
+      "e2e": "E2E tests"
+    },
+    "architecture": {
+      "title": "Architecture",
+      "components": "Components - Reusable components",
+      "pages": "Pages - Application pages",
+      "services": "Services - API services",
+      "store": "Store - State management (Zustand)",
+      "utils": "Utils - Helpers and constants",
+      "data": "Data - Mock data",
+      "i18n": "i18n - Translations",
+      "e2e": "E2E - E2E tests"
+    },
+    "challenges": {
+      "title": "Technical Challenges",
+      "responsive": "Mobile/desktop responsive management",
+      "sync": "Translation synchronization",
+      "navigation": "Smooth navigation",
+      "reuse": "Component reuse",
+      "testing": "Test integration",
+      "build": "Build optimization"
+    },
+    "result": {
+      "title": "Final Result",
+      "content": "This project demonstrates my ability to build a modern, structured, responsive, tested React application ready for deployment."
+    }
+  },
+  "techStack": {
+    "title": "Tech Stack",
+    "subtitle": "Modern technologies powering this application",
+    "react": "React 18",
+    "vite": "Vite",
+    "tailwind": "Tailwind CSS",
+    "router": "React Router",
+    "zustand": "Zustand",
+    "i18next": "i18next",
+    "framer": "Framer Motion",
+    "vitest": "Vitest",
+    "playwright": "Playwright"
+  },
+  "portfolioDemo": {
+    "title": "Portfolio Demo",
+    "content": "This project was built as a portfolio demo to showcase modern frontend development skills, including component architecture, responsive design, routing, internationalization, state management, UI animations, testing and deployment readiness."
   },
   "analytics": {
     "badge": "Statistics",

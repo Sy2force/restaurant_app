@@ -20,7 +20,8 @@
     "usersManagement": "ניהול משתמשים",
     "stats": "סטטיסטיקה",
     "myCards": "הכרטיסים שלי",
-    "createCard": "צור כרטיס"
+    "createCard": "צור כרטיס",
+    "aboutProject": "אודות הפרויקט"
   },
   "dashboardMenu": {
     "overview": "סקירה כללית",
@@ -163,6 +164,10 @@
       "filterPreferences": {
         "title": "סנן לפי ההעדפות שלך",
         "description": "מצא את המסעדה המושלמת לפי העיר, התקציב והרצונות שלך"
+      },
+      "portfolio": {
+        "title": "פרויקט תיק עבודה",
+        "description": "הדגמה של כישורי פיתוח frontend מודרני ושיטות עבודה מומלצות"
       }
     },
     "publish": {
@@ -749,6 +754,85 @@
   "comingSoon": {
     "title": "הפיצ'ר יגיע בקרוב",
     "text": "החלק המוגן הזה שמור לגרסה 2. מדריך המסעדות הציבורי נשאר זמין."
+  },
+  "aboutProject": {
+    "title": "Flavors of Israel — פלטפורמת גילוי מסעדות",
+    "subtitle": "מחקר פרויקט תיק עבודה",
+    "presentation": {
+      "title": "הצגת הפרויקט",
+      "content": "אפליקציית ווב מודרנית המוקדשת לגילוי מסעדות ומנות ישראליות. נבנתה כהדגמת כישורי frontend עם React מודרני, ארכיטקטורה נקייה, עיצוב responsive ותמיכה רב-לשונית."
+    },
+    "objectives": {
+      "title": "יעדים",
+      "content": "בניית ממשק מודרני, ניהול נתוני mock נקיים, יישום routing, מסננים, auth UI, dark mode, i18n, יצירת חוויה מגוונת mobile/desktop, והכנת הפרויקט לתיק עבודה."
+    },
+    "techStack": {
+      "title": "Stack טכני",
+      "react": "React 18",
+      "vite": "Vite",
+      "tailwind": "Tailwind CSS",
+      "router": "React Router",
+      "zustand": "Zustand",
+      "i18next": "i18next",
+      "framer": "Framer Motion",
+      "vitest": "Vitest",
+      "playwright": "Playwright"
+    },
+    "features": {
+      "title": "תכונות מרכזיות",
+      "landing": "Landing page",
+      "restaurants": "מסעדות",
+      "dishes": "מנות",
+      "details": "דפי פירוט",
+      "auth": "ממשק אימות",
+      "contact": "צור קשר",
+      "responsive": "Layout responsive",
+      "dark": "מצב כהה",
+      "multilingual": "תמיכה רב-לשונית",
+      "mock": "נתוני mock",
+      "e2e": "בדיקות E2E"
+    },
+    "architecture": {
+      "title": "ארכיטקטורה",
+      "components": "Components - רכיבים ניתנים לשימוש חוזר",
+      "pages": "Pages - דפי אפליקציה",
+      "services": "Services - שירותי API",
+      "store": "Store - ניהול מצב (Zustand)",
+      "utils": "Utils - Helpers וקבועים",
+      "data": "Data - נתוני mock",
+      "i18n": "i18n - תרגומים",
+      "e2e": "E2E - בדיקות E2E"
+    },
+    "challenges": {
+      "title": "אתגרים טכניים",
+      "responsive": "ניהול responsive mobile/desktop",
+      "sync": "סנכרון תרגומים",
+      "navigation": "ניווט חלק",
+      "reuse": "שימוש חוזר ברכיבים",
+      "testing": "אינטגרצית בדיקות",
+      "build": "אופטימיזצית build"
+    },
+    "result": {
+      "title": "תוצאה סופית",
+      "content": "פרויקט זה מדגים את היכולת שלי לבנות אפליקציית React מודרנית, מובנית, responsive, נבדקת ומוכנה לפריסה."
+    }
+  },
+  "techStack": {
+    "title": "Stack טכני",
+    "subtitle": "טכנולוגיות מודרניות המפעילות את האפליקציה הזו",
+    "react": "React 18",
+    "vite": "Vite",
+    "tailwind": "Tailwind CSS",
+    "router": "React Router",
+    "zustand": "Zustand",
+    "i18next": "i18next",
+    "framer": "Framer Motion",
+    "vitest": "Vitest",
+    "playwright": "Playwright"
+  },
+  "portfolioDemo": {
+    "title": "הדגמת תיק עבודה",
+    "content": "פרויקט זה נבנה כהדגמת תיק עבודה כדי להציג כישורי פיתוח frontend מודרני: ארכיטקטורת רכיבים, responsive design, routing, internationalization, state management, animations UI, בדיקות והכנה לפריסה."
   },
   "analytics": {
     "badge": "סטטיסטיקה",

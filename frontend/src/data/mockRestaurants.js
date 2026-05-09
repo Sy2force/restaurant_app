@@ -32,7 +32,7 @@ const baseMockRestaurants = [
     name: 'Eucalyptus',
     description:
       'Une cuisine biblique réinterprétée avec modernité. Le chef Moshe Basson sublime les herbes sauvages et plantes indigènes des collines de Jérusalem.',
-    logo: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=2940',
     coverImage: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
     address: { city: 'Jérusalem', street: 'Felt 14' },
     phone: '02-624-4331',
@@ -46,7 +46,7 @@ const baseMockRestaurants = [
     name: 'Herbert Samuel',
     description:
       "Restaurant gastronomique casher offrant une vue imprenable sur la mer. Une carte célébrant la fraîcheur des produits locaux, poissons et viandes d'exception.",
-    logo: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2940',
     coverImage: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
     address: { city: 'Herzliya', street: 'HaShunit 2' },
     phone: '09-955-5555',
@@ -60,7 +60,7 @@ const baseMockRestaurants = [
     name: 'Darya',
     description:
       "Une odyssée culinaire sur la Route de la Soie. Une fusion magistrale entre les cuisines d'Asie centrale et méditerranéenne au Hilton Tel Aviv.",
-    logo: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2940',
     coverImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Hilton Hotel' },
     phone: '03-520-2222',

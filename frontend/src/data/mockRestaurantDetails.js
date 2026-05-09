@@ -94,8 +94,8 @@ export const mockRestaurantDetails = {
     name: 'Eucalyptus',
     description:
       "Un voyage culinaire à travers les textes bibliques. Le chef Moshe Basson réinterprète avec modernité les herbes sauvages et les plantes indigènes des collines de Jérusalem pour raconter l'histoire millénaire de la terre d'Israël.",
-    coverImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
-    logo: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=2940',
     address: { city: 'Jérusalem', street: 'Felt 14' },
     phone: '02-624-4331',
     website: 'https://the-eucalyptus.com',
@@ -126,8 +126,8 @@ export const mockRestaurantDetails = {
     name: 'Herbert Samuel',
     description:
       "L'excellence gastronomique casher face à la mer. Une carte qui célèbre la fraîcheur absolue des produits locaux, des poissons de la pêche du jour aux viandes d'exception, dans un cadre élégant.",
-    coverImage: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940',
-    logo: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1550966871-3ed3c47e2ce2?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2940',
     address: { city: 'Herzliya', street: 'HaShunit 2' },
     phone: '09-955-5555',
     cacherout: 'Rabbanout',
@@ -157,8 +157,8 @@ export const mockRestaurantDetails = {
     name: 'Darya',
     description:
       "Une odyssée culinaire envoûtante sur la Route de la Soie. Une fusion magistrale entre les cuisines d'Asie centrale et méditerranéenne, orchestrée dans le cadre luxueux de l'hôtel Hilton.",
-    coverImage: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
-    logo: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Hilton Hotel' },
     phone: '03-520-2222',
     cacherout: 'Mehadrin',
@@ -220,7 +220,7 @@ export const mockRestaurantDetails = {
     description:
       "Le maître incontesté de la Shakshuka à Jaffa. Une cuisine tripolitaine authentique et généreuse, servie dans un cadre rustique unique, rempli d'histoire et d'antiquités.",
     coverImage: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
-    logo: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
+    logo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
     address: { city: 'Jaffa', street: 'Beit Eshel 3' },
     phone: '03-682-2842',
     cacherout: 'Rabbanout',
@@ -250,7 +250,7 @@ export const mockRestaurantDetails = {
     description:
       "Une légende urbaine au cœur de Tel Aviv, célèbre pour servir le meilleur Sabich de la ville. Une pita garnie avec art qui vaut chaque minute d'attente.",
     coverImage: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
-    logo: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Frishman 42' },
     phone: '03-522-2222',
     cacherout: 'Mehadrin',
@@ -310,7 +310,7 @@ export const mockRestaurantDetails = {
     description:
       'Le "Magicien" du falafel qui a conquis Tel Aviv. Une adresse moderne et vibrante qui a élevé le falafel au rang d\'art culinaire, avec un service rapide, généreux et toujours souriant.',
     coverImage: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
-    logo: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
+    logo: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Shlomo HaMelech 1' },
     phone: '03-525-2033',
     cacherout: 'Mehadrin',

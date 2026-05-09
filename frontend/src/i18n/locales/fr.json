@@ -20,7 +20,8 @@
     "usersManagement": "Utilisateurs",
     "stats": "Statistiques",
     "myCards": "Mes Cartes",
-    "createCard": "Créer une Carte"
+    "createCard": "Créer une Carte",
+    "aboutProject": "À propos du projet"
   },
   "dashboardMenu": {
     "overview": "Vue d'ensemble",
@@ -193,8 +194,12 @@
         "description": "Explore les plats israéliens les plus appréciés et recommandés"
       },
       "filterPreferences": {
-        "title": "Filtre selon tes préférences",
-        "description": "Trouve le restaurant idéal selon ta ville, ton budget et tes envies"
+        "title": "Filtrer selon vos préférences",
+        "description": "Appliquez des filtres par ville, budget, type de cuisine"
+      },
+      "portfolio": {
+        "title": "Projet Portfolio",
+        "description": "Une démonstration de compétences en développement frontend moderne et des meilleures pratiques"
       }
     },
     "testimonials": {
@@ -727,36 +732,84 @@
     "title": "Fonctionnalité bientôt disponible",
     "text": "Cette section est protégée et reviendra dans une version 2. Les pages publiques du guide restent disponibles."
   },
-  "analytics": {
-    "badge": "Statistiques",
-    "title": "Audience",
-    "subtitle": "Mesurez votre rayonnement culinaire",
-    "stats": {
-      "totalViews": "Vues globales",
-      "likes": "Appréciations",
-      "uniqueVisitors": "Audience unique",
-      "revenue": "Revenus générés"
+  "aboutProject": {
+    "title": "Flavors of Israel — Plateforme de Découverte de Restaurants",
+    "subtitle": "Étude de cas du projet portfolio",
+    "presentation": {
+      "title": "Présentation du projet",
+      "content": "Application web moderne dédiée à la découverte de restaurants et plats israéliens. Projet réalisé comme démonstration de compétences frontend avec React moderne, architecture propre, design responsive et support multilingue."
     },
-    "timeRanges": {
-      "week": "7 jours",
-      "month": "30 jours",
-      "year": "12 mois"
+    "objectives": {
+      "title": "Objectifs",
+      "content": "Construire une interface moderne, gérer des données mockées propres, implémenter routing, filtres, auth UI, dark mode, i18n, créer une expérience mobile/desktop cohérente, et préparer le projet pour un portfolio."
     },
-    "proTip": {
-      "title": "Astuce de Chef",
-      "text": "Les photos prises à la lumière du jour génèrent 40% d'engagement supplémentaire."
+    "techStack": {
+      "title": "Stack Technique",
+      "react": "React 18",
+      "vite": "Vite",
+      "tailwind": "Tailwind CSS",
+      "router": "React Router",
+      "zustand": "Zustand",
+      "i18next": "i18next",
+      "framer": "Framer Motion",
+      "vitest": "Vitest",
+      "playwright": "Playwright"
     },
-    "charts": {
-      "visits": "Fréquentation",
-      "last7days": "Dernière semaine"
+    "features": {
+      "title": "Fonctionnalités principales",
+      "landing": "Landing page",
+      "restaurants": "Restaurants",
+      "dishes": "Plats",
+      "details": "Pages de détail",
+      "auth": "Authentification UI",
+      "contact": "Contact",
+      "responsive": "Layout responsive",
+      "dark": "Mode sombre",
+      "multilingual": "Support multilingue",
+      "mock": "Données mockées",
+      "e2e": "Tests E2E"
     },
-    "popular": "Top Créations",
-    "recentActivity": "En Direct",
-    "activities": {
-      "like": "a aimé votre création",
-      "comment": "a réagi",
-      "share": "a relayé votre profil"
+    "architecture": {
+      "title": "Architecture",
+      "components": "Components - Composants réutilisables",
+      "pages": "Pages - Pages de l'application",
+      "services": "Services - Services API",
+      "store": "Store - State management (Zustand)",
+      "utils": "Utils - Helpers et constants",
+      "data": "Data - Données mockées",
+      "i18n": "i18n - Traductions",
+      "e2e": "E2E - Tests E2E"
+    },
+    "challenges": {
+      "title": "Défis techniques",
+      "responsive": "Gestion responsive mobile/desktop",
+      "sync": "Synchronisation des traductions",
+      "navigation": "Navigation fluide",
+      "reuse": "Réutilisation des composants",
+      "testing": "Intégration des tests",
+      "build": "Optimisation du build"
+    },
+    "result": {
+      "title": "Résultat final",
+      "content": "Ce projet démontre ma capacité à construire une application React moderne, structurée, responsive, testée et prête à être déployée."
     }
+  },
+  "techStack": {
+    "title": "Stack Technique",
+    "subtitle": "Technologies modernes propulsant cette application",
+    "react": "React 18",
+    "vite": "Vite",
+    "tailwind": "Tailwind CSS",
+    "router": "React Router",
+    "zustand": "Zustand",
+    "i18next": "i18next",
+    "framer": "Framer Motion",
+    "vitest": "Vitest",
+    "playwright": "Playwright"
+  },
+  "portfolioDemo": {
+    "title": "Démonstration Portfolio",
+    "content": "Ce projet a été conçu comme une démonstration portfolio afin de présenter mes compétences en développement frontend moderne : architecture de composants, responsive design, routing, internationalisation, state management, animations UI, tests et préparation au déploiement."
   },
   "restaurantDetail": {
     "back": "Retour aux restaurants",

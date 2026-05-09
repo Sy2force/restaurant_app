@@ -1,197 +1,204 @@
-# Restaurant Israel
+# Flavors of Israel | Restaurant Discovery Platform
 
-Restaurant Israel est un guide moderne de restaurants israeliens. L'application permet de decouvrir des restaurants, consulter des plats populaires, filtrer selon ses preferences et acceder rapidement aux informations essentielles: adresse, horaires, contact, itineraire et reservation.
+A modern React portfolio project for discovering Israeli restaurants, dishes and culinary experiences. Built as a demonstration of frontend engineering skills with clean architecture, responsive design, multilingual support, and comprehensive testing.
 
-## Stack Technique
+## Live Demo
 
-- Frontend: React 18, Vite, React Router, Tailwind CSS, Zustand, i18next, Axios, Framer Motion, Swiper
-- Formulaires: React Hook Form, Yup
-- Tests: Vitest, Playwright
-- Backend present dans le repo: Node.js, Express, MongoDB, JWT, Helmet, CORS, Rate Limit
-- Deploiement: Vercel pour le frontend, Render pour l'API backend si elle est activee
+[https://your-demo-link.vercel.app](https://your-demo-link.vercel.app)
 
-## Fonctionnalites V1
+## Screenshots
 
-- Pages publiques finalisees: accueil, restaurants, detail restaurant, plats, detail plat, contact
-- Pages compte: login, register, forgot/reset password
-- Pages legales: privacy, terms
-- Fallback donnees mockees si l'API n'est pas disponible
-- Navigation responsive avec bottom nav mobile
-- Internationalisation FR / EN / HE avec support RTL pour l'hebreu
-- Routes protegees pour les zones user, business et admin
-- Tests unitaires, E2E et validation des donnees mock
+- Home page with hero section and featured dishes
+- Restaurants listing with filters
+- Dish details with comprehensive information
+- Mobile responsive design
+- Dark mode interface
+- About Project case study page
 
-Les pages avancees comme Explore, Recipe Books, recettes, dashboards complexes, admin, analytics, likes, commentaires et posts sont conservees dans le code pour une V2, mais elles ne sont plus exposees dans la navigation publique principale.
+## Features
 
-## Routes Principales
+- **Responsive Design** - Optimized for mobile, tablet, and desktop
+- **Restaurant Listing** - Browse and filter Israeli restaurants by city, cuisine, kosher certification
+- **Dish Discovery** - Explore popular dishes with detailed information
+- **Detail Pages** - Comprehensive restaurant and dish detail pages
+- **Authentication UI** - Login, register, forgot password, reset password flows
+- **Dark Mode** - Full dark mode support with smooth transitions
+- **Multilingual Support** - French, English, and Hebrew with RTL support
+- **Mock Data** - Structured mock data for offline/demo functionality
+- **Smooth Animations** - Framer Motion animations throughout the application
+- **Unit Tests** - Vitest unit tests for critical components
+- **E2E Tests** - Playwright end-to-end tests for user flows
+- **Lazy Loading** - React.lazy and Suspense for optimal performance
+- **SEO Optimized** - Meta tags, Open Graph, and Twitter cards
 
-- `/`
-- `/restaurants`
-- `/restaurants/:id`
-- `/dishes`
-- `/dishes/:id`
-- `/contact`
-- `/login`
-- `/register`
-- `/forgot-password`
-- `/reset-password`
-- `/privacy`
-- `/terms`
-- `/unauthorized`
-- `/*`
+## Tech Stack
+
+- **React 18** - Modern React with hooks and concurrent features
+- **Vite** - Fast build tool and development server
+- **Tailwind CSS** - Utility-first CSS framework
+- **React Router v6** - Client-side routing with lazy loading
+- **Zustand** - Lightweight state management
+- **i18next** - Internationalization framework
+- **Framer Motion** - Production-ready animation library
+- **Vitest** - Unit testing framework
+- **Playwright** - E2E testing framework
+- **Axios** - HTTP client for API calls
+- **React Hook Form** - Form management with validation
+- **Yup** - Schema validation
+- **Lucide React** - Beautiful icon library
+
+## Project Structure
+
+```
+frontend/
+├── src/
+│   ├── components/     # Reusable UI components
+│   │   ├── Auth/       # Authentication components
+│   │   ├── Cards/      # Card components
+│   │   ├── Dishes/     # Dish-related components
+│   │   ├── Forms/      # Form components
+│   │   ├── Landing/    # Landing page sections
+│   │   ├── Layout/     # Layout components (Navbar, Footer, etc.)
+│   │   ├── RecipeBooks/# Recipe book components
+│   │   ├── Restaurants/# Restaurant components
+│   │   └── UI/         # General UI components
+│   ├── data/           # Mock data files
+│   ├── i18n/           # Translation files (FR, EN, HE)
+│   ├── pages/          # Page components
+│   ├── services/       # API services
+│   ├── store/          # Zustand stores
+│   ├── utils/          # Helper functions
+│   └── main.jsx        # Application entry point
+├── public/             # Static assets
+└── e2e/                # Playwright E2E tests
+```
 
 ## Installation
 
-Depuis la racine:
-
 ```bash
-npm install --prefix frontend
-npm install --prefix backend
-```
+# Clone the repository
+git clone <repository-url>
+cd "Flavors of israel/frontend"
 
-Frontend uniquement:
+# Install dependencies
+npm install
 
-```bash
-cd frontend
+# Copy environment file
 cp .env.example .env
+
+# Start development server
 npm run dev
 ```
-
-Backend optionnel:
-
-```bash
-cd backend
-cp .env.example .env
-npm run dev
-```
-
-## Variables D'environnement
-
-Frontend:
-
-```bash
-VITE_API_URL=http://localhost:5000/api
-VITE_APP_NAME=Restaurant Israel
-VITE_ENABLE_MOCK_AUTH=false
-```
-
-Backend:
-
-```bash
-NODE_ENV=development
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/flavors-of-israel
-JWT_SECRET=change_me
-JWT_EXPIRE=7d
-CLIENT_URL=http://localhost:5173
-```
-
-Ne jamais commiter de fichier `.env` reel.
-
-## Scripts
-
-Scripts racine:
-
-```bash
-npm run dev
-npm run lint
-npm run test:unit
-npm run test:e2e
-npm run validate:data
-npm run build
-```
-
-Scripts frontend:
-
-```bash
-cd frontend
-npm run dev
-npm run lint
-npm run format
-npm run test:unit
-npm run test:e2e
-npm run validate:data
-npm run build
-npm run preview
-```
-
-Scripts backend:
-
-```bash
-cd backend
-npm run dev
-npm start
-npm test
-```
-
-## Validation Des Donnees
-
-```bash
-npm run validate:data
-```
-
-Le script `scripts/validateRestaurantData.mjs` verifie notamment:
-
-- IDs restaurants et plats uniques
-- images presentes et alt texts presents
-- aucune image de plat dupliquee
-- `restaurantId` valides
-- villes et metadonnees essentielles presentes
-- routes detail coherentes pour les donnees visibles
 
 ## Build
 
 ```bash
+# Build for production
 npm run build
+
+# Preview production build
+npm run preview
 ```
 
-Le build Vite produit le frontend dans `frontend/dist`.
+The build output is generated in the `dist` directory.
 
-## Deploiement Vercel
-
-Configuration recommandee:
-
-- Framework: Vite
-- Install command: `npm install`
-- Build command: `npm run build`
-- Output directory: `frontend/dist`
-- Variable: `VITE_API_URL=https://<service-render>.onrender.com/api`
-
-Le fichier `vercel.json` a une rewrite SPA vers `index.html` pour que le refresh fonctionne sur les routes React Router.
-
-## Deploiement Render
-
-Le backend Express est configure via `render.yaml`.
-
-- Root directory: `backend`
-- Build command: `npm install`
-- Start command: `npm start`
-- Health check path: `/`
-
-Variables Render a definir:
+## Tests
 
 ```bash
-NODE_ENV=production
-MONGODB_URI=<mongodb-uri>
-JWT_SECRET=<secret-fort>
-JWT_EXPIRE=7d
-CLIENT_URL=https://<site-vercel>.vercel.app
+# Run unit tests
+npm run test:unit
+
+# Run unit tests with watch mode
+npm run test
+
+# Run E2E tests
+npm run test:e2e
+
+# Run E2E tests with UI
+npm run test:e2e:ui
+
+# Run linting
+npm run lint
+
+# Format code
+npm run format
 ```
 
-Render n'est necessaire que si l'API backend est utilisee en production. Le frontend peut fonctionner avec les donnees mockees sans backend.
+## Deployment
 
-## Structure
+### Vercel
 
-```text
-frontend/   Application React/Vite
-backend/    API Express optionnelle
-scripts/    Scripts de validation et maintenance
-render.yaml Configuration Render backend
-vercel.json Configuration Vercel frontend SPA
+The project is configured for Vercel deployment:
+
+1. Connect your GitHub repository to Vercel
+2. Set root directory to `frontend`
+3. Configure build settings:
+   - **Build Command**: `npm run build`
+   - **Output Directory**: `dist`
+   - **Install Command**: `npm install`
+
+4. Add environment variables (if needed):
+   ```
+   VITE_API_URL=https://your-backend-url.com/api
+   ```
+
+The `vercel.json` file includes SPA rewrite rules for React Router.
+
+### Render
+
+Backend deployment configuration available in `render.yaml` for Express API.
+
+## Portfolio Note
+
+This project was created as part of my developer portfolio to demonstrate frontend engineering skills including:
+- Component architecture and reusability
+- State management with Zustand
+- Internationalization (i18n)
+- Responsive design principles
+- Performance optimization (lazy loading, code splitting)
+- Testing strategies (unit and E2E)
+- Modern React patterns and best practices
+- Production deployment readiness
+
+## Routes
+
+- `/` - Landing page with hero, restaurants, dishes, tech stack
+- `/restaurants` - Restaurant listing with filters
+- `/restaurants/:id` - Restaurant detail page
+- `/dishes` - Dish listing with filters
+- `/dishes/:id` - Dish detail page
+- `/contact` - Contact form
+- `/login` - Login page
+- `/register` - Registration page
+- `/forgot-password` - Password recovery
+- `/reset-password` - Password reset
+- `/privacy` - Privacy policy
+- `/terms` - Terms of service
+- `/about-project` - Portfolio case study page
+
+## Internationalization
+
+The application supports three languages:
+- 🇫🇷 French (Français)
+- 🇬🇧 English
+- 🇮🇱 Hebrew (עברית) with RTL support
+
+Language can be changed via the language selector in the navbar or footer.
+
+## Development
+
+```bash
+# Start development server
+npm run dev
+
+# Available at http://localhost:5173
 ```
 
-## Notes Securite
+## License
 
-- `.env`, `.env.local` et `.env.production` sont ignores par Git.
-- La protection frontend ameliore l'UX, mais les permissions reelles doivent rester verifiees cote backend.
-- Les tokens, secrets JWT, URLs privees et cles Cloudinary doivent etre configures uniquement dans l'environnement de deploiement.
+This project is for portfolio demonstration purposes.
+
+## Contact
+
+For questions about this project, please reach out through the contact form in the application or via GitHub issues.
+

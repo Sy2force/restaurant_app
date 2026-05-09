@@ -1,160 +1,115 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
-import LandingPage from './pages/LandingPage';
-import Dishes from './pages/Dishes';
-import DishDetail from './pages/DishDetail';
-import Restaurants from './pages/Restaurants';
-import RestaurantDetail from './pages/RestaurantDetail';
-import Login from './pages/Auth/Login';
-import Register from './pages/Auth/Register';
-import ForgotPassword from './pages/Auth/ForgotPassword';
-import ResetPassword from './pages/Auth/ResetPassword';
-import Contact from './pages/Contact';
-import Privacy from './pages/Privacy';
-import Terms from './pages/Terms';
-import NotFound from './pages/NotFound';
-import Unauthorized from './pages/Unauthorized';
-import FeatureUnavailable from './pages/FeatureUnavailable';
+import LoadingSpinner from './components/UI/LoadingSpinner';
 import ProtectedRoute from './components/Auth/ProtectedRoute';
 
-// VERSION 2 - Commented out for simplified restaurant guide
-// import RecipeBooks from './pages/RecipeBooks';
-// import RecipeBookDetail from './pages/RecipeBookDetail';
-// import RecipeDetail from './pages/RecipeDetail';
-// import Profile from './pages/Profile';
-// import Favorites from './pages/Favorites';
-// import UserDashboard from './pages/UserDashboard';
-// import UserLikes from './pages/UserLikes';
-// import Explore from './pages/Explore';
-// import PostCreate from './pages/PostCreate';
-// import ExploreDetail from './pages/ExploreDetail';
-// import BusinessDashboard from './pages/Dashboard/BusinessDashboard';
-// import RestaurantList from './pages/Dashboard/RestaurantList';
-// import RestaurantForm from './pages/Dashboard/RestaurantForm';
-// import DishList from './pages/Dashboard/DishList';
-// import DishForm from './pages/Dashboard/DishForm';
-// import RecipeList from './pages/Dashboard/RecipeList';
-// import RecipeForm from './pages/Dashboard/RecipeForm';
-// import Analytics from './pages/Dashboard/Analytics';
-// import Settings from './pages/Dashboard/Settings';
-// import AdminPanel from './pages/Admin/AdminPanel';
-// import MyCards from './pages/Dashboard/MyCards';
-// import CreateCard from './pages/Dashboard/CreateCard';
+// Lazy loaded pages for better performance
+const LandingPage = lazy(() => import('./pages/LandingPage'));
+const Dishes = lazy(() => import('./pages/Dishes'));
+const DishDetail = lazy(() => import('./pages/DishDetail'));
+const Restaurants = lazy(() => import('./pages/Restaurants'));
+const RestaurantDetail = lazy(() => import('./pages/RestaurantDetail'));
+const Login = lazy(() => import('./pages/Auth/Login'));
+const Register = lazy(() => import('./pages/Auth/Register'));
+const ForgotPassword = lazy(() => import('./pages/Auth/ForgotPassword'));
+const ResetPassword = lazy(() => import('./pages/Auth/ResetPassword'));
+const Contact = lazy(() => import('./pages/Contact'));
+const Privacy = lazy(() => import('./pages/Privacy'));
+const Terms = lazy(() => import('./pages/Terms'));
+const AboutProject = lazy(() => import('./pages/AboutProject'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+const Unauthorized = lazy(() => import('./pages/Unauthorized'));
+const FeatureUnavailable = lazy(() => import('./pages/FeatureUnavailable'));
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          {/* ESSENTIAL ROUTES - Restaurant Guide */}
-          <Route index element={<LandingPage />} />
-          <Route path="restaurants" element={<Restaurants />} />
-          <Route path="restaurants/:id" element={<RestaurantDetail />} />
-          <Route path="dishes" element={<Dishes />} />
-          <Route path="dishes/:id" element={<DishDetail />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="login" element={<Login />} />
-          <Route path="register" element={<Register />} />
-          <Route path="forgot-password" element={<ForgotPassword />} />
-          <Route path="reset-password" element={<ResetPassword />} />
-          <Route path="privacy" element={<Privacy />} />
-          <Route path="terms" element={<Terms />} />
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            {/* ESSENTIAL ROUTES - Restaurant Guide */}
+            <Route index element={<LandingPage />} />
+            <Route path="restaurants" element={<Restaurants />} />
+            <Route path="restaurants/:id" element={<RestaurantDetail />} />
+            <Route path="dishes" element={<Dishes />} />
+            <Route path="dishes/:id" element={<DishDetail />} />
+            <Route path="contact" element={<Contact />} />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+            <Route path="forgot-password" element={<ForgotPassword />} />
+            <Route path="reset-password" element={<ResetPassword />} />
+            <Route path="privacy" element={<Privacy />} />
+            <Route path="terms" element={<Terms />} />
+            <Route path="about-project" element={<AboutProject />} />
+            <Route path="unauthorized" element={<Unauthorized />} />
 
-          {/* VERSION 2 - Commented out for simplified restaurant guide */}
-          {/* <Route path="recipe-books" element={<RecipeBooks />} /> */}
-          {/* <Route path="recipe-books/:id" element={<RecipeBookDetail />} /> */}
-          {/* <Route path="recipes/:id" element={<RecipeDetail />} /> */}
-          {/* <Route path="explore" element={<Explore />} /> */}
-          {/* <Route path="explore/:id" element={<ExploreDetail />} /> */}
-          <Route path="unauthorized" element={<Unauthorized />} />
+            {/* User Dashboard */}
+            <Route
+              path="user-dashboard"
+              element={
+                <ProtectedRoute>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <ProtectedRoute>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="favorites"
+              element={
+                <ProtectedRoute>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* User Dashboard - VERSION 2 */}
-          <Route
-            path="user-dashboard"
-            element={
-              <ProtectedRoute>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="profile"
-            element={
-              <ProtectedRoute>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="favorites"
-            element={
-              <ProtectedRoute>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          {/* <Route path="profile" element={<ProtectedRoute><Profile /></ProtectedRoute>} /> */}
-          {/* <Route path="profile/:id" element={<Profile />} /> */}
-          {/* <Route path="user-dashboard" element={<ProtectedRoute><UserDashboard /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/likes" element={<ProtectedRoute><UserLikes /></ProtectedRoute>} /> */}
-          {/* <Route path="favorites" element={<ProtectedRoute><Favorites /></ProtectedRoute>} /> */}
-          {/* <Route path="explore/create" element={<ProtectedRoute><PostCreate /></ProtectedRoute>} /> */}
+            {/* Business Dashboard */}
+            <Route
+              path="dashboard"
+              element={
+                <ProtectedRoute requireBusiness>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="dashboard/*"
+              element={
+                <ProtectedRoute requireBusiness>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* Business Dashboard - VERSION 2 */}
-          <Route
-            path="dashboard"
-            element={
-              <ProtectedRoute requireBusiness>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="dashboard/*"
-            element={
-              <ProtectedRoute requireBusiness>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          {/* <Route path="dashboard" element={<ProtectedRoute requireBusiness><BusinessDashboard /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/restaurants" element={<ProtectedRoute requireBusiness><RestaurantList /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/restaurants/create" element={<ProtectedRoute requireBusiness><RestaurantForm /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/restaurants/:id/edit" element={<ProtectedRoute requireBusiness><RestaurantForm /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/dishes" element={<ProtectedRoute requireBusiness><DishList /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/dishes/create" element={<ProtectedRoute requireBusiness><DishForm /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/dishes/:id/edit" element={<ProtectedRoute requireBusiness><DishForm /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/recipes" element={<ProtectedRoute requireBusiness><RecipeList /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/recipes/create" element={<ProtectedRoute requireBusiness><RecipeForm /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/recipes/:id/edit" element={<ProtectedRoute requireBusiness><RecipeForm /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/cards" element={<ProtectedRoute><MyCards /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/cards/create" element={<ProtectedRoute><CreateCard /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/analytics" element={<ProtectedRoute requireBusiness><Analytics /></ProtectedRoute>} /> */}
-          {/* <Route path="dashboard/settings" element={<ProtectedRoute requireBusiness><Settings /></ProtectedRoute>} /> */}
+            {/* Admin Panel */}
+            <Route
+              path="admin"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="admin/*"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <FeatureUnavailable />
+                </ProtectedRoute>
+              }
+            />
 
-          {/* Admin Panel - VERSION 2 */}
-          <Route
-            path="admin"
-            element={
-              <ProtectedRoute requireAdmin>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="admin/*"
-            element={
-              <ProtectedRoute requireAdmin>
-                <FeatureUnavailable />
-              </ProtectedRoute>
-            }
-          />
-          {/* <Route path="admin" element={<ProtectedRoute requireAdmin><AdminPanel /></ProtectedRoute>} /> */}
-          {/* <Route path="admin/:tab" element={<ProtectedRoute requireAdmin><AdminPanel /></ProtectedRoute>} /> */}
-
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </Suspense>
     </Router>
   );
 }

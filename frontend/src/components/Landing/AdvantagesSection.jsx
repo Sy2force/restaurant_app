@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Search, Sparkles, MapPin } from 'lucide-react';
+import { Search, Sparkles, MapPin, Code } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 const AdvantagesSection = () => {
@@ -20,6 +20,11 @@ const AdvantagesSection = () => {
       icon: MapPin,
       title: t('landing.advantages.filterPreferences.title'),
       description: t('landing.advantages.filterPreferences.description'),
+    },
+    {
+      icon: Code,
+      title: t('landing.advantages.portfolio.title'),
+      description: t('landing.advantages.portfolio.description'),
     },
   ];
 

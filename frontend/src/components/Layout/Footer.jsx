@@ -96,6 +96,7 @@ const Footer = () => {
               {[
                 { to: '/dishes', label: t('nav.dishes') },
                 { to: '/restaurants', label: t('nav.restaurants') },
+                { to: '/about-project', label: t('nav.aboutProject') },
                 { to: '/contact', label: t('nav.contact') },
                 { to: '/privacy', label: t('footer.links.privacy') },
               ].map((link, index) => (
