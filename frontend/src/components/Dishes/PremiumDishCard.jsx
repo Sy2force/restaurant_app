@@ -95,7 +95,7 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
                 src={getImageUrl(dish.image)}
-                alt={dish.imageAlt || dish.name}
+                alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
                 loading="lazy"
                 className="w-full h-full object-cover"
                 onError={(e) => {
@@ -123,8 +123,8 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
                 </h3>
                 <p className="text-cream-100 text-sm flex items-center gap-2 truncate">
                   <MapPin className="w-4 h-4" aria-hidden="true" />
-                  {dish.restaurant?.name || t('common.restaurant')} •{' '}
-                  {localizeValue(dish.region, i18n.language)}
+                  {localizeValue(dish.restaurant?.name, i18n.language) ||
+                    t('common.restaurant')} • {localizeValue(dish.region, i18n.language)}
                 </p>
               </div>
             </div>

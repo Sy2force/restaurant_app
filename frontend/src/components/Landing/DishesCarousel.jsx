@@ -87,7 +87,7 @@ const DishesCarousel = () => {
                     <div className="relative h-[500px] rounded-2xl overflow-hidden">
                       <img
                         src={getImageUrl(dish.image)}
-                        alt={dish.name}
+                        alt={localizeValue(dish.name, i18n.language)}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                         onClick={() => handleDishClick(dish.mongoId || dish.id)}

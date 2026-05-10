@@ -19,10 +19,10 @@ import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import { mockRestaurantDetails } from '../data/mockRestaurantDetails';
 import { mockDishes } from '../data/mockDishes';
-import { getImageUrl } from '../utils/helpers';
+import { getImageUrl, localizeValue } from '../utils/helpers';
 
 const RestaurantDetail = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const [restaurant, setRestaurant] = useState(null);
   const [dishes, setDishes] = useState([]);
@@ -108,7 +108,11 @@ const RestaurantDetail = () => {
         {restaurant.coverImage ? (
           <img
             src={getImageUrl(restaurant.coverImage)}
-            alt={restaurant.coverImageAlt || restaurant.imageAlt || restaurant.name}
+            alt={
+              restaurant.coverImageAlt ||
+              restaurant.imageAlt ||
+              localizeValue(restaurant.name, i18n.language)
+            }
             className="w-full h-full object-cover"
           />
         ) : (
@@ -138,7 +142,7 @@ const RestaurantDetail = () => {
             <div className="relative">
               <img
                 src={getImageUrl(restaurant.logo) || '/default-restaurant.jpg'}
-                alt={restaurant.imageAlt || restaurant.name}
+                alt={restaurant.imageAlt || localizeValue(restaurant.name, i18n.language)}
                 className="w-24 h-24 md:w-32 md:h-32 rounded-2xl border-4 border-white/20 shadow-xl object-cover bg-white"
               />
               <div className="absolute -bottom-3 -right-3 bg-gold-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg flex items-center gap-1">
@@ -151,16 +155,17 @@ const RestaurantDetail = () => {
 
             <div className="flex-1">
               <h1 className="text-4xl md:text-6xl font-display font-bold mb-3 leading-tight">
-                {restaurant.name}
+                {localizeValue(restaurant.name, i18n.language)}
               </h1>
               <div className="flex flex-wrap items-center gap-4 md:gap-6 text-cream-100 text-sm md:text-base">
                 <div className="flex items-center gap-2">
                   <MapPin className="w-4 h-4 text-gold-400" />
-                  {restaurant.address?.city}, {restaurant.address?.street}
+                  {localizeValue(restaurant.address?.city, i18n.language)},{' '}
+                  {restaurant.address?.street}
                 </div>
                 <div className="flex items-center gap-2">
                   <Award className="w-4 h-4 text-gold-400" />
-                  {restaurant.cacherout}
+                  {localizeValue(restaurant.cacherout, i18n.language)}
                 </div>
                 {restaurant.priceRange && (
                   <div className="px-3 py-1 bg-white/10 rounded-full border border-white/20 text-gold-400 font-semibold">
@@ -216,14 +221,14 @@ const RestaurantDetail = () => {
             </h3>
 
             <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              {restaurant.description}
+              {localizeValue(restaurant.description, i18n.language)}
             </p>
 
             {/* CTA Buttons */}
             <div className="space-y-3 mb-6">
               <a
                 href={`tel:${restaurant.phone}`}
-                aria-label={`${t('restaurantDetail.cta.call')} ${restaurant.name}`}
+                aria-label={`${t('restaurantDetail.cta.call')} ${localizeValue(restaurant.name, i18n.language)}`}
                 className="flex items-center justify-center gap-2 w-full py-4 bg-gold-500 hover:bg-gold-600 text-white font-bold rounded-full transition-all shadow-xl shadow-gold-500/20"
               >
                 <Phone className="w-5 h-5" />
@@ -233,7 +238,7 @@ const RestaurantDetail = () => {
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${restaurant.address?.street || ''} ${restaurant.address?.city || ''}`.trim())}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label={`${t('restaurantDetail.cta.directions')} ${restaurant.name}`}
+                aria-label={`${t('restaurantDetail.cta.directions')} ${localizeValue(restaurant.name, i18n.language)}`}
                 className="flex items-center justify-center gap-2 w-full py-4 bg-dark-900 hover:bg-gray-800 text-white font-bold rounded-full transition-all shadow-lg"
               >
                 <Navigation className="w-5 h-5" />
@@ -241,7 +246,7 @@ const RestaurantDetail = () => {
               </a>
               <a
                 href={`tel:${restaurant.phone}`}
-                aria-label={`${t('restaurantDetail.cta.reserve')} ${restaurant.name}`}
+                aria-label={`${t('restaurantDetail.cta.reserve')} ${localizeValue(restaurant.name, i18n.language)}`}
                 className="flex items-center justify-center gap-2 w-full py-4 border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-bold rounded-full transition-all"
               >
                 <Calendar className="w-5 h-5" />

@@ -10,7 +10,7 @@ import QuickActions from '../components/Dishes/QuickActions';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import Button from '../components/UI/Button';
-import { getImageUrl } from '../utils/helpers';
+import { getImageUrl, localizeValue } from '../utils/helpers';
 import { mockDishes } from '../data/mockDishes';
 
 const sortDishes = (items, sort) => {
@@ -22,7 +22,7 @@ const sortDishes = (items, sort) => {
 };
 
 const Dishes = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [dishes, setDishes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [loadingMore, setLoadingMore] = useState(false);
@@ -226,7 +226,7 @@ const Dishes = () => {
                     <div className="h-48 overflow-hidden">
                       <img
                         src={getImageUrl(dish.image)}
-                        alt={dish.imageAlt || dish.name}
+                        alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                         onError={(e) => {
@@ -237,10 +237,10 @@ const Dishes = () => {
                     </div>
                     <div className="p-4 border-b-4 border-gold-500">
                       <h3 className="font-display font-bold text-lg text-gray-900 dark:text-white mb-1 truncate">
-                        {dish.name}
+                        {localizeValue(dish.name, i18n.language)}
                       </h3>
                       <p className="text-olive-600 text-sm font-medium flex items-center gap-1">
-                        <Leaf className="w-3 h-3" /> {dish.category}
+                        <Leaf className="w-3 h-3" /> {localizeValue(dish.category, i18n.language)}
                       </p>
                     </div>
                   </Link>

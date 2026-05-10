@@ -46,7 +46,7 @@ const RestaurantsSection = () => {
                 <div className="relative h-64 overflow-hidden">
                   <img
                     src={getImageUrl(restaurant.image)}
-                    alt={restaurant.name}
+                    alt={localizeValue(restaurant.name, i18n.language)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                     onClick={() => handleRestaurantClick(restaurant.id)}
                     onError={(e) => {
@@ -65,7 +65,7 @@ const RestaurantsSection = () => {
 
                   <div className="absolute bottom-4 start-4 end-4">
                     <h3 className="text-3xl font-display font-bold text-white mb-2">
-                      {restaurant.name}
+                      {localizeValue(restaurant.name, i18n.language)}
                     </h3>
                     <div className="flex items-center justify-between text-cream-100">
                       <span className="flex items-center gap-1">

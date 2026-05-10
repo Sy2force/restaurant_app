@@ -4,8 +4,8 @@ const baseMockRestaurants = [
     name: 'Mizlala',
     description:
       'Une expérience culinaire moderne signée par le chef Meir Adoni. Une fusion audacieuse mariant les saveurs intenses du Moyen-Orient aux techniques de la haute cuisine européenne.',
-    logo: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
-    coverImage: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
+    coverImage: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
     address: { city: 'Tel Aviv', street: 'Nahalat Binyamin 57' },
     phone: '03-566-5505',
     cacherout: 'Mehadrin',
@@ -18,8 +18,8 @@ const baseMockRestaurants = [
     name: 'Machneyuda',
     description:
       "L'effervescence du marché Mahane Yehuda transposée dans l'assiette. Une atmosphère électrique, une cuisine débridée et créative préparée sous vos yeux.",
-    logo: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
-    coverImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
     address: { city: 'Jérusalem', street: 'Beit Yaakov 10' },
     phone: '02-533-3442',
     cacherout: 'Rabbanout',
@@ -33,7 +33,7 @@ const baseMockRestaurants = [
     description:
       'Une cuisine biblique réinterprétée avec modernité. Le chef Moshe Basson sublime les herbes sauvages et plantes indigènes des collines de Jérusalem.',
     logo: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=2940',
     address: { city: 'Jérusalem', street: 'Felt 14' },
     phone: '02-624-4331',
     cacherout: 'Mehadrin',
@@ -47,7 +47,7 @@ const baseMockRestaurants = [
     description:
       "Restaurant gastronomique casher offrant une vue imprenable sur la mer. Une carte célébrant la fraîcheur des produits locaux, poissons et viandes d'exception.",
     logo: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
     address: { city: 'Herzliya', street: 'HaShunit 2' },
     phone: '09-955-5555',
     cacherout: 'Rabbanout',
@@ -60,8 +60,8 @@ const baseMockRestaurants = [
     name: 'Darya',
     description:
       "Une odyssée culinaire sur la Route de la Soie. Une fusion magistrale entre les cuisines d'Asie centrale et méditerranéenne au Hilton Tel Aviv.",
-    logo: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
+    coverImage: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Hilton Hotel' },
     phone: '03-520-2222',
     cacherout: 'Mehadrin',
@@ -74,7 +74,7 @@ const baseMockRestaurants = [
     name: '1868',
     description:
       'La haute gastronomie dans un bâtiment historique aux voûtes de pierre. Une expérience intime où les techniques françaises subliment le terroir de Jérusalem.',
-    logo: 'https://images.unsplash.com/photo-1552566626-52f8b828add9?q=80&w=2940',
+    logo: 'https://images.unsplash.com/photo-1563583733075-d91295a706be?q=80&w=3000',
     coverImage: 'https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?q=80&w=2940',
     address: { city: 'Jérusalem', street: 'King David 10' },
     phone: '02-622-2312',
@@ -89,7 +89,7 @@ const baseMockRestaurants = [
     description:
       "Le spécialiste incontesté de la Shakshuka à Jaffa. Une cuisine authentique tripolitaine servie dans un cadre rustique rempli d'antiquités.",
     logo: 'https://images.unsplash.com/photo-1538334421852-687c439c92f4?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
+    coverImage: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
     address: { city: 'Jaffa', street: 'Beit Eshel 3' },
     phone: '03-682-2842',
     cacherout: 'Rabbanout',
@@ -103,7 +103,7 @@ const baseMockRestaurants = [
     description:
       "Une échoppe légendaire au cœur de Tel Aviv, connue pour servir le meilleur Sabich de la ville. Une file d'attente qui en vaut la peine.",
     logo: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1538334421852-687c439c92f4?q=80&w=2940',
     address: { city: 'Tel Aviv', street: 'Frishman 42' },
     phone: '03-522-2222',
     cacherout: 'Mehadrin',
@@ -116,8 +116,8 @@ const baseMockRestaurants = [
     name: 'Abu Hassan',
     description:
       'Le temple du hummus à Jaffa. Une institution familiale qui sert le hummus le plus crémeux et authentique, une référence depuis plus de 40 ans.',
-    logo: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
+    logo: 'https://images.unsplash.com/photo-1514933651103-005eec06c04b?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2874',
     address: { city: 'Jaffa', street: 'Ha-Dolfin 1' },
     phone: '03-682-0888',
     cacherout: 'Rabbanout',
@@ -130,8 +130,8 @@ const baseMockRestaurants = [
     name: 'HaKosem',
     description:
       'Le "Magicien" du falafel. Une adresse moderne et vibrante qui a élevé le falafel au rang d\'art culinaire. Service rapide et souriant.',
-    logo: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=2940',
-    coverImage: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
+    logo: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
+    coverImage: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
     address: { city: 'Tel Aviv', street: 'Shlomo HaMelech 1' },
     phone: '03-525-2033',
     cacherout: 'Mehadrin',
@@ -144,8 +144,8 @@ const baseMockRestaurants = [
     name: 'Miznon',
     description:
       "La street food revisitée par le chef Eyal Shani. Des pitas moelleuses garnies d'ingrédients rôtis, servies dans une ambiance survoltée.",
-    logo: 'https://images.unsplash.com/photo-1563583733075-d91295a706be?q=80&w=3000',
-    coverImage: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
+    logo: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940',
+    coverImage: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
     address: { city: 'Tel Aviv', street: 'King George 30' },
     phone: '03-522-2222',
     cacherout: 'Rabbanout',

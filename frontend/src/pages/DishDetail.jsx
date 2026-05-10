@@ -8,10 +8,10 @@ import { useTranslation } from 'react-i18next';
 import Toast from '../components/UI/Toast';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import { mockDishes } from '../data/mockDishes';
-import { getImageUrl } from '../utils/helpers';
+import { getImageUrl, localizeValue } from '../utils/helpers';
 
 const DishDetail = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const { id } = useParams();
   const { isAuthenticated } = useAuthStore();
   const [moreDishes, setMoreDishes] = useState([]);
@@ -132,7 +132,7 @@ const DishDetail = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 0.8 }}
           src={getImageUrl(dish.image)}
-          alt={dish.imageAlt || dish.name}
+          alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
           className="w-full h-full object-cover"
           onError={(e) => {
             e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
@@ -158,11 +158,11 @@ const DishDetail = () => {
           >
             <div className="flex flex-wrap items-center gap-3 mb-4">
               <span className="px-4 py-1.5 bg-gold-500 text-white text-sm font-bold rounded-full shadow-lg">
-                {dish.category}
+                {localizeValue(dish.category, i18n.language)}
               </span>
               <span className="px-4 py-1.5 bg-olive-600 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2">
                 <Award className="w-4 h-4" />
-                {dish.cacherout}
+                {localizeValue(dish.cacherout, i18n.language)}
               </span>
               {dish.isVegetarian && (
                 <span className="px-4 py-1.5 bg-green-600 text-white text-sm font-bold rounded-full shadow-lg">
@@ -182,17 +182,17 @@ const DishDetail = () => {
             </div>
 
             <h1 className="text-5xl md:text-7xl font-display font-bold mb-4 leading-tight break-words">
-              {dish.name}
+              {localizeValue(dish.name, i18n.language)}
             </h1>
 
             <div className="flex flex-wrap items-center gap-6 text-cream-100 text-lg">
               <div className="flex items-center gap-2">
                 <MapPin className="w-5 h-5 text-gold-400" />
-                {dish.region}
+                {localizeValue(dish.region, i18n.language)}
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-gold-400" />
-                {dish.season}
+                {localizeValue(dish.season, i18n.language)}
               </div>
               {dish.rating?.average > 0 && (
                 <div className="flex items-center gap-2">
@@ -245,7 +245,7 @@ const DishDetail = () => {
               {t('dishDetail.about')}
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed mb-8">
-              {dish.description}
+              {localizeValue(dish.description, i18n.language)}
             </p>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -254,7 +254,7 @@ const DishDetail = () => {
                   {t('dishDetail.badges.type')}
                 </span>
                 <span className="font-display font-semibold text-gray-900 dark:text-white">
-                  {dish.category}
+                  {localizeValue(dish.category, i18n.language)}
                 </span>
               </div>
               <div className="p-4 bg-cream-50 dark:bg-gray-700 rounded-2xl text-center">
@@ -262,7 +262,7 @@ const DishDetail = () => {
                   {t('dishDetail.badges.region')}
                 </span>
                 <span className="font-display font-semibold text-gray-900 dark:text-white">
-                  {dish.region}
+                  {localizeValue(dish.region, i18n.language)}
                 </span>
               </div>
               <div className="p-4 bg-cream-50 dark:bg-gray-700 rounded-2xl text-center">
@@ -270,7 +270,7 @@ const DishDetail = () => {
                   {t('dishDetail.badges.season')}
                 </span>
                 <span className="font-display font-semibold text-gray-900 dark:text-white">
-                  {dish.season}
+                  {localizeValue(dish.season, i18n.language)}
                 </span>
               </div>
               <div className="p-4 bg-cream-50 dark:bg-gray-700 rounded-2xl text-center">
@@ -302,7 +302,9 @@ const DishDetail = () => {
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src={getImageUrl(dish.restaurant.logo)}
-                  alt={dish.restaurant.imageAlt || dish.restaurant.name}
+                  alt={
+                    dish.restaurant.imageAlt || localizeValue(dish.restaurant.name, i18n.language)
+                  }
                   className="w-20 h-20 rounded-2xl object-cover shadow-md"
                   onError={(e) => {
                     e.target.src =
@@ -311,22 +313,27 @@ const DishDetail = () => {
                 />
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 dark:text-white leading-tight mb-1">
-                    {dish.restaurant.name}
+                    {localizeValue(dish.restaurant.name, i18n.language)}
                   </h4>
                   <div className="flex items-center text-gray-500 dark:text-gray-400 text-sm">
                     <MapPin className="w-4 h-4 ms-1 rtl:mr-1 rtl:ms-0" />
-                    {dish.restaurant.address?.city || dish.restaurant.city}
+                    {localizeValue(
+                      dish.restaurant.address?.city || dish.restaurant.city,
+                      i18n.language
+                    )}
                   </div>
                 </div>
               </div>
 
               <div className="space-y-4 mb-8">
                 <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3">
-                  {dish.restaurant.description}
+                  {localizeValue(dish.restaurant.description, i18n.language)}
                 </p>
                 <div className="flex items-center justify-between text-sm">
                   <span className="text-gray-500">{t('dishDetail.cacherout')}</span>
-                  <span className="font-semibold text-gold-500">{dish.restaurant.cacherout}</span>
+                  <span className="font-semibold text-gold-500">
+                    {localizeValue(dish.restaurant.cacherout, i18n.language)}
+                  </span>
                 </div>
               </div>
 
@@ -351,7 +358,9 @@ const DishDetail = () => {
             viewport={{ once: true }}
             className="text-3xl font-display font-bold text-gray-900 dark:text-white mb-8"
           >
-            {t('dishDetail.moreFrom', { name: dish.restaurant?.name })}
+            {t('dishDetail.moreFrom', {
+              name: localizeValue(dish.restaurant?.name, i18n.language),
+            })}
           </motion.h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {moreDishes.map((moreDish, index) => (
@@ -368,7 +377,7 @@ const DishDetail = () => {
                     <div className="relative h-48 overflow-hidden">
                       <img
                         src={getImageUrl(moreDish.image)}
-                        alt={moreDish.imageAlt || moreDish.name}
+                        alt={moreDish.imageAlt || localizeValue(moreDish.name, i18n.language)}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                         onError={(e) => {
@@ -382,7 +391,7 @@ const DishDetail = () => {
                     </div>
                     <div className="p-4">
                       <h4 className="font-bold text-lg text-gray-900 dark:text-white mb-1">
-                        {moreDish.name}
+                        {localizeValue(moreDish.name, i18n.language)}
                       </h4>
                       <p className="text-gold-500 font-bold">₪{moreDish.price}</p>
                     </div>

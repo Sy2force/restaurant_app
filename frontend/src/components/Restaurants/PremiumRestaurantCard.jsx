@@ -25,7 +25,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
               whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.7 }}
               src={getImageUrl(restaurant.logo)}
-              alt={restaurant.imageAlt || restaurant.name}
+              alt={restaurant.imageAlt || localizeValue(restaurant.name, i18n.language)}
               loading="lazy"
               className="w-full h-full object-cover"
               onError={(e) => {
@@ -53,7 +53,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
 
             <div className="absolute bottom-0 start-0 end-0 p-6">
               <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-gold-400 transition-colors line-clamp-1">
-                {restaurant.name}
+                {localizeValue(restaurant.name, i18n.language)}
               </h3>
               <p className="flex items-center gap-2 text-cream-100 text-sm truncate max-w-full">
                 <MapPin className="w-4 h-4" aria-hidden="true" />
