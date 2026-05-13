@@ -17,6 +17,7 @@ import {
 import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
+import ReservationModal from '../components/Reservations/ReservationModal';
 import { mockRestaurantDetails } from '../data/mockRestaurantDetails';
 import { mockDishes } from '../data/mockDishes';
 import { getImageUrl, localizeValue } from '../utils/helpers';
@@ -28,6 +29,7 @@ const RestaurantDetail = () => {
   const [dishes, setDishes] = useState([]);
   const [loading, setLoading] = useState(true);
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+  const [reservationOpen, setReservationOpen] = useState(false);
 
   const fetchData = useCallback(async () => {
     try {
@@ -244,14 +246,15 @@ const RestaurantDetail = () => {
                 <Navigation className="w-5 h-5" />
                 {t('restaurantDetail.cta.directions')}
               </a>
-              <a
-                href={`tel:${restaurant.phone}`}
+              <button
+                type="button"
+                onClick={() => setReservationOpen(true)}
                 aria-label={`${t('restaurantDetail.cta.reserve')} ${localizeValue(restaurant.name, i18n.language)}`}
                 className="flex items-center justify-center gap-2 w-full py-4 border-2 border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white font-bold rounded-full transition-all"
               >
                 <Calendar className="w-5 h-5" />
                 {t('restaurantDetail.cta.reserve')}
-              </a>
+              </button>
               <Link
                 to="/contact"
                 className="flex items-center justify-center gap-2 w-full py-4 border border-dark-900 dark:border-gray-500 text-dark-900 dark:text-white hover:bg-dark-900 hover:text-white font-bold rounded-full transition-all"
@@ -339,6 +342,12 @@ const RestaurantDetail = () => {
       </div>
 
       <Toast message={toast.message} type={toast.type} isVisible={toast.show} onClose={hideToast} />
+
+      <ReservationModal
+        isOpen={reservationOpen}
+        onClose={() => setReservationOpen(false)}
+        restaurant={restaurant}
+      />
     </div>
   );
 };

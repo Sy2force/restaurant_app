@@ -211,6 +211,7 @@
     "loading": "Loading...",
     "error": "An error occurred",
     "back": "Back",
+    "close": "Close",
     "save": "Save",
     "saving": "Saving...",
     "cancel": "Cancel",
@@ -732,6 +733,49 @@
   "comingSoon": {
     "title": "Feature coming soon",
     "text": "This protected section is reserved for version 2. The public restaurant guide remains available."
+  },
+  "reservations": {
+    "title": "Book a table",
+    "pageTitle": "My reservations",
+    "pageSubtitle": "Manage all your bookings in one place",
+    "badge": "Personal space",
+    "bookingAt": "Booking at",
+    "confirmButton": "Confirm reservation",
+    "cancel": "Cancel",
+    "cancelSuccess": "Reservation cancelled",
+    "deleteSuccess": "Reservation deleted",
+    "successTitle": "Reservation confirmed",
+    "successMessage": "Your table is booked at {{restaurant}}",
+    "successDetails": "On {{date}} at {{time}} for {{guests}} guests.",
+    "viewMine": "View my reservations",
+    "viewRestaurant": "View restaurant",
+    "guestsLabel": "guests",
+    "loginRequired": "You need to be logged in to make a reservation.",
+    "fields": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "date": "Date",
+      "time": "Time",
+      "guests": "Guests",
+      "note": "Special request",
+      "notePlaceholder": "Allergies, occasion, seating preference..."
+    },
+    "filters": {
+      "all": "All",
+      "upcoming": "Upcoming",
+      "past": "Past",
+      "cancelled": "Cancelled"
+    },
+    "status": {
+      "confirmed": "Confirmed",
+      "cancelled": "Cancelled"
+    },
+    "empty": {
+      "title": "No reservations yet",
+      "desc": "Discover our restaurants and book your next culinary experience.",
+      "button": "Explore restaurants"
+    }
   },
   "aboutProject": {
     "title": "Flavors of Israel — Restaurant Discovery Platform",

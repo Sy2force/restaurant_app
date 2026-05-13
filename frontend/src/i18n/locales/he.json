@@ -211,6 +211,7 @@
     "loading": "טוען...",
     "error": "אירעה שגיאה",
     "back": "חזור",
+    "close": "סגור",
     "save": "שמור",
     "saving": "שומר...",
     "cancel": "ביטול",
@@ -754,6 +755,49 @@
   "comingSoon": {
     "title": "הפיצ'ר יגיע בקרוב",
     "text": "החלק המוגן הזה שמור לגרסה 2. מדריך המסעדות הציבורי נשאר זמין."
+  },
+  "reservations": {
+    "title": "הזמנת שולחן",
+    "pageTitle": "ההזמנות שלי",
+    "pageSubtitle": "ניהול כל ההזמנות שלך במקום אחד",
+    "badge": "האזור האישי",
+    "bookingAt": "הזמנה ב",
+    "confirmButton": "אישור ההזמנה",
+    "cancel": "ביטול",
+    "cancelSuccess": "ההזמנה בוטלה בהצלחה",
+    "deleteSuccess": "ההזמנה נמחקה",
+    "successTitle": "ההזמנה אושרה",
+    "successMessage": "השולחן שלך שמור ב-{{restaurant}}",
+    "successDetails": "בתאריך {{date}} בשעה {{time}} עבור {{guests}} סועדים.",
+    "viewMine": "צפייה בהזמנות שלי",
+    "viewRestaurant": "צפייה במסעדה",
+    "guestsLabel": "סועדים",
+    "loginRequired": "יש להתחבר כדי לבצע הזמנה.",
+    "fields": {
+      "name": "שם מלא",
+      "email": "אימייל",
+      "phone": "טלפון",
+      "date": "תאריך",
+      "time": "שעה",
+      "guests": "סועדים",
+      "note": "בקשה מיוחדת",
+      "notePlaceholder": "אלרגיות, אירוע מיוחד, העדפת שולחן..."
+    },
+    "filters": {
+      "all": "הכל",
+      "upcoming": "קרובות",
+      "past": "עבר",
+      "cancelled": "בוטלו"
+    },
+    "status": {
+      "confirmed": "מאושר",
+      "cancelled": "בוטל"
+    },
+    "empty": {
+      "title": "אין עדיין הזמנות",
+      "desc": "גלו את המסעדות שלנו והזמינו את החוויה הקולינרית הבאה שלכם.",
+      "button": "גלו מסעדות"
+    }
   },
   "aboutProject": {
     "title": "Flavors of Israel — פלטפורמת גילוי מסעדות",

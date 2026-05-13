@@ -21,6 +21,10 @@ const AboutProject = lazy(() => import('./pages/AboutProject'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 const Unauthorized = lazy(() => import('./pages/Unauthorized'));
 const FeatureUnavailable = lazy(() => import('./pages/FeatureUnavailable'));
+const UserDashboard = lazy(() => import('./pages/UserDashboard'));
+const Profile = lazy(() => import('./pages/Profile'));
+const Favorites = lazy(() => import('./pages/Favorites'));
+const Reservations = lazy(() => import('./pages/Reservations'));
 
 function App() {
   return (
@@ -49,7 +53,7 @@ function App() {
               path="user-dashboard"
               element={
                 <ProtectedRoute>
-                  <FeatureUnavailable />
+                  <UserDashboard />
                 </ProtectedRoute>
               }
             />
@@ -57,7 +61,15 @@ function App() {
               path="profile"
               element={
                 <ProtectedRoute>
-                  <FeatureUnavailable />
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="profile/:id"
+              element={
+                <ProtectedRoute>
+                  <Profile />
                 </ProtectedRoute>
               }
             />
@@ -65,7 +77,15 @@ function App() {
               path="favorites"
               element={
                 <ProtectedRoute>
-                  <FeatureUnavailable />
+                  <Favorites />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="reservations"
+              element={
+                <ProtectedRoute>
+                  <Reservations />
                 </ProtectedRoute>
               }
             />

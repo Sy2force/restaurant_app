@@ -222,7 +222,7 @@ const Favorites = () => {
                   <Icon className="w-5 h-5" />
                   {tab.label}
                   <span
-                    className={`ms-2 rtl:mr-2 rtl:ms-0 px-2 py-0.5 rounded-full text-xs {
+                    className={`ms-2 rtl:mr-2 rtl:ms-0 px-2 py-0.5 rounded-full text-xs ${
                       activeTab === tab.key ? 'bg-white/20' : 'bg-gray-200 dark:bg-gray-600'
                     }`}
                   >

@@ -2,7 +2,17 @@ import { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../../store/authStore';
-import { Menu, X, User, LogOut, Globe, ChefHat } from 'lucide-react';
+import {
+  Menu,
+  X,
+  User,
+  LogOut,
+  Globe,
+  ChefHat,
+  Heart,
+  LayoutDashboard,
+  Calendar,
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../UI/Button';
 import { getImageUrl } from '../../utils/helpers';
@@ -178,6 +188,39 @@ const Navbar = () => {
                         <p className="text-sm font-medium text-white">{user?.name}</p>
                         <p className="text-xs text-gray-500 truncate">{user?.email}</p>
                       </div>
+
+                      <Link
+                        to="/user-dashboard"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        <LayoutDashboard className="w-4 h-4 text-gold-500" />
+                        {t('nav.dashboard')}
+                      </Link>
+                      <Link
+                        to="/profile"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        <User className="w-4 h-4 text-gold-500" />
+                        {t('nav.profile')}
+                      </Link>
+                      <Link
+                        to="/favorites"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        <Heart className="w-4 h-4 text-gold-500" />
+                        {t('nav.favorites')}
+                      </Link>
+                      <Link
+                        to="/reservations"
+                        onClick={() => setUserMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/5 transition-colors"
+                      >
+                        <Calendar className="w-4 h-4 text-gold-500" />
+                        {t('reservations.pageTitle')}
+                      </Link>
 
                       <div className="mt-2 pt-2 border-t border-white/5">
                         <button

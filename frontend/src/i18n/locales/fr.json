@@ -211,6 +211,7 @@
     "loading": "Chargement en cours...",
     "error": "Une erreur est survenue",
     "back": "Retour",
+    "close": "Fermer",
     "save": "Enregistrer",
     "saving": "Sauvegarde...",
     "cancel": "Annuler",
@@ -731,6 +732,49 @@
   "comingSoon": {
     "title": "Fonctionnalité bientôt disponible",
     "text": "Cette section est protégée et reviendra dans une version 2. Les pages publiques du guide restent disponibles."
+  },
+  "reservations": {
+    "title": "Réserver une table",
+    "pageTitle": "Mes réservations",
+    "pageSubtitle": "Gérez toutes vos réservations en un seul endroit",
+    "badge": "Espace personnel",
+    "bookingAt": "Réservation chez",
+    "confirmButton": "Confirmer la réservation",
+    "cancel": "Annuler",
+    "cancelSuccess": "Réservation annulée avec succès",
+    "deleteSuccess": "Réservation supprimée",
+    "successTitle": "Réservation confirmée",
+    "successMessage": "Votre table est réservée chez {{restaurant}}",
+    "successDetails": "Le {{date}} à {{time}} pour {{guests}} personnes.",
+    "viewMine": "Voir mes réservations",
+    "viewRestaurant": "Voir le restaurant",
+    "guestsLabel": "personnes",
+    "loginRequired": "Vous devez être connecté pour réserver.",
+    "fields": {
+      "name": "Nom complet",
+      "email": "Email",
+      "phone": "Téléphone",
+      "date": "Date",
+      "time": "Heure",
+      "guests": "Convives",
+      "note": "Demande spéciale",
+      "notePlaceholder": "Allergies, occasion, préférence de table..."
+    },
+    "filters": {
+      "all": "Toutes",
+      "upcoming": "À venir",
+      "past": "Passées",
+      "cancelled": "Annulées"
+    },
+    "status": {
+      "confirmed": "Confirmée",
+      "cancelled": "Annulée"
+    },
+    "empty": {
+      "title": "Aucune réservation pour le moment",
+      "desc": "Découvrez nos restaurants et réservez votre prochaine expérience culinaire.",
+      "button": "Explorer les restaurants"
+    }
   },
   "aboutProject": {
     "title": "Flavors of Israel — Plateforme de Découverte de Restaurants",
