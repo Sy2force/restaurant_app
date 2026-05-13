@@ -9,8 +9,11 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 
-import { getImageUrl, localizeValue } from '../../utils/helpers';
+import { localizeValue } from '../../utils/helpers';
+import { getCarouselItems, imageOnError } from '../../data/images.registry';
 import { featuredDishes } from '../../data/featuredDishes';
+
+const safeDishes = getCarouselItems(featuredDishes, { maxItems: 6, type: 'dish' });
 
 const DishesCarousel = () => {
   const { t, i18n } = useTranslation();
@@ -80,21 +83,18 @@ const DishesCarousel = () => {
               1024: { slidesPerView: 3 },
             }}
           >
-            {featuredDishes.slice(0, 6).map((dish) => (
+            {safeDishes.map((dish) => (
               <SwiperSlide key={dish.id} className="!w-[min(22rem,calc(100vw-2rem))] sm:!w-96">
                 <Link to={`/dishes/${dish.mongoId || dish.id}`}>
                   <div className="relative group cursor-pointer">
                     <div className="relative h-[500px] rounded-2xl overflow-hidden">
                       <img
-                        src={getImageUrl(dish.image)}
+                        src={dish._safeImage}
                         alt={localizeValue(dish.name, i18n.language)}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                         onClick={() => handleDishClick(dish.mongoId || dish.id)}
-                        onError={(e) => {
-                          e.target.src =
-                            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
-                        }}
+                        onError={imageOnError('dish')}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
@@ -107,16 +107,22 @@ const DishesCarousel = () => {
                           <h3 className="text-3xl font-display font-bold mb-3">
                             {localizeValue(dish.name, i18n.language)}
                           </h3>
-                          <div className="flex items-center gap-4 text-cream-200">
-                            <span className="flex items-center gap-2">
-                              <ChefHat className="w-5 h-5" />
-                              {dish.chef}
-                            </span>
-                            <span className="flex items-center gap-2">
-                              <MapPin className="w-5 h-5" />
-                              {dish.city}
-                            </span>
-                          </div>
+                          {(dish.chef || dish.city) && (
+                            <div className="flex items-center gap-4 text-cream-200">
+                              {dish.chef && (
+                                <span className="flex items-center gap-2">
+                                  <ChefHat className="w-5 h-5" />
+                                  {dish.chef}
+                                </span>
+                              )}
+                              {dish.city && (
+                                <span className="flex items-center gap-2">
+                                  <MapPin className="w-5 h-5" />
+                                  {dish.city}
+                                </span>
+                              )}
+                            </div>
+                          )}
                         </motion.div>
                       </div>
 

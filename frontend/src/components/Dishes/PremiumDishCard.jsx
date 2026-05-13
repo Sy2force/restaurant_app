@@ -4,7 +4,8 @@ import { Heart, Bookmark, Share2, MapPin, Star, Award } from 'lucide-react';
 import { useState } from 'react';
 import { useAuthStore } from '../../store/authStore';
 import { likeAPI, authAPI } from '../../services/api';
-import { getImageUrl, localizeValue } from '../../utils/helpers';
+import { localizeValue } from '../../utils/helpers';
+import { getSafeImage, imageOnError } from '../../data/images.registry';
 import { useTranslation } from 'react-i18next';
 
 const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
@@ -94,22 +95,21 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
               <motion.img
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
-                src={getImageUrl(dish.image)}
+                src={getSafeImage(dish.image, 'dish')}
                 alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
                 loading="lazy"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.target.src =
-                    'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
-                }}
+                onError={imageOnError('dish')}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
 
               <div className="absolute top-3 start-3 flex gap-2">
-                <span className="px-3 py-1 bg-gold-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
-                  <Award className="w-3 h-3" />
-                  {localizeValue(dish.cacherout, i18n.language)}
-                </span>
+                {dish.cacherout && (
+                  <span className="px-3 py-1 bg-gold-500 text-white text-xs font-bold rounded-full shadow-lg flex items-center gap-1">
+                    <Award className="w-3 h-3" />
+                    {localizeValue(dish.cacherout, i18n.language)}
+                  </span>
+                )}
                 {dish.isVegetarian && (
                   <span className="px-3 py-1 bg-green-600 text-white text-xs font-bold rounded-full shadow-md">
                     {localizeValue('Végétarien', i18n.language)}
@@ -121,11 +121,17 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
                 <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-gold-400 transition-colors line-clamp-1">
                   {localizeValue(dish.name, i18n.language)}
                 </h3>
-                <p className="text-cream-100 text-sm flex items-center gap-2 truncate">
-                  <MapPin className="w-4 h-4" aria-hidden="true" />
-                  {localizeValue(dish.restaurant?.name, i18n.language) ||
-                    t('common.restaurant')} • {localizeValue(dish.region, i18n.language)}
-                </p>
+                {(dish.restaurant?.name || dish.region) && (
+                  <p className="text-cream-100 text-sm flex items-center gap-2 truncate">
+                    <MapPin className="w-4 h-4" aria-hidden="true" />
+                    {[
+                      localizeValue(dish.restaurant?.name, i18n.language) || t('common.restaurant'),
+                      localizeValue(dish.region, i18n.language),
+                    ]
+                      .filter(Boolean)
+                      .join(' • ')}
+                  </p>
+                )}
               </div>
             </div>
           </Link>
@@ -177,9 +183,13 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
           </p>
 
           <div className="flex items-center justify-between mb-4">
-            <span className="text-2xl font-bold text-gold-600 dark:text-gold-400">
-              ₪{dish.price}
-            </span>
+            {typeof dish.price === 'number' && dish.price > 0 ? (
+              <span className="text-2xl font-bold text-gold-600 dark:text-gold-400">
+                ₪{dish.price}
+              </span>
+            ) : (
+              <span />
+            )}
             {dish.rating?.average > 0 && (
               <div className="flex items-center gap-1">
                 <Star className="w-5 h-5 fill-gold-500 text-gold-500" aria-hidden="true" />

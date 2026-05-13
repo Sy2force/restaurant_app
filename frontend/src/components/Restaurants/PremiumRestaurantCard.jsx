@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { MapPin, Star, Award, Phone, UtensilsCrossed } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getImageUrl, localizeValue } from '../../utils/helpers';
+import { localizeValue } from '../../utils/helpers';
+import { getSafeImage, imageOnError } from '../../data/images.registry';
 
 const PremiumRestaurantCard = ({ restaurant }) => {
   const { t, i18n } = useTranslation();
@@ -24,23 +25,25 @@ const PremiumRestaurantCard = ({ restaurant }) => {
             <motion.img
               whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.7 }}
-              src={getImageUrl(restaurant.logo)}
+              src={getSafeImage(
+                restaurant.coverImage || restaurant.logo || restaurant.imageUrl,
+                'restaurant'
+              )}
               alt={restaurant.imageAlt || localizeValue(restaurant.name, i18n.language)}
               loading="lazy"
               className="w-full h-full object-cover"
-              onError={(e) => {
-                e.target.src =
-                  'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940';
-              }}
+              onError={imageOnError('restaurant')}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
 
-            <div className="absolute top-4 start-4">
-              <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-xl flex items-center gap-2">
-                <Award className="w-4 h-4" />
-                {localizeValue(restaurant.cacherout, i18n.language)}
-              </span>
-            </div>
+            {restaurant.cacherout && (
+              <div className="absolute top-4 start-4">
+                <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-xl flex items-center gap-2">
+                  <Award className="w-4 h-4" />
+                  {localizeValue(restaurant.cacherout, i18n.language)}
+                </span>
+              </div>
+            )}
 
             {restaurant.rating?.average > 0 && (
               <div className="absolute top-4 end-4 px-3 py-1 bg-white/95 backdrop-blur-sm rounded-full flex items-center gap-1">
@@ -55,10 +58,17 @@ const PremiumRestaurantCard = ({ restaurant }) => {
               <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-gold-400 transition-colors line-clamp-1">
                 {localizeValue(restaurant.name, i18n.language)}
               </h3>
-              <p className="flex items-center gap-2 text-cream-100 text-sm truncate max-w-full">
-                <MapPin className="w-4 h-4" aria-hidden="true" />
-                {restaurant.address?.city}, {restaurant.address?.street}
-              </p>
+              {(restaurant.address?.city || restaurant.address?.street) && (
+                <p className="flex items-center gap-2 text-cream-100 text-sm truncate max-w-full">
+                  <MapPin className="w-4 h-4" aria-hidden="true" />
+                  {[
+                    localizeValue(restaurant.address?.city, i18n.language),
+                    restaurant.address?.street,
+                  ]
+                    .filter(Boolean)
+                    .join(', ')}
+                </p>
+              )}
             </div>
           </div>
         </Link>
@@ -79,10 +89,12 @@ const PremiumRestaurantCard = ({ restaurant }) => {
             ))}
           </div>
 
-          <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
-            <Phone className="w-4 h-4" aria-hidden="true" />
-            <span>{restaurant.phone}</span>
-          </div>
+          {restaurant.phone && (
+            <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 mb-4">
+              <Phone className="w-4 h-4" aria-hidden="true" />
+              <span>{restaurant.phone}</span>
+            </div>
+          )}
 
           <Link
             to={`/restaurants/${restaurant._id}`}

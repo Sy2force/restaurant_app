@@ -2,8 +2,14 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { MapPin, Star, Award, ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { getImageUrl, localizeValue } from '../../utils/helpers';
+import { localizeValue } from '../../utils/helpers';
+import { getCarouselItems, imageOnError } from '../../data/images.registry';
 import { featuredRestaurants } from '../../data/mockLandingData';
+
+const safeRestaurants = getCarouselItems(featuredRestaurants, {
+  maxItems: 6,
+  type: 'restaurant',
+});
 
 const RestaurantsSection = () => {
   const { t, i18n } = useTranslation();
@@ -32,7 +38,7 @@ const RestaurantsSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-          {featuredRestaurants.slice(0, 6).map((restaurant, index) => (
+          {safeRestaurants.map((restaurant, index) => (
             <motion.div
               key={restaurant.id}
               initial={{ opacity: 0, y: 30 }}
@@ -45,45 +51,50 @@ const RestaurantsSection = () => {
               <div className="bg-gray-800 rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer">
                 <div className="relative h-64 overflow-hidden">
                   <img
-                    src={getImageUrl(restaurant.image)}
+                    src={restaurant._safeImage}
                     alt={localizeValue(restaurant.name, i18n.language)}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                     onClick={() => handleRestaurantClick(restaurant.id)}
-                    onError={(e) => {
-                      e.target.src =
-                        'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940';
-                    }}
+                    onError={imageOnError('restaurant')}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark-900/90 to-transparent" />
 
-                  <div className="absolute top-4 start-4">
-                    <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2">
-                      <Award className="w-4 h-4" />
-                      {localizeValue(restaurant.kosher, i18n.language)}
-                    </span>
-                  </div>
+                  {restaurant.kosher && (
+                    <div className="absolute top-4 start-4">
+                      <span className="px-4 py-2 bg-gold-500 text-white text-sm font-bold rounded-full shadow-lg flex items-center gap-2">
+                        <Award className="w-4 h-4" />
+                        {localizeValue(restaurant.kosher, i18n.language)}
+                      </span>
+                    </div>
+                  )}
 
                   <div className="absolute bottom-4 start-4 end-4">
                     <h3 className="text-3xl font-display font-bold text-white mb-2">
                       {localizeValue(restaurant.name, i18n.language)}
                     </h3>
                     <div className="flex items-center justify-between text-cream-100">
-                      <span className="flex items-center gap-1">
-                        <MapPin className="w-4 h-4" />
-                        {localizeValue(restaurant.city, i18n.language)}
-                      </span>
-                      <span className="flex items-center gap-1">
-                        <Star className="w-4 h-4 fill-gold-500 text-gold-500" />
-                        {restaurant.rating}
-                      </span>
+                      {restaurant.city && (
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-4 h-4" />
+                          {localizeValue(restaurant.city, i18n.language)}
+                        </span>
+                      )}
+                      {restaurant.rating > 0 && (
+                        <span className="flex items-center gap-1">
+                          <Star className="w-4 h-4 fill-gold-500 text-gold-500" />
+                          {restaurant.rating}
+                        </span>
+                      )}
                     </div>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <p className="text-gray-400 mb-4">
-                    {localizeValue(restaurant.cuisine, i18n.language)}
-                  </p>
+                  {restaurant.cuisine && (
+                    <p className="text-gray-400 mb-4">
+                      {localizeValue(restaurant.cuisine, i18n.language)}
+                    </p>
+                  )}
                   <Link
                     to={`/restaurants/${restaurant.id}`}
                     className="flex min-h-11 w-full items-center justify-center rounded-full bg-gold-500 py-3 font-semibold text-white transition-colors hover:bg-gold-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"

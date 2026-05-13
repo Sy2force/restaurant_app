@@ -3,15 +3,15 @@ import { motion } from 'framer-motion';
 import { Sparkles, TrendingUp, ChefHat, Flame, Leaf } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { dishAPI } from '../services/api';
 import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import StickyFilters from '../components/Dishes/StickyFilters';
 import QuickActions from '../components/Dishes/QuickActions';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import Button from '../components/UI/Button';
-import { getImageUrl, localizeValue } from '../utils/helpers';
-import { mockDishes } from '../data/mockDishes';
+import { localizeValue } from '../utils/helpers';
+import { getSafeImage, imageOnError } from '../data/images.registry';
+import { filterDishes, getAllDishes } from '../services/dish.service';
 
 const sortDishes = (items, sort) => {
   const sorted = [...items];
@@ -37,7 +37,7 @@ const Dishes = () => {
   };
 
   const fetchDishes = useCallback(
-    async (targetPage = 1, reset = false) => {
+    async (reset = false) => {
       try {
         if (reset) {
           setLoading(true);
@@ -46,77 +46,37 @@ const Dishes = () => {
           setLoadingMore(true);
         }
 
-        let data = [];
-        let apiSuccess = false;
+        const data = sortDishes(await filterDishes(filters), filters.sort);
 
-        // Try API call
-        try {
-          const params = {
-            limit: 12,
-            page: targetPage,
-            ...filters,
-          };
-          const response = await dishAPI.getAll(params);
-          if (response.data && response.data.dishes) {
-            data = response.data.dishes;
-            apiSuccess = true;
-            setHasMore(response.data.dishes.length === 12);
-          }
-        } catch {
-          // API error
-        }
+        // Dedupe by _id then by image
+        const seenIds = new Set();
+        const seenImages = new Set();
+        const unique = data.filter((d) => {
+          if (!d?._id || seenIds.has(d._id)) return false;
+          if (d.image && seenImages.has(d.image)) return false;
+          seenIds.add(d._id);
+          if (d.image) seenImages.add(d.image);
+          return true;
+        });
 
-        if (!apiSuccess) {
-          await new Promise((resolve) => setTimeout(resolve, 600));
-          // Convert mockDishes object to array
-          let filteredData = Object.values(mockDishes);
+        const isDefaultView = Object.keys(filters).length === 0;
+        const featuredIds = isDefaultView
+          ? new Set(unique.slice(0, 3).map((d) => d._id))
+          : new Set();
+        const visible = isDefaultView ? unique.filter((d) => !featuredIds.has(d._id)) : unique;
 
-          if (filters.category) {
-            filteredData = filteredData.filter((d) => d.category === filters.category);
-          }
-          if (filters.search) {
-            const searchLower = filters.search.toLowerCase();
-            filteredData = filteredData.filter(
-              (d) =>
-                d.name.toLowerCase().includes(searchLower) ||
-                d.description.toLowerCase().includes(searchLower) ||
-                d.restaurant.name.toLowerCase().includes(searchLower) ||
-                d.region.toLowerCase().includes(searchLower)
-            );
-          }
-          if (filters.cacherout) {
-            filteredData = filteredData.filter((d) => d.cacherout === filters.cacherout);
-          }
-          if (filters.isVegetarian) {
-            filteredData = filteredData.filter((d) => d.isVegetarian);
-          }
-          if (filters.region || filters.city) {
-            const regionFilter = filters.region || filters.city;
-            filteredData = filteredData.filter((d) => d.region === regionFilter);
-          }
-          data = sortDishes(filteredData, filters.sort);
-          setHasMore(false);
-        }
-
+        setHasMore(false);
         if (reset) {
-          const isDefaultView = Object.keys(filters).length === 0;
-          if (isDefaultView && !apiSuccess) {
-            const featuredSlice = Object.values(mockDishes).slice(0, 3);
-            const featuredIds = new Set(featuredSlice.map((d) => d._id));
-            setDishes(data.filter((d) => !featuredIds.has(d._id)));
-          } else {
-            setDishes(data);
-          }
+          setDishes(visible);
         } else {
           setDishes((prev) => {
             const existingIds = new Set(prev.map((item) => item._id));
-            const newItems = data.filter((item) => !existingIds.has(item._id));
-            return [...prev, ...newItems];
+            return [...prev, ...visible.filter((item) => !existingIds.has(item._id))];
           });
         }
       } catch {
         setToast({ show: true, message: t('dashboard.forms.errors.load'), type: 'error' });
-        setDishes(Object.values(mockDishes));
+        setDishes([]);
       } finally {
         setLoading(false);
         setLoadingMore(false);
@@ -126,14 +86,16 @@ const Dishes = () => {
   );
 
   useEffect(() => {
-    fetchDishes(1, true);
-    setFeaturedDishes(Object.values(mockDishes).slice(0, 3));
+    fetchDishes(true);
+    getAllDishes()
+      .then((all) => setFeaturedDishes(all.slice(0, 3)))
+      .catch(() => setFeaturedDishes([]));
   }, [fetchDishes]);
 
   const handleLoadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchDishes(nextPage, false);
+    fetchDishes(false);
   };
 
   const handleFilterChange = (key, value) => {
@@ -225,14 +187,11 @@ const Dishes = () => {
                     </div>
                     <div className="h-48 overflow-hidden">
                       <img
-                        src={getImageUrl(dish.image)}
+                        src={getSafeImage(dish.image, 'dish')}
                         alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                        onError={(e) => {
-                          e.target.src =
-                            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
-                        }}
+                        onError={imageOnError('dish')}
                       />
                     </div>
                     <div className="p-4 border-b-4 border-gold-500">

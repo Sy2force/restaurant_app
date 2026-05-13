@@ -2,13 +2,12 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion } from 'framer-motion';
 import { Store } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { restaurantAPI } from '../services/api';
 import PremiumRestaurantCard from '../components/Restaurants/PremiumRestaurantCard';
 import RestaurantStickyFilters from '../components/Restaurants/RestaurantStickyFilters';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import Button from '../components/UI/Button';
-import { mockRestaurants } from '../data/mockRestaurants';
+import { filterRestaurants } from '../services/restaurant.service';
 
 const sortRestaurants = (items) =>
   [...items].sort((a, b) => (b.rating?.average || 0) - (a.rating?.average || 0));
@@ -24,7 +23,7 @@ const Restaurants = () => {
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
 
   const fetchRestaurants = useCallback(
-    async (targetPage = 1, reset = false) => {
+    async (reset = false) => {
       try {
         if (reset) {
           setLoading(true);
@@ -33,90 +32,50 @@ const Restaurants = () => {
           setLoadingMore(true);
         }
 
-        let data = [];
-        let apiSuccess = false;
+        // Service layer: tries API first, falls back to mock automatically
+        const data = await filterRestaurants(filters);
+        const sorted = sortRestaurants(data);
 
-        // Try API call
-        try {
-          const params = {
-            limit: 12,
-            page: targetPage,
-            ...filters,
-          };
-          const response = await restaurantAPI.getAll(params);
-          if (response.data && Array.isArray(response.data)) {
-            data = response.data;
-            apiSuccess = true;
-            setHasMore(response.data.length === 12);
-          } else if (response.data && response.data.restaurants) {
-            data = response.data.restaurants;
-            apiSuccess = true;
-            setHasMore(response.data.restaurants.length === 12);
-          }
-        } catch {
-          // API error fetching restaurants, using mock data
-        }
+        // Dedupe by _id then by coverImage to avoid visual duplicates
+        const seenIds = new Set();
+        const seenImages = new Set();
+        const unique = sorted.filter((r) => {
+          const id = r._id || r.slug;
+          if (!id || seenIds.has(id)) return false;
+          const img = r.coverImage || r.imageUrl || r.logo;
+          if (img && seenImages.has(img)) return false;
+          seenIds.add(id);
+          if (img) seenImages.add(img);
+          return true;
+        });
 
-        if (!apiSuccess) {
-          // Simulate API call
-          await new Promise((resolve) => setTimeout(resolve, 600));
-
-          // Filter mock data
-          let filteredData = mockRestaurants;
-
-          if (filters.search) {
-            const searchLower = filters.search.toLowerCase();
-            filteredData = filteredData.filter(
-              (r) =>
-                r.name.toLowerCase().includes(searchLower) ||
-                r.description.toLowerCase().includes(searchLower) ||
-                r.address?.city?.toLowerCase().includes(searchLower)
-            );
-          }
-          if (filters.cacherout) {
-            filteredData = filteredData.filter((r) => r.cacherout === filters.cacherout);
-          }
-          if (filters.city) {
-            filteredData = filteredData.filter((r) => r.address?.city === filters.city);
-          }
-          if (filters.cuisine) {
-            filteredData = filteredData.filter((r) => r.cuisine?.includes(filters.cuisine));
-          }
-          if (filters.priceRange) {
-            filteredData = filteredData.filter((r) => r.priceRange === filters.priceRange);
-          }
-
-          data = sortRestaurants(filteredData);
-          setHasMore(false); // No pagination for mock
-        }
-
+        setHasMore(false); // single-page render with mock fallback
         if (reset) {
-          setRestaurants(data);
+          setRestaurants(unique);
         } else {
           setRestaurants((prev) => {
-            const existingIds = new Set(prev.map((item) => item._id));
-            const newItems = data.filter((item) => !existingIds.has(item._id));
-            return [...prev, ...newItems];
+            const existing = new Set(prev.map((item) => item._id));
+            return [...prev, ...unique.filter((item) => !existing.has(item._id))];
           });
         }
       } catch {
-        setRestaurants(mockRestaurants);
+        setRestaurants([]);
       } finally {
         setLoading(false);
         setLoadingMore(false);
       }
     },
     [filters]
-  ); // Add dependencies
+  );
 
   useEffect(() => {
-    fetchRestaurants(1, true);
+    fetchRestaurants(true);
   }, [fetchRestaurants]);
 
   const handleLoadMore = () => {
     const nextPage = page + 1;
     setPage(nextPage);
-    fetchRestaurants(nextPage, false);
+    fetchRestaurants(false);
   };
 
   const handleFilterChange = (key, value) => {
