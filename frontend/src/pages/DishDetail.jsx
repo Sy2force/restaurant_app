@@ -8,7 +8,8 @@ import { useTranslation } from 'react-i18next';
 import Toast from '../components/UI/Toast';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import { mockDishes } from '../data/mockDishes';
-import { getImageUrl, localizeValue } from '../utils/helpers';
+import { localizeValue } from '../utils/helpers';
+import { getSafeImage, imageOnError } from '../data/images.registry';
 
 const DishDetail = () => {
   const { t, i18n } = useTranslation();
@@ -131,12 +132,10 @@ const DishDetail = () => {
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
           transition={{ duration: 0.8 }}
-          src={getImageUrl(dish.image)}
+          src={getSafeImage(dish.image, 'dish')}
           alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
+          onError={imageOnError('dish')}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            e.target.src = 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
-          }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/40 to-transparent" />
 
@@ -301,15 +300,12 @@ const DishDetail = () => {
 
               <div className="flex items-center gap-4 mb-6">
                 <img
-                  src={getImageUrl(dish.restaurant.logo)}
+                  src={getSafeImage(dish.restaurant.logo || dish.restaurant.imageUrl, 'restaurant')}
+                  onError={imageOnError('restaurant')}
                   alt={
                     dish.restaurant.imageAlt || localizeValue(dish.restaurant.name, i18n.language)
                   }
                   className="w-20 h-20 rounded-2xl object-cover shadow-md"
-                  onError={(e) => {
-                    e.target.src =
-                      'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940';
-                  }}
                 />
                 <div>
                   <h4 className="text-xl font-bold text-gray-900 dark:text-white leading-tight mb-1">
@@ -376,14 +372,11 @@ const DishDetail = () => {
                   <div className="bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all group">
                     <div className="relative h-48 overflow-hidden">
                       <img
-                        src={getImageUrl(moreDish.image)}
+                        src={getSafeImage(moreDish.image, 'dish')}
+                        onError={imageOnError('dish')}
                         alt={moreDish.imageAlt || localizeValue(moreDish.name, i18n.language)}
                         loading="lazy"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                        onError={(e) => {
-                          e.target.src =
-                            'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?q=80&w=2940';
-                        }}
                       />
                       <div className="absolute top-2 right-2 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-bold shadow-sm">
                         {moreDish.rating.average} ★
