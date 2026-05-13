@@ -432,6 +432,19 @@ const localizedValues = {
 };
 
 export const localizeValue = (value, language) => {
-  const lang = language?.split('-')[0];
+  if (value == null) return '';
+  const lang = language?.split('-')[0] || 'fr';
+
+  // Handle multilingual object { fr, en, he }
+  if (typeof value === 'object' && !Array.isArray(value)) {
+    if (typeof value[lang] === 'string' && value[lang]) return value[lang];
+    if (typeof value.fr === 'string' && value.fr) return value.fr;
+    if (typeof value.en === 'string' && value.en) return value.en;
+    if (typeof value.he === 'string' && value.he) return value.he;
+    const first = Object.values(value).find((v) => typeof v === 'string' && v);
+    return first || '';
+  }
+
+  // String → look up in shared dictionary, fallback to original
   return localizedValues[lang]?.[value] || value;
 };
