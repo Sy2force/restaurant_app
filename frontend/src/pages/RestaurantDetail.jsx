@@ -2,7 +2,8 @@ import { useEffect, useState, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import { restaurantAPI } from '../services/api';
+import { getRestaurantById } from '../services/restaurant.service';
+import { getDishesByRestaurantId } from '../services/dish.service';
 import {
   MapPin,
   Phone,
@@ -18,8 +19,6 @@ import PremiumDishCard from '../components/Dishes/PremiumDishCard';
 import SkeletonCard from '../components/UI/SkeletonCard';
 import Toast from '../components/UI/Toast';
 import ReservationModal from '../components/Reservations/ReservationModal';
-import { mockRestaurantDetails } from '../data/mockRestaurantDetails';
-import { mockDishes } from '../data/mockDishes';
 import { localizeValue } from '../utils/helpers';
 import { getSafeImage, imageOnError } from '../data/images.registry';
 
@@ -34,32 +33,12 @@ const RestaurantDetail = () => {
 
   const fetchData = useCallback(async () => {
     try {
-      // Try to fetch from API first
-      try {
-        const response = await restaurantAPI.getById(id);
-        if (response.data) {
-          setRestaurant(response.data);
-          setDishes(response.data.dishes || []);
-          setLoading(false);
-          return;
-        }
-      } catch {
-        // Fallback to mock
-      }
-
-      // Mock fallback
-      if (mockRestaurantDetails[id]) {
-        // Simulate loading
-        await new Promise((resolve) => setTimeout(resolve, 500));
-        const detail = mockRestaurantDetails[id];
-        const canonicalDishes = Object.values(mockDishes).filter(
-          (dish) => dish.restaurant?._id === id
-        );
-        setRestaurant(detail);
-        setDishes(canonicalDishes);
-      } else {
-        // Handle not found
-      }
+      const [restData, dishesData] = await Promise.all([
+        getRestaurantById(id),
+        getDishesByRestaurantId(id),
+      ]);
+      setRestaurant(restData);
+      setDishes(dishesData);
     } catch (error) {
       setToast({ show: true, message: t('restaurantDetail.loadErrorToast'), type: 'error' });
     } finally {

@@ -1,6 +1,5 @@
 import { restaurantAPI } from './api';
 import { mockRestaurants } from '../data/mockRestaurants';
-import { mockRestaurantDetails } from '../data/mockRestaurantDetails';
 import { getSafeImage } from '../data/images.registry';
 
 /**
@@ -74,7 +73,6 @@ export const getRestaurantById = async (id) => {
   } catch {
     // fallback below
   }
-  if (mockRestaurantDetails[id]) return normalize(mockRestaurantDetails[id]);
   const all = await getAllRestaurants();
   return all.find((r) => r._id === id || r.slug === id) || null;
 };
