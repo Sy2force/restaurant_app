@@ -87,7 +87,7 @@ const DishesCarousel = () => {
               <SwiperSlide key={dish.id} className="!w-[min(22rem,calc(100vw-2rem))] sm:!w-96">
                 <Link to={`/dishes/${dish.mongoId || dish.id}`}>
                   <div className="relative group cursor-pointer">
-                    <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                    <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[500px] rounded-2xl overflow-hidden">
                       <img
                         src={dish._safeImage}
                         alt={localizeValue(dish.name, i18n.language)}
@@ -99,17 +99,17 @@ const DishesCarousel = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
 
-                      <div className="absolute bottom-0 start-0 end-0 p-8 text-white">
+                      <div className="absolute bottom-0 start-0 end-0 p-4 sm:p-6 md:p-8 text-white">
                         <motion.div
                           initial={{ opacity: 0, y: 20 }}
                           whileInView={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.3 }}
                         >
-                          <h3 className="text-3xl font-display font-bold mb-3">
+                          <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold mb-2 sm:mb-3">
                             {localizeValue(dish.name, i18n.language)}
                           </h3>
                           {(dish.chef || dish.city) && (
-                            <div className="flex items-center gap-4 text-cream-200">
+                            <div className="flex items-center gap-2 sm:gap-4 text-cream-200">
                               {dish.chef && (
                                 <span className="flex items-center gap-2">
                                   <ChefHat className="w-5 h-5" />

@@ -26,7 +26,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
           to={`/restaurants/${restaurant._id}`}
           className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
         >
-          <div className="relative h-72 overflow-hidden">
+          <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 overflow-hidden">
             <motion.img
               whileHover={{ scale: 1.15 }}
               transition={{ duration: 0.7 }}
@@ -67,8 +67,8 @@ const PremiumRestaurantCard = ({ restaurant }) => {
               </div>
             )}
 
-            <div className="absolute bottom-0 start-0 end-0 p-6">
-              <h3 className="text-3xl font-display font-bold text-white mb-2 group-hover:text-gold-400 transition-colors line-clamp-1">
+            <div className="absolute bottom-0 start-0 end-0 p-4 sm:p-6">
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-display font-bold text-white mb-2 group-hover:text-gold-400 transition-colors line-clamp-1">
                 {localizeValue(restaurant.name, i18n.language)}
               </h3>
               {(restaurant.address?.city || restaurant.address?.street) && (
@@ -86,7 +86,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
           </div>
         </Link>
 
-        <div className="p-6 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
+        <div className="p-4 sm:p-6 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
           <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-2">
             {localizeValue(restaurant.description, i18n.language)}
           </p>
@@ -111,7 +111,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
 
           <Link
             to={`/restaurants/${restaurant._id}`}
-            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 py-3 font-semibold text-white shadow-md transition-all hover:from-gold-600 hover:to-gold-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
+            className="flex min-h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-md transition-all hover:from-gold-600 hover:to-gold-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
           >
             <UtensilsCrossed className="w-4 h-4" aria-hidden="true" />
             {t('restaurantsPage.viewDetails')}

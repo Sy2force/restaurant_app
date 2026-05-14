@@ -20,7 +20,10 @@ const HeroLanding = () => {
   }, []);
 
   return (
-    <div ref={ref} className="relative h-screen flex items-center overflow-hidden bg-dark-900">
+    <div
+      ref={ref}
+      className="relative min-h-[100dvh] flex items-center overflow-hidden bg-dark-900"
+    >
       {/* Background Carousel */}
       <AnimatePresence mode="popLayout">
         <motion.div
@@ -58,18 +61,18 @@ const HeroLanding = () => {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-display font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight tracking-tight drop-shadow-lg">
             {t('home.hero.title')}
           </h1>
 
-          <p className="text-xl md:text-2xl text-gray-200 mb-10 leading-relaxed font-light drop-shadow-md max-w-2xl">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 mb-8 sm:mb-10 leading-relaxed font-light drop-shadow-md max-w-2xl">
             {t('home.hero.subtitle')}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6">
             <Link
               to="/restaurants"
-              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-white px-8 py-4 text-lg font-semibold text-black shadow-lg transition-colors hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-white px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-black shadow-lg transition-colors hover:bg-gray-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <Play className="w-6 h-6 fill-black" aria-hidden="true" />
               {t('home.hero.cta')}
@@ -77,7 +80,7 @@ const HeroLanding = () => {
 
             <Link
               to="/dishes"
-              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-gray-500/30 px-8 py-4 text-lg font-semibold text-white backdrop-blur-sm transition-colors hover:bg-gray-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+              className="inline-flex min-h-11 items-center justify-center gap-3 rounded-full bg-gray-500/30 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold text-white backdrop-blur-sm transition-colors hover:bg-gray-500/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
             >
               <Info className="w-6 h-6" aria-hidden="true" />
               {t('home.hero.moreInfo')}
@@ -87,14 +90,16 @@ const HeroLanding = () => {
       </div>
 
       {/* Carousel Indicators */}
-      <div className="absolute bottom-10 end-10 z-20 flex gap-2">
+      <div className="absolute bottom-6 sm:bottom-10 end-4 sm:end-10 z-20 flex gap-2">
         {HERO_IMAGES.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentImageIndex(index)}
             aria-label={`${t('home.hero.slide')} ${index + 1}`}
             className={`h-1 rounded-full transition-all duration-300 ${
-              index === currentImageIndex ? 'w-8 bg-gold-500' : 'w-4 bg-white/30 hover:bg-white/50'
+              index === currentImageIndex
+                ? 'w-6 sm:w-8 bg-gold-500'
+                : 'w-3 sm:w-4 bg-white/30 hover:bg-white/50'
             }`}
           />
         ))}

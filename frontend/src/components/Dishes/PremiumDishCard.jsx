@@ -91,7 +91,7 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
             to={`/dishes/${dish._id}`}
             className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500"
           >
-            <div className="relative h-64 overflow-hidden">
+            <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
               <motion.img
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 0.6 }}
@@ -118,8 +118,8 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
                 )}
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 p-4">
-                <h3 className="text-2xl font-display font-bold text-white mb-1 group-hover:text-gold-400 transition-colors line-clamp-1">
+              <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-display font-bold text-white mb-1 group-hover:text-gold-400 transition-colors line-clamp-1">
                   {localizeValue(dish.name, i18n.language)}
                 </h3>
                 {(dish.restaurant?.name || dish.region) && (
@@ -178,14 +178,14 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
           </div>
         </div>
 
-        <div className="p-5 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
+        <div className="p-4 sm:p-5 bg-gradient-to-br from-white to-cream-50 dark:from-gray-800 dark:to-dark-900">
           <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
             {localizeValue(dish.description, i18n.language)}
           </p>
 
           <div className="flex items-center justify-between mb-4">
             {typeof dish.price === 'number' && dish.price > 0 ? (
-              <span className="text-2xl font-bold text-gold-600 dark:text-gold-400">
+              <span className="text-xl sm:text-2xl font-bold text-gold-600 dark:text-gold-400">
                 ₪{dish.price}
               </span>
             ) : (
@@ -215,7 +215,7 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
 
           <Link
             to={`/dishes/${dish._id}`}
-            className="mt-4 flex min-h-11 w-full items-center justify-center rounded-full bg-gradient-to-r from-gold-500 to-gold-600 py-3 font-semibold text-white shadow-md transition-all hover:from-gold-600 hover:to-gold-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
+            className="mt-4 flex min-h-11 w-full items-center justify-center rounded-full bg-gradient-to-r from-gold-500 to-gold-600 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-white shadow-md transition-all hover:from-gold-600 hover:to-gold-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
           >
             {t('dishesPage.viewDish')}
           </Link>
