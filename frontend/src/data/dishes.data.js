@@ -1072,7 +1072,7 @@ export const dishes = [
     id: 'dish_031',
     _id: 'dish_031',
     slug: 'grilled-fish-uri-buri',
-    restaurantId: 'rest_016',
+    restaurantId: 'rest_023',
     name: { fr: 'Poisson Grillé', en: 'Grilled Fish', he: 'דג על הפלנצ׳ה' },
     description: {
       fr: 'Poisson frais grillé au feu de bois, servie avec légumes de saison et citron.',
@@ -1097,7 +1097,7 @@ export const dishes = [
     season: 'All year',
     region: 'Acre',
     restaurant: restaurantSummary(
-      'rest_016',
+      'rest_023',
       'Uri Buri',
       'Acre',
       'None',
@@ -1108,7 +1108,7 @@ export const dishes = [
     id: 'dish_032',
     _id: 'dish_032',
     slug: 'malabi-jaffa',
-    restaurantId: 'rest_007',
+    restaurantId: 'rest_008',
     name: { fr: 'Malabi', en: 'Malabi Pudding', he: 'מלבי' },
     description: {
       fr: 'Dessert crémeux à la rose, pistaches concassées et sirop de grenade.',
@@ -1133,7 +1133,7 @@ export const dishes = [
     season: 'All year',
     region: 'Jaffa',
     restaurant: restaurantSummary(
-      'rest_007',
+      'rest_008',
       'Dr Shakshuka',
       'Jaffa',
       'Rabbanout',
@@ -1180,7 +1180,7 @@ export const dishes = [
     id: 'dish_034',
     _id: 'dish_034',
     slug: 'chef-tasting-menu-mizlala',
-    restaurantId: 'rest_001',
+    restaurantId: 'rest_027',
     name: { fr: 'Menu Dégustation', en: 'Chef Tasting Menu', he: 'תפריט טעימות שף' },
     description: {
       fr: 'Sélection de 8 plats signature du chef Meir Adoni, accord vins inclus.',
@@ -1192,8 +1192,8 @@ export const dishes = [
     image: DISH_IMAGES.tasting_menu,
     ingredients: ['Chef selection', 'Wine pairing'],
     allergens: ['Varies'],
-    kosherInfo: 'Mehadrin',
-    cacherout: 'Mehadrin',
+    kosherInfo: 'None',
+    cacherout: 'None',
     isVegetarian: false,
     isVegan: false,
     isGlutenFree: false,
@@ -1205,10 +1205,10 @@ export const dishes = [
     season: 'All year',
     region: 'Tel Aviv',
     restaurant: restaurantSummary(
-      'rest_001',
+      'rest_027',
       'Mizlala',
       'Tel Aviv',
-      'Mehadrin',
+      'None',
       RESTAURANT_IMAGES.mizlala
     ),
   },
@@ -1216,7 +1216,7 @@ export const dishes = [
     id: 'dish_035',
     _id: 'dish_035',
     slug: 'mediterranean-seafood-herbert',
-    restaurantId: 'rest_004',
+    restaurantId: 'rest_014',
     name: {
       fr: 'Fruits de Mer Méditerranéens',
       en: 'Mediterranean Seafood',
@@ -1245,7 +1245,7 @@ export const dishes = [
     season: 'All year',
     region: 'Herzliya',
     restaurant: restaurantSummary(
-      'rest_004',
+      'rest_014',
       'Herbert Samuel',
       'Herzliya',
       'Rabbanout',
@@ -1256,7 +1256,7 @@ export const dishes = [
     id: 'dish_036',
     _id: 'dish_036',
     slug: 'vegan-bowl-mashya',
-    restaurantId: 'rest_003',
+    restaurantId: 'rest_004',
     name: { fr: 'Bowl Végétalien', en: 'Vegan Bowl', he: 'קערה טבעונית' },
     description: {
       fr: 'Quinoa, légumes rôtis, houmous, tahini, graines de chia, grenade.',
@@ -1268,8 +1268,8 @@ export const dishes = [
     image: DISH_IMAGES.vegan_bowl,
     ingredients: ['Quinoa', 'Vegetables', 'Hummus', 'Tahini', 'Chia seeds'],
     allergens: ['Sesame'],
-    kosherInfo: 'None',
-    cacherout: 'None',
+    kosherInfo: 'Mehadrin',
+    cacherout: 'Mehadrin',
     isVegetarian: true,
     isVegan: true,
     isGlutenFree: true,
@@ -1281,10 +1281,10 @@ export const dishes = [
     season: 'All year',
     region: 'Tel Aviv',
     restaurant: restaurantSummary(
-      'rest_003',
+      'rest_004',
       'Mashya',
       'Tel Aviv',
-      'None',
+      'Mehadrin',
       RESTAURANT_IMAGES.mashya
     ),
   },
@@ -1368,7 +1368,7 @@ export const dishes = [
     },
     category: 'Main Course',
     price: 58,
-    image: DISH_IMAGES.stuffed_peppers,
+    image: DISH_IMAGES.stuffed_pepper,
     ingredients: ['Peppers', 'Rice', 'Beef', 'Herbs'],
     allergens: [],
     kosherInfo: 'Rabbanout',
@@ -1611,8 +1611,8 @@ export const dishes = [
     image: DISH_IMAGES.chicken_wings,
     ingredients: ['Chicken wings', 'Spicy sauce'],
     allergens: [],
-    kosherInfo: 'Mehadrin',
-    cacherout: 'Mehadrin',
+    kosherInfo: 'None',
+    cacherout: 'None',
     isVegetarian: false,
     isVegan: false,
     isGlutenFree: true,
@@ -1625,10 +1625,10 @@ export const dishes = [
     region: 'Tel Aviv',
     restaurant: restaurantSummary(
       'rest_020',
-      '1868',
+      'Pastel',
       'Tel Aviv',
-      'Mehadrin',
-      RESTAURANT_IMAGES['1868']
+      'None',
+      RESTAURANT_IMAGES.pastel
     ),
   },
   {
@@ -1647,8 +1647,8 @@ export const dishes = [
     image: DISH_IMAGES.duck_confit,
     ingredients: ['Duck', 'Jerusalem artichoke'],
     allergens: [],
-    kosherInfo: 'Mehadrin',
-    cacherout: 'Mehadrin',
+    kosherInfo: 'None',
+    cacherout: 'None',
     isVegetarian: false,
     isVegan: false,
     isGlutenFree: true,
@@ -1661,10 +1661,10 @@ export const dishes = [
     region: 'Tel Aviv',
     restaurant: restaurantSummary(
       'rest_020',
-      '1868',
+      'Pastel',
       'Tel Aviv',
-      'Mehadrin',
-      RESTAURANT_IMAGES['1868']
+      'None',
+      RESTAURANT_IMAGES.pastel
     ),
   },
   {
@@ -1701,7 +1701,7 @@ export const dishes = [
     id: 'dish_049',
     _id: 'dish_049',
     slug: 'octopus-grilled-uri-buri',
-    restaurantId: 'rest_016',
+    restaurantId: 'rest_023',
     name: { fr: 'Poulpe Grillé', en: 'Grilled Octopus', he: 'תמנון על האש' },
     description: {
       fr: 'Poulpe tendre grillé, huile d’olive, citron et persil.',
@@ -1726,7 +1726,7 @@ export const dishes = [
     season: 'All year',
     region: 'Acre',
     restaurant: restaurantSummary(
-      'rest_016',
+      'rest_023',
       'Uri Buri',
       'Acre',
       'None',
@@ -1737,7 +1737,7 @@ export const dishes = [
     id: 'dish_050',
     _id: 'dish_050',
     slug: 'shrimp-herbert',
-    restaurantId: 'rest_004',
+    restaurantId: 'rest_014',
     name: { fr: 'Crevettes Grillées', en: 'Grilled Shrimp', he: 'חריפות על האש' },
     description: {
       fr: 'Crevettes géantes grillées, ail, beurre et persil.',
@@ -1746,7 +1746,7 @@ export const dishes = [
     },
     category: 'Fish',
     price: 95,
-    image: DISH_IMAGES.shrimp,
+    image: DISH_IMAGES.shrimp_pasta,
     ingredients: ['Shrimp', 'Garlic', 'Butter', 'Parsley'],
     allergens: ['Shellfish', 'Dairy'],
     kosherInfo: 'None',
@@ -1762,7 +1762,7 @@ export const dishes = [
     season: 'All year',
     region: 'Herzliya',
     restaurant: restaurantSummary(
-      'rest_004',
+      'rest_014',
       'Herbert Samuel',
       'Herzliya',
       'Rabbanout',
@@ -1818,7 +1818,7 @@ export const dishes = [
     },
     category: 'Main Course',
     price: 98,
-    image: DISH_IMAGES.couscous,
+    image: DISH_IMAGES.vegetable_couscous,
     ingredients: ['Couscous', 'Vegetables', 'Merguez', 'Chicken'],
     allergens: ['Gluten'],
     kosherInfo: 'Mehadrin',
@@ -2091,7 +2091,7 @@ export const dishes = [
     id: 'dish_060',
     _id: 'dish_060',
     slug: 'lentil-soup-mashya',
-    restaurantId: 'rest_003',
+    restaurantId: 'rest_004',
     name: { fr: 'Soupe de Lentilles', en: 'Lentil Soup', he: 'מרק עדשים' },
     description: {
       fr: 'Lentilles rouges, carottes, céleri et cumin.',
@@ -2103,8 +2103,8 @@ export const dishes = [
     image: DISH_IMAGES.lentil_soup,
     ingredients: ['Lentils', 'Carrots', 'Celery', 'Cumin'],
     allergens: [],
-    kosherInfo: 'None',
-    cacherout: 'None',
+    kosherInfo: 'Mehadrin',
+    cacherout: 'Mehadrin',
     isVegetarian: true,
     isVegan: true,
     isGlutenFree: true,
@@ -2116,10 +2116,10 @@ export const dishes = [
     season: 'Winter',
     region: 'Tel Aviv',
     restaurant: restaurantSummary(
-      'rest_003',
+      'rest_004',
       'Mashya',
       'Tel Aviv',
-      'None',
+      'Mehadrin',
       RESTAURANT_IMAGES.mashya
     ),
   },
