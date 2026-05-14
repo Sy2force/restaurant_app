@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: flavors-of-israel-backend
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: 5001
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: CLIENT_URL
+        value: https://your-frontend.vercel.app
+      - key: GOOGLE_PLACES_API_KEY
+        sync: false
+      - key: CLOUDINARY_CLOUD_NAME
+        sync: false
+      - key: CLOUDINARY_API_KEY
+        sync: false
+      - key: CLOUDINARY_API_SECRET
+        sync: false
+      - key: PEXELS_API_KEY
+        sync: false
+      - key: UNSPLASH_ACCESS_KEY
+        sync: false

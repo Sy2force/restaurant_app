@@ -25,6 +25,8 @@ const UserDashboard = lazy(() => import('./pages/UserDashboard'));
 const Profile = lazy(() => import('./pages/Profile'));
 const Favorites = lazy(() => import('./pages/Favorites'));
 const Reservations = lazy(() => import('./pages/Reservations'));
+const GooglePlacesImport = lazy(() => import('./pages/Admin/GooglePlacesImport'));
+const GooglePlacesHealth = lazy(() => import('./pages/Admin/GooglePlacesHealth'));
 
 function App() {
   return (
@@ -109,6 +111,22 @@ function App() {
             />
 
             {/* Admin Panel */}
+            <Route
+              path="admin/google-places-import"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <GooglePlacesImport />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="admin/google-places-health"
+              element={
+                <ProtectedRoute requireAdmin>
+                  <GooglePlacesHealth />
+                </ProtectedRoute>
+              }
+            />
             <Route
               path="admin"
               element={

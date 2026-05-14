@@ -1,66 +1,34 @@
-export const featuredDishes = [
-  {
-    id: 1,
-    name: 'Shakshuka Traditionnelle',
-    image: 'https://images.unsplash.com/photo-1590593162201-f67611a18b87?q=80&w=2787',
-    chef: 'Chef David Cohen',
-    city: 'Jaffa',
-    mongoId: '1',
-  },
-  {
-    id: 2,
-    name: 'Hummus Maison',
-    image: 'https://images.unsplash.com/photo-1630151317382-042c10b42c8d?q=80&w=2806',
-    chef: 'Chef Sarah Levi',
-    city: 'Jaffa',
-    mongoId: '3',
-  },
-  {
-    id: 3,
-    name: 'Falafel Croustillant',
-    image: 'https://images.unsplash.com/photo-1593252719532-347b6c86f1a6?q=80&w=2787',
-    chef: 'Chef Michael Azoulay',
-    city: 'Tel Aviv',
-    mongoId: '4',
-  },
-  {
-    id: 4,
-    name: 'Sabich Authentique',
-    image: 'https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=2940',
-    chef: 'Chef Rachel Ben-David',
-    city: 'Tel Aviv',
-    mongoId: '2',
-  },
-  {
-    id: 5,
-    name: 'Shawarma Agneau',
-    image: 'https://images.unsplash.com/photo-1529193591176-1da79027d382?q=80&w=2940',
-    chef: 'Chef Eyal Shani',
-    city: 'Tel Aviv',
-    mongoId: '6',
-  },
-  {
-    id: 6,
-    name: "Carpaccio d'Aubergine",
-    image: 'https://images.unsplash.com/photo-1608219992759-8d74ed8d76eb?q=80&w=2874',
-    chef: 'Chef Yossi Shitrit',
-    city: 'Jérusalem',
-    mongoId: '5',
-  },
-  {
-    id: 7,
-    name: 'Tartare de Thon',
-    image: 'https://images.unsplash.com/photo-1548943487-a2e4e43b485c?q=80&w=2940',
-    chef: 'Chef Meir Adoni',
-    city: 'Tel Aviv',
-    mongoId: '8',
-  },
-  {
-    id: 8,
-    name: 'Polenta aux Champignons',
-    image: 'https://images.unsplash.com/photo-1541544744-378c5d8a6b93?q=80&w=2956',
-    chef: 'Chef Assaf Granit',
-    city: 'Jérusalem',
-    mongoId: '9',
-  },
+/**
+ * Featured dishes derived from canonical dishes.data.js
+ * These are hand-picked popular dishes for landing page display
+ */
+import { dishes } from './dishes.data';
+
+// Featured dish IDs (canonical IDs from dishes.data.js)
+const FEATURED_DISH_IDS = [
+  'dish_001', // Hummus Abu Hassan
+  'dish_006', // HaKosem Falafel
+  'dish_007', // Sabich Frishman
+  'dish_008', // Dr Shakshuka
+  'dish_010', // Miznon Shawarma
+  'dish_018', // Machneyuda Eggplant Carpaccio
+  'dish_020', // Mizlala Beef Tartare
+  'dish_026', // Eucalyptus Lamb Shoulder
 ];
+
+export const featuredDishes = dishes
+  .filter((dish) => FEATURED_DISH_IDS.includes(dish.id))
+  .map((dish) => ({
+    id: dish.id,
+    name: dish.name.en,
+    nameFr: dish.name.fr,
+    nameHe: dish.name.he,
+    image: dish.image,
+    restaurant: dish.restaurant.name,
+    city: dish.restaurant.city,
+    rating: dish.rating.average,
+    isPopular: dish.isPopular,
+    isChefChoice: dish.isChefChoice,
+  }));
+
+export default featuredDishes;

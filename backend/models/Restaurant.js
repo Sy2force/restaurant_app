@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const restaurantSchema = new mongoose.Schema({
+  // Existing fields (preserved for backward compatibility)
   name: {
     type: String,
     required: [true, 'Restaurant name is required'],
@@ -58,11 +59,76 @@ const restaurantSchema = new mongoose.Schema({
   isActive: {
     type: Boolean,
     default: true
+  },
+
+  // Google Places integration fields
+  googlePlaceId: {
+    type: String,
+    trim: true
+  },
+  googleMapsUri: {
+    type: String,
+    trim: true
+  },
+  source: {
+    type: String,
+    enum: ['manual', 'google_places', 'seed'],
+    default: 'manual'
+  },
+  imageAttributions: [{
+    provider: String,
+    authorName: String,
+    authorUri: String
+  }],
+  gallery: [String],
+  coordinates: {
+    lat: {
+      type: Number,
+      default: 0
+    },
+    lng: {
+      type: Number,
+      default: 0
+    }
+  },
+  reviewCount: {
+    type: Number,
+    default: 0
+  },
+  priceRange: {
+    type: String,
+    enum: ['₪', '₪₪', '₪₪₪', '₪₪₪₪', '₪₪₪₪₪'],
+    default: '₪₪'
+  },
+  cuisineType: {
+    type: String,
+    trim: true
+  },
+  reservationAvailable: {
+    type: Boolean,
+    default: false
+  },
+  openingHours: {
+    type: Map,
+    of: String
+  },
+  businessStatus: {
+    type: String,
+    enum: ['OPERATIONAL', 'CLOSED_TEMPORARILY', 'CLOSED_PERMANENTLY'],
+    default: 'OPERATIONAL'
+  },
+  // Multilingual description support
+  descriptionMultilingual: {
+    fr: String,
+    en: String,
+    he: String
   }
 }, {
   timestamps: true
 });
 
+restaurantSchema.index({ googlePlaceId: 1 }, { unique: true, sparse: true });
 restaurantSchema.index({ city: 1, kosherLevel: 1 });
+restaurantSchema.index({ source: 1 });
 
 module.exports = mongoose.model('Restaurant', restaurantSchema);

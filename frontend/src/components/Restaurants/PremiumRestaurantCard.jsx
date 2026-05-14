@@ -1,12 +1,17 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { MapPin, Star, Award, Phone, UtensilsCrossed } from 'lucide-react';
+import { MapPin, Star, Award, Phone, UtensilsCrossed, Camera } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { localizeValue } from '../../utils/helpers';
 import { getSafeImage, imageOnError } from '../../data/images.registry';
 
 const PremiumRestaurantCard = ({ restaurant }) => {
   const { t, i18n } = useTranslation();
+
+  const imageAttributions = restaurant.imageAttributions || [];
+  const isGooglePhoto =
+    restaurant.imageProvider === 'google_places' ||
+    imageAttributions.some((attr) => attr.provider === 'Google Places');
 
   return (
     <motion.article
@@ -35,6 +40,13 @@ const PremiumRestaurantCard = ({ restaurant }) => {
               onError={imageOnError('restaurant')}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+
+            {isGooglePhoto && imageAttributions.length > 0 && (
+              <div className="absolute bottom-20 right-4 px-2 py-1 bg-black/60 backdrop-blur-sm rounded text-xs text-white/80 flex items-center gap-1">
+                <Camera className="w-3 h-3" />
+                <span>Google Places</span>
+              </div>
+            )}
 
             {restaurant.cacherout && (
               <div className="absolute top-4 start-4">

@@ -156,7 +156,31 @@ npm run preview
    - **Build Command** : `npm install`
    - **Start Command** : `npm start`
    - **Environment** : Node
-   - **Variables d'environnement** : Ajouter toutes les variables du `.env`
+   - **Variables d'environnement** : Ajouter toutes les variables du `.env.render`
+
+**Variables d'environnement Render (backend/.env.render):**
+```bash
+PORT=5001
+NODE_ENV=production
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/flavors-of-israel?retryWrites=true&w=majority
+JWT_SECRET=your_production_jwt_secret_minimum_32_characters_long
+CLIENT_URL=https://your-frontend.vercel.app
+GOOGLE_PLACES_API_KEY=AIzaSyCdwYzYsdOG3Zu-jiMSKfBTKTJJ20hInsE
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+PEXELS_API_KEY=your_pexels_api_key
+UNSPLASH_ACCESS_KEY=your_unsplash_access_key
+```
+
+**⚠️ IMPORTANT - Google Places API Configuration:**
+Avant de déployer, configurer la clé API dans Google Cloud Console:
+1. Activer "Places API" et "Places API (New)"
+2. Activer la facturation
+3. Configurer restrictions:
+   - Application: IP addresses (ajouter IP Render)
+   - API: Places API + Places API (New)
+4. Vérifier quota: https://console.cloud.google.com/apis/places-new/quotas
 
 #### **Frontend sur Vercel**
 
@@ -167,10 +191,20 @@ npm run preview
    - **Framework** : Vite
    - **Build Command** : `npm run build`
    - **Output Directory** : `dist`
-   - **Environment Variables** :
+   - **Environment Variables** (voir frontend/.env.vercel):
      ```
      VITE_API_URL=https://votre-backend.onrender.com/api
      ```
+
+**⚠️ IMPORTANT - Sécurité Vercel:**
+NE JAMAIS configurer ces variables sur Vercel:
+- GOOGLE_PLACES_API_KEY
+- CLOUDINARY_API_SECRET
+- PEXELS_API_KEY
+- UNSPLASH_ACCESS_KEY
+- JWT_SECRET
+
+Seul le backend (Render) doit contenir ces secrets. Le frontend ne doit avoir que VITE_API_URL.
 
 #### **Fichier vercel.json** (frontend)
 

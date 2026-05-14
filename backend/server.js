@@ -7,8 +7,16 @@ const rateLimit = require('express-rate-limit');
 const dotenv = require('dotenv');
 const fs = require('fs');
 const path = require('path');
+const { validateEnv } = require('./utils/envValidator');
 
 dotenv.config();
+
+// Validate environment variables at startup
+const envValid = validateEnv();
+if (!envValid) {
+  console.error('❌ Environment validation failed. Please fix the issues above.');
+  process.exit(1);
+}
 
 const app = express();
 
@@ -117,6 +125,7 @@ app.use('/api/upload', require('./routes/upload.routes'));
 app.use('/api/community-posts', require('./routes/communityPost.routes'));
 app.use('/api/like', require('./routes/like.routes'));
 app.use('/api/admin', require('./routes/admin.routes'));
+app.use('/api/google-places', require('./routes/googlePlaces.routes'));
 
 app.use((err, req, res, next) => {
   console.error(err.stack);

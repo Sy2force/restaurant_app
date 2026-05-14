@@ -448,3 +448,9 @@ export const localizeValue = (value, language) => {
   // String → look up in shared dictionary, fallback to original
   return localizedValues[lang]?.[value] || value;
 };
+
+export const imageOnError = () => {
+  return (e) => {
+    e.target.src = '/placeholder.jpg';
+  };
+};

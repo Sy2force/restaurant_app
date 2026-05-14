@@ -22,14 +22,27 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
+    // Handle 401 unauthorized
     if (error.response?.status === 401) {
       useAuthStore.getState().logout();
-      // Optional: redirect to login if not already there, but ProtectedRoute handles access control.
-      // Doing a hard redirect might be jarring, but ensures clean slate.
       if (window.location.pathname !== '/login') {
         window.location.href = '/login';
       }
     }
+
+    // Handle 503 service unavailable (Google Places issues)
+    if (error.response?.status === 503) {
+      console.warn('Service unavailable:', error.response.data?.message);
+      // Don't reject, let the component handle the fallback
+      return Promise.reject(error);
+    }
+
+    // Handle network errors
+    if (!error.response) {
+      console.error('Network error:', error.message);
+      return Promise.reject(new Error('Network error - please check your connection'));
+    }
+
     return Promise.reject(error);
   }
 );

@@ -1,3 +1,19 @@
+/**
+ * Landing page data derived from canonical sources
+ * Recipes, restaurants, and stats are derived from canonical data files
+ */
+import { restaurants } from './restaurants.data';
+import { dishes } from './dishes.data';
+
+// Featured restaurant IDs (canonical IDs from restaurants.data.js)
+const FEATURED_RESTAURANT_IDS = [
+  'rest_001', // Mizlala
+  'rest_009', // Machneyuda
+  'rest_011', // The Eucalyptus
+];
+
+// Featured recipe data (these are actual recipes, not dishes)
+// These are separate from dishes as they include cooking instructions
 export const popularRecipes = [
   {
     id: 1,
@@ -25,39 +41,23 @@ export const popularRecipes = [
   },
 ];
 
-export const featuredRestaurants = [
-  {
-    id: 1,
-    name: 'Mizlala',
-    image: 'https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=2940',
-    city: 'Tel Aviv',
-    kosher: 'Kasher Mehadrin',
-    rating: 4.8,
-    cuisine: 'Haute Cuisine Israélienne',
-  },
-  {
-    id: 2,
-    name: 'Machneyuda',
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2874',
-    city: 'Jérusalem',
-    kosher: 'Kasher Rabbanout',
-    rating: 4.9,
-    cuisine: 'Fusion Méditerranéenne Créative',
-  },
-  {
-    id: 3,
-    name: 'Eucalyptus',
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=2940',
-    city: 'Jérusalem',
-    kosher: 'Kasher Mehadrin',
-    rating: 4.7,
-    cuisine: 'Saveurs Bibliques Authentiques',
-  },
-];
+// Featured restaurants derived from canonical restaurants.data.js
+export const featuredRestaurants = restaurants
+  .filter((restaurant) => FEATURED_RESTAURANT_IDS.includes(restaurant.id))
+  .map((restaurant) => ({
+    id: restaurant.id,
+    name: restaurant.name,
+    image: restaurant.image,
+    city: restaurant.city,
+    kosher: restaurant.kosherLevel,
+    rating: restaurant.rating?.average || 0,
+    cuisine: restaurant.cuisineType,
+  }));
 
+// Landing stats derived from actual data counts
 export const landingStats = {
-  dishes: 450,
-  restaurants: 120,
-  recipes: 850,
-  users: 2300,
+  dishes: dishes.length,
+  restaurants: restaurants.length,
+  recipes: popularRecipes.length,
+  users: 2300, // This would come from actual user data in production
 };
