@@ -30,11 +30,14 @@ export default defineConfig({
           forms: ['react-hook-form', '@hookform/resolvers', 'yup'],
           i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
           state: ['zustand'],
-          utils: ['axios']
+          utils: ['axios'],
+          swiper: ['swiper', 'swiper/react']
         }
       }
     },
-    chunkSizeWarningLimit: 1000
+    chunkSizeWarningLimit: 1000,
+    reportCompressedSize: true,
+    target: 'es2015'
   },
   test: {
     globals: true,
