@@ -36,6 +36,7 @@ const PremiumRestaurantCard = ({ restaurant }) => {
               )}
               alt={restaurant.imageAlt || localizeValue(restaurant.name, i18n.language)}
               loading="lazy"
+              decoding="async"
               className="w-full h-full object-cover"
               onError={imageOnError('restaurant')}
             />

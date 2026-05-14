@@ -42,14 +42,19 @@ export const popularRecipes = [
 ];
 
 // Featured restaurants derived from canonical restaurants.data.js
+// IMPORTANT: pass through the real image fields (coverImage / imageUrl) so that
+// getCarouselItems() can pick them up; do NOT remap to a non-existent `image`.
 export const featuredRestaurants = restaurants
   .filter((restaurant) => FEATURED_RESTAURANT_IDS.includes(restaurant.id))
   .map((restaurant) => ({
     id: restaurant.id,
+    _id: restaurant._id || restaurant.id,
     name: restaurant.name,
-    image: restaurant.image,
+    coverImage: restaurant.coverImage,
+    imageUrl: restaurant.imageUrl,
+    logo: restaurant.logo,
     city: restaurant.city,
-    kosher: restaurant.kosherLevel,
+    kosher: restaurant.kosherLevel || restaurant.cacherout,
     rating: restaurant.rating?.average || 0,
     cuisine: restaurant.cuisineType,
   }));

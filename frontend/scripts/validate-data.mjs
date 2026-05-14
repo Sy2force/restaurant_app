@@ -124,6 +124,39 @@ restaurants.forEach((r) => {
 });
 if (restaurantImageIssues === 0) log('passed', 'All restaurants have a valid cover image');
 
+// 4b. Image collisions across actual records (not just registry aliases)
+console.log('\n=== Image collisions across records ===');
+const dishImageMap = new Map();
+let dishCollisions = 0;
+dishes.forEach((d) => {
+  if (!d.image) return;
+  if (!dishImageMap.has(d.image)) dishImageMap.set(d.image, []);
+  dishImageMap.get(d.image).push(`${d.id} (${d.name?.en})`);
+});
+dishImageMap.forEach((ids) => {
+  if (ids.length > 1) {
+    log('error', `Same image used by multiple dishes: ${ids.join(' / ')}`);
+    dishCollisions++;
+  }
+});
+if (dishCollisions === 0) log('passed', 'No two dishes share the same image URL');
+
+const restImageMap = new Map();
+let restCollisions = 0;
+restaurants.forEach((r) => {
+  const img = r.coverImage || r.imageUrl;
+  if (!img) return;
+  if (!restImageMap.has(img)) restImageMap.set(img, []);
+  restImageMap.get(img).push(`${r.id} (${r.name})`);
+});
+restImageMap.forEach((ids) => {
+  if (ids.length > 1) {
+    log('error', `Same cover image used by multiple restaurants: ${ids.join(' / ')}`);
+    restCollisions++;
+  }
+});
+if (restCollisions === 0) log('passed', 'No two restaurants share the same cover image URL');
+
 // 5. Image-vs-name semantic check (heuristic)
 console.log('\n=== Dish image vs dish name (heuristic) ===');
 // Map dish slug/name keywords -> expected DISH_IMAGES key

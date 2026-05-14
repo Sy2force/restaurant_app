@@ -5,7 +5,9 @@ const API_URL = import.meta.env.VITE_API_URL || '/api';
 
 const api = axios.create({
   baseURL: API_URL,
-  timeout: 15000,
+  // 6s for normal requests; slow cold-starts on Render free-tier should not
+  // freeze public pages — read services use local-mock fallback below this.
+  timeout: 6000,
   headers: {
     'Content-Type': 'application/json',
   },

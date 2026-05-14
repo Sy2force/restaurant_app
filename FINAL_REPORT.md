@@ -5,17 +5,26 @@
 
 ---
 
-## Final Status (Latest Run)
+## Final Status (Latest Run - Post Real Audit)
 
 | Check | Result |
 |---|---|
 | Frontend lint (`npm run lint`) | ✅ 0 errors, 0 warnings |
-| Frontend build (`npm run build`) | ✅ built in 3.82s, 162.91 kB / gzip 52.96 kB |
+| Frontend build (`npm run build`) | ✅ built successfully |
 | Data validation (`npm run validate:data`) | ✅ 0 errors, 15 acceptable warnings |
-| Backend startup (`npm start`) | ✅ Server running on port 5001, MongoDB connected, no duplicate-index warning |
-| Git working tree | Staged for final commit on `final-production-cleanup` |
+| Image collision detection | ✅ No duplicate image URLs across dishes or restaurants |
+| Backend startup (`npm start`) | ✅ Server running on port 5001, MongoDB connected |
+| Git working tree | Ready for commit with real audit fixes |
 
 The 15 remaining validation warnings concern restaurants that exist in the catalog but have no associated dishes yet (e.g. OCD, Port Said, Taizu, Popina, Helena, Minna Tomei, Douzan, Pago Pago, The Last Refuge, Ranana Garden, Netanya View, Ashdod Marina, Beer Sheva Souk, Ramat Gan Chic, Rooftop Jerusalem). These are listed as discoverable venues without a complete menu yet — non-blocking.
+
+**Real Audit Fixes Applied (see REAL_FIX_REPORT.md for details):**
+- Fixed duplicate image URLs across 10 restaurants and 5 dishes
+- Fixed carousel empty bug by passing correct image fields
+- Reduced API timeout from 15s to 6s for faster loading
+- Implemented 1.5s local mock fallback race for cold starts
+- Added decoding="async" to all images for better performance
+- Strengthened validator to detect image collisions
 
 ---
 

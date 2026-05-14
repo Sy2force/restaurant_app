@@ -92,6 +92,7 @@ const DishesCarousel = () => {
                         src={dish._safeImage}
                         alt={localizeValue(dish.name, i18n.language)}
                         loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                         onClick={() => handleDishClick(dish.mongoId || dish.id)}
                         onError={imageOnError('dish')}

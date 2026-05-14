@@ -53,6 +53,8 @@ const RestaurantsSection = () => {
                   <img
                     src={restaurant._safeImage}
                     alt={localizeValue(restaurant.name, i18n.language)}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 cursor-pointer"
                     onClick={() => handleRestaurantClick(restaurant.id)}
                     onError={imageOnError('restaurant')}

@@ -98,6 +98,7 @@ const PremiumDishCard = ({ dish, onLike, onFavorite, onShare, showToast }) => {
                 src={getSafeImage(dish.image, 'dish')}
                 alt={dish.imageAlt || localizeValue(dish.name, i18n.language)}
                 loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover"
                 onError={imageOnError('dish')}
               />

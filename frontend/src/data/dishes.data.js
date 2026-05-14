@@ -1229,7 +1229,7 @@ export const dishes = [
     },
     category: 'Fish',
     price: 195,
-    image: DISH_IMAGES.ceviche,
+    image: DISH_IMAGES.seafood_platter,
     ingredients: ['Shrimp', 'Mussels', 'Calamari', 'Garlic'],
     allergens: ['Shellfish', 'Fish'],
     kosherInfo: 'None',

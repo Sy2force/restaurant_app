@@ -41,16 +41,28 @@ const normalize = (r) => {
   };
 };
 
+/**
+ * Race the real API against a fast local-mock fallback (1.5s).
+ * On cold-start (Render free tier can take 10-30s) the user sees data
+ * immediately instead of staring at a spinner.
+ */
+const LOCAL_FALLBACK_MS = 1500;
+
 export const getAllRestaurants = async () => {
-  try {
-    const res = await restaurantAPI.getAll();
-    if (Array.isArray(res?.data) && res.data.length > 0) {
-      return res.data.map(normalize);
-    }
-  } catch {
-    // network or 404 → fallback
-  }
-  return mockRestaurants.map(normalize);
+  const localFallback = () => mockRestaurants.map(normalize);
+
+  const apiPromise = restaurantAPI
+    .getAll()
+    .then((res) =>
+      Array.isArray(res?.data) && res.data.length > 0 ? res.data.map(normalize) : localFallback()
+    )
+    .catch(() => localFallback());
+
+  const timer = new Promise((resolve) =>
+    setTimeout(() => resolve(localFallback()), LOCAL_FALLBACK_MS)
+  );
+
+  return Promise.race([apiPromise, timer]);
 };
 
 export const getFeaturedRestaurants = async (limit = 6) => {
