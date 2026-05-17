@@ -24,14 +24,28 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom'],
-          ui: ['framer-motion', 'lucide-react'],
-          forms: ['react-hook-form', '@hookform/resolvers', 'yup'],
-          i18n: ['i18next', 'react-i18next', 'i18next-browser-languagedetector'],
-          state: ['zustand'],
-          utils: ['axios'],
-          swiper: ['swiper', 'swiper/react']
+        manualChunks(id) {
+          if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
+            return 'vendor';
+          }
+          if (id.includes('framer-motion') || id.includes('lucide-react')) {
+            return 'ui';
+          }
+          if (id.includes('react-hook-form') || id.includes('@hookform') || id.includes('yup')) {
+            return 'forms';
+          }
+          if (id.includes('i18next')) {
+            return 'i18n';
+          }
+          if (id.includes('zustand')) {
+            return 'state';
+          }
+          if (id.includes('axios')) {
+            return 'utils';
+          }
+          if (id.includes('swiper')) {
+            return 'swiper';
+          }
         }
       }
     },

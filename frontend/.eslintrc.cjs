@@ -11,15 +11,13 @@ module.exports = {
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh', 'prettier'],
+  plugins: ['prettier'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
     'react/prop-types': 'off',
     'react/no-unescaped-entities': 'off',
     'no-unused-vars': ['warn', { varsIgnorePattern: '^_' }],
-    'prettier/prettier': 'warn'
+    'prettier/prettier': 'warn',
+    'react-hooks/rules-of-hooks': 'warn',
+    'react-hooks/exhaustive-deps': 'warn',
   },
 }
